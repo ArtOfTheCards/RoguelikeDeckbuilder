@@ -8,10 +8,12 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
+		[SerializeField]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -21,35 +23,39 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
-		{
-			MoveInput(value.Get<Vector2>());
-		}
+        public void OnMove(InputAction.CallbackContext value)
+        {
+            MoveInput(value.ReadValue<Vector2>());
+        }
 
-		public void OnLook(InputValue value)
-		{
-			if(cursorInputForLook)
-			{
-				LookInput(value.Get<Vector2>());
-			}
-		}
+        public void OnLook(InputAction.CallbackContext value)
+        {
+            if (cursorInputForLook)
+            {
+                LookInput(value.ReadValue<Vector2>());
+            }
+        }
 
-		public void OnJump(InputValue value)
-		{
-			JumpInput(value.isPressed);
-		}
+        public void OnJump(InputAction.CallbackContext value)
+        {
+            JumpInput(value.action.triggered);
+        }
 
-		public void OnSprint(InputValue value)
-		{
-			SprintInput(value.isPressed);
-		}
+        public void OnSprint(InputAction.CallbackContext value)
+        {
+            SprintInput(value.ReadValue<float>() == 1);
+        }
+
+        public void OnInteract(InputAction.CallbackContext value)
+        {
+            InteractInput(value.action.triggered);
+        }
 #endif
-
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+		}
 
 		public void LookInput(Vector2 newLookDirection)
 		{
@@ -66,6 +72,11 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
@@ -76,5 +87,4 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
-	
 }

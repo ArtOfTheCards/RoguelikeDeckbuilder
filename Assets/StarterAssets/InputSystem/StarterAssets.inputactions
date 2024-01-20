@@ -11,31 +11,35 @@
                     "id": "6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
+                    "name": "Cursor",
                     "type": "Value",
                     "id": "2690c379-f54d-45be-a724-414123833eb4",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
-                    "type": "PassThrough",
-                    "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
-                    "expectedControlType": "",
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "40c7c48b-7d27-436b-b2ca-3b435810c027",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,7 +160,7 @@
                     "interactions": "",
                     "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.05,y=0.05)",
                     "groups": "KeyboardMouse",
-                    "action": "Look",
+                    "action": "Cursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -167,7 +171,7 @@
                     "interactions": "",
                     "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)",
                     "groups": "Gamepad",
-                    "action": "Look",
+                    "action": "Cursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -178,7 +182,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Jump",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -189,29 +193,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Jump",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "dc65b89f-9bd3-43fb-92af-d0d87ba5faa4",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "8fe4b15a-434c-48dc-9b4c-f233c1b38ae5",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Sprint",
+                    "groups": "KeyboardMouse;Gamepad",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c8fcd86e-dcfd-4f88-8e93-b638cdbf3320",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "f9b939a3-16f6-4e2f-9506-5dfebfd90ce2",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Sprint",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
