@@ -27,7 +27,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
             {
                 user.PlayCard(card);
 
-                if (card.ID == "Revive")
+                if (card.debug_ID == "Revive")
                 {
                     user.MoveCard(user.GetRandom(CardPile.discardPile), CardPile.discardPile, CardPile.hand);
                 }

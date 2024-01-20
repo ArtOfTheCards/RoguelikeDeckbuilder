@@ -2,40 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using NaughtyAttributes;
 
-[System.Serializable]
-public class Card
-{
-    public string ID = "";
-    public virtual void Play() { Debug.Log($"Played {ID}"); }
-
-    public Card(string _ID) 
-    { 
-        ID = _ID;
-    }
-
-    public override string ToString() { return ID; }
-}
-
 public enum CardPile { NULL, drawPile, hand, discardPile }
 
 class CardUser : MonoBehaviour
 {
-    [Tooltip("The ...")]
     public int startingHandSize = 3;
     public int normalDrawAmount = 1;
     public float drawDelay = 3f;
 
     // Debug contents.
-    private Card[] DEBUG_startingDeck = new Card[]
-    {
-        new("Strike"), new("Strike"), new("Strike"), new("Strike"), 
-        new("Defend"), new("Defend"), new("Defend"), new("Defend"), 
-        new("Poison Strike"), new("Poison Strike"), 
-        new("Snake Eyes"),
-        new("Revive"),
-        new("Smooth Moves"), 
-        new("Jackpot!"),
-    };
+    [SerializeField]
+    private Card[] DEBUG_startingDeck = new Card[] {};
 
     // Piles of cards used in gameplay.
     [ReadOnly] public List<Card> drawPile = null;
