@@ -22,7 +22,7 @@ class CardUser : MonoBehaviour
     private Dictionary<CardPile, List<Card>> pileToList = null;
 
     // Counts down the time until drawing a new card.
-    private float drawTimer = 0;
+    public float DrawTimer { get; private set; } = 0;
 
     private void Awake()
     {
@@ -49,13 +49,13 @@ class CardUser : MonoBehaviour
         // to do so.
         // ================
 
-        if (drawTimer > drawDelay)
+        if (DrawTimer > drawDelay)
         {
             DrawCards(normalDrawAmount);
-            drawTimer = 0;
+            DrawTimer = 0;
         }
 
-        drawTimer += Time.deltaTime;
+        DrawTimer += Time.deltaTime;
     }
 
     // ================================================================
@@ -105,20 +105,20 @@ class CardUser : MonoBehaviour
         }
     }
 
-    public void PlayCardFromIndex(int i)
+    public void ThrowCard(Card card)
     {
-        // Plays a card in the hand located at index i.
+        // Throws a card and discards it.
         // ================
 
-        if (i >= hand.Count)
+        if (!hand.Contains(card))
         {
-            Debug.LogError($"CardUser Error. PlayCardFromIndex failed. Hand ({hand.Count}) is too small for the queried index ({i}).", this);
+            Debug.LogError($"CardUser Error. ThrowCard failed. Hand does not contain card {card}.", this);
         }
         else 
         {
-            hand[i].Play();
-            Discard(hand[i]);
-        }   
+            card.Throw();
+            Discard(card);
+        }
     }
 
     public void MoveCard(Card card, CardPile fromPile, CardPile toPile)

@@ -6,7 +6,7 @@ public class Dummy_StatusEffect
 { 
     public string Debug_ID;
     public Dummy_StatusEffect(string _ID) { Debug_ID = _ID; }
-    public void Apply() { Debug.Log($"Applied effect {Debug_ID}"); } 
+    public void Apply() { Debug.Log($"Effect: {Debug_ID}"); } 
 }
 
 [System.Serializable]
@@ -40,7 +40,7 @@ public class Card : ScriptableObject
 
     public virtual void Play() 
     { 
-        Debug.Log($"Played {debug_ID}");
+        //Debug.Log($"Played {debug_ID}");
         foreach (Dummy_StatusEffect effect in effectsPlayed)
         {
             effect.Apply();

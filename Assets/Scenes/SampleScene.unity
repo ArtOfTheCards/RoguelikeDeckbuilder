@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHandSize: 3
   normalDrawAmount: 1
-  drawDelay: 2
+  drawDelay: 5
   DEBUG_startingDeck:
   - {fileID: 11400000, guid: f7f54ad82fcdbf24db978fa988f840cc, type: 2}
   - {fileID: 11400000, guid: f7f54ad82fcdbf24db978fa988f840cc, type: 2}
@@ -200,6 +200,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4b4b693fc6a1648b23b6802df02d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  w: 0
+  h: 0
+  drawOffset: {x: 20, y: 20}
+  drawDimensions: {x: 100, y: 100}
+  globalYOffset: 20
+  xWidth: 655
+  cardOffset: {x: 120, y: 0}
+  cardDimensions: {x: 110, y: 140}
+  buttonMargins: {x: 20, y: 110}
+  playButtonOffset: {x: 0, y: -13}
+  throwButtonOffset: {x: 0, y: 43}
+  discardOffset: {x: 20, y: 20}
+  discardDimensions: {x: 100, y: 100}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
