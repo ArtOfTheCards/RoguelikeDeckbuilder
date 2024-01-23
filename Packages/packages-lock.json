@@ -210,19 +210,12 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.ide.vscode": {
-      "version": "1.2.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.inputsystem": {
-      "version": "1.7.0",
+    "com.unity.ide.visualstudio": {
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.uielements": "1.0.0"
+        "com.unity.test-framework": "1.1.9"
       },
       "url": "https://packages.unity.com"
     },
@@ -381,7 +374,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.7",
+      "version": "3.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
