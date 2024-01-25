@@ -1,11 +1,12 @@
 using UnityEngine;
 using NaughtyAttributes;
-using Unity.Mathematics;
 
 public class DebugGUI_CardInterface : MonoBehaviour
 {
     [Header("Global")]
-    [ReadOnly] public int w, h;
+    [ReadOnly] public int w;
+    [ReadOnly] public int h;
+    public Targetable debug_target;
     [Header("Drawpile")]
     public Vector2 drawOffset = new();
     public Vector2 drawDimensions = new(200,200);
@@ -28,19 +29,15 @@ public class DebugGUI_CardInterface : MonoBehaviour
     private void Awake()
     {
         user = GetComponent<CardUser>();
-        // this variable is stored in the class
-        // 1 pixel image, only 1 color to set
+
+        // Create custom style for cards
         normalBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
         normalBackground.SetPixel(0, 0, new Color(0, 0, 0, 1f));
         normalBackground.Apply();
-
+        // Create custom style for cards that are being hovered over
         hoverBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
         hoverBackground.SetPixel(0, 0, new Color(0.025f, 0.025f, 0.05f, 1f));
         hoverBackground.Apply();
-
-        // basically just create a copy of the "none style"
-        // and then change the properties as desired
-        
     }
 
     private void OnGUI()
@@ -80,30 +77,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
         // ================
         // Play cards
         // ================
-        /*int boxHeight = 30*(user.hand.Count+1);
-        GUI.Box(new Rect(120,h-10-boxHeight,100,boxHeight), "Play cards");
-    
-        for (int i = 0; i < user.hand.Count; i++)
-        {
-            Card card = user.hand[i];
-            if(GUI.Button(new Rect(130,h - (40 + (30*i)),80,20), $"{card}"))
-            {
-                user.PlayCard(card);
-
-                if (card.debug_ID == "Revive")
-                {
-                    user.MoveCard(user.GetRandom(CardPile.discardPile), CardPile.discardPile, CardPile.hand);
-                }
-            }
-        }*/
-
         for (int i = 0; i < user.hand.Count; i++)
         {
             Card card = user.hand[i];
             int offsetX = Mathf.RoundToInt(((i+1)*xWidth/(user.hand.Count+1)) + (w-xWidth)/2 - cardDimensions.x/2);
             int offsetY = Mathf.RoundToInt(h - (globalYOffset + (i*cardOffset.y)) - cardDimensions.y);
 
-            string text = $"{card.title}\n{card.descriptionPlayed}\n\n\n\n{card.descriptionThrown}";
+            string text = $"{card.title}\n{card.playDescription}\n\n\n\n{card.throwDescription}";
 
             GUI.Box(new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y), $"{text}", cardStyle);
 
@@ -112,7 +92,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Play"))
             {
-                user.PlayCard(card);
+                card.Use(Card.UseMode.Play, debug_target);
+                user.Discard(card);
             }
 
             if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
@@ -120,7 +101,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Throw"))
             {
-                user.ThrowCard(card);
+                card.Use(Card.UseMode.Throw, debug_target);
+                user.Discard(card);
             }
         }
 

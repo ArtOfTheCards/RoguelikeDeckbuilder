@@ -4,7 +4,7 @@ using NaughtyAttributes;
 
 public enum CardPile { NULL, drawPile, hand, discardPile }
 
-class CardUser : MonoBehaviour
+public class CardUser : MonoBehaviour
 {
     public int startingHandSize = 3;
     public int normalDrawAmount = 1;
@@ -89,36 +89,31 @@ class CardUser : MonoBehaviour
         RemoveFromPushTo(card, hand, discardPile);
     }
 
-    public void PlayCard(Card card)
+    public void UseCard<T>(Card card, Card.UseMode useMode, T target, bool removeFromDeck=false)
     {
-        // Plays a card and discards it.
+        // Uses a card with the given useMode {Play, Throw}.
         // ================
 
-        if (!hand.Contains(card))
+        if (useMode == Card.UseMode.NULL) 
         {
-            Debug.LogError($"CardUser Error. PlayCard failed. Hand does not contain card {card}.", this);
+            Debug.LogError($"CardUser Error. UseCard failed. NULL is not a valid UseMode.", this);
+            return;
         }
-        else 
+        if (!hand.Contains(card)) 
         {
-            card.Play();
-            Discard(card);
+            Debug.LogError($"CardUser Error. UseCard failed. Hand does not contain card {card}.", this);
+            return;
         }
-    }
+        if (target is not Targetable && target is not Vector3)
+        {
+            Debug.LogError($"CardUser Error. UseCard failed. Target must be either of type Targetable or Vector3, not {typeof(T)}.", this);
+            return;
+        }
 
-    public void ThrowCard(Card card)
-    {
-        // Throws a card and discards it.
-        // ================
+        Debug.Log(useMode);
+        card.Use(useMode, target);
 
-        if (!hand.Contains(card))
-        {
-            Debug.LogError($"CardUser Error. ThrowCard failed. Hand does not contain card {card}.", this);
-        }
-        else 
-        {
-            card.Throw();
-            Discard(card);
-        }
+        if (!removeFromDeck) Discard(card);
     }
 
     public void MoveCard(Card card, CardPile fromPile, CardPile toPile)
