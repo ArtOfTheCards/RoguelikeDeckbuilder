@@ -92,7 +92,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Play"))
             {
-                card.Use(Card.UseMode.Play, debug_target);
+                card.Use(user, Card.UseMode.Play, debug_target);
                 user.Discard(card);
             }
 
@@ -101,7 +101,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Throw"))
             {
-                card.Use(Card.UseMode.Throw, debug_target);
+                card.Use(user, Card.UseMode.Throw, debug_target);
                 user.Discard(card);
             }
         }

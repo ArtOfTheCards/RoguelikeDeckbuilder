@@ -1,6 +1,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 using System.Collections.Generic;
+using System.Collections;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Card", menuName = "Card", order = 0)]
@@ -23,10 +24,15 @@ public class Card : ScriptableObject
     public List<CardEffect> playEffects = new();
 
 
+
     public TargetType throwTarget = TargetType.NULL;
     public string throwDescription;
     [SerializeReference]
     public List<CardEffect> throwEffects = new();
+
+
+
+    private bool effectCalledback = false;
 
 
 
@@ -39,22 +45,30 @@ public class Card : ScriptableObject
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
 
+        caller.StartCoroutine(ApplyEffects<T>(caller, effects, target));
+    }
+
+    private IEnumerator ApplyEffects<T>(CardUser caller, List<CardEffect> effects, T target)
+    {
+        effectCalledback = false;
+
         foreach (CardEffect effect in effects)
         {
-            // TODO: Give effects callbacks, only activate the next effect once the previous one has called back.
-
-            // TODO: Thrown cards are projectiles out of the player. If it's first collision is with a targetable object,
-            // it applies its effects to the targetable object. Otherwise, it does nothing.
-            effect.Activate(caller, target);
+            effect.Activate(caller, this, target);
+            yield return new WaitUntil(() => effectCalledback == true);
+            effectCalledback = false;         
         }
+        yield return null;
+    }
+
+    public void EffectFinished()
+    {
+        effectCalledback = true;
     }
 }
 
 // Tasks -
-// CardEffects should have a 'user' property for the CardUser that applied them, used for callbacks and other things
-// CardEffects should have a list of 'condition' properties, where the condition only applies if all conditions are true
-
-// ⭐Multitargeting: Different effects in the same list can prompt different targets
+// Effects should be called sequentially. The next one is only called when the previous one finishes
 
 // ⭐EtchEffect: calls Display() on an EtchManager, applies the status effect recieved on callback
 // ⭐Auto_MoveCardEffect: moves n cards of this CardUser from pile to pile
@@ -74,6 +88,7 @@ public class Card : ScriptableObject
 // GiveCardEffect: inserts a list of cards into a given pile on a CardUser
 // Rattle Status - freeze the draw timer on a CardUser for a duration
 //
+// CardEffects should have a list of 'condition' properties, where the condition only applies if all conditions are true
 // AllyCondition - returns true if number of CardUser allies of [type] are [==, <, <=, >, >=] to [number]
 // StatusCondition - returns true if target has status
 // EtchStatusCondition - returns true if target has any etched status

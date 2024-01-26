@@ -18,11 +18,14 @@ MonoBehaviour:
   playTarget: 2
   playDescription: +1 SKELLY
   playEffects:
+  - rid: 4647620867374186496
   - rid: 4647620840944828467
   throwTarget: 1
   throwDescription: 1 DMG
   throwEffects:
   - rid: 4647620840944828468
+  - rid: 4647620867374186497
+  - rid: 4647620867374186498
   references:
     version: 2
     RefIds:
@@ -35,4 +38,19 @@ MonoBehaviour:
       type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: deal damage
-        test3: {x: 1, y: 2, z: 3}
+        delay: 0.5
+    - rid: 4647620867374186496
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: animator
+        delay: 3
+    - rid: 4647620867374186497
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: deal damage
+        delay: 0.5
+    - rid: 4647620867374186498
+      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: deal damage
+        delay: 0.5
