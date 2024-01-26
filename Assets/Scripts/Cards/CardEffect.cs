@@ -5,5 +5,5 @@ public class CardEffect
 {
     public string Debug_ID = "base";
     
-    public virtual void Activate<T>(T target) { Debug.Log("Did absolutely nothing."); }
+    public virtual void Activate<T>(CardUser caller, T target) { Debug.Log("Did absolutely nothing."); }
 }

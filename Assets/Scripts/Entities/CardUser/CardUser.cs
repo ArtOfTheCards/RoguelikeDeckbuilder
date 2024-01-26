@@ -111,7 +111,7 @@ public class CardUser : MonoBehaviour
         }
 
         Debug.Log(useMode);
-        card.Use(useMode, target);
+        card.Use(this, useMode, target);
 
         if (!removeFromDeck) Discard(card);
     }

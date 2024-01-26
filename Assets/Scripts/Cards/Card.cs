@@ -30,7 +30,7 @@ public class Card : ScriptableObject
 
 
 
-    public void Use<T>(UseMode mode, T target)
+    public void Use<T>(CardUser caller, UseMode mode, T target)
     {
         if (mode == UseMode.NULL) {
             Debug.LogError("Card Error: Use failed. UseMode must not be NULL.");
@@ -45,7 +45,7 @@ public class Card : ScriptableObject
 
             // TODO: Thrown cards are projectiles out of the player. If it's first collision is with a targetable object,
             // it applies its effects to the targetable object. Otherwise, it does nothing.
-            effect.Activate(target);
+            effect.Activate(caller, target);
         }
     }
 }

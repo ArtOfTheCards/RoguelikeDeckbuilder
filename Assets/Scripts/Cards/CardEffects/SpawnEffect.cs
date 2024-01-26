@@ -6,7 +6,7 @@ public class SpawnEffect : CardEffect
 {
     public GameObject toSpawn;
     public SpawnEffect() { Debug_ID = "spawn"; }
-    public override void Activate<T>(T target)
+    public override void Activate<T>(CardUser caller, T target)
     {
         Debug.Log("Spawned whatever.");
     }
