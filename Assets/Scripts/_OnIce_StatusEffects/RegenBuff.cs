@@ -18,7 +18,7 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
 
     public override void Apply()
     {
-        regenCoroutine = target.StartCoroutine(RegenCoroutine());
+        //regenCoroutine = target.StartCoroutine(RegenCoroutine());
     }
 
     public IEnumerator RegenCoroutine()
@@ -29,7 +29,7 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
         {
             if (elapsed == 0 || tickTimer > data.tickDelay)
             {
-                target.ChangeHealth(data.healthPerTick);
+                //target.ChangeHealth(data.healthPerTick);
                 tickTimer = 0;
             }
             
@@ -43,7 +43,7 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
 
     public override void End(bool prematurely = false)
     {
-        if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
+        //if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
         base.End(prematurely);
     }
 }

@@ -60,7 +60,7 @@ public abstract class StatusInstance<StatusData_type> : StatusInstance
     // ================================================================
 
     public StatusData_type data;
-    public Creature target;
+    //public Creature target;
 
     public override string ToString() { return data.ToString(); }
 }
@@ -74,7 +74,7 @@ public abstract class StatusFactory : ScriptableObject
     // Abstract base class defining a StatusFactory, used to mention
     // a StatusFactory of unspecific type.
     // ================================================================
-    public abstract StatusInstance CreateStatusInstance(Creature target);
+    public abstract StatusInstance CreateStatusInstance(/*Creature target*/);
     public abstract bool Matches(StatusInstance instance);
     public string ID { get {return ToString();} }
 }
@@ -92,9 +92,9 @@ where StatusInstance_type : StatusInstance<StatusData_type>, new()
     // ================================================================
     public StatusData_type StatusData;
 
-    public override StatusInstance CreateStatusInstance(Creature target)
+    public override StatusInstance CreateStatusInstance(/*Creature target*/)
     {
-        return new StatusInstance_type { data = StatusData, target = target };
+        return new StatusInstance_type { data = StatusData/*, target = target*/ };
     }
 
     public override bool Matches(StatusInstance instance) 

@@ -17,8 +17,8 @@ public class StrengthStatusInstance : StatusInstance<StrengthStatusData>
 
     public override void Apply()
     {
-        target.ChangeAttack(data.strengthToAdd);
-        unapplicationCoroutine = target.StartCoroutine(UnapplicationCoroutine());
+        // target.ChangeAttack(data.strengthToAdd);
+        // unapplicationCoroutine = target.StartCoroutine(UnapplicationCoroutine());
     }
 
     public IEnumerator UnapplicationCoroutine()
@@ -30,8 +30,8 @@ public class StrengthStatusInstance : StatusInstance<StrengthStatusData>
 
     public override void End(bool prematurely = false)
     {
-        if (unapplicationCoroutine != null) target.StopCoroutine(unapplicationCoroutine);
-        target.ChangeAttack(-data.strengthToAdd);
+        // if (unapplicationCoroutine != null) target.StopCoroutine(unapplicationCoroutine);
+        // target.ChangeAttack(-data.strengthToAdd);
         base.End(prematurely);
     }
 }

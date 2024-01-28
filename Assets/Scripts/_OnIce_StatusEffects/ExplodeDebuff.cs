@@ -17,7 +17,7 @@ public class ExplodeDebuffInstance : StatusInstance<ExplodeDebuffData>
 
     public override void Apply()
     {
-        explodeCoroutine = target.StartCoroutine(ExplodeCoroutine());
+        //explodeCoroutine = target.StartCoroutine(ExplodeCoroutine());
     }
 
     public IEnumerator ExplodeCoroutine()
@@ -29,13 +29,13 @@ public class ExplodeDebuffInstance : StatusInstance<ExplodeDebuffData>
             yield return null;
         }
 
-        target.ChangeHealth(data.healthChange);
+        //target.ChangeHealth(data.healthChange);
         End();
     }
 
     public override void End(bool prematurely = false)
     {
-        if (explodeCoroutine != null) target.StopCoroutine(explodeCoroutine);
+        //if (explodeCoroutine != null) target.StopCoroutine(explodeCoroutine);
         base.End(prematurely);
     }
 }
