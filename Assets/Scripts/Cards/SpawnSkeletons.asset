@@ -18,14 +18,12 @@ MonoBehaviour:
   playTarget: 2
   playDescription: +1 SKELLY
   playEffects:
-  - rid: 4647620867374186496
+  - rid: 4647620896860930048
   - rid: 4647620840944828467
   throwTarget: 1
   throwDescription: 1 DMG
   throwEffects:
-  - rid: 4647620840944828468
-  - rid: 4647620867374186497
-  - rid: 4647620867374186498
+  - rid: 4647620896860930049
   references:
     version: 2
     RefIds:
@@ -34,23 +32,13 @@ MonoBehaviour:
       data:
         Debug_ID: spawn skeleton
         toSpawn: {fileID: 0}
-    - rid: 4647620840944828468
-      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+    - rid: 4647620896860930048
+      type: {class: DelayEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: deal damage
-        delay: 0.5
-    - rid: 4647620867374186496
-      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
+        Debug_ID: wait 1 second
+        delay: 1
+    - rid: 4647620896860930049
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: animator
-        delay: 3
-    - rid: 4647620867374186497
-      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
-      data:
-        Debug_ID: deal damage
-        delay: 0.5
-    - rid: 4647620867374186498
-      type: {class: AnimatorEffect, ns: , asm: Assembly-CSharp}
-      data:
-        Debug_ID: deal damage
-        delay: 0.5
+        Debug_ID: 1 damage
+        value: 1

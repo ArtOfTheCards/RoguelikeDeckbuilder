@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.UIElements;
 
 // Sprite preview implementation courtesy of Peter on Sunny Valley Studio:
 // https://www.sunnyvalleystudio.com/blog/unity-2d-sprite-preview-inspector-custom-editor
@@ -86,9 +87,16 @@ public class CardEditor : Editor
                     {
                         switch (context as string)
                         {
+                            case "DamageEffect": effectList.Add(new DamageEffect()); break;
+                            case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;
-                            case "AnimatorEffect": effectList.Add(new AnimatorEffect()); break;
-                            default: effectList.Add(new CardEffect()); break;
+                            default: 
+                            {
+                                Debug.LogError("Card Error: The CardEffect you attempted to add "
+                                             + "has not been added to the switch statement in"
+                                             + "CardEditor.ShowAddMenu()."); 
+                                break;
+                            }
                         }
                     }, 
                 Path.GetFileNameWithoutExtension(path)

@@ -1,3 +1,6 @@
 using UnityEngine;
 
-public class Targetable : MonoBehaviour {}
+public class Targetable : MonoBehaviour 
+{
+    
+}
