@@ -68,7 +68,6 @@ public class Card : ScriptableObject
 }
 
 // Tasks -
-// Effects should be called sequentially. The next one is only called when the previous one finishes
 
 // ⭐EtchEffect: calls Display() on an EtchManager, applies the status effect recieved on callback
 // ⭐Auto_MoveCardEffect: moves n cards of this CardUser from pile to pile
