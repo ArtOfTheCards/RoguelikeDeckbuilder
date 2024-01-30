@@ -89,33 +89,6 @@ public class CardUser : MonoBehaviour
         RemoveFromPushTo(card, hand, discardPile);
     }
 
-    public void UseCard<T>(Card card, Card.UseMode useMode, T target, bool removeFromDeck=false)
-    {
-        // Uses a card with the given useMode {Play, Throw}.
-        // ================
-
-        if (useMode == Card.UseMode.NULL) 
-        {
-            Debug.LogError($"CardUser Error. UseCard failed. NULL is not a valid UseMode.", this);
-            return;
-        }
-        if (!hand.Contains(card)) 
-        {
-            Debug.LogError($"CardUser Error. UseCard failed. Hand does not contain card {card}.", this);
-            return;
-        }
-        if (target is not Targetable && target is not Vector3)
-        {
-            Debug.LogError($"CardUser Error. UseCard failed. Target must be either of type Targetable or Vector3, not {typeof(T)}.", this);
-            return;
-        }
-
-        Debug.Log(useMode);
-        card.Use(this, useMode, target);
-
-        if (!removeFromDeck) Discard(card);
-    }
-
     public void MoveCard(Card card, CardPile fromPile, CardPile toPile)
     {
         // Acts as a public accessor for the RemoveFromPushTo function.
@@ -132,7 +105,44 @@ public class CardUser : MonoBehaviour
         List<Card> pileList = pileToList[pile];
         return pileList[Random.Range(0, pileList.Count)];
     }
-    
+
+    public void UseCard(Card card, Card.UseMode useMode, Targetable target, bool removeFromDeck=false)
+    {
+        // TARGETABLE target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        card.Use(this, useMode, target);
+        if (!removeFromDeck) Discard(card);
+    }
+
+    public void UseCard(Card card, Card.UseMode useMode, Vector3 target, bool removeFromDeck=false)
+    {
+        // VECTOR3 target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        card.Use(this, useMode, target);
+        if (!removeFromDeck) Discard(card);
+    }
+
+    private bool ValidateUse(Card card, Card.UseMode useMode)
+    {
+        if (useMode == Card.UseMode.NULL)
+        {
+            Debug.LogError($"CardUser Error. UseCard failed. NULL is not a valid UseMode.", this);
+            return false;
+        }
+        if (!hand.Contains(card))
+        {
+            Debug.LogError($"CardUser Error. UseCard failed. Hand does not contain card {card}.", this);
+            return false;
+        }
+        return true;
+    }
+
     // ================================================================
     // Pile-editing methods
     // ================================================================

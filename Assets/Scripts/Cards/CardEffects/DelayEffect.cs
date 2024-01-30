@@ -6,7 +6,15 @@ public class DelayEffect : CardEffect
 {
     public float delay;
     public DelayEffect() { Debug_ID = "New Delay Effect"; }
-    public override void Activate<T>(CardUser caller, Card card, T target)
+
+
+    
+    public override void Activate(CardUser caller, Card card, Targetable target)
+    {
+        caller.StartCoroutine(WaitRoutine(card));
+    }
+
+    public override void Activate(CardUser caller, Card card, Vector3 target)
     {
         caller.StartCoroutine(WaitRoutine(card));
     }

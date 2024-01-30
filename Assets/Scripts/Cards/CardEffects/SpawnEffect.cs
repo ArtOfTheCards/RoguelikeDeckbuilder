@@ -6,9 +6,20 @@ public class SpawnEffect : CardEffect
 {
     public GameObject toSpawn;
     public SpawnEffect() { Debug_ID = "spawn"; }
-    public override void Activate<T>(CardUser caller, Card card, T target)
+
+
+    
+    public override void Activate(CardUser caller, Card card, Targetable target)
     {
-        Debug.Log("Spawned whatever.");
+        GameObject.Instantiate(toSpawn, target.transform.position, Quaternion.identity);
+
+        EndEffect(card);
+    }
+
+    public override void Activate(CardUser caller, Card card, Vector3 target)
+    {
+        GameObject.Instantiate(toSpawn, target, Quaternion.identity);
+
         EndEffect(card);
     }
 }

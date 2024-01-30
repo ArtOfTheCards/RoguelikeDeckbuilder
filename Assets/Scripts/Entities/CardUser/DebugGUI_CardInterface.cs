@@ -92,8 +92,11 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Play"))
             {
-                card.Use(user, Card.UseMode.Play, debug_target);
-                user.Discard(card);
+                // Placeholder targeting code!
+                // Placeholder targeting code!
+                // Placeholder targeting code!
+                if (card.playTarget == Card.TargetType.Direct) user.UseCard(card, Card.UseMode.Play, debug_target);
+                if (card.playTarget == Card.TargetType.Worldspace) user.UseCard(card, Card.UseMode.Play, debug_target.transform.position);
             }
 
             if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
@@ -101,8 +104,11 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                     cardDimensions.x-buttonMargins.x, 
                                     cardDimensions.y-buttonMargins.y), $"Throw"))
             {
-                card.Use(user, Card.UseMode.Throw, debug_target);
-                user.Discard(card);
+                // Placeholder targeting code!
+                // Placeholder targeting code!
+                // Placeholder targeting code!
+                if (card.throwTarget == Card.TargetType.Direct) user.UseCard(card, Card.UseMode.Throw, debug_target);
+                if (card.throwTarget == Card.TargetType.Worldspace) user.UseCard(card, Card.UseMode.Throw, debug_target.transform.position);
             }
         }
 

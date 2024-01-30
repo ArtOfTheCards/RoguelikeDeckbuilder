@@ -36,19 +36,60 @@ public class Card : ScriptableObject
 
 
 
-    public void Use<T>(CardUser caller, UseMode mode, T target)
+    // ================================================================
+    // External use methods
+    // ================================================================
+
+    public void Use(CardUser caller, UseMode mode, Targetable target)
     {
-        if (mode == UseMode.NULL) {
-            Debug.LogError("Card Error: Use failed. UseMode must not be NULL.");
-            return;
-        }
+        // TARGETABLE target: Activates the list of CardEffects corresponding to mode.
+        // ================
+
+        if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
-
-        caller.StartCoroutine(ApplyEffects<T>(caller, effects, target));
+        caller.StartCoroutine(ApplyEffects_Targetable(caller, effects, target));
     }
 
-    private IEnumerator ApplyEffects<T>(CardUser caller, List<CardEffect> effects, T target)
+    public void Use(CardUser caller, UseMode mode, Vector3 target)
+    {
+        // VECTOR3 target: Activates the list of CardEffects corresponding to mode.
+        // ================
+
+        if (ValidateUse(mode) == false) return;
+
+        List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
+        caller.StartCoroutine(ApplyEffects_Vector3(caller, effects, target));
+    }
+
+    private static bool ValidateUse(UseMode mode)
+    {
+        if (mode == UseMode.NULL)
+        {
+            Debug.LogError("Card Error: Use failed. UseMode must not be NULL.");
+            return false;
+        }
+        return true;
+    }
+
+    // ================================================================
+    // Effect application methods
+    // ================================================================
+
+    private IEnumerator ApplyEffects_Targetable(CardUser caller, List<CardEffect> effects, Targetable target)
+    {
+        effectCalledback = false;
+
+        foreach (CardEffect effect in effects)
+        {
+            effect.Activate(caller, this, target);
+            yield return new WaitUntil(() => effectCalledback == true);
+            effectCalledback = false;         
+        }
+        yield return null;
+    }
+
+    private IEnumerator ApplyEffects_Vector3(CardUser caller, List<CardEffect> effects, Vector3 target)
     {
         effectCalledback = false;
 
