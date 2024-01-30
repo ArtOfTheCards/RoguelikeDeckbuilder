@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   w: 0
   h: 0
-  debug_target: {fileID: 994348438}
+  canPlay: 1
   drawOffset: {x: 10, y: 10}
   drawDimensions: {x: 100, y: 100}
   globalYOffset: 10
@@ -163,7 +163,7 @@ MonoBehaviour:
   cardOffset: {x: 0, y: 0}
   cardDimensions: {x: 100, y: 150}
   buttonMargins: {x: 28, y: 131}
-  playButtonOffset: {x: 0, y: -25}
+  playButtonOffset: {x: 0, y: -20}
   throwButtonOffset: {x: 0, y: 40}
   discardOffset: {x: 10, y: 10}
   discardDimensions: {x: 100, y: 100}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHandSize: 3
   normalDrawAmount: 1
-  drawDelay: 3
+  drawDelay: 2.5
   DEBUG_startingDeck:
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
@@ -344,17 +344,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &994348438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2720339300010079973, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-  m_PrefabInstance: {fileID: 7710878831576577905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d538bd76ccf2e4998118dcb44c3daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7710878831576577905
 PrefabInstance:
   m_ObjectHideFlags: 0
