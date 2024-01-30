@@ -16,7 +16,7 @@ MonoBehaviour:
   title: Raise Undead
   art: {fileID: 21300000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
   playTarget: 2
-  playDescription: +1 SKELLY
+  playDescription: +1 TARGET
   playEffects:
   - rid: 4647620896860930048
   - rid: 4647620840944828467
@@ -30,7 +30,7 @@ MonoBehaviour:
     - rid: 4647620840944828467
       type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: spawn skeleton
+        Debug_ID: spawn target
         toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
         xVariance: {x: -1, y: 1}
         yVariance: {x: -1, y: 1}
