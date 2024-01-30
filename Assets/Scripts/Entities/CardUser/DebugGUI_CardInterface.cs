@@ -112,7 +112,6 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.playTarget == Card.TargetType.Targetless) {
-                        Debug.Log("thrown");
                         user.UseCard(card, Card.UseMode.Play);
                     }
                 }
