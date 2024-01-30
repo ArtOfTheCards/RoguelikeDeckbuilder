@@ -32,6 +32,8 @@ MonoBehaviour:
       data:
         Debug_ID: spawn skeleton
         toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
+        xVariance: {x: -1, y: 1}
+        yVariance: {x: -1, y: 1}
     - rid: 4647620896860930048
       type: {class: DelayEffect, ns: , asm: Assembly-CSharp}
       data:
