@@ -87,7 +87,7 @@ public class CardEditor : Editor
                     {
                         switch (context as string)
                         {
-                            case "DamageEffect": effectList.Add(new DamageEffect()); break;
+                            case "DirectDamageEffect": effectList.Add(new DirectDamageEffect()); break;
                             case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;
                             default: 
