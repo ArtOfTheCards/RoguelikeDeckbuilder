@@ -4,7 +4,8 @@ using System.Collections;
 [System.Serializable]
 public class DelayEffect : CardEffect
 {
-    public float delay;
+    [SerializeField, Tooltip("The amount of time, in seconds, we wait during this effect.")]
+    public float delayAmount;
     public DelayEffect() { Debug_ID = "New Delay Effect"; }
 
 
@@ -21,7 +22,7 @@ public class DelayEffect : CardEffect
 
     private IEnumerator WaitRoutine(Card card)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delayAmount);
         EndEffect(card);
     }
 }

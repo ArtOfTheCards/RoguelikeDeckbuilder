@@ -110,6 +110,11 @@ public class DebugGUI_CardInterface : MonoBehaviour
                         // If we get one, callback to a properly-parameterized UseCard call.
                         StartCoroutine(GetTargetVector3((position) => user.UseCard(card, Card.UseMode.Play, position)));
                     }
+
+                    if (card.playTarget == Card.TargetType.Targetless) {
+                        Debug.Log("thrown");
+                        user.UseCard(card, Card.UseMode.Play);
+                    }
                 }
 
                 if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
@@ -127,6 +132,10 @@ public class DebugGUI_CardInterface : MonoBehaviour
                         // Begin listening for a targetable target.
                         // If we get one, callback to a properly-parameterized UseCard call.
                         StartCoroutine(GetTargetVector3((position) => user.UseCard(card, Card.UseMode.Throw, position)));
+                    }
+
+                    if (card.throwTarget == Card.TargetType.Targetless) {
+                        user.UseCard(card, Card.UseMode.Throw);
                     }
                 }
             }

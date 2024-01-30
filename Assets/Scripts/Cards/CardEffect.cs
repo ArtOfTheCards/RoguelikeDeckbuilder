@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,12 +7,17 @@ public class CardEffect
     
     public virtual void Activate(CardUser caller, Card card, Targetable target) 
     {
-        EndEffect(card);
+        throw new System.NotImplementedException();
     }
 
     public virtual void Activate(CardUser caller, Card card, Vector3 target) 
     {
-        EndEffect(card);
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void Activate(CardUser caller, Card card) 
+    {
+        throw new System.NotImplementedException();
     }
 
     protected void EndEffect(Card card)
@@ -23,6 +27,6 @@ public class CardEffect
 
     internal void Activate<T>(CardUser caller, Card card, T target)
     {
-        throw new NotImplementedException();
+        throw new System.NotImplementedException();
     }
 }

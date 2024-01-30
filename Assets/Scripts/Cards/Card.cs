@@ -8,7 +8,7 @@ using System.Collections;
 public class Card : ScriptableObject
 {
     public enum UseMode { NULL, Play, Throw }
-    public enum TargetType { NULL, Direct, Worldspace }
+    public enum TargetType { NULL, Direct, Worldspace, Targetless }
 
     [Tooltip("In-code name for this card. Not shown in-game.")]
     public string debug_ID = "New ID";
@@ -62,6 +62,17 @@ public class Card : ScriptableObject
         caller.StartCoroutine(ApplyEffects_Vector3(caller, effects, target));
     }
 
+    public void Use(CardUser caller, UseMode mode)
+    {
+        // TARGETLESS target: Activates the list of CardEffects corresponding to mode.
+        // ================
+
+        if (ValidateUse(mode) == false) return;
+
+        List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
+        caller.StartCoroutine(ApplyEffects_Targetless(caller, effects));
+    }
+
     private static bool ValidateUse(UseMode mode)
     {
         if (mode == UseMode.NULL)
@@ -102,6 +113,19 @@ public class Card : ScriptableObject
         yield return null;
     }
 
+    private IEnumerator ApplyEffects_Targetless(CardUser caller, List<CardEffect> effects)
+    {
+        effectCalledback = false;
+
+        foreach (CardEffect effect in effects)
+        {
+            effect.Activate(caller, this);
+            yield return new WaitUntil(() => effectCalledback == true);
+            effectCalledback = false;         
+        }
+        yield return null;
+    }
+
     public void EffectFinished()
     {
         effectCalledback = true;
@@ -111,7 +135,6 @@ public class Card : ScriptableObject
 // Tasks -
 
 // ⭐EtchEffect: calls Display() on an EtchManager, applies the status effect recieved on callback
-// ⭐Auto_MoveCardEffect: moves n cards of this CardUser from pile to pile
 // ⭐DamageEffect: deals damage onto a Damageable
 // ⭐StatusEffect: adds a status effect plainly --- status effects have bool for isEtchedStatus
 // ⭐ConvertEtchStatusesEffect: removes all N etched effects, adds N stacks of a single other status effect

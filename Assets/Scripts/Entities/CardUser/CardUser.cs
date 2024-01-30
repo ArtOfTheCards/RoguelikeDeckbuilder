@@ -64,8 +64,14 @@ public class CardUser : MonoBehaviour
 
     public void ShuffleDiscardIntoDrawpile()
     {
+        // We shuffle the discard pile first, and then pop it to draw pile.
+        // This way, if we're shuffling into a non-empty deck, only the new
+        // cards get shuffled, and the pre-existing ones maintain their order
+        // in the draw pile.
+        // ================
+
+        Shuffle(discardPile);
         PopFromPushTo(discardPile, drawPile, discardPile.Count);
-        Shuffle(drawPile);
     }
 
     public void DrawCards(int n)
@@ -75,12 +81,11 @@ public class CardUser : MonoBehaviour
         // number of cards.
         // ================
 
-        if (drawPile.Count == 0)
+        if (drawPile.Count < n)
         {
             ShuffleDiscardIntoDrawpile();
         }
 
-                                      // Don't draw more cards than we have.
         PopFromPushTo(drawPile, hand, Mathf.Min(n, drawPile.Count));
     }
 
@@ -125,6 +130,17 @@ public class CardUser : MonoBehaviour
         if (ValidateUse(card, useMode) == false) { return; }
 
         card.Use(this, useMode, target);
+        if (!removeFromDeck) Discard(card);
+    }
+
+    public void UseCard(Card card, Card.UseMode useMode, bool removeFromDeck=false)
+    {
+        // TARGETLESS target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        card.Use(this, useMode);
         if (!removeFromDeck) Discard(card);
     }
 

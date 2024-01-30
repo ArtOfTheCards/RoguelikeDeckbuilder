@@ -23,7 +23,7 @@ MonoBehaviour:
   throwTarget: 1
   throwDescription: 1 DMG
   throwEffects:
-  - rid: 4647620896860930049
+  - rid: 4647620957206740995
   references:
     version: 2
     RefIds:
@@ -38,9 +38,9 @@ MonoBehaviour:
       type: {class: DelayEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: wait 0.2 seconds
-        delay: 0.2
-    - rid: 4647620896860930049
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+        delayAmount: 0
+    - rid: 4647620957206740995
+      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: 1 damage
-        value: 1
+        Debug_ID: damage 1
+        amount: 1
