@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine.UIElements;
 
 // Sprite preview implementation courtesy of Peter on Sunny Valley Studio:
 // https://www.sunnyvalleystudio.com/blog/unity-2d-sprite-preview-inspector-custom-editor
-// Subclass selection menu implementation inspired by
+// Subclass selection menu implementation inspired by Valentin Simonov's article on Reorderable Lists:
+// https://va.lent.in/unity-make-your-lists-functional-with-reorderablelist/
 
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
@@ -88,6 +88,7 @@ public class CardEditor : Editor
                         switch (context as string)
                         {
                             case "AutoDrawEffect": effectList.Add(new AutoDrawEffect()); break;
+                            case "CardCountDirectDamageEffect": effectList.Add(new CardCountDirectDamageEffect()); break;
                             case "DirectDamageEffect": effectList.Add(new DirectDamageEffect()); break;
                             case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;

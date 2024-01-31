@@ -120,7 +120,7 @@ public class Card : ScriptableObject
         foreach (CardEffect effect in effects)
         {
             effect.Activate(caller, this);
-            yield return new WaitUntil(() => effectCalledback == true);
+            yield return new WaitUntil(() => effectCalledback);
             effectCalledback = false;         
         }
         yield return null;
@@ -135,10 +135,8 @@ public class Card : ScriptableObject
 // Tasks -
 
 // ⭐EtchEffect: calls Display() on an EtchManager, applies the status effect recieved on callback
-// ⭐DamageEffect: deals damage onto a Damageable
 // ⭐StatusEffect: adds a status effect plainly --- status effects have bool for isEtchedStatus
 // ⭐ConvertEtchStatusesEffect: removes all N etched effects, adds N stacks of a single other status effect
-// ⭐SpawnEffect - summons a prefabbed object
 //
 // ⭐FlatStrength Status - increase the power of attack cards by the number of stacks (strength 2- cards deal 2 more damage) 
 //      - should work in the negative direction also

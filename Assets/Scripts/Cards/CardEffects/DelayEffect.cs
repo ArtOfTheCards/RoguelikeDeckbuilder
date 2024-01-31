@@ -20,6 +20,11 @@ public class DelayEffect : CardEffect
         caller.StartCoroutine(WaitRoutine(card));
     }
 
+    public override void Activate(CardUser caller, Card card)
+    {
+        caller.StartCoroutine(WaitRoutine(card));
+    }
+
     private IEnumerator WaitRoutine(Card card)
     {
         yield return new WaitForSeconds(delayAmount);
