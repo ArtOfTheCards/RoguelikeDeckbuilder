@@ -31,7 +31,7 @@ public class MovePostionPathFinding : MonoBehaviour
     {
 
         Vector3 mousePos = GetMouseWorldPostion();
-        Debug.Log(mousePos);
+        // Debug.Log(mousePos);
         if (Input.GetMouseButton(0))
         {
             SetDestination(mousePos);
