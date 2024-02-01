@@ -5,7 +5,8 @@ using System.IO;
 
 // Sprite preview implementation courtesy of Peter on Sunny Valley Studio:
 // https://www.sunnyvalleystudio.com/blog/unity-2d-sprite-preview-inspector-custom-editor
-// Subclass selection menu implementation inspired by
+// Subclass selection menu implementation inspired by Valentin Simonov's article on Reorderable Lists:
+// https://va.lent.in/unity-make-your-lists-functional-with-reorderablelist/
 
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
@@ -86,9 +87,18 @@ public class CardEditor : Editor
                     {
                         switch (context as string)
                         {
+                            case "AutoDrawEffect": effectList.Add(new AutoDrawEffect()); break;
+                            case "CardCountDirectDamageEffect": effectList.Add(new CardCountDirectDamageEffect()); break;
+                            case "DirectDamageEffect": effectList.Add(new DirectDamageEffect()); break;
+                            case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;
-                            case "AnimatorEffect": effectList.Add(new AnimatorEffect()); break;
-                            default: effectList.Add(new CardEffect()); break;
+                            default: 
+                            {
+                                Debug.LogError("Card Error: The CardEffect you attempted to add "
+                                             + "has not been added to the switch statement in"
+                                             + "CardEditor.ShowAddMenu()."); 
+                                break;
+                            }
                         }
                     }, 
                 Path.GetFileNameWithoutExtension(path)

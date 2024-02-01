@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using NaughtyAttributes;
 
 public class DebugGUI_CardInterface : MonoBehaviour
@@ -6,7 +8,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
     [Header("Global")]
     [ReadOnly] public int w;
     [ReadOnly] public int h;
-    public Targetable debug_target;
+    [ReadOnly] public bool canPlay = true;
+
+
     [Header("Drawpile")]
     public Vector2 drawOffset = new();
     public Vector2 drawDimensions = new(200,200);
@@ -22,6 +26,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
     [Header("Drawpile")]
     public Vector2 discardOffset = new();
     public Vector2 discardDimensions = new(200,200);
+
 
     private GUIStyle pileStyle, cardStyle;
     Texture2D normalBackground, hoverBackground;
@@ -87,22 +92,51 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
             GUI.Box(new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y), $"{text}", cardStyle);
 
-            if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+playButtonOffset.x,
-                                    offsetY+buttonMargins.y/2+playButtonOffset.y,
-                                    cardDimensions.x-buttonMargins.x, 
-                                    cardDimensions.y-buttonMargins.y), $"Play"))
+            if (canPlay)
             {
-                card.Use(Card.UseMode.Play, debug_target);
-                user.Discard(card);
-            }
+                if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+playButtonOffset.x,
+                                        offsetY+buttonMargins.y/2+playButtonOffset.y,
+                                        cardDimensions.x-buttonMargins.x, 
+                                        cardDimensions.y-buttonMargins.y), $"Play"))
+                {
+                    if (card.playTarget == Card.TargetType.Direct) {
+                        // Begin listening for a targetable target.
+                        // If we get one, callback to a properly-parameterized UseCard call.
+                        StartCoroutine(GetTargetTargetable((targetable) => user.UseCard(card, Card.UseMode.Play, targetable)));
+                    }
 
-            if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
-                                    offsetY+buttonMargins.y/2+throwButtonOffset.y,
-                                    cardDimensions.x-buttonMargins.x, 
-                                    cardDimensions.y-buttonMargins.y), $"Throw"))
-            {
-                card.Use(Card.UseMode.Throw, debug_target);
-                user.Discard(card);
+                    if (card.playTarget == Card.TargetType.Worldspace) {
+                        // Begin listening for a targetable target.
+                        // If we get one, callback to a properly-parameterized UseCard call.
+                        StartCoroutine(GetTargetVector3((position) => user.UseCard(card, Card.UseMode.Play, position)));
+                    }
+
+                    if (card.playTarget == Card.TargetType.Targetless) {
+                        user.UseCard(card, Card.UseMode.Play);
+                    }
+                }
+
+                if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
+                                        offsetY+buttonMargins.y/2+throwButtonOffset.y,
+                                        cardDimensions.x-buttonMargins.x, 
+                                        cardDimensions.y-buttonMargins.y), $"Throw"))
+                {
+                    if (card.throwTarget == Card.TargetType.Direct) {
+                        // Begin listening for a targetable target.
+                        // If we get one, callback to a properly-parameterized UseCard call.
+                        StartCoroutine(GetTargetTargetable((targetable) => user.UseCard(card, Card.UseMode.Throw, targetable)));
+                    }
+
+                    if (card.throwTarget == Card.TargetType.Worldspace) {
+                        // Begin listening for a targetable target.
+                        // If we get one, callback to a properly-parameterized UseCard call.
+                        StartCoroutine(GetTargetVector3((position) => user.UseCard(card, Card.UseMode.Throw, position)));
+                    }
+
+                    if (card.throwTarget == Card.TargetType.Targetless) {
+                        user.UseCard(card, Card.UseMode.Throw);
+                    }
+                }
             }
         }
 
@@ -117,5 +151,78 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          h-discardOffset.y-discardDimensions.y,
                          discardDimensions.x,
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
+    }
+
+    private IEnumerator GetTargetTargetable(System.Action<Targetable> action)
+    {
+        // Awaits a Targetable target, provided by mouseclick. When a target is
+        // obtained, calls the supplied action with that target as argument.
+        // ================
+
+        canPlay = false;
+        Targetable target = null;
+
+        while (target == null)
+        {
+            if (Input.GetMouseButtonDown(0))        // select target
+            {
+                Collider2D[] colliders = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                List<Targetable> targetables = new();
+
+                foreach (Collider2D collider in colliders)
+                {
+                    if (collider.gameObject.TryGetComponent<Targetable>(out Targetable newTarget))
+                    {
+                        targetables.Add(newTarget);
+                    }
+                }
+
+                if (targetables.Count > 0)
+                {
+                    target = targetables[0];
+                }
+
+                // Break whether or not we found a target. If we clicked on a nontarget, 
+                // then our action is effectively canceled.
+                break;
+            }
+
+            if (Input.GetMouseButtonDown(1)) break; // cancel action
+
+            yield return null;
+        }
+        
+        canPlay = true;
+        // If we got a target (ie if the action wasn't canceled)...
+        if (target != null) action.Invoke(target);
+    }
+
+    private IEnumerator GetTargetVector3(System.Action<Vector3> action)
+    {
+        // Awaits a Vector3 target, provided by mouseclick. When a target is
+        // obtained, calls the supplied action with that target as argument.
+        // ================
+
+        canPlay = false;
+        Vector3 min = new(float.MinValue, float.MinValue);
+        Vector3 target = min;
+
+        while (target == min)
+        {
+            if (Input.GetMouseButtonDown(0))        // select target
+            {
+                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                target.z = 0;
+                break;
+            }
+
+            if (Input.GetMouseButtonDown(1)) break; // cancel action
+
+            yield return null;
+        }
+        
+        canPlay = true;
+        // If we got a target (ie if the action wasn't canceled)...
+        if (target != min) action.Invoke(target);
     }
 }
