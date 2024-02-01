@@ -80,6 +80,9 @@ public class CardEditor : Editor
         foreach (string guid in guids) 
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
+
+            if (Path.GetFileNameWithoutExtension(path) == "_TEMPLATE_CardEffect") continue;
+
             menu.AddItem(
                 new GUIContent(Path.GetFileNameWithoutExtension(path)), 
                 false, 
@@ -89,6 +92,7 @@ public class CardEditor : Editor
                         {
                             case "AutoDrawEffect": effectList.Add(new AutoDrawEffect()); break;
                             case "CardCountDirectDamageEffect": effectList.Add(new CardCountDirectDamageEffect()); break;
+                            case "DirectAddStatusEffect": effectList.Add(new DirectAddStatusEffect()); break;
                             case "DirectDamageEffect": effectList.Add(new DirectDamageEffect()); break;
                             case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;

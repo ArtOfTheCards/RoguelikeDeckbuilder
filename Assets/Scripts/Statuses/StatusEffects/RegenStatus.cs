@@ -7,18 +7,26 @@ public class RegenStatusFactory : StatusFactory<RegenStatusData, RegenStatusInst
 [System.Serializable]
 public class RegenStatusData : StatusData
 {
-    public int healthPerTick = 5;
-    public float tickDelay = 0.5f;
-    public float duration = 60f;
+    public int healthPerTick = 1;
+    public float tickDelay = 1f;
+    public float duration = 5f;
 }
 
 public class RegenStatusInstance : StatusInstance<RegenStatusData>
 {
     Coroutine regenCoroutine = null;
+    private Damagable damagable = null;
 
     public override void Apply()
     {
-        //regenCoroutine = target.StartCoroutine(RegenCoroutine());
+        if (target.TryGetComponent<Damagable>(out damagable))
+        {
+            regenCoroutine = target.StartCoroutine(RegenCoroutine());
+        }
+        else
+        {
+            Debug.Log("RegenBuff: The target is invincible and has no health!", target);
+        }
     }
 
     public IEnumerator RegenCoroutine()
@@ -29,7 +37,7 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
         {
             if (elapsed == 0 || tickTimer > data.tickDelay)
             {
-                //target.ChangeHealth(data.healthPerTick);
+                damagable.heal(data.healthPerTick);
                 tickTimer = 0;
             }
             
@@ -43,7 +51,7 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
 
     public override void End(bool prematurely = false)
     {
-        //if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
+        if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
         base.End(prematurely);
     }
 }
