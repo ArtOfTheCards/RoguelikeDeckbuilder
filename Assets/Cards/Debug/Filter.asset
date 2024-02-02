@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
+  m_Name: Filter
+  m_EditorClassIdentifier: 
+  debug_ID: New ID
+  title: New Card
+  art: {fileID: 0}
+  playTarget: 3
+  playDescription: -2 CARD, +3 CARD
+  playEffects:
+  - rid: 7443702563337142274
+  - rid: 7443702563337142275
+  - rid: 7443702563337142272
+  throwTarget: 0
+  throwDescription: 
+  throwEffects: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7443702563337142272
+      type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New AutoDraw Effect
+        number: 3
+    - rid: 7443702563337142274
+      type: {class: AutoRandomDiscardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New AutoRandomDiscard Effect
+    - rid: 7443702563337142275
+      type: {class: AutoRandomDiscardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New AutoRandomDiscard Effect
