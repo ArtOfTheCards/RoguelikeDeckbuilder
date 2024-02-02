@@ -10,8 +10,6 @@ jobs:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
       # Cache
       - uses: actions/cache@v3
@@ -30,9 +28,14 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          packageMode: true
           unityVersion: 2022.3.16f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: Test results
+          path: artifacts
 
 
       # Build
