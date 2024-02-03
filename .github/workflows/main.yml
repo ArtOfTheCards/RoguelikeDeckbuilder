@@ -50,6 +50,8 @@ jobs:
         uses: game-ci/unity-test-runner@v2
         id: testRunner
         with:
+          projectPath: RoguelikeDeckbuilder
+          unityVersion: 2022.3.16f1
           testMode: ${{ matrix.testMode }}
           checkName: ${{ matrix.testMode }} test results
           githubToken: ${{ secrets.GITHUB_TOKEN }}
