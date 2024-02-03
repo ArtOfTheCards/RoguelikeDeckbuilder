@@ -6,16 +6,19 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: RoguelikeDeckbuilder
     steps:
       # Checkout
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       # Cache
       - uses: actions/cache@v2
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: RoguelikeDeckbuilder/Library
+          key: Library-${{ hashFiles('RoguelikeDeckbuilder/Assets/**', 'RoguelikeDeckbuilder/Packages/**', 'RoguelikeDeckbuilder/ProjectSettings/**') }}
           restore-keys: |
             Library-
 
@@ -36,7 +39,7 @@ jobs:
         if: always()
         with:
           name: Test results
-          path: artifacts
+          path: RoguelikeDeckbuilder/artifacts
 
       # Build
       - name: Build project
@@ -52,4 +55,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Build
-          path: build
+          path: RoguelikeDeckbuilder/build
