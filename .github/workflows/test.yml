@@ -26,9 +26,17 @@ jobs:
           key: Library-${{ runner.os }}-${{ hashFiles('**/Library/**') }}
           restore-keys: |
             Library-
-      # No need for explicit authentication with GitHub App
+      - name: Authenticate with GitHub App
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: game-ci/unity-test-runner@v4
         id: tests
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           testMode: ${{ matrix.testMode }}
           artifactsPath: ${{ matrix.testMode }}-artifacts
