@@ -43,7 +43,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          ref: main # or the branch where your game was built
+          ref: deployment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
