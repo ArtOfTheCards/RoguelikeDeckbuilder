@@ -181,20 +181,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHandSize: 3
   normalDrawAmount: 1
-  drawDelay: 5
+  drawDelay: 0.5
   DEBUG_startingDeck:
-  - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
-  - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
-  - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
-  - {fileID: 11400000, guid: b87ad9fcef18ec241bdbbef9b9a27632, type: 2}
-  - {fileID: 11400000, guid: b87ad9fcef18ec241bdbbef9b9a27632, type: 2}
-  - {fileID: 11400000, guid: b87ad9fcef18ec241bdbbef9b9a27632, type: 2}
-  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
-  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
-  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
-  - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
-  - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
+  - {fileID: 11400000, guid: c5268e392b89e40408a6eb8a60d4ed95, type: 2}
+  - {fileID: 11400000, guid: 093ef4169eb77234b922a104b6e91361, type: 2}
   drawPile: []
   hand: []
   discardPile: []
@@ -402,32 +393,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debug_Target
       objectReference: {fileID: 0}
+    - target: {fileID: 7497819824076557295, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497819824076557295, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 7710878831576577907}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
---- !u!1 &7710878831576577906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-  m_PrefabInstance: {fileID: 7710878831576577905}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7710878831576577907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7710878831576577906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e051d179aa99fde4cb4c7deaff6dfb01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusInspectorDebug: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -9,22 +9,33 @@ public class Effectable : MonoBehaviour
 
     public void AddStatusEffect(StatusFactory status)
     {
-        StatusInstance instance = status.CreateStatusInstance(this);
+        StatusInstance existingInstance = GetStatusInstanceOfType(status);
 
-        statuses.Add(instance);
-        statusInspectorDebug.Add(instance.ToString());
+        if (existingInstance == null)                           // if the status effect doesn't exist on this object.
+        {
+            StatusInstance instance = status.CreateStatusInstance(this);
 
-        instance.statusEnded += RemoveStatusEffect;
-        instance.Apply();
+            statuses.Add(instance);
+            statusInspectorDebug.Add($"{instance} ({instance.currentStacks})");
+
+            instance.statusEnded += RemoveStatusEffect;
+            instance.Apply();
+        }
+        else if (existingInstance.GetStatusData().stackable)    // if the status effect DOES exist and can stack.
+        {
+            statusInspectorDebug.Remove($"{existingInstance} ({existingInstance.currentStacks})");
+            existingInstance.AddAdditionalStack();
+            statusInspectorDebug.Add($"{existingInstance} ({existingInstance.currentStacks})");
+        }
     }
 
     public void RemoveStatusEffect(StatusInstance instance)
     {
         if (statuses.Contains(instance)) 
         {
-            instance.End(prematurely:true); // Ending an effect prematurely prevents it from calling this function infinitely.
+            instance.End();
             statuses.Remove(instance);
-            statusInspectorDebug.Remove(instance.ToString());
+            statusInspectorDebug.Remove($"{instance} ({instance.currentStacks})");
         }
         else
         {
@@ -40,19 +51,38 @@ public class Effectable : MonoBehaviour
         foreach (StatusInstance instance in statuses.ToArray())
         {
             RemoveStatusEffect(instance);
-            statusInspectorDebug.Remove(instance.ToString());
+            statusInspectorDebug.Remove($"{instance} ({instance.currentStacks})");
         }
     }
 
-    public void RemoveStatusesOfType(StatusFactory status)
+    public void RemoveSomeStatuses(List<StatusFactory> statusFactories)
     {
+        // TODO, TO-DO (maybe):
+        // n^2 time complexity is not great! Try to make it easier to get the instances from the factories.
+        // Maybe store instances as dictionary entries instead of in a list? That way instances can be indexed
+        // from their factories. But this only works if we're POSITIVE we'll only have one instance per type.
+
         foreach (StatusInstance instance in statuses.ToArray())
         {
-            if (status.Matches(instance))   // Checks that type AND ID are the same.
+            foreach (StatusFactory factory in statusFactories)
             {
-                RemoveStatusEffect(instance);
-                statusInspectorDebug.Remove(instance.ToString());
+                if (factory.Matches(instance))
+                {
+                    RemoveStatusEffect(instance);
+                    statusInspectorDebug.Remove($"{instance} ({instance.currentStacks})");
+                }
             }
         }
+    }
+
+    public StatusInstance GetStatusInstanceOfType(StatusFactory status)
+    {
+        foreach (StatusInstance instance in statuses)
+        {
+            // Checks that type AND ID are the same.
+            if (status.Matches(instance)) return instance;
+        }
+
+        return null;
     }
 }

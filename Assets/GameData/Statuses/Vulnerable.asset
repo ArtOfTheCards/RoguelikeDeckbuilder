@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61de1c91eefe3e049abfceb8709ecd49, type: 3}
-  m_Name: Poison
+  m_Script: {fileID: 11500000, guid: eaf9223a639152d47bc9c62a37e515ae, type: 3}
+  m_Name: Vulnerable
   m_EditorClassIdentifier: 
   StatusData:
-    ID: Poison
+    ID: Vulnerable
     stackable: 1
-    damagePerTick: 1
-    tickDelay: 0.1
-    duration: 5
+    damageTakenModifier:
+      stackType: 1
+      value: 100
+      priority: 0
+    duration: 10
     durationAddedOnStack: 1000

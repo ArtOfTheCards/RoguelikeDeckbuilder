@@ -93,6 +93,7 @@ public class CardEditor : Editor
                             case "AutoDrawEffect": effectList.Add(new AutoDrawEffect()); break;
                             case "CardCountDirectDamageEffect": effectList.Add(new CardCountDirectDamageEffect()); break;
                             case "DirectAddStatusEffect": effectList.Add(new DirectAddStatusEffect()); break;
+                            case "DirectClearStatusesEffect": effectList.Add(new DirectClearStatusesEffect()); break;
                             case "DirectDamageEffect": effectList.Add(new DirectDamageEffect()); break;
                             case "DelayEffect": effectList.Add(new DelayEffect()); break;
                             case "SpawnEffect": effectList.Add(new SpawnEffect()); break;

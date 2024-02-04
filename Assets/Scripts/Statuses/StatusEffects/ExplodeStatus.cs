@@ -7,20 +7,30 @@ public class ExplodeStatusFactory : StatusFactory<ExplodeStatusData, ExplodeStat
 [System.Serializable]
 public class ExplodeStatusData : StatusData
 {
+    [Header("Explode Parameters")]
+    [Tooltip("How long, in seconds, this status effect lasts.")]
     public float duration = 5f;
-    public int healthChange = -5;
+    [Tooltip("The amount of damage dealt at the end of this effect, per stack.")]
+    public int damagePerStack = 5;
+    [Tooltip("How much extra time, in seconds, we get when an additional stack is added.")]
+    public float durationAddedOnStack = 0;
 }
 
 public class ExplodeStatusInstance : StatusInstance<ExplodeStatusData>
 {
-    private Coroutine explodeCoroutine = null;
+    private Coroutine endRoutine = null;
     private Damagable damagable = null;
+    float elapsed = 0;
+
+    // ================================================================
+    // Main methods
+    // ================================================================
 
     public override void Apply()
     {
         if (target.TryGetComponent<Damagable>(out damagable))
         {
-            explodeCoroutine = target.StartCoroutine(ExplodeCoroutine());
+            endRoutine = target.StartCoroutine(EndCoroutine());
         }
         else
         {
@@ -28,22 +38,32 @@ public class ExplodeStatusInstance : StatusInstance<ExplodeStatusData>
         }
     }
 
-    public IEnumerator ExplodeCoroutine()
+    public override void AddAdditionalStack()
     {
-        float elapsed = 0;
+        elapsed -= data.durationAddedOnStack;   // Give us more time
+        base.AddAdditionalStack();
+    }
+
+    public override void End()
+    {
+        if (endRoutine != null) target.StopCoroutine(endRoutine);
+        base.End();
+    }
+
+    // ================================================================
+    // Additional methods
+    // ================================================================
+
+    public IEnumerator EndCoroutine()
+    {
+        
         while (elapsed < data.duration)
         { 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        damagable.damage(data.healthChange);
+        damagable.damage(data.damagePerStack * currentStacks);
         End();
-    }
-
-    public override void End(bool prematurely = false)
-    {
-        if (explodeCoroutine != null) target.StopCoroutine(explodeCoroutine);
-        base.End(prematurely);
     }
 }

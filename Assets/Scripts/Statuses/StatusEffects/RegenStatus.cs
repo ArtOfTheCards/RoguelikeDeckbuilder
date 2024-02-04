@@ -7,15 +7,23 @@ public class RegenStatusFactory : StatusFactory<RegenStatusData, RegenStatusInst
 [System.Serializable]
 public class RegenStatusData : StatusData
 {
+    [Header("Regen Parameters")]
     public int healthPerTick = 1;
     public float tickDelay = 1f;
     public float duration = 5f;
+    [Tooltip("How much extra time, in seconds, we get when an additional stack is added.")]
+    public float durationAddedOnStack = 1;
 }
 
 public class RegenStatusInstance : StatusInstance<RegenStatusData>
 {
     Coroutine regenCoroutine = null;
     private Damagable damagable = null;
+    float elapsed = 0;
+
+    // ================================================================
+    // Main methods
+    // ================================================================
 
     public override void Apply()
     {
@@ -29,15 +37,30 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
         }
     }
 
+    public override void AddAdditionalStack()
+    {
+        elapsed -= data.durationAddedOnStack;   // Give us more time
+        base.AddAdditionalStack();
+    }
+
+    public override void End()
+    {
+        if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
+        base.End();
+    }
+
+    // ================================================================
+    // Additional methods
+    // ================================================================
+
     public IEnumerator RegenCoroutine()
     {
-        float elapsed = 0;
         float tickTimer = 0;
         while (elapsed < data.duration)
         {
             if (elapsed == 0 || tickTimer > data.tickDelay)
             {
-                damagable.heal(data.healthPerTick);
+                damagable.heal(data.healthPerTick * currentStacks);
                 tickTimer = 0;
             }
             
@@ -47,11 +70,5 @@ public class RegenStatusInstance : StatusInstance<RegenStatusData>
         }
 
         End();
-    }
-
-    public override void End(bool prematurely = false)
-    {
-        if (regenCoroutine != null) target.StopCoroutine(regenCoroutine);
-        base.End(prematurely);
     }
 }
