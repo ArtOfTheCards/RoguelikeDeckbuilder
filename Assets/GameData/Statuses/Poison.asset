@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18b94242c71a054991ef0334831eafb, type: 3}
-  m_Name: strength
+  m_Script: {fileID: 11500000, guid: 61de1c91eefe3e049abfceb8709ecd49, type: 3}
+  m_Name: Poison
   m_EditorClassIdentifier: 
   StatusData:
-    ID: Strength
-    strengthToAdd: 5
+    ID: Poison
+    stackable: 1
+    damagePerTick: 1
+    tickDelay: 0.1
     duration: 5
+    durationAddedOnStack: 1000

@@ -1,19 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Damagable : MonoBehaviour
 {
     [SerializeField] private int currentHealth;
     [SerializeField] private int maxHealth;
+    public System.Action<StatModifierBank> OnCalculateDamage;
 
-    public void damage(int value) {
-        currentHealth = Mathf.Max(currentHealth - value, 0);
+    public void damage(int baseValue) 
+    {
+        // Create a new bank of modifiers to our damage amount.
+        StatModifierBank damageModifiers = new();                          
+        // Populate that bank with the modifiers that our subscribees provide us.
+        OnCalculateDamage?.Invoke(damageModifiers);                        
+        // Calculate the amount of damage done.
+        int finalValue = (int)damageModifiers.Calculate(baseValue);
+        Debug.Log($"Base damage was {baseValue}. With modifiers, did {finalValue} damage!");
+
+        
+        currentHealth = Mathf.Max(currentHealth - finalValue, 0);
 
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-        if (sprite != null) StartCoroutine(DEBUG_FlashRed(sprite));
+        if (TryGetComponent<SpriteRenderer>(out var sprite)) StartCoroutine(DEBUG_FlashRed(sprite));
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
 
