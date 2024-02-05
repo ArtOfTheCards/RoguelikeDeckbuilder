@@ -85,4 +85,12 @@ public class Effectable : MonoBehaviour
 
         return null;
     }
+    void OnGUI()
+    {
+        for (int i=0; i<statusInspectorDebug.Count; i++)
+        {
+            GUI.Box(new Rect(200, 100+(i*30), 200, 20), statusInspectorDebug[i]);
+        }
+    }
+
 }
