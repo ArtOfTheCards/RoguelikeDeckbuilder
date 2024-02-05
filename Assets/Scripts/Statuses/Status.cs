@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 // Status effect framework adapted from work by Edward Lu on Stray Pixels:
@@ -28,6 +29,7 @@ public abstract class StatusData
     // ================================================================
 
     public string ID = "";
+    public bool stackable = false;
     public override string ToString() { return ID; }
 }
 
@@ -43,13 +45,24 @@ public abstract class StatusInstance
     // ================================================================
 
     public System.Action<StatusInstance> statusEnded;
+    public bool Ended { get; private set; }
     public string ID { get {return ToString();} }
+    public int currentStacks = 1;
 
     public abstract void Apply();
-    public virtual void Update() {}
-    public virtual void End(bool prematurely=false) { if (!prematurely) statusEnded?.Invoke(this); }
+    public virtual void AddAdditionalStack() { currentStacks++; }
+    public virtual void End()
+    { 
+        if (!Ended)
+        {
+            Ended = true; 
+            statusEnded?.Invoke(this); 
+        }
+    }
+    
+    public abstract StatusData GetStatusData();
 }
-public abstract class StatusInstance<StatusData_type> : StatusInstance
+public abstract class StatusInstance<StatusData_type> : StatusInstance where StatusData_type : StatusData
 {
     // ================================================================
     // An abstract generic class defining a StatusInstance from some 
@@ -60,9 +73,10 @@ public abstract class StatusInstance<StatusData_type> : StatusInstance
     // ================================================================
 
     public StatusData_type data;
-    //public Creature target;
+    public Effectable target;
 
     public override string ToString() { return data.ToString(); }
+    public override StatusData GetStatusData() { return data; }
 }
 
 
@@ -74,12 +88,13 @@ public abstract class StatusFactory : ScriptableObject
     // Abstract base class defining a StatusFactory, used to mention
     // a StatusFactory of unspecific type.
     // ================================================================
-    public abstract StatusInstance CreateStatusInstance(/*Creature target*/);
+    public abstract StatusInstance CreateStatusInstance(Effectable target);
     public abstract bool Matches(StatusInstance instance);
     public string ID { get {return ToString();} }
 }
 public class StatusFactory<StatusData_type, StatusInstance_type> : StatusFactory 
 where StatusInstance_type : StatusInstance<StatusData_type>, new()
+where StatusData_type : StatusData
 {
     // ================================================================
     // A generic factory class used to create new StatusInstances from
@@ -92,9 +107,9 @@ where StatusInstance_type : StatusInstance<StatusData_type>, new()
     // ================================================================
     public StatusData_type StatusData;
 
-    public override StatusInstance CreateStatusInstance(/*Creature target*/)
+    public override StatusInstance CreateStatusInstance(Effectable _target)
     {
-        return new StatusInstance_type { data = StatusData/*, target = target*/ };
+        return new StatusInstance_type { data = StatusData, target = _target };
     }
 
     public override bool Matches(StatusInstance instance) 
