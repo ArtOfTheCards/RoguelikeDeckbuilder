@@ -19,6 +19,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
     [Header("Drawpile")]
     public Vector2 drawOffset = new();
     public Vector2 drawDimensions = new(200,200);
+    public int timerHeight = 16;
     [Header("Cards")]
     public int globalYOffset;
     public int xWidth;
@@ -84,9 +85,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
         // ================
     
         GUI.Box(new Rect(0+drawOffset.x,
-                         h-drawOffset.y-drawDimensions.y-45,
+                         h-drawOffset.y-drawDimensions.y-pileLabelHeight-20-timerHeight,
                          drawDimensions.x * (user.DrawTimer/user.drawDelay),
-                         8), "");
+                         timerHeight), "", cardStyle);
         GUI.Box(new Rect(0+drawOffset.x,
                          h-drawOffset.y-drawDimensions.y-pileLabelHeight-10,
                          drawDimensions.x,
