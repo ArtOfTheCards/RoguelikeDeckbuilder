@@ -32,7 +32,7 @@ public class Damagable : MonoBehaviour
         }
 
         // show damage indicator
-        showDamageIndicator(value);
+        showDamageIndicator(baseValue);
     }
 
     void showDamageIndicator(int value) {

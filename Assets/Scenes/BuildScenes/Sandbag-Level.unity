@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndicator: {fileID: 0}
   currentHealth: 20
   maxHealth: 20
 --- !u!114 &1189893325
@@ -1783,6 +1784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
   currentHealth: 20
   maxHealth: 20
 --- !u!114 &1654757554
