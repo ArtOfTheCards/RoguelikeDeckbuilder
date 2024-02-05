@@ -9,6 +9,11 @@ public class DebugGUI_CardInterface : MonoBehaviour
     [ReadOnly] public int w;
     [ReadOnly] public int h;
     [ReadOnly] public bool canPlay = true;
+    public int pileLabelHeight = 50;
+    public int pileFontSize = 50;
+    public int pileLabelFontSize = 50;
+    public int cardFontSize = 50;
+    public int buttonFontSize = 50;
 
 
     [Header("Drawpile")]
@@ -28,7 +33,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
     public Vector2 discardDimensions = new(200,200);
 
 
-    private GUIStyle pileStyle, cardStyle;
+    private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
 
     private void Awake()
@@ -53,7 +58,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
         pileStyle = new(GUI.skin.box)
         {
             alignment = TextAnchor.MiddleCenter,
-            fontSize = 50
+            fontSize = pileFontSize
+        };
+
+        pileLabelStyle = new(GUI.skin.box)
+        {
+            alignment = TextAnchor.MiddleCenter,
+            fontSize = pileLabelFontSize
         };
         
         cardStyle = new GUIStyle(GUI.skin.box); 
@@ -61,6 +72,12 @@ public class DebugGUI_CardInterface : MonoBehaviour
         cardStyle.normal.background = normalBackground;
         cardStyle.hover.textColor = Color.cyan;
         cardStyle.hover.background = hoverBackground;
+        cardStyle.fontSize = cardFontSize;
+
+        buttonStyle = new(GUI.skin.button)
+        {
+            fontSize = buttonFontSize
+        };
 
         // ================
         // Draw cards
@@ -71,9 +88,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          drawDimensions.x * (user.DrawTimer/user.drawDelay),
                          8), "");
         GUI.Box(new Rect(0+drawOffset.x,
-                         h-drawOffset.y-drawDimensions.y-30,
+                         h-drawOffset.y-drawDimensions.y-pileLabelHeight-10,
                          drawDimensions.x,
-                         20), $"Drawpile");
+                         pileLabelHeight), $"Drawpile", pileLabelStyle);
         GUI.Box(new Rect(0+drawOffset.x,
                          h-drawOffset.y-drawDimensions.y,
                          drawDimensions.x,
@@ -88,7 +105,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
             int offsetX = Mathf.RoundToInt(((i+1)*xWidth/(user.hand.Count+1)) + (w-xWidth)/2 - cardDimensions.x/2);
             int offsetY = Mathf.RoundToInt(h - (globalYOffset + (i*cardOffset.y)) - cardDimensions.y);
 
-            string text = $"{card.title}\n{card.playDescription}\n\n\n\n{card.throwDescription}";
+            string text = $"{card.title}\n{card.playDescription}\n\n\n{card.throwDescription}";
 
             GUI.Box(new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y), $"{text}", cardStyle);
 
@@ -97,7 +114,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+playButtonOffset.x,
                                         offsetY+buttonMargins.y/2+playButtonOffset.y,
                                         cardDimensions.x-buttonMargins.x, 
-                                        cardDimensions.y-buttonMargins.y), $"Play"))
+                                        cardDimensions.y-buttonMargins.y), $"Play", buttonStyle))
                 {
                     if (card.playTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
@@ -119,7 +136,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 if (GUI.Button(new Rect(offsetX+buttonMargins.x/2+throwButtonOffset.x,
                                         offsetY+buttonMargins.y/2+throwButtonOffset.y,
                                         cardDimensions.x-buttonMargins.x, 
-                                        cardDimensions.y-buttonMargins.y), $"Throw"))
+                                        cardDimensions.y-buttonMargins.y), $"Throw", buttonStyle))
                 {
                     if (card.throwTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
@@ -144,9 +161,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
         // Dis cards
         // ================
         GUI.Box(new Rect(w-discardOffset.x-discardDimensions.x,
-                         h-discardOffset.y-discardDimensions.y-30,
+                         h-discardOffset.y-discardDimensions.y-pileLabelHeight-10,
                          discardDimensions.x,
-                         20), $"Discard");
+                         pileLabelHeight), $"Discard", pileLabelStyle);
         GUI.Box(new Rect(w-discardOffset.x-discardDimensions.x,
                          h-discardOffset.y-discardDimensions.y,
                          discardDimensions.x,
