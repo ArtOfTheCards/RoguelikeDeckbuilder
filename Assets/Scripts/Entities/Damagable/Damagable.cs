@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Damagable : MonoBehaviour
 {
+    [SerializeField] private GameObject damageIndicator;
     [SerializeField] private int currentHealth;
     [SerializeField] private int maxHealth;
     public System.Action<StatModifierBank> OnCalculateDamage;
@@ -29,6 +30,16 @@ public class Damagable : MonoBehaviour
         if (currentHealth == 0) {
             die();
         }
+
+        // show damage indicator
+        showDamageIndicator(value);
+    }
+
+    void showDamageIndicator(int value) {
+        if (damageIndicator == null) return;
+
+        var text = Instantiate(damageIndicator, transform.position, Quaternion.identity, transform);
+        text.GetComponent<TextMesh>().text = value.ToString();
     }
 
     public void heal(int value) {
