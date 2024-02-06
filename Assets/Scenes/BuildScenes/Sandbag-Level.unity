@@ -1373,6 +1373,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8741109806505805277, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189893325}
+    - targetCorrespondingSourceObject: {fileID: 8741109806505805277, guid: f49946e8cac7b864da29dc673c110302, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189893330}
   m_SourcePrefab: {fileID: 100100000, guid: f49946e8cac7b864da29dc673c110302, type: 3}
 --- !u!1 &1189893316 stripped
 GameObject:
@@ -1476,6 +1479,41 @@ MonoBehaviour:
   throwButtonOffset: {x: 0, y: 60}
   discardOffset: {x: 10, y: 10}
   discardDimensions: {x: 200, y: 200}
+--- !u!70 &1189893330
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189893316}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.51}
+  m_Size: {x: 1.34, y: 0.66}
+  m_Direction: 1
 --- !u!850595691 &1440126004
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2003,6 +2041,7 @@ GameObject:
   - component: {fileID: 1845103503}
   - component: {fileID: 1845103504}
   - component: {fileID: 1845103505}
+  - component: {fileID: 1845103506}
   m_Layer: 0
   m_Name: Pond
   m_TagString: Untagged
@@ -2093,6 +2132,41 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!70 &1845103506
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845103502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 0.94}
+  m_Direction: 1
 --- !u!1001 &2559303974571157053
 PrefabInstance:
   m_ObjectHideFlags: 0
