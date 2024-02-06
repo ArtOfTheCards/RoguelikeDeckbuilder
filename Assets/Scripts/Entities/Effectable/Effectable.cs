@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using Cinemachine;  
 
 public class Effectable : MonoBehaviour
 {
@@ -85,4 +86,15 @@ public class Effectable : MonoBehaviour
 
         return null;
     }
+    void OnGUI()
+    {
+        GUIStyle ourStyle = new(GUI.skin.box);
+        ourStyle.fontSize = 35;
+
+        for (int i=0; i<statusInspectorDebug.Count; i++)
+        {
+            GUI.Box(new Rect(Screen.width/2-150, 10+(i*60), 300, 50), statusInspectorDebug[i], ourStyle);
+        }
+    }
+
 }

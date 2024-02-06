@@ -22,9 +22,14 @@ public class NpcPathFinder : MonoBehaviour
         _agent.destination = destination;
     }
 
-    private void SetSpeed(float speed)
+    public void SetSpeed(float speed)
     {
         _agent.speed = speed;
+    }
+
+    public float GetSpeed()
+    {
+        return _agent.speed;
     }
 
     [System.Obsolete]
