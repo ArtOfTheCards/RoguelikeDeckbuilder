@@ -5,16 +5,12 @@ on:
     branches:
       - main  # Change to your desired branch
       - deployment
-  pull_request:
-    branches:
-      - main  # Change to your desired branch
-      - deployment
 
 jobs:
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'opened')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/deployment'
     strategy:
       fail-fast: false
       matrix:
@@ -48,6 +44,7 @@ jobs:
     needs: buildForAllSupportedPlatforms
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/deployment'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -64,5 +61,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: main # The branch the action should deploy to.
+          branch: deployment # The branch the action should deploy to.
           folder: build/WebGL # The folder the action should deploy.
