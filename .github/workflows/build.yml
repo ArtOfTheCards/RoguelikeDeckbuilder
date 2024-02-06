@@ -80,6 +80,14 @@ jobs:
           name: Build-WebGL
           path: build
 
+      - name: Configure Git LFS
+        run: |
+          git lfs install
+          git lfs track "build/WebGL/**/*"
+          git add .gitattributes
+          git commit -m "Enable Git LFS for large files"
+          git push origin gh-pages
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: peaceiris/actions-gh-pages@v3
