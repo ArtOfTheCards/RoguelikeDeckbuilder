@@ -21,7 +21,7 @@ MonoBehaviour:
   - rid: 5399437876876541952
   - rid: 5399437876876541953
   throwTarget: 1
-  throwDescription: '1 VULN (or slow) '
+  throwDescription: +SLOW
   throwEffects:
   - rid: 5399437876876541954
   references:
@@ -40,5 +40,5 @@ MonoBehaviour:
     - rid: 5399437876876541954
       type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: vuln1
-        status: {fileID: 11400000, guid: d75f46b2f7c91bb4e896144f87b799d7, type: 2}
+        Debug_ID: slowness
+        status: {fileID: 11400000, guid: 3a2bf7c6684313948a1ec7077c319609, type: 2}

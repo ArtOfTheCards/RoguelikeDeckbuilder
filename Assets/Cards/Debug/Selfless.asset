@@ -16,7 +16,7 @@ MonoBehaviour:
   title: Selfless
   art: {fileID: 0}
   playTarget: 1
-  playDescription: -1 DMG (or 1 DMG to self), 3 CARD
+  playDescription: -5 HEALTH, 3 CARD
   playEffects:
   - rid: -2
   - rid: 5399437876876541955
