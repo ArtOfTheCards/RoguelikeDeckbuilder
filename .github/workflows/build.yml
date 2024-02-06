@@ -3,7 +3,7 @@ name: Build and Deploy project
 on:
   push:
     branches:
-      - main  # Change to your desired branch
+      - main
       - deployment
 
 jobs:
@@ -17,25 +17,41 @@ jobs:
         targetPlatform:
           - WebGL
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
-      - uses: actions/cache@v2
+
+      - name: Cache Unity Library
+        uses: actions/cache@v2
         with:
           path: Library
-          key: Library-${{ matrix.targetPlatform }}
-          restore-keys: Library-
-      - if: matrix.targetPlatform == 'Android'
+          key: Library-${{ runner.os }}-${{ hashFiles('**/Library/**') }}
+          restore-keys: Library-${{ runner.os }}-
+
+      - name: Cache Unity Build Artifacts
+        uses: actions/cache@v2
+        with:
+          path: build
+          key: Build-${{ matrix.targetPlatform }}-${{ hashFiles('build/**') }}
+          restore-keys: Build-${{ matrix.targetPlatform }}-
+
+      - name: Check Disk Space (Android)
+        if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.3.1
-      - uses: game-ci/unity-builder@v4
+
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
@@ -49,7 +65,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v2
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2
         with:
           name: Build-WebGL
           path: build
@@ -61,5 +78,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: deployment # The branch the action should deploy to.
-          folder: build/WebGL # The folder the action should deploy.
+          branch: deployment
+          folder: build/WebGL
