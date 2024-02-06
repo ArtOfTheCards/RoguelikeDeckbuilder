@@ -42,7 +42,7 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     // To access the Data class, use data.[Property Name].
     // To access the number of instance stacks, use currentStacks. 
     // ================
-    private Damagable damagable = null;
+    //private NpcPathFinder npc = null;
     private bool subscribed = false;
     private float elapsed = 0;
     private Coroutine endRoutine = null;
@@ -56,8 +56,8 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     {
         if (target.TryGetComponent<NpcPathFinder>(out NpcPathFinder npc))
         { 
-            npc.SetSpeed(npc.GetSpeed()(1+(speedChangePercent*.01)));
-            subscribed = true;
+            float baseSpeed = npc.GetSpeed();
+            npc.SetSpeed(baseSpeed*(1+(data.speedChangePercent*.01f)));
             endRoutine = target.StartCoroutine(EndCoroutine());
         }
         else
