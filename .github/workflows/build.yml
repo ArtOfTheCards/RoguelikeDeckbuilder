@@ -71,13 +71,9 @@ jobs:
           name: Build-WebGL
           path: build
 
-      - name: Display Structure of root files
-        run: ls -R
-        working-directory: build/WebGL
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: deployment
-          folder: build/WebGL
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/WebGL
+          publish_branch: deployment
