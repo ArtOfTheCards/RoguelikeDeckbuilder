@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: actions/cache@v3
+      - uses: actions/cache@v2
         with:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
@@ -39,7 +39,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
@@ -51,18 +51,18 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
-      - uses:  actions/download-artifact@v2
-        with : 
-            name: Build-WebGL
-            path: build
-        
-      - name: Display Structure of root files
-        run : ls -R
-        working-directory : build/WebGL
 
-      - name : Deploy 
-        uses : JamesIves/github-pages-deploy-action@4.1.4
+      - uses: actions/download-artifact@v2
+        with:
+          name: Build-WebGL
+          path: build
+
+      - name: Display Structure of root files
+        run: ls -R
+        working-directory: build/WebGL
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: main # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          folder: build/WebGL # The folder the action should deploy.
