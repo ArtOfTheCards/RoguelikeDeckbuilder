@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHandSize: 5
   normalDrawAmount: 1
-  drawDelay: 5
+  drawDelay: 7
   DEBUG_startingDeck:
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
@@ -1291,6 +1291,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
   - {fileID: 11400000, guid: ab5327c7ee621d44e929a507514912c5, type: 2}
   - {fileID: 11400000, guid: ab5327c7ee621d44e929a507514912c5, type: 2}
+  - {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+  - {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
   drawPile: []
   hand: []
   discardPile: []

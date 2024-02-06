@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stun
   m_EditorClassIdentifier: 
   StatusData:
-    ID: 
+    ID: Stun
     stackable: 0
     speedChangePercent: -100
     duration: 5

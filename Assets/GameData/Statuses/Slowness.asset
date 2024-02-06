@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Slowness
   m_EditorClassIdentifier: 
   StatusData:
-    ID: slowness
+    ID: Slowness
     stackable: 0
-    speedChangePercent: -25
+    speedChangePercent: -40
     duration: 10
     durationAddedOnStack: 0
