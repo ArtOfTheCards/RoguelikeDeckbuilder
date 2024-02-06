@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b95fcab891eb47c448c4007bd147f9e8, type: 2}
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
-  - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
+  - {fileID: 11400000, guid: ab5327c7ee621d44e929a507514912c5, type: 2}
   drawPile: []
   hand: []
   discardPile: []
