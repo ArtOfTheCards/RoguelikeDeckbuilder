@@ -27,6 +27,12 @@ public class NpcPathFinder : MonoBehaviour
         _agent.speed = speed;
     }
 
+    GetSpeed()
+    {
+        float baseSpeed = npc.GetSpeed();
+        npc.SetSpeed(baseSpeed * modifier);
+    }
+
     [System.Obsolete]
     private void StopPath()
     {
