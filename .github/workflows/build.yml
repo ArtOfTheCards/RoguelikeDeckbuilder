@@ -84,8 +84,8 @@ jobs:
         id: deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/WebGL
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: build/WebGL
           publish_branch: main
 
       - name: Report Deployment Status
@@ -96,7 +96,7 @@ jobs:
             const errorMessage = '${{ steps.build.outputs.error_message }}';
             const deploymentStatus = errorMessage ? 'Failed' : 'Success';
             const context = github.context;
-            const octokit = new github.getOctokit('${{ secrets.GITHUB_TOKEN }}');
+            const octokit = new github.getOctokit('${{ secrets.GH_TOKEN }}');
             const body = errorMessage ? `Deployment failed: ${errorMessage}` : 'Deployment successful';
             const issue = await octokit.rest.issues.create({
               owner: context.repo.owner,
