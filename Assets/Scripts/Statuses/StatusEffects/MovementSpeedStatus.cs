@@ -42,11 +42,11 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     // To access the Data class, use data.[Property Name].
     // To access the number of instance stacks, use currentStacks. 
     // ================
-    //private NpcPathFinder npc = null;
+    private NpcPathFinder npc = null;
+    private float baseSpeed;
     private bool subscribed = false;
     private float elapsed = 0;
     private Coroutine endRoutine = null;
-    private Coroutine MovementSpeedStatusRoutine = null;                                // UNCOMMENT this line if you use TEMPLATECoroutine().
 
     // ================================================================
     // Main methods
@@ -54,9 +54,9 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
 
     public override void Apply()
     {
-        if (target.TryGetComponent<NpcPathFinder>(out NpcPathFinder npc))
+        if (target.TryGetComponent<NpcPathFinder>(out npc))
         { 
-            float baseSpeed = npc.GetSpeed();
+            baseSpeed = npc.GetSpeed();
             npc.SetSpeed(baseSpeed*(1+(data.speedChangePercent*.01f)));
             endRoutine = target.StartCoroutine(EndCoroutine());
         }
@@ -75,7 +75,8 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
 
     public override void End()
     {
-        if (MovementSpeedStatusRoutine != null) target.StopCoroutine(MovementSpeedStatusRoutine);   // UNCOMMENT this line if you use TEMPLATECoroutine().
+        if (endRoutine != null) target.StopCoroutine(EndCoroutine());
+        if (npc != null && baseSpeed != 0) npc.SetSpeed(baseSpeed);
         base.End();
     }
 
@@ -92,20 +93,5 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
         }
 
         End();
-    }
-    public IEnumerator TEMPLATECoroutine()
-    {
-        // Template coroutine code for making something happen over time.
-
-        float elapsed = 0;
-        while (elapsed < data.duration)
-        {
-            // ====================================
-            // ==== Meaningful code goes here. ====
-            // ====================================
-
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
     }
 }

@@ -1221,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3640293750406715584, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8741109806505805277, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       propertyPath: m_Name
@@ -1289,6 +1289,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b95fcab891eb47c448c4007bd147f9e8, type: 2}
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
   - {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
+  - {fileID: 11400000, guid: ab5327c7ee621d44e929a507514912c5, type: 2}
   - {fileID: 11400000, guid: ab5327c7ee621d44e929a507514912c5, type: 2}
   drawPile: []
   hand: []
@@ -1943,7 +1944,7 @@ PrefabInstance:
       objectReference: {fileID: 1189893316}
     - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7912688218760809599, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Name
