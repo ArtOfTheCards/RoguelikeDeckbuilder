@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
+  m_Name: HitRun
+  m_EditorClassIdentifier: 
+  debug_ID: HitRun
+  title: Hit and Run
+  art: {fileID: 0}
+  playTarget: 1
+  playDescription: 1 DMG, 1 CARD
+  playEffects:
+  - rid: 5399437876876541952
+  - rid: 5399437876876541953
+  throwTarget: 1
+  throwDescription: '1 VULN (or slow) '
+  throwEffects:
+  - rid: 5399437876876541954
+  references:
+    version: 2
+    RefIds:
+    - rid: 5399437876876541952
+      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: deal1
+        amount: 1
+    - rid: 5399437876876541953
+      type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: draw1
+        number: 1
+    - rid: 5399437876876541954
+      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: vuln1
+        status: {fileID: 11400000, guid: d75f46b2f7c91bb4e896144f87b799d7, type: 2}
