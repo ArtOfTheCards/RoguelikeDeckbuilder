@@ -16,7 +16,7 @@ MonoBehaviour:
   title: Magick Missile
   art: {fileID: 0}
   playTarget: 1
-  playDescription: 1 DMG, 1 DMG, 1 DMG
+  playDescription: 1 DMG x 3
   playEffects:
   - rid: 4647620957206740996
   - rid: 4647620957206740997
