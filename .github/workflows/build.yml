@@ -94,5 +94,6 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git lfs install
           git add .gitattributes
-          git commit -m "Enable LFS for artifacts"
-          git push origin gh-pages
+          git ls-files --others --exclude-standard build | xargs -I {} git lfs track "{}"
+          git diff-index --quiet HEAD || git commit -m "Enable LFS for artifacts" && git push origin gh-pages || echo "No changes to commit."
+
