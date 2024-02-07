@@ -44,7 +44,6 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     // ================
     private NpcPathFinder npc = null;
     private float baseSpeed;
-    private bool subscribed = false;
     private float elapsed = 0;
     private Coroutine endRoutine = null;
 
