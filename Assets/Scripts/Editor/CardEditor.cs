@@ -91,6 +91,7 @@ public class CardEditor : Editor
                         switch (context as string)
                         {
                             case "AutoDrawEffect": effectList.Add(new AutoDrawEffect()); break;
+                            case "AutoRandomDiscardEffect": effectList.Add(new AutoRandomDiscardEffect()); break;
                             case "CardCountDirectDamageEffect": effectList.Add(new CardCountDirectDamageEffect()); break;
                             case "DirectAddStatusEffect": effectList.Add(new DirectAddStatusEffect()); break;
                             case "DirectClearStatusesEffect": effectList.Add(new DirectClearStatusesEffect()); break;
