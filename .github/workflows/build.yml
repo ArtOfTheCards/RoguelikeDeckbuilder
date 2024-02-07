@@ -81,14 +81,6 @@ jobs:
         run: |
           git config --global user.email "$(git log -1 --pretty=format:'%ae')"
           git config --global user.name "$(git log -1 --pretty=format:'%an')"
-      
-      - name: Configure Git LFS
-        run: |
-          git lfs install
-          git lfs track "build/WebGL/**/*"
-          git add .gitattributes
-          git commit -m "Enable Git LFS for large files"
-          git push origin ${{ github.ref }} --set-upstream
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
