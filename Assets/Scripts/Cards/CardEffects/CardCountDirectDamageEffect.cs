@@ -34,7 +34,7 @@ public class CardCountDirectDamageEffect : CardEffect
         {
             int amount = 0;
             if (cardPile == CardPile.drawPile) { amount = caller.drawPile.Count; }
-            else if (cardPile == CardPile.hand) { amount = caller.hand.Count-1; } // Don't count ourselves
+            else if (cardPile == CardPile.hand) { amount = caller.hand.Count; } // Don't count ourselves
             else if (cardPile == CardPile.discardPile) { amount = caller.discardPile.Count; }
             else 
             { 

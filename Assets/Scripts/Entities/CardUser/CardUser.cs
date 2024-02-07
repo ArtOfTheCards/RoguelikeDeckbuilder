@@ -118,8 +118,8 @@ public class CardUser : MonoBehaviour
 
         if (ValidateUse(card, useMode) == false) { return; }
 
-        card.Use(this, useMode, target);
         if (!removeFromDeck) Discard(card);
+        card.Use(this, useMode, target);
     }
 
     public void UseCard(Card card, Card.UseMode useMode, Vector3 target, bool removeFromDeck=false)
