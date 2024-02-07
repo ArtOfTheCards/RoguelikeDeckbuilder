@@ -64,31 +64,26 @@ jobs:
         if: steps.build.outcome != 'success'
         run: |
           echo "::set-output name=error_message::Build failed: ${{ steps.build.conclusion }}"
-
+    
   deployToGitHubPages:
+    needs: buildForAllSupportedPlatforms
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: buildForAllSupportedPlatforms
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          lfs: true
-      
-      - name: Configure Git
-        run: |
-          git config --global user.email "$(git log -1 --pretty=format:'%ae')"
-          git config --global user.name "$(git log -1 --pretty=format:'%an')"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2
         with:
-          node-version: 14
-
-      - name: Install Dependencies
-        run: npm install -g gh-pages
+          name: Build-WebGL
+          path: build
 
       - name: Deploy to GitHub Pages
-        run: gh-pages -d build/WebGL -b gh-pages
+        id: deployment
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: build/WebGL
+          publish_branch: gh-pages
