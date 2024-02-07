@@ -64,34 +64,34 @@ jobs:
         if: steps.build.outcome != 'success'
         run: |
           echo "::set-output name=error_message::Build failed: ${{ steps.build.conclusion }}"
-    
+
   deployToGitHubPages:
-    needs: buildForAllSupportedPlatforms
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/deployment'
+    needs: buildForAllSupportedPlatforms
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v2
         with:
-          name: Build-WebGL
-          path: build
-
+          ref: ${{ github.ref }}
+          lfs: true
+      
       - name: Configure Git LFS
         run: |
           git lfs install
           git lfs track "build/WebGL/**/*"
           git add .gitattributes
           git commit -m "Enable Git LFS for large files"
-          git push origin gh-pages
+          git push origin ${{ github.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install -g gh-pages
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: build/WebGL
-          publish_branch: gh-pages
+        run: gh-pages -d build/WebGL -b gh-pages
