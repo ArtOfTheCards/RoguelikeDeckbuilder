@@ -87,3 +87,12 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: build/WebGL
           publish_branch: gh-pages
+
+       - name: Configure LFS for gh-pages branch
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git lfs install
+          git add .gitattributes
+          git commit -m "Enable LFS for artifacts"
+          git push origin gh-pages
