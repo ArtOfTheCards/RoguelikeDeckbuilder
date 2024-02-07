@@ -1160,7 +1160,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
@@ -1202,6 +1210,10 @@ PrefabInstance:
     - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 756785273103070182, guid: f49946e8cac7b864da29dc673c110302, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3640293750406715584, guid: f49946e8cac7b864da29dc673c110302, type: 3}
       propertyPath: m_Sprite
@@ -1275,7 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHandSize: 5
   normalDrawAmount: 1
-  drawDelay: 7
+  drawDelay: 5
   DEBUG_startingDeck:
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
