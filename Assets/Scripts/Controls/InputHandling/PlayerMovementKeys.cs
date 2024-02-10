@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementKeys : MonoBehaviour
 {
-    private Animator animator;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private KeyCode up;
+    [SerializeField] private KeyCode down;
+    [SerializeField] private KeyCode left;
+    [SerializeField] private KeyCode right;
+    [SerializeField] private Animator animator;
 
     private void Update()
     {
@@ -30,14 +30,14 @@ public class PlayerMovementKeys : MonoBehaviour
     {
         Vector2 input = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(up))
             input.y = 1f;
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(down))
             input.y = -1f;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(left))
             input.x = -1f;
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(right))
             input.x = 1f;
 
         return input.normalized;
