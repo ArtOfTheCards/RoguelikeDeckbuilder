@@ -6,10 +6,11 @@ public class Damagable : MonoBehaviour
     [SerializeField] private GameObject damageIndicator;
     [SerializeField] private int currentHealth;
     [SerializeField] public int maxHealth;
+    [SerializeField] public int debugHealthBoxMove;
     public System.Action<StatModifierBank> OnCalculateDamage;
 
-    public string metaknight;
-
+    private string metaknight;
+    private string healthstring;
     public void damage(int baseValue) 
     {
         // Create a new bank of modifiers to our damage amount.
@@ -63,9 +64,15 @@ public class Damagable : MonoBehaviour
     {
         GUIStyle ourStyle = new(GUI.skin.box);
         ourStyle.fontSize = 35;
-
-        metaknight = maxHealth.ToString();
-        GUI.Box(new Rect(Screen.width/2+150, 0, 300, 50), metaknight, ourStyle);
+        print(metaknight);
+        metaknight = this.maxHealth.ToString();
+        
+        GUI.Box(new Rect(Screen.width/2+320, debugHealthBoxMove, 100, 100), metaknight, ourStyle);
+        
+        healthstring = this.currentHealth.ToString();
+        //print(healthstring);
+        GUI.Box(new Rect(Screen.width/2+200, debugHealthBoxMove, 100, 100), healthstring, ourStyle);
+        
     }
 
 }

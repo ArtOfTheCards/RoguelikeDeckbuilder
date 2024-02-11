@@ -1297,11 +1297,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   drawPile: []
   hand: []
   discardPile: []
@@ -1333,6 +1328,7 @@ MonoBehaviour:
   damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
   currentHealth: 20
   maxHealth: 20
+  debugHealthBoxMove: 600
 --- !u!114 &1189893325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1736,7 @@ MonoBehaviour:
   damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
   currentHealth: 500
   maxHealth: 500
+  debugHealthBoxMove: 10
 --- !u!114 &1654757554
 MonoBehaviour:
   m_ObjectHideFlags: 0
