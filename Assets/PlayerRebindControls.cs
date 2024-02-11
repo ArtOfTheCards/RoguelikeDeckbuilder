@@ -1,20 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerRebindControls : MonoBehaviour
 {
     [SerializeField] private GameObject playerWASD;
     [SerializeField] private GameObject playerPathFinding;
+    [SerializeField] private NavMeshAgent agent;
 
-    private void Awake() {
-    
+    private bool isSwapped;
+
+    private void Awake()
+    {
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.enabled = false;
+
+        isSwapped = false;
+        TogglePlayerControls();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    public void SwapControls()
     {
-        
+        isSwapped = !isSwapped;
+        TogglePlayerControls();
+        HandleAgent();
+    }
+
+    private void TogglePlayerControls()
+    {
+        playerWASD.SetActive(!isSwapped);
+        playerPathFinding.SetActive(isSwapped);
+    }
+
+    private void HandleAgent()
+    {
+        Debug.Log("agent enabled to : " + playerPathFinding.activeInHierarchy);
+        agent.enabled = playerPathFinding.activeInHierarchy;
+        if(agent.enabled){
+            agent.ResetPath();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+
+        }
+            
     }
 }

@@ -1,37 +1,31 @@
-using System.Data.Common;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class OptionMenu : MonoBehaviour
 {
-     [SerializeField] private GameObject _optionScreen;
-     [SerializeField] private GameObject playerWASD;
-     [SerializeField] private GameObject playerPathfinding;
+     [SerializeField] private GameObject optionScreen;
+     [SerializeField] private PlayerRebindControls rebindControls;
 
-     private static bool isPaused;
-     private static bool isRebindPressed;
+     private bool isPaused;
+
      private void Awake()
      {
-          _optionScreen.SetActive(false);
-          playerWASD.SetActive(true);
-          playerPathfinding.SetActive(false);
-
-          isPaused = false;
-          isRebindPressed = true;
+          SetPauseState(false);
      }
+
      public void OnPause()
      {
-          isPaused = !isPaused;
-          _optionScreen.SetActive(isPaused);
-          Time.timeScale = isPaused ? 1.0f : 0;
+          SetPauseState(!isPaused);
+     }
 
+     private void SetPauseState(bool paused)
+     {
+          isPaused = paused;
+          optionScreen.SetActive(paused);
+          Time.timeScale = paused ? 0f : 1f;
      }
 
      public void OnRebindPlayerMovement()
      {
-          isRebindPressed = !isRebindPressed;
-          playerWASD.SetActive(isRebindPressed);
-          playerPathfinding.SetActive(!isRebindPressed);
+          rebindControls.SwapControls();
      }
-
 }
