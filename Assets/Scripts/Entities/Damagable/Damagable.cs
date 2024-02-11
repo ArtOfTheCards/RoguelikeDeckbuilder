@@ -5,8 +5,10 @@ public class Damagable : MonoBehaviour
 {
     [SerializeField] private GameObject damageIndicator;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] public int maxHealth;
     public System.Action<StatModifierBank> OnCalculateDamage;
+
+    public string metaknight;
 
     public void damage(int baseValue) 
     {
@@ -57,4 +59,13 @@ public class Damagable : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         sprite.color = old;
     }
+    void OnGUI()
+    {
+        GUIStyle ourStyle = new(GUI.skin.box);
+        ourStyle.fontSize = 35;
+
+        metaknight = maxHealth.ToString();
+        GUI.Box(new Rect(Screen.width/2+150, 0, 300, 50), metaknight, ourStyle);
+    }
+
 }
