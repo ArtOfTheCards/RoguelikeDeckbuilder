@@ -1296,7 +1296,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
   drawPile: []
   hand: []
   discardPile: []

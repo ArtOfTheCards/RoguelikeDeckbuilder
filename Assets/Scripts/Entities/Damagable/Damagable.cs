@@ -64,7 +64,7 @@ public class Damagable : MonoBehaviour
     {
         GUIStyle ourStyle = new(GUI.skin.box);
         ourStyle.fontSize = 35;
-        print(metaknight);
+        //print(metaknight);
         metaknight = this.maxHealth.ToString();
         
         GUI.Box(new Rect(Screen.width/2+320, debugHealthBoxMove, 100, 100), metaknight, ourStyle);
