@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - deployment
+    tags:
+       - 'v*'
 
 jobs:
   buildForAllSupportedPlatforms:
@@ -15,8 +17,9 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
           - WebGL
-        os:  # Add the operating systems you want to support
+        os: 
           - ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -97,3 +100,36 @@ jobs:
           git ls-files --others --exclude-standard build | xargs -I {} git lfs track "{}"
           git diff-index --quiet HEAD || git commit -m "Enable LFS for artifacts" && git push origin gh-pages || echo "No changes to commit."
 
+
+    
+  createWindowsRelease:
+      name: Create Windows Release
+      runs-on: ubuntu-latest
+      needs: buildForAllSupportedPlatforms
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
+      steps:
+
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+
+        - name: Create Windows Release
+          id: create_windows_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN : ${{secrets.GH_TOKEN}}
+          with:
+            tag_name: ${{github.ref}}  
+            release_name: ${{github.ref}} 
+            body: |
+              This version of our game is simply a demo at time as our team is workign hard
+
+            draft: false
+            prerelease: false
+
+        - name: Upload Release Asset - StandaloneOSX
+          uses: actions/upload-release-asset@v1
+          with:
+            upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
+            asset_path: build/StandaloneWindows
+            asset_name: StandaloneWindows.zip
+            asset_content_type: application/zip

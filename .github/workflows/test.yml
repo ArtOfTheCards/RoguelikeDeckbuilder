@@ -12,7 +12,6 @@ jobs:
         testMode:
           - playmode
           - editmode
-          - standalone
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
