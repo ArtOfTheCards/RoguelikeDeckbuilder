@@ -14,6 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     permissions:
       contents: write
+
     if: github.event_name == 'push' && (github.ref == 'refs/heads/deployment' || github.ref == 'refs/heads/main')
     strategy:
       fail-fast: false
@@ -135,14 +136,13 @@ jobs:
           tag: v1.0
 
 
-
-      - name: Upload Release Asset - StandaloneWindows
+      - name: Upload To Github Release
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.1
+        uses: xresloader/upload-to-github-release@v1.4.2
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
-          upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
-          asset_path: build/StandaloneWindows
-          asset_name: StandaloneWindows.zip
-          asset_content_type: application/zip
+          overwrite: true
+          file: build/StandaloneWindows
+          tags: true
+          branches: ${{github.ref_name}}
