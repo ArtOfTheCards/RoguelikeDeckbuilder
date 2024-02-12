@@ -135,14 +135,11 @@ jobs:
           repo: ${{github.base_ref}}
           tag: v1.0
 
-
-      - name: Upload To Github Release
+      - name: Upload artifacts To Github Release
         id: upload-release-asset
-        uses: xresloader/upload-to-github-release@v1.4.2
-        env:
-          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+        uses: nanoufo/action-upload-artifacts-and-release-assets@v2.0
         with:
-          overwrite: true
-          file: build/StandaloneWindows
-          tags: true
-          branches: ${{github.ref_name}}
+          path: build/StandaloneWindows
+          github-token: ${{secrets.GH_TOKEN}}
+          release-upload-url: ${{ steps.create_windows_release.outputs.upload_url }}
+            
