@@ -122,6 +122,7 @@ jobs:
         id : create_windows_release
         uses: ncipollo/release-action@v1.14.0
         with:
+          name: Stand Alone Windows release v1.0
           token: ${{ secrets.GH_TOKEN }}
           allowUpdates: true
           artifacts: build/StandaloneWindows
@@ -131,8 +132,8 @@ jobs:
           draft: false
           prerelease: false
           repo: ${{github.base_ref}}
-          commit: "Creating new windows release ${{github.ref_name}}"
-          tag: ${{github.ref_name}}
+          commit: "Creating new windows release v1.0"
+          tag: v1.0
 
 
 
