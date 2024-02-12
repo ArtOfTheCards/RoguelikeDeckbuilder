@@ -18,15 +18,15 @@ MonoBehaviour:
   playTarget: 0
   playDescription: 
   playEffects:
-  - rid: 7443702774162259968
+  - rid: 7443702778356563968
   throwTarget: 0
   throwDescription: 
   throwEffects: []
   references:
     version: 2
     RefIds:
-    - rid: 7443702774162259968
+    - rid: 7443702778356563968
       type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: New DirectAddStatus Effect
-        status: {fileID: 0}
+        status: {fileID: 11400000, guid: 780af764eda16d34facef093579b9024, type: 2}
