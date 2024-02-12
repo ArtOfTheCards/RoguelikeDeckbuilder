@@ -6,7 +6,7 @@ on:
       - main
       - deployment
     tags:
-      - '*'
+      - 'v*'
 jobs:
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
