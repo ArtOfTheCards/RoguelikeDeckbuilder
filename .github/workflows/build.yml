@@ -16,7 +16,7 @@ jobs:
 
     if: github.event_name == 'push' && (github.ref == 'refs/heads/deployment' || github.ref == 'refs/heads/main')
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         targetPlatform:
           - StandaloneWindows # Build a Windows 64-bit standalone.
