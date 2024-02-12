@@ -3,12 +3,14 @@ using UnityEngine.AI;
 public class NpcPathFinder : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private GameObject _target;
+
+    // [SerializeField] private Transform startingPoint;
+    [SerializeField] public GameObject target;
 
     private bool isAggro;
     private bool isAttacking;
 
-    public Transform startingPos;
+    
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -32,21 +34,14 @@ public class NpcPathFinder : MonoBehaviour
         return _agent.speed;
     }
 
-    [System.Obsolete]
-    private void StopPath()
-    {
-        _agent.Stop();
-    }
-
     private void Start()
     {
-
 
     }
 
     void Update()
     {
-        SetDestination(_target.transform.position);
+        SetDestination(target.transform.position);
     }
 
     public void SetAggroStatus(bool status)
