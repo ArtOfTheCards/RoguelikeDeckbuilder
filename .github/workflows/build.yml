@@ -101,33 +101,40 @@ jobs:
 
     
   createWindowsRelease:
-      name: Create Windows Release
-      runs-on: ubuntu-latest
-      needs: buildForAllSupportedPlatforms
-      if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
-      steps:
+    name: Create Windows Release
+    runs-on: ubuntu-latest
+    needs: buildForAllSupportedPlatforms
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-        - name: Checkout Repository
-          uses: actions/checkout@v2
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: Build-StandaloneWindows
+          path: build
 
-        - name: Create Windows Release
-          id: create_windows_release
-          uses: actions/create-release@v1
-          env:
-            GITHUB_TOKEN : ${{secrets.GH_TOKEN}}
-          with:
-            tag_name: v1.0
-            release_name: StandAloneWindows  Release v1.0
-            body: |
-              This version of our game is simply a demo at time as our team is workign hard
+      - name: Create Windows Release
+        id: create_windows_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: v1.0
+          release_name: Windows Release v1.0
+          body: |
+            This version of our game is simply a demo at time as our team is working hard.
+            To play our game, simply download the files, extract the ZIP archive, and run the .exe file.
 
-            draft: false
-            prerelease: false
+          draft: false
+          prerelease: false
 
-        - name: Upload Release Asset - StandaloneOSX
-          uses: actions/upload-release-asset@v1
-          with:
-            upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
-            asset_path: build/StandaloneWindows
-            asset_name: StandaloneWindows.zip
-            asset_content_type: application/zip
+      - name: Upload Release Asset - StandaloneWindows
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
+          asset_path: build/StandaloneWindows
+          asset_name: StandaloneWindows.zip
+          asset_content_type: application/zip
+
