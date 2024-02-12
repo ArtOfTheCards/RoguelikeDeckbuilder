@@ -121,7 +121,7 @@ jobs:
         id : create_windows_release
         uses: ncipollo/release-action@v1.14.0
         with:
-          name: Stand Alone Windows release v1.0
+          name: Stand Alone Windows release
           token: ${{ secrets.GH_TOKEN }}
           allowUpdates: true
           artifacts: build
@@ -131,7 +131,8 @@ jobs:
           draft: false
           prerelease: false
           repo: ${{github.base_ref}}
-          tag: v1.0
+          removeArtifacts: true
+          replacesArtifacts: true
 
       - name: Upload artifacts To Github Release
         id: upload-release-asset
