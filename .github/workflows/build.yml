@@ -5,11 +5,15 @@ on:
     branches:
       - main
       - deployment
+    tags: 
+      -'v*'
 
 jobs:
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
     if: github.event_name == 'push' && (github.ref == 'refs/heads/deployment' || github.ref == 'refs/heads/main')
     strategy:
       fail-fast: false
@@ -129,20 +133,21 @@ jobs:
           release_id=$(curl -s https://api.github.com/repos/${GITHUB_REPOSITORY}/git/ref/tags/v1.0 | jq -r '.object.url' | xargs basename)
           curl -X DELETE -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/$release_id"
 
-      - name: Create Windows Release
-        id: create_windows_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Create Release
+        id : create_windows_release
+        uses: ncipollo/release-action@v1.14.0
         with:
-          tag_name: v1.0
-          release_name: Windows Release v1.0
+          token: ${{ secrets.GH_TOKEN }}
+          allowUpdates: true
+          artifacts: build/StandaloneWindows
           body: |
-            This version of our game is simply a demo at time as our team is working hard.
+           This version of our game is simply a demo at time as our team is working hard.
             To play our game, simply download the files, extract the ZIP archive, and run the .exe file.
-          body_path: build/StandaloneWindows
           draft: false
           prerelease: false
+          repo: ${{github.base_ref}}
+
+
 
       - name: Upload Release Asset - StandaloneWindows
         id: upload-release-asset
