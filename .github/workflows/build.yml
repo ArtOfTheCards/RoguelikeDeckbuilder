@@ -130,6 +130,7 @@ jobs:
             To play our game, simply download the files, extract the ZIP archive, and run the .exe file.
           draft: false
           prerelease: false
+          tag: '*'
           repo: ${{github.base_ref}}
           removeArtifacts: true
           replacesArtifacts: true
