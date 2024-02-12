@@ -125,14 +125,13 @@ jobs:
           name: Stand Alone Windows release v1.0
           token: ${{ secrets.GH_TOKEN }}
           allowUpdates: true
-          artifacts: build/StandaloneWindows
+          artifacts: build
           body: |
            This version of our game is simply a demo at time as our team is working hard.
             To play our game, simply download the files, extract the ZIP archive, and run the .exe file.
           draft: false
           prerelease: false
           repo: ${{github.base_ref}}
-          commit: "Creating new windows release v1.0"
           tag: v1.0
 
 
