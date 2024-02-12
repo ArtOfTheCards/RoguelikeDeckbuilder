@@ -6,7 +6,7 @@ on:
       - main
       - deployment
     tags: 
-      -'v*'
+      -'*'
 
 jobs:
   buildForAllSupportedPlatforms:
@@ -118,21 +118,6 @@ jobs:
           name: Build-StandaloneWindows
           path: build/StandaloneWindows
 
-      - name: Check if tag exists
-        id: check_tag
-        run: |
-          if curl -s -o /dev/null -w "%{http_code}" https://api.github.com/repos/${GITHUB_REPOSITORY}/git/ref/tags/v1.0; then
-            echo "::set-output name=tag_exists::true"
-          else
-            echo "::set-output name=tag_exists::false"
-          fi
-
-      - name: Delete existing release
-        if: steps.check_tag.outputs.tag_exists == 'true'
-        run: |
-          release_id=$(curl -s https://api.github.com/repos/${GITHUB_REPOSITORY}/git/ref/tags/v1.0 | jq -r '.object.url' | xargs basename)
-          curl -X DELETE -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/$release_id"
-
       - name: Create Release
         id : create_windows_release
         uses: ncipollo/release-action@v1.14.0
@@ -146,6 +131,8 @@ jobs:
           draft: false
           prerelease: false
           repo: ${{github.base_ref}}
+          commit: "Creating new windows release ${{github.ref_name}}"
+          tag: ${{github.ref_name}}
 
 
 
