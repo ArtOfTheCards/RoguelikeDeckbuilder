@@ -11,11 +11,12 @@ public class PlayerRebindControls : MonoBehaviour
 
     private void Awake()
     {
+        agent = GetComponentInParent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        agent.enabled = false;
+        agent.enabled = true;
 
-        isSwapped = false;
+        isSwapped = true;
         TogglePlayerControls();
     }
 
@@ -34,7 +35,6 @@ public class PlayerRebindControls : MonoBehaviour
 
     private void HandleAgent()
     {
-        Debug.Log("agent enabled to : " + playerPathFinding.activeInHierarchy);
         agent.enabled = playerPathFinding.activeInHierarchy;
         if(agent.enabled){
             agent.ResetPath();
