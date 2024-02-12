@@ -5,8 +5,6 @@ on:
     branches:
       - main
       - deployment
-    tags:
-       - 'v*'
 
 jobs:
   buildForAllSupportedPlatforms:
@@ -118,8 +116,8 @@ jobs:
           env:
             GITHUB_TOKEN : ${{secrets.GH_TOKEN}}
           with:
-            tag_name: ${{github.ref}}  
-            release_name: ${{github.ref}} 
+            tag_name: v1.0
+            release_name: StandAloneWindows  Release v1.0
             body: |
               This version of our game is simply a demo at time as our team is workign hard
 
