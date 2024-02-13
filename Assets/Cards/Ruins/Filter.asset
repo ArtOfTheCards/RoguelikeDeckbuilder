@@ -20,11 +20,21 @@ MonoBehaviour:
   playEffects:
   - rid: 7443702563337142274
   - rid: 7443702563337142275
+  - rid: 7686006379934908417
   - rid: 7443702563337142272
+<<<<<<< Updated upstream:Assets/Cards/Ruins/Filter.asset
   throwTarget: 1
   throwDescription: 1 DMG
   throwEffects:
   - rid: 2070361838743453696
+=======
+  - rid: 7686006379934908418
+  - rid: 7686006379934908419
+  throwTarget: 1
+  throwDescription: +1 DMG
+  throwEffects:
+  - rid: 7686006379934908416
+>>>>>>> Stashed changes:Assets/Cards/Debug/Filter.asset
   references:
     version: 2
     RefIds:
@@ -36,8 +46,13 @@ MonoBehaviour:
     - rid: 7443702563337142272
       type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
       data:
+<<<<<<< Updated upstream:Assets/Cards/Ruins/Filter.asset
         Debug_ID: draw 3
         number: 3
+=======
+        Debug_ID: New AutoDraw Effect
+        number: 1
+>>>>>>> Stashed changes:Assets/Cards/Debug/Filter.asset
     - rid: 7443702563337142274
       type: {class: AutoRandomDiscardEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -45,4 +60,28 @@ MonoBehaviour:
     - rid: 7443702563337142275
       type: {class: AutoRandomDiscardEffect, ns: , asm: Assembly-CSharp}
       data:
+<<<<<<< Updated upstream:Assets/Cards/Ruins/Filter.asset
         Debug_ID: discard 1
+=======
+        Debug_ID: New AutoRandomDiscard Effect
+    - rid: 7686006379934908416
+      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New DirectDamage Effect
+        amount: 1
+    - rid: 7686006379934908417
+      type: {class: DelayEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New Delay Effect
+        delayAmount: 0.5
+    - rid: 7686006379934908418
+      type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New AutoDraw Effect
+        number: 1
+    - rid: 7686006379934908419
+      type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New AutoDraw Effect
+        number: 1
+>>>>>>> Stashed changes:Assets/Cards/Debug/Filter.asset
