@@ -1279,7 +1279,6 @@ MonoBehaviour:
   DEBUG_startingDeck:
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
-  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
   - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
   - {fileID: 11400000, guid: c5268e392b89e40408a6eb8a60d4ed95, type: 2}
@@ -1295,13 +1294,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
-  - {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
   - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
   - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
-  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
-  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
-  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
-  - {fileID: 11400000, guid: 0fd9199a982d45a47920f5c594368523, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+  - {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
   drawPile: []
   hand: []
   discardPile: []
