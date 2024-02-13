@@ -6,7 +6,7 @@ on:
       - main
       - deployment
     tags:
-      - "v*"
+      - 'v*'
 jobs:
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
@@ -21,7 +21,7 @@ jobs:
         targetPlatform:
           - StandaloneWindows # Build a Windows 64-bit standalone.
           - WebGL
-        os:
+        os: 
           - ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -69,7 +69,7 @@ jobs:
         if: steps.build.outcome != 'success'
         run: |
           echo "::set-output name=error_message::Build failed: ${{ steps.build.conclusion }}"
-
+    
   deployToGitHubPages:
     needs: buildForAllSupportedPlatforms
     name: Deploy to GitHub Pages
@@ -102,11 +102,16 @@ jobs:
           git ls-files --others --exclude-standard build | xargs -I {} git lfs track "{}"
           git diff-index --quiet HEAD || git commit -m "Enable LFS for artifacts" && git push origin gh-pages || echo "No changes to commit."
 
+
   createWindowsRelease:
     name: Create Windows Release
     runs-on: ubuntu-latest
     needs: buildForAllSupportedPlatforms
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deployment')
+    strategy:
+      matrix:
+        tag: ${{ github.ref }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -114,7 +119,7 @@ jobs:
       - name: Check if tag exists
         id: check_tag
         run: |
-          if git rev-parse -q --verify "refs/tags/${{ github.ref }}"; then
+          if git rev-parse -q --verify "refs/tags/${{ matrix.tag }}"; then
             echo "::set-output name=tag_exists::true"
           else
             echo "::set-output name=tag_exists::false"
@@ -123,11 +128,37 @@ jobs:
       - name: Delete existing tag
         if: steps.check_tag.outputs.tag_exists == 'true'
         run: |
-          git push --delete origin ${{ github.ref }}
-          git tag -d ${{ github.ref }}
+          git push --delete origin ${{ matrix.tag }}
+          git tag -d ${{ matrix.tag }}
 
       - name: Download Build Artifact
         uses: actions/download-artifact@v2
         with:
           name: Build-StandaloneWindows
           path: build/StandaloneWindows
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          name: Stand Alone Windows release ${{matrix.tag}}
+          token: ${{ secrets.GH_TOKEN }}
+          allowUpdates: true
+          artifacts: build
+          body: |
+            This version of our game is simply a demo at time as our team is working hard.
+            To play our game, simply download the files, extract the ZIP archive, and run the .exe file.
+          draft: false
+          prerelease: false
+          tag: ${{ matrix.tag }}
+          repo: ${{github.base_ref}}
+          removeArtifacts: true
+          replacesArtifacts: true
+
+      - name: Upload artifacts To Github Release
+        id: upload_release_asset
+        uses: nanoufo/action-upload-artifacts-and-release-assets@v2.0
+        with:
+          path: build/StandaloneWindows
+          github-token: ${{secrets.GH_TOKEN}}
+          release-upload-url: ${{ steps.create_release.outputs.upload_url }}
