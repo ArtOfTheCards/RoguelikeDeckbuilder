@@ -276,6 +276,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: maxHandSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: startingHandSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5628578700222975844, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: agent
       value: 
