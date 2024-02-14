@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: debugHealthBoxMove
+      value: 246
+      objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: maxHandSize
       value: 3
