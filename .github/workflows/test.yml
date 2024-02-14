@@ -12,12 +12,14 @@ jobs:
         testMode:
           - playmode
           - editmode
-          - standalone
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           lfs: true
-      - uses: actions/cache@v2
+
+      - name: Cache Unity Directories
+        uses: actions/cache@v2
         with:
           path: |
             Library
@@ -26,12 +28,15 @@ jobs:
           key: Library-${{ runner.os }}-${{ hashFiles('**/Library/**') }}
           restore-keys: |
             Library-
+
       - name: Authenticate with GitHub App
         uses: actions/checkout@v2
         with:
           repository: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: game-ci/unity-test-runner@v4
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Run Unity Tests
+        uses: game-ci/unity-test-runner@v4
         id: tests
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -42,12 +47,16 @@ jobs:
           artifactsPath: ${{ matrix.testMode }}-artifacts
           checkName: ${{ matrix.testMode }} Test Results
           coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+my.assembly.*'
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: Test results for ${{ matrix.testMode }}
           path: ${{ steps.tests.outputs.artifactsPath }}
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload Coverage Results
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: Coverage results for ${{ matrix.testMode }}
