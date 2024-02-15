@@ -20,7 +20,7 @@ MonoBehaviour:
   playEffects:
   - rid: 7443702774162259969
   throwTarget: 1
-  throwDescription: +1 DMG
+  throwDescription: 1 DMG
   throwEffects:
   - rid: 7443702774162259970
   references:
