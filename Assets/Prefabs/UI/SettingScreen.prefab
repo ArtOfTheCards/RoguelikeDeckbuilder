@@ -2108,7 +2108,7 @@ GameObject:
   - component: {fileID: 947851923096703268}
   - component: {fileID: 8641310021379525235}
   m_Layer: 5
-  m_Name: TitleSettingScreen
+  m_Name: SettingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

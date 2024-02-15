@@ -681,11 +681,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683509010736184559, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28.199982
+      value: 28.199951
       objectReference: {fileID: 0}
     - target: {fileID: 3683509010736184559, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -231.8669
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 273.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 93.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.6900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068878413659049369, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -63.23999
       objectReference: {fileID: 0}
     - target: {fileID: 4374447433638040526, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -722,6 +754,42 @@ PrefabInstance:
     - target: {fileID: 7751401008532105860, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 330.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 74.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177846031854862063, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 8442745058555444533, guid: fbdc688ac1c01f542949714a8e436ce0, type: 3}
       propertyPath: m_Pivot.x
@@ -1457,7 +1525,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.9
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
