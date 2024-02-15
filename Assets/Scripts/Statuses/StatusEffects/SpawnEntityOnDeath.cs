@@ -19,10 +19,10 @@ public class SpawnEntityOnDeathStatusFactory : StatusFactory<SpawnEntityOnDeathS
 [System.Serializable]
 public class SpawnEntityOnDeathStatusData : StatusData
 {
+    [Header("SpawnEntityOnDeath Parameters")]
     // Data class for the Status. Any global parameters, like duration or intensity, should go here.
     // ================
-
-    //[Header("SpawnEntityOnDeath Parameters")]
+    public GameObject toSpawn;
 }
 
 
