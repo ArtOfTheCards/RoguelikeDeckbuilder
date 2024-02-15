@@ -1,15 +1,19 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-     [SerializeField] private GameObject optionScreen;
+     [SerializeField] private GameObject options;
      [SerializeField] private PlayerRebindControls rebindControls;
 
+     [SerializeField] private TextMeshPro pauseButtonText;
      private bool isPaused;
 
      private void Awake()
      {
           SetPauseState(false);
+          pauseButtonText.color = Color.clear;
      }
 
      public void OnPause()
@@ -20,7 +24,7 @@ public class OptionMenu : MonoBehaviour
      private void SetPauseState(bool paused)
      {
           isPaused = paused;
-          optionScreen.SetActive(paused);
+          options.SetActive(paused);
           Time.timeScale = paused ? 0f : 1f;
      }
 
