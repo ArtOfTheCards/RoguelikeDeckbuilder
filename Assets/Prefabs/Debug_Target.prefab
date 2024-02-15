@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
+  indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   currentHealth: 10
   maxHealth: 10
 --- !u!114 &7843415062960314024

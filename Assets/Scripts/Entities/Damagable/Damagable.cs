@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Damagable : MonoBehaviour
 {
-    [SerializeField] private GameObject damageIndicator;
+    [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private int currentHealth;
     [SerializeField] private int maxHealth;
     public System.Action<StatModifierBank> OnCalculateDamage;
@@ -36,10 +36,11 @@ public class Damagable : MonoBehaviour
     }
 
     void showDamageIndicator(int value) {
-        if (damageIndicator == null) return;
+        if (indicatorPrefab == null) return;
 
-        var text = Instantiate(damageIndicator, transform.position, Quaternion.identity, transform);
-        text.GetComponent<TextMesh>().text = value.ToString();
+        Transform canvasTransform = GameObject.FindGameObjectWithTag("IndicatorCanvas").transform;
+        GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, canvasTransform);
+        indicatorObj.GetComponent<DamageIndicator>().Initialize(value, transform.position);
     }
 
     public void heal(int value) {
