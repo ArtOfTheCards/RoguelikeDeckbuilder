@@ -39,7 +39,6 @@ public class MovePositionPathfinding : MonoBehaviour
 
         animator.SetFloat("X", x);
         animator.SetFloat("Y", y);
-        animator.SetBool("isWalking", Mathf.Abs(x) > 0.1f || Mathf.Abs(y) > 0.1f);
     }
 
     private Vector3 GetMouseWorldPosition()

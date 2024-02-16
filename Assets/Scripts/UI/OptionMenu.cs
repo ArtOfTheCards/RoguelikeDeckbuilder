@@ -19,8 +19,11 @@ public class OptionMenu : MonoBehaviour
      private void Awake()
      {
           player = GameObject.FindGameObjectWithTag("Player");
+          player.SetActive(true);
           rebindControls = player.GetComponentInChildren<PlayerRebindControls>();
+          rebindControls.enabled = true;
           cardUser = GameObject.Find("CardUser");
+          cardUser.SetActive(true);
 
           SetPauseState(false);
      }
