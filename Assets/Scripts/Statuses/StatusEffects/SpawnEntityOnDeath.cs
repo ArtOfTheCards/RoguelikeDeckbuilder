@@ -23,6 +23,7 @@ public class SpawnEntityOnDeathStatusData : StatusData
     // Data class for the Status. Any global parameters, like duration or intensity, should go here.
     // ================
     public GameObject toSpawn;
+
 }
 
 
@@ -53,19 +54,25 @@ public class SpawnEntityOnDeathStatusInstance : StatusInstance<SpawnEntityOnDeat
         // ====================================
         // ==== Meaningful code goes here. ====
         // ====================================
+        if (target.TryGetComponent<Damagable>(out damagable))
+        {
+            damagable.deathTrigger += OnDeath; // 'subscribes' to our action
+        }
         
-        damagable.deathTrigger += OnDeath; // 'subscribes' to our action
-
         // SpawnEntityOnDeathRoutine = target.StartCoroutine(SpawnEntityOnDeathCoroutine());        // UNCOMMENT this line if you use SpawnEntityOnDeathCoroutine().
     }
 
     public void OnDeath() 
     {
-        for(int i = 0; i < currentStacks; i++)
+        if (target.TryGetComponent<Damagable>(out damagable))
         {
-            GameObject.Instantiate(data.toSpawn,target.transform.position, Quaternion.identity);
-        }
-        damagable.deathTrigger -= OnDeath; // 'unsubscribes', we get bugs if we don't do this 
+            for(int i = 0; i < currentStacks; i++)
+            {
+                GameObject.Instantiate(data.toSpawn,damagable.transform.position, Quaternion.identity);
+                Debug.Log("well");
+            }
+            damagable.deathTrigger -= OnDeath; //SSSSS 'unsubscribes', we get bugs if we don't do this
+        } 
     }
 
     public override void AddAdditionalStack()
