@@ -290,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.size
-      value: 15
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[2]
@@ -343,11 +343,35 @@ PrefabInstance:
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[15]
       value: 
-      objectReference: {fileID: 11400000, guid: 0f74a219d492ac049a17f2d3ba869dbb, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[16]
       value: 
-      objectReference: {fileID: 11400000, guid: 0f74a219d492ac049a17f2d3ba869dbb, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
     - target: {fileID: 5628578700222975844, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: agent
       value: 
@@ -2013,6 +2037,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 777430834}
+    - target: {fileID: 3431702212409478801, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431702212409478801, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: currentHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7912688218760809599, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Name
       value: NPC_Agent

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatusData:
     ID: Reanimate
-    stackable: 0
+    stackable: 1
+    toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}

@@ -36,6 +36,7 @@ public class SpawnEntityOnDeathStatusInstance : StatusInstance<SpawnEntityOnDeat
     // To access the number of instance stacks, use currentStacks. 
     // ================
     private Damagable damagable = null;
+    
 
     // private Coroutine SpawnEntityOnDeathRoutine = null;                                // UNCOMMENT this line if you use SpawnEntityOnDeathCoroutine().
 
@@ -62,7 +63,7 @@ public class SpawnEntityOnDeathStatusInstance : StatusInstance<SpawnEntityOnDeat
     {
         for(int i = 0; i < currentStacks; i++)
         {
-            GameObject.Instantiate(toSpawn, damagable.x, damagable.y);
+            GameObject.Instantiate(data.toSpawn,target.transform.position, Quaternion.identity);
         }
         damagable.deathTrigger -= OnDeath; // 'unsubscribes', we get bugs if we don't do this 
     }
