@@ -8,6 +8,7 @@ public class Damagable : MonoBehaviour
     [SerializeField] public int maxHealth;
     [SerializeField] public int debugHealthBoxMove;
     public System.Action<StatModifierBank> OnCalculateDamage;
+    public System.Action deathTrigger;
 
     private string metaknight;
     private string healthstring;
@@ -51,6 +52,7 @@ public class Damagable : MonoBehaviour
 
     private void die() {
         Destroy(this.gameObject);
+        deathTrigger?.Invoke();
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)

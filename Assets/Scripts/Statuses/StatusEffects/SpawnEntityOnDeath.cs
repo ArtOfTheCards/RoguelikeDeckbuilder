@@ -35,6 +35,7 @@ public class SpawnEntityOnDeathStatusInstance : StatusInstance<SpawnEntityOnDeat
     // To access the Data class, use data.[Property Name].
     // To access the number of instance stacks, use currentStacks. 
     // ================
+    private Damagable damagable = null;
 
     // private Coroutine SpawnEntityOnDeathRoutine = null;                                // UNCOMMENT this line if you use SpawnEntityOnDeathCoroutine().
 
@@ -51,8 +52,19 @@ public class SpawnEntityOnDeathStatusInstance : StatusInstance<SpawnEntityOnDeat
         // ====================================
         // ==== Meaningful code goes here. ====
         // ====================================
+        
+        damagable.deathTrigger += OnDeath; // 'subscribes' to our action
 
         // SpawnEntityOnDeathRoutine = target.StartCoroutine(SpawnEntityOnDeathCoroutine());        // UNCOMMENT this line if you use SpawnEntityOnDeathCoroutine().
+    }
+
+    public void OnDeath() 
+    {
+        for(int i = 0; i < currentStacks; i++)
+        {
+            GameObject.Instantiate(toSpawn, damagable.x, damagable.y);
+        }
+        damagable.deathTrigger -= OnDeath; // 'unsubscribes', we get bugs if we don't do this 
     }
 
     public override void AddAdditionalStack()
