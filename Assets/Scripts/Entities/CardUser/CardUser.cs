@@ -2,40 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using NaughtyAttributes;
 
-[System.Serializable]
-public class Card
-{
-    public string ID = "";
-    public virtual void Play() { Debug.Log($"Played {ID}"); }
-
-    public Card(string _ID) 
-    { 
-        ID = _ID;
-    }
-
-    public override string ToString() { return ID; }
-}
-
 public enum CardPile { NULL, drawPile, hand, discardPile }
 
-class CardUser : MonoBehaviour
+public class CardUser : MonoBehaviour
 {
-    [Tooltip("The ...")]
     public int startingHandSize = 3;
     public int normalDrawAmount = 1;
     public float drawDelay = 3f;
 
     // Debug contents.
-    private Card[] DEBUG_startingDeck = new Card[]
-    {
-        new("Strike"), new("Strike"), new("Strike"), new("Strike"), 
-        new("Defend"), new("Defend"), new("Defend"), new("Defend"), 
-        new("Poison Strike"), new("Poison Strike"), 
-        new("Snake Eyes"),
-        new("Revive"),
-        new("Smooth Moves"), 
-        new("Jackpot!"),
-    };
+    [SerializeField]
+    private Card[] DEBUG_startingDeck = new Card[] {};
 
     // Piles of cards used in gameplay.
     [ReadOnly] public List<Card> drawPile = null;
@@ -45,7 +22,7 @@ class CardUser : MonoBehaviour
     private Dictionary<CardPile, List<Card>> pileToList = null;
 
     // Counts down the time until drawing a new card.
-    private float drawTimer = 0;
+    public float DrawTimer { get; private set; } = 0;
 
     private void Awake()
     {
@@ -72,13 +49,13 @@ class CardUser : MonoBehaviour
         // to do so.
         // ================
 
-        if (drawTimer > drawDelay)
+        if (DrawTimer > drawDelay)
         {
             DrawCards(normalDrawAmount);
-            drawTimer = 0;
+            DrawTimer = 0;
         }
 
-        drawTimer += Time.deltaTime;
+        DrawTimer += Time.deltaTime;
     }
 
     // ================================================================
@@ -87,8 +64,14 @@ class CardUser : MonoBehaviour
 
     public void ShuffleDiscardIntoDrawpile()
     {
+        // We shuffle the discard pile first, and then pop it to draw pile.
+        // This way, if we're shuffling into a non-empty deck, only the new
+        // cards get shuffled, and the pre-existing ones maintain their order
+        // in the draw pile.
+        // ================
+
+        Shuffle(discardPile);
         PopFromPushTo(discardPile, drawPile, discardPile.Count);
-        Shuffle(drawPile);
     }
 
     public void DrawCards(int n)
@@ -98,50 +81,17 @@ class CardUser : MonoBehaviour
         // number of cards.
         // ================
 
-        if (drawPile.Count == 0)
+        if (drawPile.Count < n)
         {
             ShuffleDiscardIntoDrawpile();
         }
 
-                                      // Don't draw more cards than we have.
         PopFromPushTo(drawPile, hand, Mathf.Min(n, drawPile.Count));
     }
 
     public void Discard(Card card)
     {
         RemoveFromPushTo(card, hand, discardPile);
-    }
-
-    public void PlayCard(Card card)
-    {
-        // Plays a card and discards it.
-        // ================
-
-        if (!hand.Contains(card))
-        {
-            Debug.LogError($"CardUser Error. PlayCard failed. Hand does not contain card {card}.", this);
-        }
-        else 
-        {
-            card.Play();
-            Discard(card);
-        }
-    }
-
-    public void PlayCardFromIndex(int i)
-    {
-        // Plays a card in the hand located at index i.
-        // ================
-
-        if (i >= hand.Count)
-        {
-            Debug.LogError($"CardUser Error. PlayCardFromIndex failed. Hand ({hand.Count}) is too small for the queried index ({i}).", this);
-        }
-        else 
-        {
-            hand[i].Play();
-            Discard(hand[i]);
-        }   
     }
 
     public void MoveCard(Card card, CardPile fromPile, CardPile toPile)
@@ -160,7 +110,55 @@ class CardUser : MonoBehaviour
         List<Card> pileList = pileToList[pile];
         return pileList[Random.Range(0, pileList.Count)];
     }
-    
+
+    public void UseCard(Card card, Card.UseMode useMode, Targetable target, bool removeFromDeck=false)
+    {
+        // TARGETABLE target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        if (!removeFromDeck) Discard(card);
+        card.Use(this, useMode, target);
+    }
+
+    public void UseCard(Card card, Card.UseMode useMode, Vector3 target, bool removeFromDeck=false)
+    {
+        // VECTOR3 target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        card.Use(this, useMode, target);
+        if (!removeFromDeck) Discard(card);
+    }
+
+    public void UseCard(Card card, Card.UseMode useMode, bool removeFromDeck=false)
+    {
+        // TARGETLESS target: Uses a card with the given useMode {Play, Throw}.
+        // ================
+
+        if (ValidateUse(card, useMode) == false) { return; }
+
+        card.Use(this, useMode);
+        if (!removeFromDeck) Discard(card);
+    }
+
+    private bool ValidateUse(Card card, Card.UseMode useMode)
+    {
+        if (useMode == Card.UseMode.NULL)
+        {
+            Debug.LogError($"CardUser Error. UseCard failed. NULL is not a valid UseMode.", this);
+            return false;
+        }
+        if (!hand.Contains(card))
+        {
+            Debug.LogError($"CardUser Error. UseCard failed. Hand does not contain card {card}.", this);
+            return false;
+        }
+        return true;
+    }
+
     // ================================================================
     // Pile-editing methods
     // ================================================================
