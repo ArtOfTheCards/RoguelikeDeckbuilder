@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6415832358396702702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Final/SFX/Choose Card
+  m_EditorClassIdentifier: 
+  Path: event:/Final/SFX/Choose Card
+  Guid:
+    Data1: 783675906
+    Data2: 1207372650
+    Data3: 579691710
+    Data4: 1899822474
+  Banks:
+  - {fileID: 4775516378396033256}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1522023067160423236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Final/Music/Theme Title
+  m_EditorClassIdentifier: 
+  Path: event:/Final/Music/Theme Title
+  Guid:
+    Data1: -355417297
+    Data2: 1120785042
+    Data3: -426714989
+    Data4: 701650706
+  Banks:
+  - {fileID: 4775516378396033256}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 36500
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8537585655633895802}
+  - {fileID: 4775516378396033256}
+  EditorEvents:
+  - {fileID: 3138613045003065854}
+  - {fileID: 3887975668533287126}
+  - {fileID: -1522023067160423236}
+  - {fileID: -6415832358396702702}
+  - {fileID: 3481273786431774676}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 4775516378396033256}
+  StringsBanks:
+  - {fileID: 8537585655633895802}
+  cacheTime: 638435986903366725
+  cacheVersion: 131608
+--- !u!114 &3138613045003065854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Debug/vineboom
+  m_EditorClassIdentifier: 
+  Path: event:/Debug/vineboom
+  Guid:
+    Data1: -6984448
+    Data2: 1250812824
+    Data3: 825922966
+    Data4: -640006170
+  Banks:
+  - {fileID: 4775516378396033256}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2859
+--- !u!114 &3481273786431774676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Final/SFX/Draw Card
+  m_EditorClassIdentifier: 
+  Path: event:/Final/SFX/Draw Card
+  Guid:
+    Data1: -1981618980
+    Data2: 1305165911
+    Data3: 1937241999
+    Data4: 1996417973
+  Banks:
+  - {fileID: 4775516378396033256}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3887975668533287126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Final/Music/R8ins
+  m_EditorClassIdentifier: 
+  Path: event:/Final/Music/R8ins
+  Guid:
+    Data1: -747233493
+    Data2: 1211947300
+    Data3: -89176925
+    Data4: 327356211
+  Banks:
+  - {fileID: 4775516378396033256}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 54792
+--- !u!114 &4775516378396033256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638435986903296676
+  FileSizes:
+  - Name: Desktop
+    Value: 1169984
+  Exists: 1
+--- !u!114 &8537585655633895802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638435986903366725
+  FileSizes:
+  - Name: Desktop
+    Value: 988
+  Exists: 1
