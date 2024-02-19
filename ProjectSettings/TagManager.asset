@@ -7,11 +7,12 @@ TagManager:
   - CinemachineTarget
   - Ally
   - Enemy
+  - IndicatorCanvas
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cards
   - Water
   - UI
   - 
@@ -41,6 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Cards
+    uniqueID: 3963251241
+    locked: 0
+  - name: UI
+    uniqueID: 1606397415
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
