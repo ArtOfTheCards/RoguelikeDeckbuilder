@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/TitleScreen.unity
+    guid: f0c0513d2f0797848841c00d79e58e73
+  - enabled: 1
     path: Assets/Scenes/BuildScenes/Sandbag-Level.unity
     guid: bda38707fa253c44b985059958d12f2d
   m_configObjects:

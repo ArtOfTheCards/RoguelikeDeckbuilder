@@ -397,7 +397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 2679000878069040758}
   target: {fileID: 0}
-  startingPoint: {fileID: 7352838668311658094}
 --- !u!114 &8929740565542278207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
+  indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   currentHealth: 500
   maxHealth: 500
 --- !u!114 &7789633128953384287
