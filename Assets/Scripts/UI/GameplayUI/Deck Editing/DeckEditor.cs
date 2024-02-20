@@ -12,7 +12,7 @@ public class DeckEditor : MonoBehaviour
     public int minDeckSize = 10;
 
     // Debug contents.
-    [SerializeField] private Transform scrollViewContent;
+    [SerializeField] private RectTransform scrollViewContent;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] public List<Card> ownedCards = null;
     [SerializeField] public List<Card> deck = null;
@@ -60,6 +60,8 @@ public class DeckEditor : MonoBehaviour
             Debug.Log("card");
             GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
         }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
+
 
     }
 
