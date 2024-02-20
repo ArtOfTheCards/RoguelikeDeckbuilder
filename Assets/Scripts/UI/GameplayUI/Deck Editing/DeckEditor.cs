@@ -16,6 +16,7 @@ public class DeckEditor : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] public List<Card> ownedCards = null;
     [SerializeField] public List<Card> deck = null;
+    [SerializeField] public bool isdeck;
 
     private Dictionary<EditorCardPile, List<Card>> pileToList = null;
 
@@ -55,10 +56,22 @@ public class DeckEditor : MonoBehaviour
         hoverBackground.SetPixel(0, 0, new Color(0.025f, 0.025f, 0.05f, 1f));
         hoverBackground.Apply();
 
-        foreach (Card card in ownedCards)
+
+        if(!isdeck)
         {
-            Debug.Log("card");
-            GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
+            foreach (Card card in ownedCards)
+            {
+                Debug.Log("card");
+                GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
+            }
+        }
+        else
+        {
+            foreach (Card card in deck)
+            {
+                Debug.Log("deck");
+                GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
+            }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
 
