@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
-  m_Name: 2-7 Throw Test
+  m_Name: AddPoison 1
   m_EditorClassIdentifier: 
-  debug_ID: 2-7
-  title: 2-7
-  art: {fileID: 0}
+  debug_ID: AddPoison
+  title: Venomous Bite
+  art: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   playTarget: 1
-  playDescription: 2 DMG
+  playDescription: +1 PSN
   playEffects:
-  - rid: 7443702997282193411
-  throwTarget: 3
-  throwDescription: 7 DMG
+  - rid: 2070361744878075904
+  throwTarget: 1
+  throwDescription: 1 DMG
   throwEffects:
-  - rid: 7443702997282193410
+  - rid: 2070361744878075905
   references:
     version: 2
     RefIds:
-    - rid: 7443702997282193410
+    - rid: 2070361744878075904
+      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: add poison
+        status: {fileID: 11400000, guid: e16abfa43fa0b5e4587757b46988a74b, type: 2}
+    - rid: 2070361744878075905
       type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: New DirectDamage Effect
-        amount: 7
-    - rid: 7443702997282193411
-      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        Debug_ID: New DirectDamage Effect
-        amount: 2
+        Debug_ID: damage 1
+        amount: 1

@@ -38,7 +38,7 @@ public class ProjectileManager : MonoBehaviour
             Debug.Log("do damage based on card: " + card);
 
             DoDamage(target, card);
-            //DoStatus(target, card);
+            DoStatus(target, card);
             
         }));
     }
@@ -51,13 +51,13 @@ public class ProjectileManager : MonoBehaviour
             target.damage(teffect.amount);
         }
     }
-    /*private void DoStatus(Transform target, Card card)
+    private void DoStatus(Damagable target, Card card)
     {
-        foreach (StatusInstance seffect in card.StatusInstances)
+        foreach (DirectAddStatusEffect seffect in card.throwEffects)
         {
-            Debug.Log(seffect + " applied (hypothetically)");
+            Debug.Log(seffect.status.ID + " applied (hypothetically)");
         }
-    }*/
+    }
 
 
 
