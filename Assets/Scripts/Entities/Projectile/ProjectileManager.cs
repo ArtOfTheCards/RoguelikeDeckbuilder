@@ -36,7 +36,7 @@ public class ProjectileManager : MonoBehaviour
         Debug.Log("trigger throw next");
         StartCoroutine(children[0].throwAt(target.transform, () => {
             Debug.Log("do damage based on card: " + card);
-
+            
             DoDamage(target, card);
             DoStatus(target, card);
             
@@ -45,17 +45,27 @@ public class ProjectileManager : MonoBehaviour
 
     private void DoDamage(Damagable target, Card card)
     {
-        foreach (DirectDamageEffect teffect in card.throwEffects)
+        foreach (CardEffect teffect in card.throwEffects)
         {
-            Debug.Log(teffect.amount + " hypothetical damage");
-            target.damage(teffect.amount);
+            if (teffect.GetType().FullName == "DirectDamageEffect")
+            {
+                Debug.Log(teffect.amount + " hypothetical damage");
+                target.damage(teffect.amount);
+            }
         }
     }
     private void DoStatus(Damagable target, Card card)
     {
-        foreach (DirectAddStatusEffect seffect in card.throwEffects)
+        foreach (CardEffect seffect in card.throwEffects)
         {
-            Debug.Log(seffect.status.ID + " applied (hypothetically)");
+            if (seffect.GetType().FullName == "DirectAddStatusEffect")
+            {
+                Debug.Log(seffect.status.ID + " applied (hypothetically)");
+                if (target.TryGetComponent<Effectable>(out Effectable effectable))
+                {
+                    effectable.AddStatusEffect(seffect.status);
+                }
+            }
         }
     }
 
