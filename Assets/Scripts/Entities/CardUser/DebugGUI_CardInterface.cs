@@ -269,14 +269,3 @@ public class DebugGUI_CardInterface : MonoBehaviour
         if (target != min) action.Invoke(target);
     }
 }
-
-
-
-if (seffect.GetType().FullName == "DirectAddStatusEffect")
-            {
-                Debug.Log(seffect.status.ID + " applied (hypothetically)");
-                if (target.TryGetComponent<Effectable>(out Effectable effectable))
-                {
-                    effectable.AddStatusEffect(seffect.status);
-                }
-            }
