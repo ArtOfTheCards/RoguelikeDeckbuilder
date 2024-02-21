@@ -48,6 +48,7 @@ public class ProjectileManager : MonoBehaviour
         foreach (DirectDamageEffect teffect in card.throwEffects)
         {
             Debug.Log(teffect.amount + " hypothetical damage");
+            target.damage(teffect.amount);
         }
     }
     /*private void DoStatus(Transform target, Card card)
