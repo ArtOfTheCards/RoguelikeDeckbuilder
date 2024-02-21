@@ -52,6 +52,7 @@ public class Projectile : MonoBehaviour
         transform.position = target.position;
         sprite.gameObject.SetActive(false);
         Debug.Log("do some custom damage based on card");
+        //target.damage(1);
         doWhenComplete();
     }
 

@@ -170,6 +170,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 }
             }
 
+        }
         // ================
         // Dis cards
         // ================
@@ -181,7 +182,6 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          h-discardOffset.y-discardDimensions.y,
                          discardDimensions.x,
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
-        }
     }
 
     private IEnumerator GetTargetTargetable(System.Action<Targetable> action)

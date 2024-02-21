@@ -36,6 +36,7 @@ public class ProjectileManager : MonoBehaviour
         Debug.Log("trigger throw next");
         StartCoroutine(children[0].throwAt(target, () => {
             Debug.Log("do damage");
+            //target.damage(1);
             Debug.Log("callback has info about card: " + card);
         }));
     }
