@@ -31,7 +31,7 @@ public class DeckEditor : MonoBehaviour
     public Vector2 cardOffset = new();
     public Vector2 cardDimensions = new(200,300);
     private CardUser user;    
-
+    
     private GUIStyle cardStyle;
     Texture2D normalBackground, hoverBackground;
 
@@ -47,14 +47,7 @@ public class DeckEditor : MonoBehaviour
             {EditorCardPile.ownedCards, ownedCards},
             {EditorCardPile.deck, deck},
         };
-        // Create custom style for cards
-        normalBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
-        normalBackground.SetPixel(0, 0, new Color(0, 0, 0, 1f));
-        normalBackground.Apply();
-        // Create custom style for cards that are being hovered over
-        hoverBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
-        hoverBackground.SetPixel(0, 0, new Color(0.025f, 0.025f, 0.05f, 1f));
-        hoverBackground.Apply();
+        
 
 
         if(!isdeck)
@@ -86,6 +79,15 @@ public class DeckEditor : MonoBehaviour
         w = Screen.width;
         h = Screen.height;
         
+        // Create custom style for cards
+        normalBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
+        normalBackground.SetPixel(0, 0, new Color(0, 0, 0, 1f));
+        normalBackground.Apply();
+        // Create custom style for cards that are being hovered over
+        hoverBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
+        hoverBackground.SetPixel(0, 0, new Color(0.025f, 0.025f, 0.05f, 1f));
+        hoverBackground.Apply();
+
         cardStyle = new GUIStyle(GUI.skin.box); 
         cardStyle.normal.textColor = Color.white;
         cardStyle.normal.background = normalBackground;
@@ -111,7 +113,8 @@ public class DeckEditor : MonoBehaviour
     {
         RemoveFromPushTo(card, hand, discardPile);
     }*/
-    
+
+
     public void MoveCard(Card card, EditorCardPile fromPile, EditorCardPile toPile)
     {
         // Acts as a public accessor for the RemoveFromPushTo function.

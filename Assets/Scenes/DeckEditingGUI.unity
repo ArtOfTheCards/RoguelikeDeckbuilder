@@ -2245,8 +2245,8 @@ MonoBehaviour:
   scrollViewContent: {fileID: 2079274356}
   cardPrefab: {fileID: 790190677665810347, guid: 667a8430bd9ac8e458ec10cc2f2220d9, type: 3}
   ownedCards:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
+  - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
