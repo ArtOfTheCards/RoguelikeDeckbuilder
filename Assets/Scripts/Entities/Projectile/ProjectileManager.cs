@@ -36,16 +36,29 @@ public class ProjectileManager : MonoBehaviour
         Debug.Log("trigger throw next");
         StartCoroutine(children[0].throwAt(target, () => {
             Debug.Log("do damage");
+
+            DoDamage(target, card);
+            //DoStatus(target, card);
+            
             //target.damage(1);
             Debug.Log("callback has info about card: " + card);
         }));
     }
 
-    private void DoDamage(string message)
+    private void DoDamage(Transform target, Card card)
     {
-        Debug.Log("recieved message: " + message);
-        Debug.Log("do some custom damage based on card");
+        foreach (DirectDamageEffect teffect in card.throwEffects)
+        {
+            Debug.Log(teffect.amount + " hypothetical damage");
+        }
     }
+    /*private void DoStatus(Transform target, Card card)
+    {
+        foreach (StatusInstance seffect in card.StatusInstances)
+        {
+            Debug.Log(seffect + " applied (hypothetically)");
+        }
+    }*/
 
 
 

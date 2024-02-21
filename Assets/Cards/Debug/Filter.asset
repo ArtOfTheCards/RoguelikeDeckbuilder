@@ -22,7 +22,7 @@ MonoBehaviour:
   - rid: 7443702563337142275
   - rid: 7443702563337142272
   throwTarget: 3
-  throwDescription: 1 DMG
+  throwDescription: 2 DMG
   throwEffects:
   - rid: 2070361838743453696
   references:
@@ -31,8 +31,8 @@ MonoBehaviour:
     - rid: 2070361838743453696
       type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: 1 damage
-        amount: 1
+        Debug_ID: 2 damage
+        amount: 2
     - rid: 7443702563337142272
       type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
       data:
