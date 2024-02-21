@@ -35,7 +35,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
     [Header("Projectile (Temporary)")]
     public ProjectileManager projectileMng;
-    public Transform temporaryTarget;
+    public Damagable temporaryTarget;
 
     private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
@@ -147,7 +147,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                         // If we get one, callback to a properly-parameterized UseCard call.
 
                         // throw projectile
-                        projectileMng.throwNext(temporaryTarget.transform, card);
+                        projectileMng.throwNext(temporaryTarget, card);
                         StartCoroutine(GetTargetTargetable((targetable) => {
                             Debug.Log("ey: coroutine success"); // this is never triggered
                             user.UseCard(card, Card.UseMode.Throw, targetable);
@@ -161,7 +161,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.throwTarget == Card.TargetType.Targetless) {
-                        projectileMng.throwNext(temporaryTarget.transform, card);
+                        projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
                         /*StartCoroutine(GetTargetTargetable((targetable) => {
                             Debug.Log("ey: coroutine targetless success"); // this is never triggered

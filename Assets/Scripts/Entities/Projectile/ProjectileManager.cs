@@ -31,23 +31,13 @@ public class ProjectileManager : MonoBehaviour
     }
 
 
-    public void throwNext(Transform target, Card card) {
+    public void throwNext(Damagable target, Card card) {
         // TODO: when there is more than one child, we need to figure out which one is "next"
         Debug.Log("trigger throw next");
-        StartCoroutine(children[0].throwAt(target, () => {
-            Debug.Log("do damage");
-            //target.damage(1);
-            Debug.Log("callback has info about card: " + card);
+        StartCoroutine(children[0].throwAt(target.transform, () => {
+            Debug.Log("do damage based on card: " + card);
+            // TODO: put damage logic here
         }));
     }
-
-    private void DoDamage(string message)
-    {
-        Debug.Log("recieved message: " + message);
-        Debug.Log("do some custom damage based on card");
-    }
-
-
-
 
 }
