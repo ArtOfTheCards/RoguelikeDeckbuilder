@@ -142,6 +142,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                         cardDimensions.x-buttonMargins.x, 
                                         cardDimensions.y-buttonMargins.y), $"Throw", buttonStyle))
                 {
+                    Debug.Log("ey: card type is " + card.throwTarget);
+
                     if (card.throwTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
                         // If we get one, callback to a properly-parameterized UseCard call.
@@ -149,7 +151,6 @@ public class DebugGUI_CardInterface : MonoBehaviour
                         // throw projectile
                         projectileMng.throwNext(temporaryTarget, card);
                         StartCoroutine(GetTargetTargetable((targetable) => {
-                            Debug.Log("ey: coroutine success"); // this is never triggered
                             user.UseCard(card, Card.UseMode.Throw, targetable);
                         }));
                     }
@@ -161,11 +162,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.throwTarget == Card.TargetType.Targetless) {
+                        Debug.Log("ey: throw at TARGETLESS");
+
                         projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
-                        /*StartCoroutine(GetTargetTargetable((targetable) => {
-                            Debug.Log("ey: coroutine targetless success"); // this is never triggered
-                    }));*/
+\                        StartCoroutine(GetTargetTargetable((targetable) => {
+                            Debug.Log("ey: coroutine targetless success"); 
+                        }));
                     }
                 }
             }
@@ -193,6 +196,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
         canPlay = false;
         Targetable target = null;
 
+        Debug.Log("ey: waiting for a click (L for select / R for escape)");
         while (target == null)
         {
             if (Input.GetMouseButtonDown(0))        // select target
@@ -204,6 +208,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 {
                     if (collider.gameObject.TryGetComponent<Targetable>(out Targetable newTarget))
                     {
+                        Debug.Log("ey, ADDED NEW TARGET");
                         targetables.Add(newTarget);
                     }
                 }
@@ -215,17 +220,24 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
                 // Break whether or not we found a target. If we clicked on a nontarget, 
                 // then our action is effectively canceled.
+                Debug.Log("ey: break");
                 break;
             }
 
-            if (Input.GetMouseButtonDown(1)) break; // cancel action
+            if (Input.GetMouseButtonDown(1)) {
+                Debug.Log("ey: break");
+                break; // cancel action
+            }
 
             yield return null;
         }
+
+        Debug.Log("EY: exit while loop");
         
         canPlay = true;
         // If we got a target (ie if the action wasn't canceled)...
         if (target != null) action.Invoke(target);
+    
     }
 
     private IEnumerator GetTargetVector3(System.Action<Vector3> action)
@@ -257,3 +269,14 @@ public class DebugGUI_CardInterface : MonoBehaviour
         if (target != min) action.Invoke(target);
     }
 }
+
+
+
+if (seffect.GetType().FullName == "DirectAddStatusEffect")
+            {
+                Debug.Log(seffect.status.ID + " applied (hypothetically)");
+                if (target.TryGetComponent<Effectable>(out Effectable effectable))
+                {
+                    effectable.AddStatusEffect(seffect.status);
+                }
+            }
