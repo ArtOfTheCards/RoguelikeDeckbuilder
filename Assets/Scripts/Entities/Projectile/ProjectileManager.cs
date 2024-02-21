@@ -36,8 +36,29 @@ public class ProjectileManager : MonoBehaviour
         Debug.Log("trigger throw next");
         StartCoroutine(children[0].throwAt(target.transform, () => {
             Debug.Log("do damage based on card: " + card);
-            // TODO: put damage logic here
+
+            DoDamage(target, card);
+            //DoStatus(target, card);
+            
         }));
     }
+
+    private void DoDamage(Damagable target, Card card)
+    {
+        foreach (DirectDamageEffect teffect in card.throwEffects)
+        {
+            Debug.Log(teffect.amount + " hypothetical damage");
+        }
+    }
+    /*private void DoStatus(Transform target, Card card)
+    {
+        foreach (StatusInstance seffect in card.StatusInstances)
+        {
+            Debug.Log(seffect + " applied (hypothetically)");
+        }
+    }*/
+
+
+
 
 }
