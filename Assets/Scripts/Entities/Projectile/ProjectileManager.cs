@@ -49,8 +49,10 @@ public class ProjectileManager : MonoBehaviour
         {
             if (teffect.GetType().FullName == "DirectDamageEffect")
             {
-                Debug.Log(teffect.amount + " hypothetical damage");
-                target.damage(teffect.amount);
+                DirectDamageEffect dDE = (DirectDamageEffect)teffect;
+
+                Debug.Log(dDE.amount + " hypothetical damage");
+                target.damage(dDE.amount);
             }
         }
     }
@@ -60,12 +62,16 @@ public class ProjectileManager : MonoBehaviour
         {
             if (seffect.GetType().FullName == "DirectAddStatusEffect")
             {
-                Debug.Log(seffect.status.ID + " applied (hypothetically)");
+                DirectAddStatusEffect dASE = (DirectAddStatusEffect)seffect;
+                Debug.Log(dASE.status.ID + " applied (hypothetically)");
+
                 if (target.TryGetComponent<Effectable>(out Effectable effectable))
                 {
-                    effectable.AddStatusEffect(seffect.status);
+                    effectable.AddStatusEffect(dASE.status);
                 }
             }
+
+
         }
     }
 
