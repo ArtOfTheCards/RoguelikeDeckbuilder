@@ -21,7 +21,7 @@ MonoBehaviour:
   - rid: 7443702563337142274
   - rid: 7443702563337142275
   - rid: 7443702563337142272
-  throwTarget: 1
+  throwTarget: 3
   throwDescription: 1 DMG
   throwEffects:
   - rid: 2070361838743453696

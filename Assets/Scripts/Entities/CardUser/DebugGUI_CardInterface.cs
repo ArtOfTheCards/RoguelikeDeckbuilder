@@ -161,11 +161,14 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.throwTarget == Card.TargetType.Targetless) {
+                        projectileMng.throwNext(temporaryTarget.transform, card);
                         user.UseCard(card, Card.UseMode.Throw);
+                        /*StartCoroutine(GetTargetTargetable((targetable) => {
+                            Debug.Log("ey: coroutine targetless success"); // this is never triggered
+                    }));*/
                     }
                 }
             }
-        }
 
         // ================
         // Dis cards
@@ -178,6 +181,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          h-discardOffset.y-discardDimensions.y,
                          discardDimensions.x,
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
+        }
     }
 
     private IEnumerator GetTargetTargetable(System.Action<Targetable> action)
