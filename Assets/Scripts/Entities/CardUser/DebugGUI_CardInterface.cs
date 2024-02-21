@@ -166,7 +166,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
                         projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
-\                        StartCoroutine(GetTargetTargetable((targetable) => {
+                        StartCoroutine(GetTargetTargetable((targetable) => {
                             Debug.Log("ey: coroutine targetless success"); 
                         }));
                     }
@@ -269,3 +269,5 @@ public class DebugGUI_CardInterface : MonoBehaviour
         if (target != min) action.Invoke(target);
     }
 }
+
+
