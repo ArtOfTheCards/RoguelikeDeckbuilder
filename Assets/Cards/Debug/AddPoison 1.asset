@@ -19,10 +19,10 @@ MonoBehaviour:
   playDescription: +1 PSN
   playEffects:
   - rid: 2070361744878075904
-  throwTarget: 1
-  throwDescription: 1 DMG
+  throwTarget: 3
+  throwDescription: +1 PSN
   throwEffects:
-  - rid: 2070361744878075905
+  - rid: 7443702997282193414
   references:
     version: 2
     RefIds:
@@ -31,8 +31,8 @@ MonoBehaviour:
       data:
         Debug_ID: add poison
         status: {fileID: 11400000, guid: e16abfa43fa0b5e4587757b46988a74b, type: 2}
-    - rid: 2070361744878075905
-      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+    - rid: 7443702997282193414
+      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: damage 1
-        amount: 1
+        Debug_ID: add poison
+        status: {fileID: 11400000, guid: e16abfa43fa0b5e4587757b46988a74b, type: 2}
