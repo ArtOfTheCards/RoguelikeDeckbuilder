@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     Transform pc;
     Transform sprite;
+    public bool inuse = false;
 
     void Awake() {
         pc = GameObject.Find("Player").transform;
@@ -49,6 +50,7 @@ public class Projectile : MonoBehaviour
 
 
         Debug.Log("EY completed throw");
+        this.inuse = false;
         transform.position = target.position;
         sprite.gameObject.SetActive(false);
         doWhenComplete();

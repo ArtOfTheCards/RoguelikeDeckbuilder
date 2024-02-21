@@ -33,14 +33,26 @@ public class ProjectileManager : MonoBehaviour
 
     public void throwNext(Damagable target, Card card) {
         // TODO: when there is more than one child, we need to figure out which one is "next"
-        Debug.Log("trigger throw next");
-        StartCoroutine(children[0].throwAt(target.transform, () => {
-            Debug.Log("do damage based on card: " + card);
-            
-            DoDamage(target, card);
-            DoStatus(target, card);
-            
-        }));
+        for(int i = 0; i < children.Length-1; i++)
+        {
+            if(children[i].inuse == false) 
+            {
+                Debug.Log(children[i].inuse);
+                Debug.Log("trigger throw next");
+                children[i].inuse = true;
+                Debug.Log(children[i].inuse);
+                StartCoroutine(children[i].throwAt(target.transform, () => {
+
+                    Debug.Log("do damage based on card: " + card);
+                    DoDamage(target, card);
+                    DoStatus(target, card);
+
+                    
+                
+                }));
+                break;
+            }
+        }
     }
 
     private void DoDamage(Damagable target, Card card)
