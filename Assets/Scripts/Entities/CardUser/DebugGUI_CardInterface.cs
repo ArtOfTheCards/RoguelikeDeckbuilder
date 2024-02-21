@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 
-// hello world
-
 public class DebugGUI_CardInterface : MonoBehaviour
 {
     [Header("Global")]
@@ -35,6 +33,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
     public Vector2 discardOffset = new();
     public Vector2 discardDimensions = new(200,200);
 
+    [Header("Projectile (Temporary)")]
+    public ProjectileManager projectileMng;
+    public Transform temporaryTarget;
 
     private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
@@ -144,7 +145,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     if (card.throwTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
                         // If we get one, callback to a properly-parameterized UseCard call.
-                        StartCoroutine(GetTargetTargetable((targetable) => user.UseCard(card, Card.UseMode.Throw, targetable)));
+
+                        // throw projectile
+                        projectileMng.throwNext(temporaryTarget.transform, card);
+                        StartCoroutine(GetTargetTargetable((targetable) => {
+                            Debug.Log("ey: coroutine success"); // this is never triggered
+                            user.UseCard(card, Card.UseMode.Throw, targetable);
+                        }));
                     }
 
                     if (card.throwTarget == Card.TargetType.Worldspace) {
