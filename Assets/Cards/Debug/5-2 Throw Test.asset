@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
-  m_Name: Draw2
+  m_Name: 5-2 Throw Test
   m_EditorClassIdentifier: 
-  debug_ID: Draw2
-  title: Double Draw
-  art: {fileID: 21300000, guid: 79aba0b290c471c4ba3d3f818d4e9b15, type: 3}
-  playTarget: 3
-  playDescription: +2 CARD
+  debug_ID: 5-2
+  title: 5-2
+  art: {fileID: 0}
+  playTarget: 1
+  playDescription: 5 DMG
   playEffects:
-  - rid: 4647620957206740992
+  - rid: 7443702997282193409
   throwTarget: 3
-  throwDescription: 1 DMG
+  throwDescription: 2 DMG
   throwEffects:
-  - rid: 4647620957206740994
+  - rid: 7443702997282193408
   references:
     version: 2
     RefIds:
-    - rid: 4647620957206740992
-      type: {class: AutoDrawEffect, ns: , asm: Assembly-CSharp}
-      data:
-        Debug_ID: Draw 2 cards
-        number: 2
-    - rid: 4647620957206740994
+    - rid: 7443702997282193408
       type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: 1 damage
-        amount: 1
+        Debug_ID: New DirectDamage Effect
+        amount: 2
+    - rid: 7443702997282193409
+      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New DirectDamage Effect
+        amount: 5

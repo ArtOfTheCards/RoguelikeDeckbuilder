@@ -19,7 +19,7 @@ MonoBehaviour:
   playDescription: CLEAR STATUS
   playEffects:
   - rid: 2070361796819288065
-  throwTarget: 1
+  throwTarget: 3
   throwDescription: 1 DMG
   throwEffects:
   - rid: 2070361796819288066
