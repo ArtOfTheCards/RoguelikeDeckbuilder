@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 963633134646929471}
   - component: {fileID: 5000646301716204602}
   m_Layer: 5
-  m_Name: Indicator Canvas
-  m_TagString: IndicatorCanvas
+  m_Name: Worldspace Indicators
+  m_TagString: WorldspaceIndicators
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

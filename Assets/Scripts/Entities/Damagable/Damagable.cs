@@ -5,8 +5,24 @@ public class Damagable : MonoBehaviour
 {
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private int currentHealth;
+    public int CurrentHealth { get { return currentHealth; } }  // read-only property
     [SerializeField] private int maxHealth;
+    public int MaxHealth { get { return maxHealth; } }  // read-only property
     public System.Action<StatModifierBank> OnCalculateDamage;
+
+
+
+    private Transform canvasTransform = null;
+
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+
+        canvasTransform = GameObject.FindGameObjectWithTag("WorldspaceIndicators").transform;
+        if (canvasTransform == null) {
+            Debug.LogError("Damagable error: Awake failed. The scene has no indicator canvas, or the indicator canvas is not tagged as \"IndicatorCanvas\"");
+        }
+    }
 
     public void damage(int baseValue) 
     {
@@ -38,7 +54,6 @@ public class Damagable : MonoBehaviour
     void showDamageIndicator(int value) {
         if (indicatorPrefab == null) return;
 
-        Transform canvasTransform = GameObject.FindGameObjectWithTag("IndicatorCanvas").transform;
         GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, canvasTransform);
         indicatorObj.GetComponent<DamageIndicator>().Initialize(value, transform.position);
     }
@@ -48,7 +63,7 @@ public class Damagable : MonoBehaviour
     }
 
     private void die() {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)
