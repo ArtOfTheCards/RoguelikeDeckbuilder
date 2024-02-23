@@ -13,7 +13,7 @@ public class OptionMenu : MonoBehaviour
      [SerializeField] private PlayerRebindControls rebindControls;
      [SerializeField] private GameObject cardUser;
 
-     [SerializeField] private TextMeshPro pauseButtonText;
+     [SerializeField] private TextMeshProUGUI pauseButtonText;
      private bool isPaused;
 
      private void Awake()
