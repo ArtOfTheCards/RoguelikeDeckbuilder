@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671d281e5d8357e45bd0cf84580bfc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamagable: {fileID: 2043489768}
+  damagable: {fileID: 2043489768}
   mainBar: {fileID: 1200024871}
   ghostBar: {fileID: 596694795}
   lerpTime: 0.4
