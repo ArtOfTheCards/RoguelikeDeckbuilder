@@ -30,10 +30,11 @@ public class DeckEditor : MonoBehaviour
     public int xWidth;
     public Vector2 cardOffset = new();
     public Vector2 cardDimensions = new(200,300);
-    private CardUser user;    
+    private CardUser user;
+    private bool highlighted;
     
-    private GUIStyle cardStyle;
-    Texture2D normalBackground, hoverBackground;
+    /*private GUIStyle cardStyle;
+    Texture2D normalBackground, hoverBackground;*/
 
 
 
@@ -41,6 +42,7 @@ public class DeckEditor : MonoBehaviour
     {
         // Awake is called before Start().
         // ================
+        
         pileToList = new()
         {
             {EditorCardPile.NULL, null},
@@ -76,7 +78,8 @@ public class DeckEditor : MonoBehaviour
     // ================================================================
     private void OnGUI()
     {
-        w = Screen.width;
+        
+        /*w = Screen.width;
         h = Screen.height;
         
         // Create custom style for cards
@@ -93,7 +96,7 @@ public class DeckEditor : MonoBehaviour
         cardStyle.normal.background = normalBackground;
         cardStyle.hover.textColor = Color.cyan;
         cardStyle.hover.background = hoverBackground;
-        cardStyle.fontSize = cardFontSize;
+        cardStyle.fontSize = cardFontSize;*/
     }
 
     /*public void ShuffleDiscardIntoDrawpile()
