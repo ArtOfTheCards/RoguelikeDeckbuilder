@@ -15,17 +15,6 @@ public class Projectile : MonoBehaviour
         sprite = children[1];
         // explosion = children[2].GetComponent<ParticleSystem>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     public IEnumerator throwAt(Transform target, Action doWhenComplete) {

@@ -1,7 +1,6 @@
 
 
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.AI;
 public class NpcPathFinder : MonoBehaviour
@@ -14,15 +13,6 @@ public class NpcPathFinder : MonoBehaviour
     // Trigger Checkables
     private bool isAggro;
     private bool isAttacking;
-
-    
-    private void Awake()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-
-    }
 
     private void SetDestination(Vector3 destination)
     {
@@ -39,8 +29,11 @@ public class NpcPathFinder : MonoBehaviour
         return _agent.speed;
     }
 
-    private void Start()
+    private void Awake()
     {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
 
     }
 
