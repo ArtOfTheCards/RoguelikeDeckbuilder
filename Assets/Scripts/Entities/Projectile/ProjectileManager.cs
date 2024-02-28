@@ -79,6 +79,13 @@ public class ProjectileManager : MonoBehaviour
                 Debug.Log(amount + " hypothetical damage");
                 target.damage(amount);
             }
+            if (teffect.GetType().FullName == "SpawnEffect")
+            {
+                SpawnEffect sE = (SpawnEffect)teffect;
+
+                Debug.Log(sE.toSpawn + "spawn");
+                GameObject.Instantiate(sE.toSpawn, target.transform.position, Quaternion.identity);
+            }
         }
     }
     private void DoStatus(Damagable target, Card card)
