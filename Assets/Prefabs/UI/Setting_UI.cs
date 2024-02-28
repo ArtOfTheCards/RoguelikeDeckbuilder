@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
 
 public class Setting_UI : MonoBehaviour
 {
-    [Header("Scriptable Objs")]
-    [SerializeField] private Setting defaultSetting;
-
-    [SerializeField] private Setting currentSetting;
-
     [Header("Tabs")]
     [SerializeField] private GameObject gamePlaySetting;
 
@@ -17,13 +11,13 @@ public class Setting_UI : MonoBehaviour
 
     [SerializeField] private GameObject audioSetting;
 
-
-    private void Start() {
-      ActivateGamePlaySettings();
+    private void Awake() {
+        
+        ActivateGamePlaySettings();
     }
 
-
-    public void ActivateGamePlaySettings(){
+    public void ActivateGamePlaySettings()
+    {
         gamePlaySetting.SetActive(true);
         controlsSetting.SetActive(false);
         audioSetting.SetActive(false);

@@ -1,10 +1,8 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-
      [Header("Option Menu")]
      [SerializeField] private GameObject options;
 
@@ -18,14 +16,28 @@ public class OptionMenu : MonoBehaviour
 
      private void Awake()
      {
-          player = GameObject.FindGameObjectWithTag("Player");
-          player.SetActive(true);
-          rebindControls = player.GetComponentInChildren<PlayerRebindControls>();
-          rebindControls.enabled = true;
-          cardUser = GameObject.Find("CardUser");
-          cardUser.SetActive(true);
-
+          FindPlayerComponents();
           SetPauseState(false);
+     }
+
+     private void FindPlayerComponents()
+     {
+          player = GameObject.FindGameObjectWithTag("Player");
+
+          if (player != null)
+          {
+               player.SetActive(true);
+               rebindControls = player.GetComponentInChildren<PlayerRebindControls>();
+               if (rebindControls != null)
+                    rebindControls.enabled = true;
+               cardUser.SetActive(true);
+          }
+          else
+          {
+               player = null;
+               rebindControls = null;
+               cardUser = null;
+          }
      }
 
      public void OnPause()
@@ -37,13 +49,14 @@ public class OptionMenu : MonoBehaviour
      {
           isPaused = paused;
           options.SetActive(paused);
-          cardUser.SetActive(!paused);
+          if (cardUser != null)
+               cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;
-
      }
 
      public void OnRebindPlayerMovement()
      {
-          rebindControls.SwapControls();
+          if (rebindControls != null)
+               rebindControls.SwapControls();
      }
 }

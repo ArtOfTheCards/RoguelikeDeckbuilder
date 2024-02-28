@@ -852,7 +852,7 @@ RectTransform:
   m_AnchorMin: {x: -0, y: 0.79}
   m_AnchorMax: {x: 0, y: 0.79}
   m_AnchoredPosition: {x: 40, y: 15}
-  m_SizeDelta: {x: 211.49994, y: 42.299988}
+  m_SizeDelta: {x: 0, y: 42.299988}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5908263348677922747
 CanvasRenderer:
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4117600806387303898}
+      - m_Target: {fileID: 1038301733122118442}
         m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
         m_MethodName: ActivateGamePlaySettings
         m_Mode: 1
@@ -1000,7 +1000,7 @@ RectTransform:
   m_AnchorMin: {x: -0, y: 0.79}
   m_AnchorMax: {x: 0, y: 0.79}
   m_AnchoredPosition: {x: 350, y: 15}
-  m_SizeDelta: {x: 211.49994, y: 42.299988}
+  m_SizeDelta: {x: 0, y: 42.299988}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1469515539205055524
 CanvasRenderer:
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4117600806387303898}
+      - m_Target: {fileID: 1038301733122118442}
         m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
         m_MethodName: ActivateControlsSettings
         m_Mode: 1
@@ -1121,14 +1121,14 @@ GameObject:
   - component: {fileID: 8580723842240395439}
   - component: {fileID: 4405067422656996251}
   - component: {fileID: 724595776553757227}
-  - component: {fileID: 4117600806387303898}
+  - component: {fileID: 1038301733122118442}
   m_Layer: 5
   m_Name: SettingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8580723842240395439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4117600806387303898
+--- !u!114 &1038301733122118442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1205,11 +1205,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121618184234092507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d06f976ee56833b418eb75e0a22871db, type: 3}
+  m_Script: {fileID: 11500000, guid: a5f23f8412fe3464a9fe102cc42859ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSetting: {fileID: 0}
-  currentSetting: {fileID: 0}
   gamePlaySetting: {fileID: 7204097678986409538}
   controlsSetting: {fileID: 9024821170096069861}
   audioSetting: {fileID: 8685114559929126552}
@@ -3197,7 +3195,7 @@ RectTransform:
   m_AnchorMin: {x: -0, y: 0.79}
   m_AnchorMax: {x: 0, y: 0.79}
   m_AnchoredPosition: {x: 660, y: 15}
-  m_SizeDelta: {x: 211.49994, y: 42.299988}
+  m_SizeDelta: {x: 0, y: 42.299988}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3094590871657085183
 CanvasRenderer:
@@ -3281,7 +3279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4117600806387303898}
+      - m_Target: {fileID: 1038301733122118442}
         m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
         m_MethodName: ActivateAudioSettings
         m_Mode: 1
@@ -3429,9 +3427,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4117600806387303898}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
-        m_MethodName: ActivateGamePlaySettings
+      - m_Target: {fileID: 1798376512667505914}
+        m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
+        m_MethodName: OnPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7343,7 +7341,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -720.1389}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5249397435740853415
 CanvasRenderer:
