@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using NaughtyAttributes;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -14,11 +15,11 @@ public class DeckEditor : MonoBehaviour
     // Debug contents.
     [SerializeField] private RectTransform scrollViewContent;
     [SerializeField] private GameObject cardPrefab;
-    [SerializeField] public List<Card> ownedCards = null;
-    [SerializeField] public List<Card> deck = null;
+    [SerializeField] public List<DeckEditorCard> ownedCards = null;
+    [SerializeField] public List<DeckEditorCard> deck = null;
     [SerializeField] public bool isdeck;
 
-    private Dictionary<EditorCardPile, List<Card>> pileToList = null;
+    private Dictionary<EditorCardPile, List<DeckEditorCard>> pileToList = null;
 
     [Header("Global")]
     [ReadOnly] public int w;
@@ -54,18 +55,20 @@ public class DeckEditor : MonoBehaviour
 
         if(!isdeck)
         {
-            foreach (Card card in ownedCards)
+            for (int i = 0; i < ownedCards.Count; i++)
             {
                 Debug.Log("card");
                 GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
+                ownedCards[i] = cardRender.GetComponent<DeckEditorCard>();
             }
         }
         else
         {
-            foreach (Card card in deck)
+            for (int i = 0; i < deck.Count; i++)
             {
                 Debug.Log("deck");
                 GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
+                deck[i] = cardRender.GetComponent<DeckEditorCard>();
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
@@ -116,62 +119,17 @@ public class DeckEditor : MonoBehaviour
     {
         RemoveFromPushTo(card, hand, discardPile);
     }*/
-
-
-    public void MoveCard(Card card, EditorCardPile fromPile, EditorCardPile toPile)
+    public void SwitchPile(DeckEditorCard editorCard)
     {
-        // Acts as a public accessor for the RemoveFromPushTo function.
-        // Moves a card from fromPile to the start of toPile.
-        //
-        // Should be used for status effects.
-        // ================
-
-        RemoveFromPushTo(card, pileToList[fromPile], pileToList[toPile]);
-    }
-
-    public Card GetRandom(EditorCardPile pile)
-    {
-        List<Card> pileList = pileToList[pile];
-        return pileList[Random.Range(0, pileList.Count)];
+        RemoveFromPushTo(editorCard, ownedCards, deck);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
     }
 
     // ================================================================
     // Pile-editing methods
     // ================================================================
 
-
-    private void SwapItems<T>(List<T> pile, int indexA, int indexB)
-    {
-        // In-place swaps items in a list.
-        // ================
-
-        (pile[indexB], pile[indexA]) = (pile[indexA], pile[indexB]);
-    }
-
-    private void PopFromPushTo(List<Card> fromPile, List<Card> toPile, int number=1)
-    {
-        // Simulates a queuelike pop-push operation on two cardlists. Removes 
-        // n = number cards from the end of fromPile, and adds them to the
-        // start of toPile.
-        // ================
-
-        if (fromPile.Count < number)
-        {
-            Debug.LogError($"CardUser Error. PopFromPushTo failed. There are "
-                         + $"fewer cards in fromPile ({fromPile.Count}) than "
-                         + $"the number requested ({number}).", this);
-            return;
-        }
-
-        for (int i = 0; i < number; i++)
-        {
-            Card card = fromPile[^1];
-            fromPile.RemoveAt(fromPile.Count-1);
-            toPile.Insert(0, card);
-        }
-    }
-
-    private void RemoveFromPushTo(Card card, List<Card> fromPile, List<Card> toPile)
+    private void RemoveFromPushTo(DeckEditorCard card, List<DeckEditorCard> fromPile, List<DeckEditorCard> toPile)
     {
         // Attempts to remove card from fromPile and pushes it to the start
         // of toPile. Raises an error if fromPile does not contain card.
