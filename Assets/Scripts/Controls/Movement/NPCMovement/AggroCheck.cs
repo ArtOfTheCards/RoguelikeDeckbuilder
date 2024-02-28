@@ -1,40 +1,40 @@
 using UnityEngine;
 
-public class AggroCheck : MonoBehaviour
+public class AggroDetection : MonoBehaviour
 {
-
-    [SerializeField] private GameObject _target;
-
-    [SerializeField] private NpcPathFinder _npc;
+    private NpcPathFinder _npc;
+    private string _npcTag;
 
     void Awake()
     {
         _npc = GetComponentInParent<NpcPathFinder>();
-        this._target = _npc.target;
-
+        _npcTag = _npc.gameObject.tag;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == _target)
+        if ((_npcTag == "Ally" && other.CompareTag("Enemy")) ||
+            (_npcTag == "Enemy" && (other.CompareTag("Player") || other.CompareTag("Ally"))))
         {
-            string name = _target.gameObject.name;
+            string name = other.gameObject.name;
             Debug.Log(name + " has entered aggro range");
-            _npc.SetAggroStatus(true);
+            _npc.AddTarget(other.gameObject);
         }
-
     }
 
-
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject == _target)
-        {
-            string name = _target.gameObject.name;
-            Debug.Log(name + " has left aggro range");
-            _npc.SetAggroStatus(false);
-        }
-
+        _npc.UpdateTargets();
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if ((_npcTag == "Ally" && other.CompareTag("Enemy")) ||
+            (_npcTag == "Enemy" && (other.CompareTag("Player") || other.CompareTag("Ally"))))
+        {
+            string name = other.gameObject.name;
+            Debug.Log(name + " has exited aggro range");
+            _npc.RemoveTarget(other.gameObject);
+        }
+    }
 }
