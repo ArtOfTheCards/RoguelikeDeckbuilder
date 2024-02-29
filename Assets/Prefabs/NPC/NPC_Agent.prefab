@@ -425,6 +425,7 @@ MonoBehaviour:
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   currentHealth: 500
   maxHealth: 500
+  sprite: {fileID: 6731219731293944968}
 --- !u!114 &7789633128953384287
 MonoBehaviour:
   m_ObjectHideFlags: 0

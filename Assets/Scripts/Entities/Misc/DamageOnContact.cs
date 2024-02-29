@@ -10,9 +10,9 @@ public class DamageOnContact : MonoBehaviour
     private int damagePerTick = 1;
     [SerializeField, Tooltip("The length of time, in seconds, between ticks.\n\nDefault: 1.5")]
     private float tickLength = 1.5f;
-    [SerializeField, Tooltip("Whether we should damage all targetables, regardless of TargetAffiliation.\n\nDefault: false")]
-    private bool damageEverything = false;
-    [HideIf("damageEverything"), SerializeField, Tooltip("The TargetAffiliations we should damage.")]
+    [SerializeField, Tooltip("Whether we should target all targetables, regardless of TargetAffiliation.\n\nDefault: false")]
+    private bool targetEverything = false;
+    [HideIf("targetEverything"), SerializeField, Tooltip("The TargetAffiliations we should damage.")]
     private TargetAffiliation[] targets;
 
 
@@ -46,7 +46,7 @@ public class DamageOnContact : MonoBehaviour
         Targetable targetable = other.gameObject.GetComponentInChildren<Targetable>();
         if (targetable != null)
         {
-            if (damageEverything || targets.Contains(targetable.affiliation)) // Only add targetables we can target.
+            if (targetEverything || targets.Contains(targetable.affiliation)) // Only add targetables we can target.
             {
                 Damagable damagable = other.gameObject.GetComponentInChildren<Damagable>();
                 if (damagable != null) 

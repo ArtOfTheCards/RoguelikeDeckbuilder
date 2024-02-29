@@ -9,7 +9,7 @@ public class Damagable : MonoBehaviour
     [SerializeField] private int maxHealth;
     public int MaxHealth { get { return maxHealth; } }  // read-only property
     public System.Action<StatModifierBank> OnCalculateDamage;
-
+    [SerializeField] private SpriteRenderer sprite;
 
 
     private Transform canvasTransform = null;
@@ -39,7 +39,7 @@ public class Damagable : MonoBehaviour
 
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
-        if (TryGetComponent<SpriteRenderer>(out var sprite)) StartCoroutine(DEBUG_FlashRed(sprite));
+        if (sprite != null) StartCoroutine(DEBUG_FlashRed(sprite));
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
 
