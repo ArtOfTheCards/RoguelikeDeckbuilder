@@ -1729,8 +1729,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1038934393}
-  - component: {fileID: 1038934395}
   - component: {fileID: 1038934396}
+  - component: {fileID: 1038934397}
   m_Layer: 0
   m_Name: Contact Damage Collider
   m_TagString: Untagged
@@ -1753,8 +1753,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 557529869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1038934395
-CircleCollider2D:
+--- !u!114 &1038934396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038934392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a9b245284209249a9e9fff500a4855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerTick: 1
+  tickLength: 1.5
+  targetEverything: 0
+  targets: 01000000
+--- !u!61 &1038934397
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1786,24 +1802,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.75
---- !u!114 &1038934396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038934392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a9b245284209249a9e9fff500a4855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerTick: 1
-  tickLength: 1.5
-  targetEverything: 0
-  targets: 01000000
+  m_Size: {x: 3.5, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1 &1039758862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2711,7 +2721,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3002036246548158275, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       insertIndex: -1
