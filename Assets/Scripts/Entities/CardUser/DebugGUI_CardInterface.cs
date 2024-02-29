@@ -33,6 +33,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
     public Vector2 discardOffset = new();
     public Vector2 discardDimensions = new(200,200);
 
+    [Header("Projectile (Temporary)")]
+    public ProjectileManager projectileMng;
+    public Damagable temporaryTarget;
 
     private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
@@ -143,10 +146,17 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                         cardDimensions.x-buttonMargins.x, 
                                         cardDimensions.y-buttonMargins.y), $"Throw", buttonStyle))
                 {
+                    Debug.Log("ey: card type is " + card.throwTarget);
+
                     if (card.throwTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
                         // If we get one, callback to a properly-parameterized UseCard call.
-                        StartCoroutine(GetTargetTargetable((targetable) => user.UseCard(card, Card.UseMode.Throw, targetable)));
+
+                        // throw projectile
+                        projectileMng.throwNext(temporaryTarget, card);
+                        StartCoroutine(GetTargetTargetable((targetable) => {
+                            user.UseCard(card, Card.UseMode.Throw, targetable);
+                        }));
                     }
 
                     if (card.throwTarget == Card.TargetType.Worldspace) {
@@ -156,12 +166,15 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.throwTarget == Card.TargetType.Targetless) {
+                        Debug.Log("ey: throw at TARGETLESS");
+
+                        projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
                     }
                 }
             }
-        }
 
+        }
         // ================
         // Dis cards
         // ================
@@ -184,6 +197,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
         canPlay = false;
         Targetable target = null;
 
+        Debug.Log("ey: waiting for a click (L for select / R for escape)");
         while (target == null)
         {
             if (Input.GetMouseButtonDown(0))        // select target
@@ -197,6 +211,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     {
                         if (newTarget.affiliation != affiliation) 
                         {
+                            Debug.Log("ey, ADDED NEW TARGET");
                             targetables.Add(newTarget);
                         }
                     }
@@ -209,17 +224,24 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
                 // Break whether or not we found a target. If we clicked on a nontarget, 
                 // then our action is effectively canceled.
+                Debug.Log("ey: break");
                 break;
             }
 
-            if (Input.GetMouseButtonDown(1)) break; // cancel action
+            if (Input.GetMouseButtonDown(1)) {
+                Debug.Log("ey: break");
+                break; // cancel action
+            }
 
             yield return null;
         }
+
+        Debug.Log("EY: exit while loop");
         
         canPlay = true;
         // If we got a target (ie if the action wasn't canceled)...
         if (target != null) action.Invoke(target);
+    
     }
 
     private IEnumerator GetTargetVector3(System.Action<Vector3> action)
@@ -251,3 +273,5 @@ public class DebugGUI_CardInterface : MonoBehaviour
         if (target != min) action.Invoke(target);
     }
 }
+
+
