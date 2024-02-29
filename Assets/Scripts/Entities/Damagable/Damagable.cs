@@ -4,6 +4,8 @@ using UnityEngine;
 public class Damagable : MonoBehaviour
 {
     [SerializeField] private GameObject indicatorPrefab;
+    [SerializeField, Tooltip("Whether or not this Damagable should have a healthbar created for it at runtime.\n\nDefault: true")] 
+    bool createHealhbar = true;
     [SerializeField] private int currentHealth;
     public int CurrentHealth { get { return currentHealth; } }  // read-only property
     [SerializeField] private int maxHealth;
@@ -12,15 +14,41 @@ public class Damagable : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
 
 
-    private Transform canvasTransform = null;
+    private Transform worldspaceCanvasTransform = null;
+    private WorldspaceHealthbars worldspaceHealthbars;
 
     private void Awake()
     {
+        // Sets our current health, and gets our needed canvas UI references.
+        // ================
+
         currentHealth = maxHealth;
 
-        canvasTransform = GameObject.FindGameObjectWithTag("WorldspaceIndicators").transform;
-        if (canvasTransform == null) {
+        worldspaceCanvasTransform = GameObject.FindGameObjectWithTag("WorldspaceIndicators").transform;
+        if (worldspaceCanvasTransform == null)
+        {
             Debug.LogError("Damagable error: Awake failed. The scene has no indicator canvas, or the indicator canvas is not tagged as \"IndicatorCanvas\"");
+        }
+        else 
+        {
+            worldspaceHealthbars = worldspaceCanvasTransform.GetComponentInChildren<WorldspaceHealthbars>();
+        }
+    }
+    
+    private void Start()
+    {
+        if (worldspaceHealthbars != null && createHealhbar)
+        {
+            Debug.Log("Created healthbar");
+            worldspaceHealthbars.CreateHealthbar(this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (worldspaceHealthbars != null && createHealhbar)
+        {
+            worldspaceHealthbars.DeleteHealthbar(this);
         }
     }
 
@@ -54,7 +82,7 @@ public class Damagable : MonoBehaviour
     void showDamageIndicator(int value) {
         if (indicatorPrefab == null) return;
 
-        GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, canvasTransform);
+        GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, worldspaceCanvasTransform);
         indicatorObj.GetComponent<DamageIndicator>().Initialize(value, transform.position);
     }
 

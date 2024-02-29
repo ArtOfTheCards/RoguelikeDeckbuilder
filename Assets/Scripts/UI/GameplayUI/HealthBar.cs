@@ -5,11 +5,11 @@ using NaughtyAttributes;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField, Tooltip("")]
+    [SerializeField, Tooltip("The damagable we're monitoring.")]
     private Damagable damagable;
-    [SerializeField, Tooltip("")]
+    [SerializeField, Tooltip("The image representing the front healthbar component.")]
     private Image mainBar;
-    [SerializeField, Tooltip("")]
+    [SerializeField, Tooltip("The image representing the back healthbar component.")]
     public Image ghostBar;
 
     [Header("Animation Parameters")]
@@ -31,6 +31,11 @@ public class HealthBar : MonoBehaviour
     {
         lastHealth = damagable.MaxHealth;
         mainBar.fillAmount = ghostBar.fillAmount = 1;
+    }
+
+    public void InitializeDamagable(Damagable _damagable)
+    {
+        damagable = _damagable;
     }
 
     private void Update()
