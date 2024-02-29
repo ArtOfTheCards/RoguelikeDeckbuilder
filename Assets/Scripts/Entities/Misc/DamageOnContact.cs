@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using NaughtyAttributes;
 
 [RequireComponent(typeof(Collider2D))]
 public class DamageOnContact : MonoBehaviour
@@ -9,6 +10,11 @@ public class DamageOnContact : MonoBehaviour
     private int damagePerTick = 1;
     [SerializeField, Tooltip("The length of time, in seconds, between ticks.\n\nDefault: 1.5")]
     private float tickLength = 1.5f;
+    [SerializeField, Tooltip("Whether we should damage all targetables, regardless of TargetAffiliation.\n\nDefault: false")]
+    private bool damageEverything = false;
+    [HideIf("damageEverything"), SerializeField, Tooltip("The TargetAffiliations we should damage.")]
+    private TargetAffiliation[] targets;
+
 
     private Dictionary<Damagable, float> damagableToTickTime = new();
 
@@ -37,17 +43,24 @@ public class DamageOnContact : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Damagable damagable = other.gameObject.GetComponentInChildren<Damagable>();
-        if (damagable != null) 
+        Targetable targetable = other.gameObject.GetComponentInChildren<Targetable>();
+        if (targetable != null)
         {
-            damagableToTickTime[damagable] = tickLength;
+            if (damageEverything || targets.Contains(targetable.affiliation)) // Only add targetables we can target.
+            {
+                Damagable damagable = other.gameObject.GetComponentInChildren<Damagable>();
+                if (damagable != null) 
+                {
+                    damagableToTickTime[damagable] = tickLength;
+                }   
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         Damagable damagable = other.gameObject.GetComponentInChildren<Damagable>();
-        if (damagable != null) 
+        if (damagable != null && damagableToTickTime.ContainsKey(damagable)) 
         {
             damagableToTickTime.Remove(damagable);
         }
