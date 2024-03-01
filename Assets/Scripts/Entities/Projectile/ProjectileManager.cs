@@ -66,6 +66,26 @@ public class ProjectileManager : MonoBehaviour
                 Debug.Log(dDE.amount + " hypothetical damage");
                 target.damage(dDE.amount);
             }
+            if (teffect.GetType().FullName == "CardCountDirectDamageEffect")
+            {
+                CardCountDirectDamageEffect ccdDE = (CardCountDirectDamageEffect)teffect;
+                CardUser cardUser = FindObjectOfType<CardUser>();
+
+                int amount = 0;
+                if (ccdDE.cardPile == CardPile.drawPile) { amount = cardUser.drawPile.Count; }
+                else if (ccdDE.cardPile == CardPile.hand) { amount = cardUser.hand.Count; } // Don't count ourselves
+                else if (ccdDE.cardPile == CardPile.discardPile) { amount = cardUser.discardPile.Count; }
+
+                Debug.Log(amount + " hypothetical damage");
+                target.damage(amount);
+            }
+            if (teffect.GetType().FullName == "SpawnEffect")
+            {
+                SpawnEffect sE = (SpawnEffect)teffect;
+
+                Debug.Log(sE.toSpawn + "spawn");
+                GameObject.Instantiate(sE.toSpawn, target.transform.position, Quaternion.identity);
+            }
         }
     }
     private void DoStatus(Damagable target, Card card)
