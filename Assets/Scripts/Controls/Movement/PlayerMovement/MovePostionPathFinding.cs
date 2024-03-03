@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class MovePositionPathfinding : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;

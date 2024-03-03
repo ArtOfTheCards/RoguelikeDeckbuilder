@@ -13,29 +13,21 @@ public class SceneNavigator : MonoBehaviour
 
     [SerializeField] private GameObject creditScreen;
 
-    public Animator animator;
+    [SerializeField] private AsyncLoader loader;
 
 
 
     private void Awake()
     {
+        loader = GameObject.FindObjectOfType<AsyncLoader>();
         GoToMainMenu();
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Sandbag-Level");
+       loader.LoadlevelBtn("SafeRoom");
     }
 
-    public void SaveSettings()
-    {
-        return;
-    }
-
-    public void ResetSettings()
-    {
-
-    }
 
     public void GoToMainMenu()
     {

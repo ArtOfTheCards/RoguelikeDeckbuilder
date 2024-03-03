@@ -10,8 +10,8 @@ public class OptionMenu : MonoBehaviour
      [SerializeField] private GameObject player;
      [SerializeField] private PlayerRebindControls rebindControls;
      [SerializeField] private GameObject cardUser;
-
      [SerializeField] private TextMeshProUGUI pauseButtonText;
+
      private bool isPaused;
 
      private void Awake()
@@ -52,6 +52,7 @@ public class OptionMenu : MonoBehaviour
           if (cardUser != null)
                cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;
+          Debug.Log(Time.timeScale);
      }
 
      public void OnRebindPlayerMovement()
