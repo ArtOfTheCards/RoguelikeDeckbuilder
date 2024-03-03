@@ -8,32 +8,31 @@ public class Setting : ScriptableObject {
 
     [Header("GamePlay")]
 
-    public Dropdown Languge;
+    public int language;
+
+    [Header("Camera")]
+
+    public bool freeLook;
+
+    public float camera_X;
+
+    public float camera_Y;
+   
 
     [Header("Controls")]
 
-    public Slider mouseSenitivity_X;
-
-    public Slider mouseSenitivity_Y;
-
-
-    public Toggle RebindMode;
-
-
-    [Header("KeyBoard + Mosuse")]
+    public bool pathFindingEnabled;
 
     public KeyCode up;
     public KeyCode down;
     public KeyCode left;
     public KeyCode right;
+
+    public KeyCode interact;
     
     [Header("Audio")]
 
-    public AudioSource MasterAudio;
-    public AudioSource BackgroundAudio;
-
-    public AudioSource[] SFX;
-
+    public float volume = 0.5f;
 
 
 
