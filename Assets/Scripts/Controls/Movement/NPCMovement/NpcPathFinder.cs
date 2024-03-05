@@ -1,92 +1,56 @@
-
-
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class NpcPathFinder : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private GameObject target = null;
-    public List<GameObject> targets = new List<GameObject>();
+    [SerializeField, Tooltip("The NavMeshAgent on this object.")] 
+    protected NavMeshAgent _agent;
+    [SerializeField, Tooltip("The Collider2D defining our aggroRange. Collider2Ds with a Targetable in this range can be targeted.")] 
+    protected AggroRange aggroRange;
 
-    [SerializeField] private Transform startingPoint;
-    // Trigger Checkables
-    private bool isAggro;
-    private bool isAttacking;
-
-    private void SetDestination(Vector3 destination)
-    {
-        _agent.destination = destination;
+    // Our target affiliation. We can target targetables with other affiliations.
+    protected TargetAffiliation ourAffiliation;
+    // The game object we're currently targeting.
+    protected Targetable target = null;
+    // Accessor for the speed of our _agent.
+    public float Speed {
+        get { return _agent.speed; }
+        set { _agent.speed = value; }
     }
 
-    public void SetSpeed(float speed)
-    {
-        _agent.speed = speed;
-    }
 
-    public float GetSpeed()
-    {
-        return _agent.speed;
-    }
-
-    private void Awake()
+    
+    protected virtual void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
 
+        Targetable targetable = GetComponentInChildren<Targetable>();
+        if (targetable != null) ourAffiliation = targetable.affiliation;
     }
 
-    void Update()
+    protected void SetDestination(Vector3 destination)
     {
-      
-        if(targets.Capacity != 0){
-            target = targets[0];
+        _agent.destination = destination;
+    }
+
+    protected virtual void Update()
+    {
+        if (target != null) 
+        {
             SetDestination(target.transform.position);
-        }else
-            SetDestination(startingPoint.position);
-    }
-
-    private void Attack(GameObject target)
-    {
-        Debug.Log("Attacking Player");
-    }
-
-    #region TargetHandler
-    public void AddTarget(GameObject target)
-    {
-
-        targets.Add(target);
-        UpdateTargets();
-
-    }
-
-
-    public void RemoveTarget(GameObject target)
-    {
-        targets.Remove(target);
-        UpdateTargets();
-    }
-
-    public void UpdateTargets()
-    {
-        targets.Sort((a, b) => Vector3.Distance(transform.position, a.transform.position)
-                               .CompareTo(Vector3.Distance(transform.position, b.transform.position)));
-    }
-
-    #endregion
-
-
-
-
-    public void SetAggroStatus(bool status)
-    {
-        isAggro = status;
-
-    }
-
-    public void SetAttackStatus(bool status)
-    {
-        isAttacking = status;
+        }
     }
 }
+
+// If we don't have a target...
+        // if (target == null) 
+        // {
+        //     // Search for one!
+        //     Targetable closest = null;
+        //     float shortestDistance = float.MaxValue;
+        //     foreach (Targetable targetable in aggroRange.TargetsInRange)
+        //     {
+        //         if (closest == null || )
+        //     }
+        // }
