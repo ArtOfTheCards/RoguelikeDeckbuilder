@@ -86,3 +86,6 @@ UserSettings/EditorUserSettings.asset
 # Ignore temporaries from GameCI
 [Aa]rtifacts/
 [Cc]odeCoverage/
+
+.vscode
+.vsconfig
