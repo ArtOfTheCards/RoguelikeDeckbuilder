@@ -4,7 +4,7 @@ using UnityEngine;
 public class OptionMenu : MonoBehaviour
 {
      [Header("Option Menu")]
-     [SerializeField] private GameObject options;
+     [SerializeField] private GameObject settingScreen;
 
      [Header("Player Components")]
      [SerializeField] private GameObject player;
@@ -48,7 +48,7 @@ public class OptionMenu : MonoBehaviour
      private void SetPauseState(bool paused)
      {
           isPaused = paused;
-          options.SetActive(paused);
+          settingScreen.SetActive(paused);
           if (cardUser != null)
                cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;

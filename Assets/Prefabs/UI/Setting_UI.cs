@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Setting_UI : MonoBehaviour
 {
-    [SerializeField] private OptionMenu optionMenuption;
-
     [Header("Tabs")]
     [SerializeField] private GameObject gamePlaySetting;
     [SerializeField] private GameObject controlsSetting;
@@ -27,22 +26,91 @@ public class Setting_UI : MonoBehaviour
     [Header("Control UI")]
     [SerializeField] private Toggle pathFindingEnabled;
 
-    // [Header("Audio UI")]
-    // [SerializeField] private Slider volume;
+    [SerializeField] private TextMeshProUGUI[] rebindText;
+    [SerializeField] private TMP_Dropdown upInput;
+    [SerializeField] private TMP_Dropdown downInput;
+    [SerializeField] private TMP_Dropdown leftInput;
+    [SerializeField] private TMP_Dropdown rightInput;
+    [SerializeField] private TMP_Dropdown interactInput;
+
+    private Dictionary<KeyCode, int> keyCodeToDropdownValue; // Mapping KeyCode to TMP_Dropdown value
 
     private void Awake()
     {
-        UpdateSettings();
+        InitializeKeyCodeToDropdownValue();
+        UpdateSettingsUI();
         ActivateGamePlaySettings();
     }
 
-    private void UpdateSettings()
+    private void InitializeKeyCodeToDropdownValue()
+    {
+        keyCodeToDropdownValue = new Dictionary<KeyCode, int>();
+        // Initialize mapping for regular keys
+        for (int i = 0; i <= 25; i++)
+        {
+            keyCodeToDropdownValue.Add(KeyCode.A + i, i);
+        }
+        // Add mapping for special keys
+        keyCodeToDropdownValue.Add(KeyCode.Tab, 26);
+        keyCodeToDropdownValue.Add(KeyCode.CapsLock, 27);
+        keyCodeToDropdownValue.Add(KeyCode.LeftShift, 28);
+        keyCodeToDropdownValue.Add(KeyCode.LeftControl, 29);
+        keyCodeToDropdownValue.Add(KeyCode.Space, 30);
+        keyCodeToDropdownValue.Add(KeyCode.RightShift, 31);
+        keyCodeToDropdownValue.Add(KeyCode.RightControl, 32);
+        // Add mapping for mouse buttons
+        for (int i = 0; i <= 6; i++)
+        {
+            keyCodeToDropdownValue.Add(KeyCode.Mouse0 + i, 33 + i);
+        }
+    }
+
+    private void UpdateSettingsUI()
     {
         languageDropDown.value = currentSetting.language;
-        lookSensitivity_X.value = currentSetting.camera_X;
-        lookSensitivity_Y.value = currentSetting.camera_Y;
+        freeLook.isOn = currentSetting.freeLook;
+        lookSensitivity_X.value = currentSetting.freeLookSensitivity_X;
+        lookSensitivity_Y.value = currentSetting.freeLookSensitivity_Y;
         pathFindingEnabled.isOn = currentSetting.pathFindingEnabled;
-        // volume.value = currentSetting.volume;
+
+        // Update key code TMP_Dropdowns
+        UpdateDropdownFromKeyCode(upInput, currentSetting.up);
+        UpdateDropdownFromKeyCode(downInput, currentSetting.down);
+        UpdateDropdownFromKeyCode(leftInput, currentSetting.left);
+        UpdateDropdownFromKeyCode(rightInput, currentSetting.right);
+        UpdateDropdownFromKeyCode(interactInput, currentSetting.interact);
+
+        foreach (var item in rebindText)
+        {
+            item.alpha = pathFindingEnabled.isOn ? 0.5f : 1f;
+        }
+        upInput.interactable = pathFindingEnabled.isOn ? false : true;
+        downInput.interactable = pathFindingEnabled.isOn ? false : true;
+        leftInput.interactable = pathFindingEnabled.isOn ? false : true;
+        rightInput.interactable = pathFindingEnabled.isOn ? false : true;
+        interactInput.interactable = pathFindingEnabled.isOn ? false : true;
+    }
+
+    private void UpdateDropdownFromKeyCode(TMP_Dropdown dropdown, KeyCode keyCode)
+    {
+        int dropdownValue;
+        if (keyCodeToDropdownValue.TryGetValue(keyCode, out dropdownValue))
+        {
+            dropdown.value = dropdownValue;
+        }
+    }
+
+    private void UpdateSettingsFromDropdown(TMP_Dropdown dropdown, ref KeyCode keyCode)
+    {
+        int dropdownValue = dropdown.value;
+        foreach (var kvp in keyCodeToDropdownValue)
+        {
+            if (kvp.Value == dropdownValue)
+            {
+                keyCode = kvp.Key;
+                break;
+            }
+        }
     }
 
     public void ActivateGamePlaySettings()
@@ -71,50 +139,67 @@ public class Setting_UI : MonoBehaviour
         currentSetting.language = languageDropDown.value;
     }
 
- 
-
-    public void UpdateFreeLook(bool isOn)
+    public void UpdateFreeLook()
     {
-        currentSetting.freeLook = isOn;
-        if (isOn)
+        currentSetting.freeLook = freeLook.isOn;
+
+        lookSensitivity_X.interactable = freeLook.isOn ? false : true;
+        lookSensitivity_Y.interactable = freeLook.isOn ? false : true;
+        lookSensitivity_X_text.alpha = freeLook.isOn ? 0.5f : 1f;
+        lookSensitivity_Y_text.alpha = freeLook.isOn ? 0.5f : 1f;
+    }
+
+    public void UpdateLookSensitivityX()
+    {
+        currentSetting.freeLookSensitivity_X = MathF.Round(lookSensitivity_X.value * 10f) / 10f;
+    }
+
+    public void UpdateLookSensitivityY()
+    {
+        currentSetting.freeLookSensitivity_Y = MathF.Round(lookSensitivity_Y.value * 10f)/10f;
+    }
+
+    public void UpdatePathFindingEnabled()
+    {
+        currentSetting.pathFindingEnabled = pathFindingEnabled.isOn;
+        
+        foreach (var item in rebindText)
         {
-            lookSensitivity_X.interactable = false;
-            lookSensitivity_Y.interactable = false;
-            lookSensitivity_X_text.alpha = 0.5f;
-            lookSensitivity_Y_text.alpha = 0.5f;
+            item.alpha = pathFindingEnabled.isOn ? 0.5f : 1f;
         }
-        else
-        {
-            lookSensitivity_X.interactable = true;
-            lookSensitivity_Y.interactable = true;
-            lookSensitivity_X_text.alpha = 1f;
-            lookSensitivity_Y_text.alpha = 1f;
-        }
+        upInput.interactable = pathFindingEnabled.isOn ? false : true;
+        downInput.interactable = pathFindingEnabled.isOn ? false : true;
+        leftInput.interactable = pathFindingEnabled.isOn ? false : true;
+        rightInput.interactable = pathFindingEnabled.isOn ? false : true;
+        interactInput.interactable = pathFindingEnabled.isOn ? false : true;
     }
 
-    public void UpdateLookSensitivityX(float value)
+    public void UpdateUpInput()
     {
-        currentSetting.camera_X = value;
+        UpdateSettingsFromDropdown(upInput, ref currentSetting.up);
     }
 
-    public void UpdateLookSensitivityY(float value)
+    public void UpdateDownInput()
     {
-        currentSetting.camera_Y = value;
+        UpdateSettingsFromDropdown(downInput, ref currentSetting.down);
     }
 
-
-
-    public void UpdatePathFindingEnabled(bool isOn)
+    public void UpdateLeftInput()
     {
-        currentSetting.pathFindingEnabled = isOn;
+        UpdateSettingsFromDropdown(leftInput, ref currentSetting.left);
     }
 
-    // public void UpdateVolume(float value)
-    // {
-    //     currentSetting.volume = value;
-    // }
+    public void UpdateRightInput()
+    {
+        UpdateSettingsFromDropdown(rightInput, ref currentSetting.right);
+    }
 
-    // Save settings method
+    public void UpdateInteractInput()
+    {
+        UpdateSettingsFromDropdown(interactInput, ref currentSetting.interact);
+    }
+
+
     public void SaveSettings()
     {
         // Save settings to ScriptableObject or PlayerPrefs or any other storage method
@@ -123,7 +208,8 @@ public class Setting_UI : MonoBehaviour
 
     public void ResetSettings()
     {
-        currentSetting = defaultSetting;
-        UpdateSettings();
+        currentSetting = Instantiate<Setting>(defaultSetting);
+
+        UpdateSettingsUI();
     }
 }

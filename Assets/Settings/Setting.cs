@@ -14,9 +14,9 @@ public class Setting : ScriptableObject {
 
     public bool freeLook;
 
-    public float camera_X;
+    public float freeLookSensitivity_X;
 
-    public float camera_Y;
+    public float freeLookSensitivity_Y;
    
 
     [Header("Controls")]
@@ -32,7 +32,12 @@ public class Setting : ScriptableObject {
     
     [Header("Audio")]
 
-    public float volume = 0.5f;
+    public float masterVolume = 0.5f;
+
+    public float ambientVolume = 0.5f;
+
+    public float sfxVolume = 0.5f;
+
 
 
 
