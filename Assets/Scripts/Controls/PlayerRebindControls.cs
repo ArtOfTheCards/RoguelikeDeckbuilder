@@ -9,7 +9,7 @@ public class PlayerRebindControls : MonoBehaviour
 
     private bool isSwapped;
 
-    private void Awake()
+    private void Start()
     {
         agent = GetComponentInParent<NavMeshAgent>();
         agent.updateRotation = false;
