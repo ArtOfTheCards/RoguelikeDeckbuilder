@@ -5,7 +5,7 @@ public class Damagable : MonoBehaviour
 {
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField, Tooltip("Whether or not this Damagable should have a healthbar created for it at runtime.\n\nDefault: true")] 
-    bool createHealhbar = true;
+    bool createHealthbar = true;
     [SerializeField] private int currentHealth;
     public int CurrentHealth { get { return currentHealth; } }  // read-only property
     [SerializeField] private int maxHealth;
@@ -37,7 +37,7 @@ public class Damagable : MonoBehaviour
     
     private void Start()
     {
-        if (worldspaceHealthbars != null && createHealhbar)
+        if (worldspaceHealthbars != null && createHealthbar)
         {
             Debug.Log("Created healthbar");
             worldspaceHealthbars.CreateHealthbar(this);
@@ -46,7 +46,7 @@ public class Damagable : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (worldspaceHealthbars != null && createHealhbar)
+        if (worldspaceHealthbars != null && createHealthbar)
         {
             worldspaceHealthbars.DeleteHealthbar(this);
         }
