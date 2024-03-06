@@ -12,13 +12,15 @@ public class OptionMenu : MonoBehaviour
      [SerializeField] private TextMeshProUGUI pauseButtonText;
 
      [Header("Camera Components")]
-     [SerializeField] private CinemachineVirtualCamera followPlayerCamera2d;
-     [SerializeField] private CinemachineFreeLook freeLookCamera;
+     [SerializeField] private CinemachineVirtualCamera followPlayerCamera2d = null;
+     [SerializeField] private CinemachineFreeLook freeLookCamera = null;
 
      [Header("Player Components")]
      [SerializeField] private GameObject player;
      [SerializeField] private PlayerRebindControls rebindControls;
      [SerializeField] private GameObject cardUser;
+
+     [SerializeField] private PlayerMovementKeys playerMovementKeys;
 
      private bool isPaused;
 
@@ -30,7 +32,9 @@ public class OptionMenu : MonoBehaviour
 
      private void Update()
      {
-          UpdatePlayerCamera();
+          if (followPlayerCamera2d != null || freeLookCamera != null)
+               UpdatePlayerCamera();
+
           UpdateControls();
      }
 
@@ -41,9 +45,7 @@ public class OptionMenu : MonoBehaviour
           if (player != null)
           {
                player.SetActive(true);
-               rebindControls = player.GetComponentInChildren<PlayerRebindControls>();
-               if (rebindControls != null)
-                    rebindControls.enabled = true;
+               rebindControls.enabled = true;
                cardUser.SetActive(true);
           }
           else
@@ -56,19 +58,31 @@ public class OptionMenu : MonoBehaviour
 
      private void UpdatePlayerCamera()
      {
-          followPlayerCamera2d.enabled = !currentSettings.freeLook;
-          freeLookCamera.enabled = currentSettings.freeLook;
+          if (followPlayerCamera2d != null)
+               followPlayerCamera2d.enabled = !currentSettings.freeLook;
 
-          if (freeLookCamera.enabled)
+          if (freeLookCamera != null)
           {
-               freeLookCamera.m_XAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_X;
-               freeLookCamera.m_YAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_Y;
+               freeLookCamera.enabled = currentSettings.freeLook;
+
+               if (freeLookCamera.enabled)
+               {
+                    freeLookCamera.m_XAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_X;
+                    freeLookCamera.m_YAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_Y;
+               }
           }
      }
 
-     private void UpdateControls(){
+     private void UpdateControls()
+     {
           rebindControls.SwapControls(currentSettings.pathFindingEnabled);
-     }
+          if(currentSettings.pathFindingEnabled)
+          {
+              playerMovementKeys.Rebindkeys(currentSettings);
+
+          }
+
+     } 
 
      public void OnPause()
      {

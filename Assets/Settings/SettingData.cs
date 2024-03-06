@@ -1,7 +1,4 @@
-using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Setting", menuName = "Setting", order = 0)]
 public class SettingData : ScriptableObject {
