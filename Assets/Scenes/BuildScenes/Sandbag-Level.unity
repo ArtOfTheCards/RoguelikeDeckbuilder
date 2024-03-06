@@ -276,14 +276,6 @@ PrefabInstance:
       propertyPath: createHealhbar
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3445336580203328670, guid: 5250a3214c5952748bc405a007a00319, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 690380286, guid: c0f95606d6d342341b9465bb4354b603, type: 3}
-    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
-      propertyPath: maxHandSize
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.size
       value: 11
