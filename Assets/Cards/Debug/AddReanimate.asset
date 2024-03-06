@@ -19,7 +19,7 @@ MonoBehaviour:
   playDescription: 
   playEffects:
   - rid: 7686006593197965312
-  throwTarget: 0
+  throwTarget: 3
   throwDescription: 
   throwEffects: []
   references:
@@ -29,4 +29,4 @@ MonoBehaviour:
       type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: New DirectAddStatus Effect
-        status: {fileID: 11400000, guid: 216d9a727e6239141aa7b595f7e3483c, type: 2}
+        status: {fileID: 0}

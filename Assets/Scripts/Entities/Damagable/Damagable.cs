@@ -7,50 +7,13 @@ public class Damagable : MonoBehaviour
     [SerializeField, Tooltip("Whether or not this Damagable should have a healthbar created for it at runtime.\n\nDefault: true")] 
     bool createHealthbar = true;
     [SerializeField] private int currentHealth;
-    public int CurrentHealth { get { return currentHealth; } }  // read-only property
-    [SerializeField] private int maxHealth;
-    public int MaxHealth { get { return maxHealth; } }  // read-only property
+    public int CurrentHealth { get { return currentHealth; } }
+    [SerializeField] public int maxHealth;
+    public int MaxHealth { get { return maxHealth; } }
+    [SerializeField] public int debugHealthBoxMove;
     public System.Action<StatModifierBank> OnCalculateDamage;
+    public System.Action deathTrigger;
     [SerializeField] private SpriteRenderer sprite;
-
-
-    private Transform worldspaceCanvasTransform = null;
-    private WorldspaceHealthbars worldspaceHealthbars;
-
-    private void Awake()
-    {
-        // Sets our current health, and gets our needed canvas UI references.
-        // ================
-
-        currentHealth = maxHealth;
-
-        worldspaceCanvasTransform = GameObject.FindGameObjectWithTag("WorldspaceIndicators").transform;
-        if (worldspaceCanvasTransform == null)
-        {
-            Debug.LogError("Damagable error: Awake failed. The scene has no indicator canvas, or the indicator canvas is not tagged as \"IndicatorCanvas\"");
-        }
-        else 
-        {
-            worldspaceHealthbars = worldspaceCanvasTransform.GetComponentInChildren<WorldspaceHealthbars>();
-        }
-    }
-    
-    private void Start()
-    {
-        if (worldspaceHealthbars != null && createHealthbar)
-        {
-            Debug.Log("Created healthbar");
-            worldspaceHealthbars.CreateHealthbar(this);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (worldspaceHealthbars != null && createHealthbar)
-        {
-            worldspaceHealthbars.DeleteHealthbar(this);
-        }
-    }
 
     public void damage(int baseValue) 
     {
@@ -67,7 +30,7 @@ public class Damagable : MonoBehaviour
 
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
-        if (sprite != null) StartCoroutine(DEBUG_FlashRed(sprite));
+        if (TryGetComponent<SpriteRenderer>(out var sprite)) StartCoroutine(DEBUG_FlashRed(sprite));
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
 
@@ -82,7 +45,8 @@ public class Damagable : MonoBehaviour
     void showDamageIndicator(int value) {
         if (indicatorPrefab == null) return;
 
-        GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, worldspaceCanvasTransform);
+        Transform canvasTransform = GameObject.FindGameObjectWithTag("IndicatorCanvas").transform;
+        GameObject indicatorObj = Instantiate(indicatorPrefab, Vector3.zero, Quaternion.identity, canvasTransform);
         indicatorObj.GetComponent<DamageIndicator>().Initialize(value, transform.position);
     }
 
@@ -91,7 +55,8 @@ public class Damagable : MonoBehaviour
     }
 
     private void die() {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        deathTrigger?.Invoke();
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)
@@ -101,4 +66,5 @@ public class Damagable : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         sprite.color = old;
     }
+
 }
