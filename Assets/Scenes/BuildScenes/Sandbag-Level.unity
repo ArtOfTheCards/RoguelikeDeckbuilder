@@ -336,6 +336,14 @@ PrefabInstance:
       propertyPath: DEBUG_startingDeck.Array.data[13]
       value: 
       objectReference: {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: projectileMng
+      value: 
+      objectReference: {fileID: 760104895}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: temporaryTarget
+      value: 
+      objectReference: {fileID: 1963564411}
     - target: {fileID: 7185980515548851073, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2555,6 +2563,17 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 2679000878069040758, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
   m_PrefabInstance: {fileID: 2559303974571157053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1963564411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3431702212409478801, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+  m_PrefabInstance: {fileID: 2559303974571157053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2559303974571157053
 PrefabInstance:
   m_ObjectHideFlags: 0
