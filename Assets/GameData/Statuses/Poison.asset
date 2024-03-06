@@ -17,6 +17,5 @@ MonoBehaviour:
     stackable: 1
     damagePerTick: 1
     tickDelay: 1
-    duration: 15
-    durationAddedOnStack: 10
-    kirby: 0
+    duration: 5
+    durationAddedOnStack: 2
