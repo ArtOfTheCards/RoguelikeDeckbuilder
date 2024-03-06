@@ -6,9 +6,9 @@ public class Damagable : MonoBehaviour
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField, Tooltip("Whether or not this Damagable should have a healthbar created for it at runtime.\n\nDefault: true")] 
     bool createHealthbar = true;
-    [SerializeField] private int currentHealth;
+    [SerializeField] public int currentHealth;
     public int CurrentHealth { get { return currentHealth; } }  // read-only property
-    [SerializeField] private int maxHealth;
+    [SerializeField] public int maxHealth;
     public int MaxHealth { get { return maxHealth; } }  // read-only property
     public System.Action<StatModifierBank> OnCalculateDamage;
     [SerializeField] private SpriteRenderer sprite;
