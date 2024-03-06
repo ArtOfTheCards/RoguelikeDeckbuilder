@@ -19,7 +19,7 @@ MonoBehaviour:
   playDescription: 10s SLOW
   playEffects:
   - rid: 7443702670664663040
-  throwTarget: 1
+  throwTarget: 3
   throwDescription: 5s STUN
   throwEffects:
   - rid: 7443702670664663041

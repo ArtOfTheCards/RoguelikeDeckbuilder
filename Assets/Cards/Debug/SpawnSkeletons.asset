@@ -20,10 +20,10 @@ MonoBehaviour:
   playEffects:
   - rid: 4647620896860930048
   - rid: 4647620840944828467
-  throwTarget: 1
-  throwDescription: 1 DMG
+  throwTarget: 3
+  throwDescription: +1 TARGET
   throwEffects:
-  - rid: 4647620957206740995
+  - rid: 7443703157569880065
   references:
     version: 2
     RefIds:
@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: spawn target
-        toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
+        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
         xVariance: {x: -1, y: 1}
         yVariance: {x: -1, y: 1}
     - rid: 4647620896860930048
@@ -39,8 +39,10 @@ MonoBehaviour:
       data:
         Debug_ID: wait 0.2 seconds
         delayAmount: 0
-    - rid: 4647620957206740995
-      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+    - rid: 7443703157569880065
+      type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: damage 1
-        amount: 1
+        Debug_ID: spawn
+        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
+        xVariance: {x: -1, y: 1}
+        yVariance: {x: -1, y: 1}
