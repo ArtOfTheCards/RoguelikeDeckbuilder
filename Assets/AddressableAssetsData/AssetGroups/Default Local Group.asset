@@ -15,16 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 8f522ce2267a5f947b0b0ca13175ae1f
-  m_SerializeEntries:
-  - m_GUID: 576bb356ac65aab41abbf2878cff0512
-    m_Address: Assets/Prefabs/Card/tempCard.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: 805d8fb5b2e685c4ba98c82bcad9d27a
+  m_SerializeEntries: []
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 4baa369bffc30f542b64f4211a7ecebb, type: 2}
+  m_Settings: {fileID: 11400000, guid: dc8fa30f5076e464696a79005d37c197, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 762da49080c45004383aa9f92eb59b73, type: 2}
-    - {fileID: 11400000, guid: 240d409db51b1ae4a820493e263f5d10, type: 2}
+    - {fileID: 11400000, guid: 3b48944bba79e0b419c5b87804496d2f, type: 2}
+    - {fileID: 11400000, guid: f12125717ed6c764bbd53d04c6873271, type: 2}
