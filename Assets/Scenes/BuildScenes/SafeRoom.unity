@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15886424, g: 0.058561735, b: 0.6603774, a: 0.6745098}
+  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0.6745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -777,13 +777,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1978411584}
         m_TargetAssemblyTypeName: LeaveRoom_UI, Assembly-CSharp
         m_MethodName: OnYesButton
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Sandbag-Level
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &345269725
@@ -1387,6 +1387,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &643040482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643040484}
+  - component: {fileID: 643040483}
+  m_Layer: 0
+  m_Name: OffScreenCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &643040483
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643040482}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -13.86321, y: 13.871217}
+      - {x: -13.814761, y: -6.1153927}
+      - {x: 6.129423, y: -6.172339}
+      - {x: 6.1164327, y: 13.874906}
+  m_UseDelaunayMesh: 0
+--- !u!4 &643040484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643040482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.434335, y: -5.138613, z: 0.09792137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696007154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,7 +1829,7 @@ GameObject:
   - component: {fileID: 1242915063}
   - component: {fileID: 1242915065}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: FollowPlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1825,27 +1906,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1242915062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CollideAgainst:
-    serializedVersion: 2
-    m_Bits: 1
-  m_IgnoreTag: 
-  m_TransparentLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_MinimumDistanceFromTarget: 0.1
-  m_AvoidObstacles: 1
-  m_DistanceLimit: 0
-  m_MinimumOcclusionTime: 0
-  m_CameraRadius: 0.1
-  m_Strategy: 1
-  m_MaximumEffort: 4
-  m_SmoothingTime: 0
-  m_Damping: 0
-  m_DampingWhenOccluded: 0
-  m_OptimalTargetDistance: 0
+  m_BoundingShape2D: {fileID: 643040483}
+  m_Damping: 0.5
+  m_MaxWindowSize: -1
 --- !u!1 &1385281658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,11 +2408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.54
+      value: -12.301214
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -1.2873299
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2771,7 +2837,7 @@ GameObject:
   - component: {fileID: 1978411585}
   - component: {fileID: 1978411584}
   m_Layer: 5
-  m_Name: LeaveRoom_UI
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2792,6 +2858,7 @@ MonoBehaviour:
   door: {fileID: 472974200}
   loader: {fileID: 487071738}
   leaveRoomImage: {fileID: 9981649}
+  settingScreen: {fileID: 0}
 --- !u!114 &1978411585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3050,14 +3117,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 653868675899830627, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1140055143069562299, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: player
       value: 
@@ -3073,26 +3132,6 @@ PrefabInstance:
     - target: {fileID: 2512347632138908281, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053807641883610413, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053807641883610413, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053807641883610413, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0.12902832
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173669283032724083, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3232067629626474635, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 211.49994
       objectReference: {fileID: 0}
     - target: {fileID: 6587700420777792704, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_Pivot.x
@@ -3174,25 +3213,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6641179929740200293, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 211.49994
-      objectReference: {fileID: 0}
     - target: {fileID: 7661225694597968534, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_Name
-      value: OptionMenu_UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8080453870673334868, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8597596992557383272, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -720.2247
-      objectReference: {fileID: 0}
-    - target: {fileID: 9008128754952610788, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
+      value: OptionMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3210,16 +3233,17 @@ SceneRoots:
   m_Roots:
   - {fileID: 487071737}
   - {fileID: 511426637}
-  - {fileID: 2023373883}
   - {fileID: 2043099970}
+  - {fileID: 2023373883}
   - {fileID: 1978411588}
   - {fileID: 1509383006}
-  - {fileID: 1601221453}
   - {fileID: 1242915064}
+  - {fileID: 1601221453}
   - {fileID: 1034012181}
   - {fileID: 696007156}
   - {fileID: 186762525}
   - {fileID: 472974199}
   - {fileID: 208931774}
   - {fileID: 1659255552}
+  - {fileID: 643040484}
   - {fileID: 471595091}

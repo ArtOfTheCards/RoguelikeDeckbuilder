@@ -1,16 +1,24 @@
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 
 public class OptionMenu : MonoBehaviour
 {
-     [Header("Option Menu")]
+     [Header("Settings")]
+     [SerializeField] private SettingData currentSettings;
+
+     [Header("UI Components")]
      [SerializeField] private GameObject settingScreen;
+     [SerializeField] private TextMeshProUGUI pauseButtonText;
+
+     [Header("Camera Components")]
+     [SerializeField] private CinemachineVirtualCamera followPlayerCamera2d;
+     [SerializeField] private CinemachineFreeLook freeLookCamera;
 
      [Header("Player Components")]
      [SerializeField] private GameObject player;
      [SerializeField] private PlayerRebindControls rebindControls;
      [SerializeField] private GameObject cardUser;
-     [SerializeField] private TextMeshProUGUI pauseButtonText;
 
      private bool isPaused;
 
@@ -18,6 +26,11 @@ public class OptionMenu : MonoBehaviour
      {
           FindPlayerComponents();
           SetPauseState(false);
+     }
+
+     private void Update()
+     {
+          UpdatePlayerCamera();
      }
 
      private void FindPlayerComponents()
@@ -37,6 +50,18 @@ public class OptionMenu : MonoBehaviour
                player = null;
                rebindControls = null;
                cardUser = null;
+          }
+     }
+
+     private void UpdatePlayerCamera()
+     {
+          followPlayerCamera2d.enabled = !currentSettings.freeLook;
+          freeLookCamera.enabled = currentSettings.freeLook;
+
+          if (freeLookCamera.enabled)
+          {
+               freeLookCamera.m_XAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_X;
+               freeLookCamera.m_YAxis.m_MaxSpeed = currentSettings.freeLookSensitivity_Y;
           }
      }
 

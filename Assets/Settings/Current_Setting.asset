@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   language: 0
   freeLook: 0
-  freeLookSensitivity_X: 0.5
-  freeLookSensitivity_Y: 0.5
+  freeLookSensitivity_X: 120
+  freeLookSensitivity_Y: 1
   pathFindingEnabled: 1
   up: 119
   down: 115

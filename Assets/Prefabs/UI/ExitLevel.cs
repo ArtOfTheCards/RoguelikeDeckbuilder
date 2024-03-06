@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaveRoom_UI : MonoBehaviour
+public class ExitLevel : MonoBehaviour
 {
     [SerializeField] private ExitSafeRoom door;
     [SerializeField] private AsyncLoader loader;
-    [SerializeField] private GameObject leaveRoomImage; // Reference to the UI element to be enabled/disabled
+    [SerializeField] private GameObject leaveRoomImage; 
+
+    [SerializeField] private GameObject settingScreen;
 
 
-    private void Start() {
+    private void Awake() {
+
         leaveRoomImage.SetActive(false);
+        settingScreen = GameObject.Find("SettingScreen");
     }
     private void Update()
     {
@@ -20,13 +24,15 @@ public class LeaveRoom_UI : MonoBehaviour
 
     private void EnableLeaveRoomUI()
     {
+        if(settingScreen)
+            settingScreen.SetActive(false);
         leaveRoomImage.SetActive(door.IsPlayerAtDoor); // Enable the UI element
         Time.timeScale = door.IsPlayerAtDoor? 0f: 1.0f; 
     }
 
-    public void OnYesButton(string levelToLoad)
+    public void OnYesButton()
     {
-        loader.LoadlevelBtn(levelToLoad);
+        loader.LoadlevelBtn("Sandbag-Level");
     }
 
     public void OnNoButton()
