@@ -19,8 +19,8 @@ MonoBehaviour:
   playDescription: +ROT
   playEffects:
   - rid: 7443702774162259969
-  throwTarget: 1
-  throwDescription: 1 DMG
+  throwTarget: 3
+  throwDescription: 5 DMG
   throwEffects:
   - rid: 7443702774162259970
   references:
@@ -35,4 +35,4 @@ MonoBehaviour:
       type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: New DirectDamage Effect
-        amount: 1
+        amount: 5

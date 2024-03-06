@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.size
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[0]
@@ -323,19 +323,19 @@ PrefabInstance:
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[10]
       value: 
-      objectReference: {fileID: 11400000, guid: d5282391542b02248b30abeeb8aa9b37, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[11]
       value: 
-      objectReference: {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a8d79abc19941b48ab04a51147a11f3, type: 2}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[12]
       value: 
-      objectReference: {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+      objectReference: {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[13]
       value: 
-      objectReference: {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+      objectReference: {fileID: 11400000, guid: 132a84176d8af3b40b7f771eeee4df27, type: 2}
     - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: projectileMng
       value: 

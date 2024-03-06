@@ -13,6 +13,7 @@ public class Damagable : MonoBehaviour
     public System.Action<StatModifierBank> OnCalculateDamage;
     [SerializeField] private SpriteRenderer sprite;
 
+    public System.Action deathTrigger;
 
     private Transform worldspaceCanvasTransform = null;
     private WorldspaceHealthbars worldspaceHealthbars;
