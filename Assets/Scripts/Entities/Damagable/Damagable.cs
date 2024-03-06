@@ -91,7 +91,8 @@ public class Damagable : MonoBehaviour
     }
 
     private void die() {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        deathTrigger?.Invoke();
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)
