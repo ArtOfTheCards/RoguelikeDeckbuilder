@@ -160,8 +160,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
+      - m_Target: {fileID: 5086335770939412151}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdatePathFindingEnabled
         m_Mode: 1
         m_Arguments:
@@ -2549,7 +2549,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ActivateSettingsTab
         m_Mode: 3
@@ -2697,7 +2697,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ActivateSettingsTab
         m_Mode: 3
@@ -2867,7 +2867,7 @@ GameObject:
   - component: {fileID: 8580723842240395439}
   - component: {fileID: 4405067422656996251}
   - component: {fileID: 724595776553757227}
-  - component: {fileID: 619659370986189501}
+  - component: {fileID: 5086335770939412151}
   m_Layer: 5
   m_Name: SettingScreen
   m_TagString: Untagged
@@ -2942,7 +2942,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &619659370986189501
+--- !u!114 &5086335770939412151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2951,15 +2951,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121618184234092507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f23f8412fe3464a9fe102cc42859ed, type: 3}
+  m_Script: {fileID: 11500000, guid: ee15e5f5540fcc941b14409b2f06c138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   settingTabs:
   - {fileID: 7204097678986409538}
   - {fileID: 9024821170096069861}
   - {fileID: 8685114559929126552}
-  defaultSetting: {fileID: 11400000, guid: 3fa9ee3e3d1ce3042aaf9a2497101798, type: 2}
-  currentSetting: {fileID: 11400000, guid: 724f85cfe32d5634798fe0f375f04ca5, type: 2}
+  defaultSetting: {fileID: 11400000, guid: edc4baab18bdc7448bf8d9e4590de596, type: 2}
+  currentSetting: {fileID: 11400000, guid: ca099fdeee602384abbb159e7a2a62a1, type: 2}
   languageDropDown: {fileID: 2912571244692976656}
   freeLook: {fileID: 6643591384300191073}
   lookSensitivityTexts:
@@ -4111,8 +4111,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
+      - m_Target: {fileID: 5086335770939412151}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateLookSensitivityX
         m_Mode: 1
         m_Arguments:
@@ -6456,7 +6456,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateDownInput
         m_Mode: 1
@@ -6666,7 +6666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ActivateSettingsTab
         m_Mode: 3
@@ -9128,8 +9128,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
+      - m_Target: {fileID: 5086335770939412151}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateFreeLook
         m_Mode: 1
         m_Arguments:
@@ -9443,7 +9443,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateLeftInput
         m_Mode: 1
@@ -10447,7 +10447,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateRightInput
         m_Mode: 1
@@ -11220,7 +11220,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateInteractInput
         m_Mode: 1
@@ -11594,7 +11594,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 5086335770939412151}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateUpInput
         m_Mode: 1
@@ -12107,7 +12107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4349794937091953212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12210,9 +12210,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
-        m_MethodName: ResetSettings
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12805,8 +12805,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
+      - m_Target: {fileID: 5086335770939412151}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateLanguageDropdown
         m_Mode: 1
         m_Arguments:
@@ -14460,8 +14460,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619659370986189501}
-        m_TargetAssemblyTypeName: Setting_UI, Assembly-CSharp
+      - m_Target: {fileID: 5086335770939412151}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: UpdateLookSensitivityY
         m_Mode: 1
         m_Arguments:
