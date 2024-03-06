@@ -6,9 +6,9 @@ public class Damagable : MonoBehaviour
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField, Tooltip("Whether or not this Damagable should have a healthbar created for it at runtime.\n\nDefault: true")] 
     bool createHealthbar = true;
-    [SerializeField] private int currentHealth;
+    [SerializeField] public int currentHealth;
     public int CurrentHealth { get { return currentHealth; } }  // read-only property
-    [SerializeField] private int maxHealth;
+    [SerializeField] public int maxHealth;
     public int MaxHealth { get { return maxHealth; } }  // read-only property
     public System.Action<StatModifierBank> OnCalculateDamage;
     [SerializeField] private SpriteRenderer sprite;
@@ -16,6 +16,7 @@ public class Damagable : MonoBehaviour
 
     private Transform worldspaceCanvasTransform = null;
     private WorldspaceHealthbars worldspaceHealthbars;
+    public System.Action deathTrigger;
 
     private void Awake()
     {
@@ -91,7 +92,8 @@ public class Damagable : MonoBehaviour
     }
 
     private void die() {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        deathTrigger?.Invoke();
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)
