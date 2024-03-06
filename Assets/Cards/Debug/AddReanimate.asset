@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
+  m_Name: AddReanimate
+  m_EditorClassIdentifier: 
+  debug_ID: reanimate
+  title: Skeletal Corruption
+  art: {fileID: 0}
+  playTarget: 1
+  playDescription: +REANIM
+  playEffects:
+  - rid: 7686006593197965312
+  throwTarget: 3
+  throwDescription: +2 SKELE
+  throwEffects:
+  - rid: 6913502771524927513
+  - rid: 6913502771524927514
+  references:
+    version: 2
+    RefIds:
+    - rid: 6913502771524927513
+      type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: spawn
+        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
+        xVariance: {x: 0, y: 0}
+        yVariance: {x: 0, y: 0}
+    - rid: 6913502771524927514
+      type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: spawn
+        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
+        xVariance: {x: 0, y: 0}
+        yVariance: {x: 0, y: 0}
+    - rid: 7686006593197965312
+      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: New DirectAddStatus Effect
+        status: {fileID: 11400000, guid: 216d9a727e6239141aa7b595f7e3483c, type: 2}
