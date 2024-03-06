@@ -30,6 +30,7 @@ public class Card : ScriptableObject
     [SerializeReference]
     public List<CardEffect> throwEffects = new();
 
+    DeckEditor deckEditor;
 
 
     private bool effectCalledback = false;
@@ -82,6 +83,7 @@ public class Card : ScriptableObject
         }
         return true;
     }
+    
 
     // ================================================================
     // Effect application methods

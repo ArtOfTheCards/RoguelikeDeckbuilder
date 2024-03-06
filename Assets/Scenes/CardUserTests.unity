@@ -156,8 +156,14 @@ MonoBehaviour:
   w: 0
   h: 0
   canPlay: 1
+  pileLabelHeight: 50
+  pileFontSize: 50
+  pileLabelFontSize: 50
+  cardFontSize: 50
+  buttonFontSize: 50
   drawOffset: {x: 10, y: 10}
   drawDimensions: {x: 100, y: 100}
+  timerHeight: 16
   globalYOffset: 10
   xWidth: 840
   cardOffset: {x: 0, y: 0}
@@ -180,12 +186,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHandSize: 3
+  maxHandSize: 7
   normalDrawAmount: 1
   drawDelay: 0.5
   DEBUG_startingDeck:
+  - {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+  - {fileID: 11400000, guid: abe98798fac2187458530ba436128054, type: 2}
+  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
+  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
+  - {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
   - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
-  - {fileID: 11400000, guid: c5268e392b89e40408a6eb8a60d4ed95, type: 2}
-  - {fileID: 11400000, guid: 093ef4169eb77234b922a104b6e91361, type: 2}
+  - {fileID: 11400000, guid: 334176d229d94a042a98254fc80f0d65, type: 2}
+  ownedCards: []
   drawPile: []
   hand: []
   discardPile: []
