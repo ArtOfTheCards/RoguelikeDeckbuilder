@@ -634,6 +634,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+--- !u!114 &186762526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5194792227993914570, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+  m_PrefabInstance: {fileID: 186762525}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7eb996554e9d4b9ee23ce8a7f784c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193118371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8462582246012223312, guid: 5250a3214c5952748bc405a007a00319, type: 3}
@@ -3118,6 +3129,10 @@ PrefabInstance:
       propertyPath: rebindControls
       value: 
       objectReference: {fileID: 374225961}
+    - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: playerMovementKeys
+      value: 
+      objectReference: {fileID: 186762526}
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: followPlayerCamera2d
       value: 

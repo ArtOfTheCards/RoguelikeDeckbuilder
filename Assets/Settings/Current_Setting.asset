@@ -16,11 +16,11 @@ MonoBehaviour:
   freeLook: 0
   freeLookSensitivity_X: 120
   freeLookSensitivity_Y: 1
-  pathFindingEnabled: 1
-  up: 101
-  down: 100
-  left: 115
-  right: 102
+  pathFindingEnabled: 0
+  up: 119
+  down: 115
+  left: 97
+  right: 100
   interact: 323
   masterVolume: 0.5
   ambientVolume: 0.5

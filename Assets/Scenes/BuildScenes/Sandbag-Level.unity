@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &43388024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5194792227993914570, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+  m_PrefabInstance: {fileID: 407958518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7eb996554e9d4b9ee23ce8a7f784c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &46770031
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +569,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 573290322}
+  m_Follow: {fileID: 163489788}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -660,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 152831266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.6, y: -2.2800002, z: -3.1101644}
+  m_LocalPosition: {x: -11.6, y: -4.5200005, z: -3.1101644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -669,6 +680,11 @@ Transform:
   - {fileID: 476233709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &163489788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 680225706286109147, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+  m_PrefabInstance: {fileID: 407958518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &407958518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -716,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 642703422156632077, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680225706286109147, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: projectileMng
@@ -792,7 +812,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 573290322}
+  m_Follow: {fileID: 163489788}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -828,7 +848,7 @@ Transform:
   m_GameObject: {fileID: 432317441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.6, y: -4.78, z: -10.110165}
+  m_LocalPosition: {x: -11.6, y: -7.0200005, z: -10.110165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1014,11 +1034,6 @@ Transform:
   - {fileID: 1314346099}
   m_Father: {fileID: 152831270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &573290322 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 642703422156632077, guid: 5250a3214c5952748bc405a007a00319, type: 3}
-  m_PrefabInstance: {fileID: 407958518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &632067225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.78
+      value: -7.0200005
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3166,6 +3181,10 @@ PrefabInstance:
       propertyPath: currentSettings
       value: 
       objectReference: {fileID: 11400000, guid: 724f85cfe32d5634798fe0f375f04ca5, type: 2}
+    - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: playerMovementKeys
+      value: 
+      objectReference: {fileID: 43388024}
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: followPlayerCamera2d
       value: 

@@ -76,7 +76,7 @@ public class OptionMenu : MonoBehaviour
      private void UpdateControls()
      {
           rebindControls.SwapControls(currentSettings.pathFindingEnabled);
-          if(currentSettings.pathFindingEnabled)
+          if(!currentSettings.pathFindingEnabled)
           {
               playerMovementKeys.Rebindkeys(currentSettings);
 
