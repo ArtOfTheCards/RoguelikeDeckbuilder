@@ -40,13 +40,9 @@ public class DebugGUI_CardInterface : MonoBehaviour
     private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
 
-
-    private TargetAffiliation affiliation;
-
     private void Awake()
     {
         user = GetComponent<CardUser>();
-        affiliation = GetComponentInChildren<Targetable>().affiliation;
 
         // Create custom style for cards
         normalBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
@@ -209,11 +205,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 {
                     if (collider.gameObject.TryGetComponent<Targetable>(out Targetable newTarget))
                     {
-                        if (newTarget.affiliation != affiliation) 
-                        {
-                            Debug.Log("ey, ADDED NEW TARGET");
-                            targetables.Add(newTarget);
-                        }
+                        Debug.Log("ey, ADDED NEW TARGET");
+                        targetables.Add(newTarget);
                     }
                 }
 

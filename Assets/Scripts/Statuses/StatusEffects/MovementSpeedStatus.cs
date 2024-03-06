@@ -55,8 +55,8 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     {
         if (target.TryGetComponent<NpcPathFinder>(out npc))
         { 
-            baseSpeed = npc.Speed;
-            npc.Speed = baseSpeed*(1+(data.speedChangePercent*.01f));
+            baseSpeed = npc.GetSpeed();
+            npc.SetSpeed(baseSpeed*(1+(data.speedChangePercent*.01f)));
             endRoutine = target.StartCoroutine(EndCoroutine());
         }
         else
@@ -75,7 +75,7 @@ public class MovementSpeedStatusInstance : StatusInstance<MovementSpeedStatusDat
     public override void End()
     {
         if (endRoutine != null) target.StopCoroutine(EndCoroutine());
-        if (npc != null && baseSpeed != 0) npc.Speed = baseSpeed;
+        if (npc != null && baseSpeed != 0) npc.SetSpeed(baseSpeed);
         base.End();
     }
 

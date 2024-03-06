@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 285566736673849778}
   - component: {fileID: 4698610330329018964}
   - component: {fileID: 4168367770595584334}
-  - component: {fileID: 2910065409096618093}
   m_Layer: 0
   m_Name: CardUser
   m_TagString: Untagged
@@ -48,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicatorPrefab: {fileID: 0}
+  damageIndicator: {fileID: 6798107717299458228, guid: 278062756b12c9d4e910f896481612e4, type: 3}
   currentHealth: 20
   maxHealth: 20
 --- !u!114 &285566736673849778
@@ -131,16 +130,3 @@ MonoBehaviour:
   throwButtonOffset: {x: 0, y: 60}
   discardOffset: {x: 10, y: 10}
   discardDimensions: {x: 200, y: 200}
---- !u!114 &2910065409096618093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181669388117451852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d538bd76ccf2e4998118dcb44c3daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  affiliation: 0

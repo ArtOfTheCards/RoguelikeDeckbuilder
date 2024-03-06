@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: spawn target
-        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
+        toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
         xVariance: {x: -1, y: 1}
         yVariance: {x: -1, y: 1}
     - rid: 4647620896860930048
@@ -43,6 +43,6 @@ MonoBehaviour:
       type: {class: SpawnEffect, ns: , asm: Assembly-CSharp}
       data:
         Debug_ID: spawn
-        toSpawn: {fileID: 7912688218760809599, guid: 2b099050822c74946b67de34c78b56ad, type: 3}
+        toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
         xVariance: {x: -1, y: 1}
         yVariance: {x: -1, y: 1}

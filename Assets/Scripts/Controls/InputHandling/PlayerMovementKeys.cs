@@ -17,7 +17,10 @@ public class PlayerMovementKeys : MonoBehaviour
 
         // Set animator parameters
         animator.SetFloat("X", input.x);
-        animator.SetFloat("Y", input.y);        
+        animator.SetFloat("Y", input.y);
+
+        // Set walking parameter based on input
+        animator.SetBool("isWalking", input != Vector2.zero);
 
         // Set velocity
         GetComponent<IMoveVelocity>().SetVelocity(input);
@@ -38,13 +41,5 @@ public class PlayerMovementKeys : MonoBehaviour
             input.x = 1f;
 
         return input.normalized;
-    }
-
-
-    public void Rebindkeys(SettingData setting){
-        this.up = setting.up;
-        this.down = setting.down;
-        this.left =  setting.left;
-        this.right = setting.right;
     }
 }

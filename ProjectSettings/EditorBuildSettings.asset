@@ -15,5 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/Sandbag-Level.unity
     guid: bda38707fa253c44b985059958d12f2d
   m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 07c8ad0842ec3904f8c745571273ab0b, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: a09f009b77857614d9bbce86965c97e6, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

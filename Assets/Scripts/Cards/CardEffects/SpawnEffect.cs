@@ -14,16 +14,14 @@ public class SpawnEffect : CardEffect
 
     public override void Activate(CardUser caller, Card card, Targetable target)
     {
-        GameObject spawned = GameObject.Instantiate(toSpawn, target.transform.position+GetOffset(), Quaternion.identity);
-        TryInitializeAllyBoss(caller, spawned);
+        GameObject.Instantiate(toSpawn, target.transform.position+GetOffset(), Quaternion.identity);
 
         EndEffect(card);
     }
 
     public override void Activate(CardUser caller, Card card, Vector3 target)
     {
-        GameObject spawned = GameObject.Instantiate(toSpawn, target+GetOffset(), Quaternion.identity);
-        TryInitializeAllyBoss(caller, spawned);
+        GameObject.Instantiate(toSpawn, target+GetOffset(), Quaternion.identity);
 
         EndEffect(card);
     }
@@ -31,15 +29,5 @@ public class SpawnEffect : CardEffect
     private Vector3 GetOffset()
     {
         return new(Random.Range(xVariance.x, xVariance.y), Random.Range(yVariance.x, yVariance.y), 0);
-    }
-
-    private void TryInitializeAllyBoss(CardUser caller, GameObject spawned)
-    {
-        AllyPathFinder ally = spawned.GetComponentInChildren<AllyPathFinder>();
-        if (ally != null)
-        {
-            Targetable boss = caller.GetComponentInChildren<Targetable>();
-            if (boss != null) ally.InitializeBoss(boss);
-        }
     }
 }

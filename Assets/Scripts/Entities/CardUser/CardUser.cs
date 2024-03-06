@@ -2,12 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 using NaughtyAttributes;
 
-public enum CardPile { NULL, drawPile, hand, discardPile }
+public enum CardPile { ownedCards, NULL, drawPile, hand, discardPile }
 
 public class CardUser : MonoBehaviour
 {
     public int startingHandSize = 3;
-    public int maxHandSize = 5;
+    public int maxHandSize = 7;
     public int normalDrawAmount = 1;
     public float drawDelay = 3f;
 
@@ -16,6 +16,7 @@ public class CardUser : MonoBehaviour
     private Card[] DEBUG_startingDeck = new Card[] {};
 
     // Piles of cards used in gameplay.
+    [ReadOnly] public List<Card> ownedCards = null;
     [ReadOnly] public List<Card> drawPile = null;
     [ReadOnly] public List<Card> hand = new();
     [ReadOnly] public List<Card> discardPile = new();
@@ -33,6 +34,7 @@ public class CardUser : MonoBehaviour
         pileToList = new()
         {
             {CardPile.NULL, null},
+            {CardPile.ownedCards, ownedCards},
             {CardPile.drawPile, drawPile},
             {CardPile.hand, hand},
             {CardPile.discardPile, discardPile},
@@ -62,6 +64,7 @@ public class CardUser : MonoBehaviour
                 DrawTimer = drawDelay;
             }
         }
+
         DrawTimer += Time.deltaTime;
     }
 
@@ -92,8 +95,9 @@ public class CardUser : MonoBehaviour
         {
             ShuffleDiscardIntoDrawpile();
         }
-
         PopFromPushTo(drawPile, hand, Mathf.Min(n, drawPile.Count));
+
+        
     }
 
     public void Discard(Card card)
