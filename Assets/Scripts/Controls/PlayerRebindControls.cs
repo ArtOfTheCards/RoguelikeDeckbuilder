@@ -9,39 +9,37 @@ public class PlayerRebindControls : MonoBehaviour
 
     private bool isSwapped;
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponentInParent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.enabled = true;
 
-        isSwapped = true;
-        TogglePlayerControls();
+        SwapControls(true);
     }
 
-    public void SwapControls()
+    public void SwapControls(bool enablePathFinding)
     {
-        isSwapped = !isSwapped;
-        TogglePlayerControls();
+        isSwapped = enablePathFinding;
+        TogglePlayerControls(isSwapped);
         HandleAgent();
     }
 
-    private void TogglePlayerControls()
+    private void TogglePlayerControls(bool enablePathFinding)
     {
-        playerWASD.SetActive(!isSwapped);
-        playerPathFinding.SetActive(isSwapped);
+        playerWASD.SetActive(!enablePathFinding);
+        playerPathFinding.SetActive(enablePathFinding);
     }
 
     private void HandleAgent()
     {
         agent.enabled = playerPathFinding.activeInHierarchy;
-        if(agent.enabled){
+        if (agent.enabled)
+        {
             agent.ResetPath();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
-
         }
-            
     }
 }

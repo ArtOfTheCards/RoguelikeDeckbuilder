@@ -31,6 +31,7 @@ public class OptionMenu : MonoBehaviour
      private void Update()
      {
           UpdatePlayerCamera();
+          UpdateControls();
      }
 
      private void FindPlayerComponents()
@@ -65,6 +66,10 @@ public class OptionMenu : MonoBehaviour
           }
      }
 
+     private void UpdateControls(){
+          rebindControls.SwapControls(currentSettings.pathFindingEnabled);
+     }
+
      public void OnPause()
      {
           SetPauseState(!isPaused);
@@ -78,11 +83,5 @@ public class OptionMenu : MonoBehaviour
                cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;
           Debug.Log(Time.timeScale);
-     }
-
-     public void OnRebindPlayerMovement()
-     {
-          if (rebindControls != null)
-               rebindControls.SwapControls();
      }
 }
