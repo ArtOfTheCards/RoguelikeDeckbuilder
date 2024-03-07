@@ -15,7 +15,7 @@ public class DeckEditor : MonoBehaviour
     // Debug contents.
     [SerializeField] private RectTransform scrollViewContent;
     [SerializeField] private DeckEditorCard cardPrefab;
-    [SerializeField] private bool isdeck = true;
+    [SerializeField] private int isdeck;
 
     //private Dictionary<EditorCardPile, List<DeckEditorCard>> pileToList = null;
 
@@ -55,12 +55,11 @@ public class DeckEditor : MonoBehaviour
         
 
 
-        if(!isdeck)
+        if(isdeck == 0)
         {
             for (int i = 0; i < ownedCards.Count; i++)
             {
                 DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
-                Debug.Log("card");
                 //ownedCards[i] = cardRender.GetComponent<Card>();
                 mergeCard = ownedCards[i];
                 /*mergeCard.cardNumber = i;
@@ -81,7 +80,6 @@ public class DeckEditor : MonoBehaviour
         {
             for (int i = 0; i < deck.Count; i++)
             {
-                Debug.Log("deck");
                 DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
                 //deck[i] = cardRender.GetComponent<Card>();
                 mergeCard = deck[i];
@@ -166,8 +164,8 @@ public class DeckEditor : MonoBehaviour
         // Attempts to remove card from fromPile and pushes it to the start
         // of toPile. Raises an error if fromPile does not contain card.
         // ================
-        Debug.Log(isdeck);
-        if(!isdeck)
+
+        if(card.transform.parent.name == "OwnedCardsContent")
         {
             Debug.Log("OWNED CARD IN THE THIS");
             foreach(var checkname in ownPile)
@@ -184,7 +182,7 @@ public class DeckEditor : MonoBehaviour
                 }
             }
         }
-        if(isdeck)
+        else if(card.transform.parent.name == "DeckContent")
         {
             Debug.Log("THIS IS IN THE DECK");
             foreach(var checkname in deckPile)
