@@ -15,7 +15,7 @@ public class DeckEditor : MonoBehaviour
     // Debug contents.
     [SerializeField] private RectTransform scrollViewContent;
     [SerializeField] private DeckEditorCard cardPrefab;
-    [SerializeField] public bool isdeck;
+    [SerializeField] private bool isdeck = true;
 
     //private Dictionary<EditorCardPile, List<DeckEditorCard>> pileToList = null;
 
@@ -38,12 +38,12 @@ public class DeckEditor : MonoBehaviour
     public List<Card> ownedCards;
     public List<Card> deck;
     public Card mergeCard;
+    //public bool isdeckvalue;
 
     private void Awake()
     {
         // Awake is called before Start().
         // ================
-
         
         ownedCards = user.ownedCards;
         deck = user.deck;
@@ -99,6 +99,8 @@ public class DeckEditor : MonoBehaviour
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
 
+        /*isdeckvalue = isdeck;
+        Debug.Log(isdeckvalue);*/
 
     }
 
@@ -164,6 +166,7 @@ public class DeckEditor : MonoBehaviour
         // Attempts to remove card from fromPile and pushes it to the start
         // of toPile. Raises an error if fromPile does not contain card.
         // ================
+        Debug.Log(this.isdeck);
         if(!isdeck)
         {
             Debug.Log("OWNED CARD IN THE THIS");
@@ -181,7 +184,7 @@ public class DeckEditor : MonoBehaviour
                 }
             }
         }
-        if(isdeck.data)
+        if(isdeck)
         {
             Debug.Log("THIS IS IN THE DECK");
             foreach(var checkname in deckPile)
