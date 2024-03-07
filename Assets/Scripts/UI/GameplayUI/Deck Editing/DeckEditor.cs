@@ -166,7 +166,7 @@ public class DeckEditor : MonoBehaviour
         // Attempts to remove card from fromPile and pushes it to the start
         // of toPile. Raises an error if fromPile does not contain card.
         // ================
-        Debug.Log(this.isdeck);
+        Debug.Log(isdeck);
         if(!isdeck)
         {
             Debug.Log("OWNED CARD IN THE THIS");
