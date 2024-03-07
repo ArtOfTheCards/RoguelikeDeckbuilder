@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DeckEditorCard : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class DeckEditorCard : MonoBehaviour
     public List<CardEffect> throwEffects = new();
     /// <CARD>
     public int editNumber;
+    public TextMeshProUGUI displayText = new();
 
     void Start()
     {
@@ -30,9 +32,10 @@ public class DeckEditorCard : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    
+    void Update() 
     {
-        
+        displayText.text = title.ToString();
     }
 
     public void clicked()
