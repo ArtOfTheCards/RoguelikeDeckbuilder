@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3384
+--- !u!114 &-7222028714454954936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Player/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Player/Footsteps
+  Guid:
+    Data1: 1364795471
+    Data2: 1104588546
+    Data3: 1689661852
+    Data4: 1245024111
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-3702174154839374462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +69,10 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638453326580000000
+  lastModified: 638454156700000000
   FileSizes:
   - Name: Desktop
-    Value: 11040
+    Value: 24288
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -66,12 +93,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -8775133427090605861}
   - {fileID: 4523373546907115515}
+  - {fileID: -7222028714454954936}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8403453682526680696}
   StringsBanks:
   - {fileID: 1905233686708267094}
-  cacheTime: 638453326580000000
+  cacheTime: 638454156700000000
   cacheVersion: 131609
 --- !u!114 &1905233686708267094
 MonoBehaviour:
@@ -88,10 +116,10 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638453326580000000
+  lastModified: 638454156700000000
   FileSizes:
   - Name: Desktop
-    Value: 866
+    Value: 926
   Exists: 1
 --- !u!114 &4523373546907115515
 MonoBehaviour:
@@ -135,7 +163,7 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638453326580000000
+  lastModified: 638454156700000000
   FileSizes:
   - Name: Desktop
     Value: 1036
