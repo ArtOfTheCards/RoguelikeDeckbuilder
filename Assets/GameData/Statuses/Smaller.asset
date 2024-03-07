@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61de1c91eefe3e049abfceb8709ecd49, type: 3}
-  m_Name: Poison
+  m_Script: {fileID: 11500000, guid: 3560c6fd048ce6b46983633efac7f492, type: 3}
+  m_Name: Smaller
   m_EditorClassIdentifier: 
   StatusData:
-    ID: Poison
+    ID: smaller rune
     stackable: 1
-    damagePerTick: 1
-    tickDelay: 1
-    duration: 15
-    durationAddedOnStack: 10
-    kirby: 0
+    sizeChangePercent: 0.7
+    duration: 200
+    durationAddedOnStack: 0

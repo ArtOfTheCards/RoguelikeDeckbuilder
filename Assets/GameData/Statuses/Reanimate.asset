@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61de1c91eefe3e049abfceb8709ecd49, type: 3}
-  m_Name: Poison
+  m_Script: {fileID: 11500000, guid: 98aee79de5f54e84ab532a6f96dc6aa5, type: 3}
+  m_Name: Reanimate
   m_EditorClassIdentifier: 
   StatusData:
-    ID: Poison
+    ID: Reanimate
     stackable: 1
-    damagePerTick: 1
-    tickDelay: 1
-    duration: 15
-    durationAddedOnStack: 10
-    kirby: 0
+    toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}

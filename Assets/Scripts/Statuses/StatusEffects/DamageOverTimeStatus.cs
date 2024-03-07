@@ -16,6 +16,7 @@ public class DamageOverTimeStatusData : StatusData
     public float duration = 5f;
     [Tooltip("How much extra time, in seconds, we get when an additional stack is added.")]
     public float durationAddedOnStack = 1;
+    public bool kirby = false;
 }
 
 public class DamageOverTimeStatusInstance : StatusInstance<DamageOverTimeStatusData>
@@ -64,6 +65,10 @@ public class DamageOverTimeStatusInstance : StatusInstance<DamageOverTimeStatusD
             if (elapsed == 0 || tickTimer > data.tickDelay)
             {
                 damagable.damage(data.damagePerTick * currentStacks);
+                if (data.kirby is true)
+                {
+                    damagable.maxHealth = damagable.maxHealth-(data.damagePerTick * currentStacks);
+                }
                 tickTimer = 0;
             }
             
