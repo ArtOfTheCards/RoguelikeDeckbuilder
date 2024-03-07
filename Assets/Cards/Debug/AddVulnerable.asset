@@ -19,7 +19,7 @@ MonoBehaviour:
   playDescription: +1 VLN
   playEffects:
   - rid: 2070361744878075904
-  throwTarget: 1
+  throwTarget: 3
   throwDescription: 1 DMG
   throwEffects:
   - rid: 2070361744878075905
