@@ -14,12 +14,10 @@ public class DeckEditor : MonoBehaviour
 
     // Debug contents.
     [SerializeField] private RectTransform scrollViewContent;
-    [SerializeField] private GameObject cardPrefab;
-    [SerializeField] public List<DeckEditorCard> ownedCards = null;
-    [SerializeField] public List<DeckEditorCard> deck = null;
+    [SerializeField] private DeckEditorCard cardPrefab;
     [SerializeField] public bool isdeck;
 
-    private Dictionary<EditorCardPile, List<DeckEditorCard>> pileToList = null;
+    //private Dictionary<EditorCardPile, List<DeckEditorCard>> pileToList = null;
 
     [Header("Global")]
     [ReadOnly] public int w;
@@ -31,25 +29,29 @@ public class DeckEditor : MonoBehaviour
     public int xWidth;
     public Vector2 cardOffset = new();
     public Vector2 cardDimensions = new(200,300);
-    private CardUser user;
+    public CardUser user;
     private bool highlighted;
     
     /*private GUIStyle cardStyle;
     Texture2D normalBackground, hoverBackground;*/
 
-
+    public List<Card> ownedCards;
+    public List<Card> deck;
+    public Card mergeCard;
 
     private void Awake()
     {
         // Awake is called before Start().
         // ================
+
         
-        pileToList = new()
+        ownedCards = user.ownedCards;
+        deck = user.deck;
+        /*pileToList = new()
         {
-            {EditorCardPile.NULL, null},
-            {EditorCardPile.ownedCards, ownedCards},
-            {EditorCardPile.deck, deck},
-        };
+            {user.ownedCards.data, ownedCards},
+            {user.deck, deck},
+        };*/
         
 
 
@@ -57,9 +59,22 @@ public class DeckEditor : MonoBehaviour
         {
             for (int i = 0; i < ownedCards.Count; i++)
             {
+                DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
                 Debug.Log("card");
-                GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
-                ownedCards[i] = cardRender.GetComponent<DeckEditorCard>();
+                //ownedCards[i] = cardRender.GetComponent<Card>();
+                mergeCard = ownedCards[i];
+                /*mergeCard.cardNumber = i;
+                cardRender.editNumber = i;*/
+ 
+                cardRender.debug_ID = mergeCard.debug_ID;
+                cardRender.title = mergeCard.title;
+                cardRender.art = mergeCard.art;
+                cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                cardRender.playDescription = mergeCard.playDescription;
+                cardRender.playEffects = mergeCard.playEffects;
+                cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                cardRender.throwDescription = mergeCard.throwDescription;
+                cardRender.throwEffects = mergeCard.throwEffects;
             }
         }
         else
@@ -67,8 +82,19 @@ public class DeckEditor : MonoBehaviour
             for (int i = 0; i < deck.Count; i++)
             {
                 Debug.Log("deck");
-                GameObject cardRender = Instantiate(cardPrefab, scrollViewContent);
-                deck[i] = cardRender.GetComponent<DeckEditorCard>();
+                DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
+                //deck[i] = cardRender.GetComponent<Card>();
+                mergeCard = deck[i];
+ 
+                cardRender.debug_ID = mergeCard.debug_ID;
+                cardRender.title = mergeCard.title;
+                cardRender.art = mergeCard.art;
+                cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                cardRender.playDescription = mergeCard.playDescription;
+                cardRender.playEffects = mergeCard.playEffects;
+                cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                cardRender.throwDescription = mergeCard.throwDescription;
+                cardRender.throwEffects = mergeCard.throwEffects;
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
@@ -121,7 +147,11 @@ public class DeckEditor : MonoBehaviour
     }*/
     public void SwitchPile(DeckEditorCard editorCard)
     {
-        RemoveFromPushTo(editorCard, ownedCards, deck);
+        EditorSwitch(editorCard, ownedCards, deck);
+        
+        ownedCards = user.ownedCards;
+        deck = user.deck;
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
     }
 
@@ -129,20 +159,44 @@ public class DeckEditor : MonoBehaviour
     // Pile-editing methods
     // ================================================================
 
-    private void RemoveFromPushTo(DeckEditorCard card, List<DeckEditorCard> fromPile, List<DeckEditorCard> toPile)
+    private void EditorSwitch(DeckEditorCard card, List<Card> ownPile, List<Card> deckPile)
     {
         // Attempts to remove card from fromPile and pushes it to the start
         // of toPile. Raises an error if fromPile does not contain card.
         // ================
+        if(!isdeck)
+        {
+            Debug.Log("OWNED CARD IN THE THIS");
+            foreach(var checkname in ownPile)
+            {
+                if (checkname.title == card.title)
+                {
+                    ownPile.Remove(checkname);
+                    deckPile.Insert(0, checkname);
 
-        if (!fromPile.Contains(card))
-        {
-            Debug.LogError($"CardUser Error. RemoveCardPushTo failed. fromPile does not contain card {card}.", this);
+                    //Debug.Log(card.parent);
+                    card.transform.SetParent(GameObject.Find("DeckContent").transform);
+
+                    break;
+                }
+            }
         }
-        else 
+        if(isdeck.data)
         {
-            fromPile.Remove(card);
-            toPile.Insert(0, card);
+            Debug.Log("THIS IS IN THE DECK");
+            foreach(var checkname in deckPile)
+            {
+                if (checkname.title == card.title)
+                {
+                    deckPile.Remove(checkname);
+                    ownPile.Insert(0, checkname);
+
+                    //Debug.Log(card.parent);
+                    card.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
+
+                    break;
+                }
+            }
         }
     }
 }

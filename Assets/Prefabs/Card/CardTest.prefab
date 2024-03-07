@@ -134,11 +134,23 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: -5580745270497366097}
           m_TargetAssemblyTypeName: DeckEditorCard, Assembly-CSharp
-          m_MethodName: switchLists
+          m_MethodName: clicked
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 790190677665810347}
+          m_TargetAssemblyTypeName: DeckEditorCard, Assembly-CSharp
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -169,6 +181,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec00f59c00f66bd4882d1a1625e007ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug_ID: New ID
+  title: New Card
+  art: {fileID: 0}
+  playTarget: 0
+  playDescription: 
+  playEffects: []
+  throwTarget: 0
+  throwDescription: 
+  throwEffects: []
+  editNumber: 0
 --- !u!1 &5512211911696002716
 GameObject:
   m_ObjectHideFlags: 0

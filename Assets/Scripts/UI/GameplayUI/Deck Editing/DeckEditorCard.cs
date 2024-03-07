@@ -9,6 +9,21 @@ public class DeckEditorCard : MonoBehaviour
 
     System.Action onClick;
 
+    /// <MAKING A CARD>
+    public enum UseMode { NULL, Play, Throw }
+    public enum TargetType { NULL, Direct, Worldspace, Targetless }
+    public string debug_ID = "New ID";
+    public string title = "New Card";
+    public Sprite art;
+    public TargetType playTarget = TargetType.NULL;
+    public string playDescription;
+    public List<CardEffect> playEffects = new();
+    public TargetType throwTarget = TargetType.NULL;
+    public string throwDescription;
+    public List<CardEffect> throwEffects = new();
+    /// <CARD>
+    public int editNumber;
+
     void Start()
     {
         deckEditor = FindObjectOfType<DeckEditor>();
@@ -20,13 +35,10 @@ public class DeckEditorCard : MonoBehaviour
         
     }
 
-    public void switchLists()
-    {
-        deckEditor.SwitchPile(this);
-    }
-
     public void clicked()
     {
-        onClick?.Invoke();
+        Debug.Log(title);
+        deckEditor.SwitchPile(this);
+        //onClick?.Invoke();
     }
 }

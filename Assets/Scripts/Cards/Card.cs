@@ -31,6 +31,7 @@ public class Card : ScriptableObject
     public List<CardEffect> throwEffects = new();
 
     DeckEditor deckEditor;
+    public int cardNumber;
 
 
     private bool effectCalledback = false;

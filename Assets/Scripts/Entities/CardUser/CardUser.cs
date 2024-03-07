@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using NaughtyAttributes;
 
-public enum CardPile { ownedCards, NULL, drawPile, hand, discardPile }
+public enum CardPile { ownedCards, deck, NULL, drawPile, hand, discardPile }
 
 public class CardUser : MonoBehaviour
 {
@@ -13,10 +13,12 @@ public class CardUser : MonoBehaviour
 
     // Debug contents.
     [SerializeField]
-    private Card[] DEBUG_startingDeck = new Card[] {};
+    public List<Card> deck = new List<Card> {};
 
     // Piles of cards used in gameplay.
-    [ReadOnly] public List<Card> ownedCards = null;
+    [SerializeField]
+    public List<Card> ownedCards = new List<Card> {};
+    //[ReadOnly] public List<Card> deck = null;
     [ReadOnly] public List<Card> drawPile = null;
     [ReadOnly] public List<Card> hand = new();
     [ReadOnly] public List<Card> discardPile = new();
@@ -40,7 +42,7 @@ public class CardUser : MonoBehaviour
             {CardPile.discardPile, discardPile},
         };
 
-        drawPile = new List<Card>(DEBUG_startingDeck);
+        drawPile = new List<Card>(deck);
         Shuffle(drawPile);
                   // Don't draw more cards than we have.
         DrawCards(Mathf.Min(startingHandSize, drawPile.Count));
