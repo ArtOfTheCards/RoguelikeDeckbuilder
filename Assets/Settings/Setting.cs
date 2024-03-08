@@ -211,14 +211,9 @@ public class Setting : MonoBehaviour
         UpdateSettingsFromDropdown(interactInputDropdown, ref currentSetting.interact);
     }
 
-    public void SaveSettings()
-    {
-        // Save settings...
-    }
-
     public void ResetSettings()
     {
-        currentSetting = Instantiate<SettingData>(defaultSetting);
+        currentSetting.SetTo(defaultSetting);
         UpdateSettingsUI();
     }
 }
