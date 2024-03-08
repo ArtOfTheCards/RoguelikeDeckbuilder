@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using FMOD.Studio;
 
 public class DebugGUI_CardInterface : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
 
     private TargetAffiliation affiliation;
+    private EventInstance hoverSound;
+    private Vector2 lastMousePos = new Vector2();
 
     private void Awake()
     {
@@ -114,8 +117,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
             int offsetY = Mathf.RoundToInt(h - (globalYOffset + (i*cardOffset.y)) - cardDimensions.y);
 
             string text = $"{card.title}\n{card.playDescription}\n\n\n{card.throwDescription}";
+            Rect r = new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y);
+            if (r.Contains(Event.current.mousePosition) && !r.Contains(lastMousePos))
+            {
+                TriggerHoverSFX();
+            }
+            GUI.Box(r, $"{text}", cardStyle);
 
-            GUI.Box(new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y), $"{text}", cardStyle);
 
             if (canPlay)
             {
@@ -175,6 +183,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
             }
 
         }
+        lastMousePos = Event.current.mousePosition;
         // ================
         // Dis cards
         // ================
@@ -186,6 +195,21 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          h-discardOffset.y-discardDimensions.y,
                          discardDimensions.x,
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
+    }
+
+    private void Start() 
+    {
+        hoverSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.CardOnHover);
+    }
+
+    private void TriggerHoverSFX()
+    {
+        PLAYBACK_STATE playbackState;
+        hoverSound.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            hoverSound.start();
+        }
     }
 
     private IEnumerator GetTargetTargetable(System.Action<Targetable> action)

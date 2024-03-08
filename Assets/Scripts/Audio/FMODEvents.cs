@@ -10,6 +10,9 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("PlayerFootsteps SFX")]
     [field: SerializeField] public EventReference PlayerFootsteps { get; private set; }
+    
+    [field: Header("Hover SFX")]
+    [field: SerializeField] public EventReference CardOnHover { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 

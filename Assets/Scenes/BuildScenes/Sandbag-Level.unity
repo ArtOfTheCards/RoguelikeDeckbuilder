@@ -1979,6 +1979,13 @@ MonoBehaviour:
       Data3: 1689661852
       Data4: 1245024111
     Path: event:/The Effects/Player/Footsteps
+  <CardOnHover>k__BackingField:
+    Guid:
+      Data1: 593871991
+      Data2: 1309168141
+      Data3: 505859747
+      Data4: -360116752
+    Path: event:/The Effects/Cards/Choose
 --- !u!1 &1326552590 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8462582246012223312, guid: 5250a3214c5952748bc405a007a00319, type: 3}
