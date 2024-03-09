@@ -876,6 +876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8462582246012223312, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1215,6 +1219,10 @@ PrefabInstance:
       propertyPath: startingPoint
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5062354545781811834, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: _agent
+      value: 
+      objectReference: {fileID: 1283576136}
     - target: {fileID: 7912688218760809599, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Name
       value: NPC_Agent
