@@ -737,6 +737,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c051634689b5949981abe411dbe0ca, type: 3}
+--- !u!114 &926130944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5194792227993914570, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+  m_PrefabInstance: {fileID: 1069281073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7eb996554e9d4b9ee23ce8a7f784c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1069281073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -783,6 +794,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642703422156632077, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482842050173074521, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
@@ -1926,6 +1941,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1630836869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5628578700222975844, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+  m_PrefabInstance: {fileID: 1069281073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c96f5d5d12c8e428e7bef26483f6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1632806743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2394,11 +2420,15 @@ PrefabInstance:
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: rebindControls
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1630836869}
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: pauseButtonText
       value: 
       objectReference: {fileID: 1817838162}
+    - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: playerMovementKeys
+      value: 
+      objectReference: {fileID: 926130944}
     - target: {fileID: 2512347632138908281, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

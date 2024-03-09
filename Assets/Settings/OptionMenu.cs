@@ -41,7 +41,6 @@ public class OptionMenu : MonoBehaviour
      private void FindPlayerComponents()
      {
           player = GameObject.FindGameObjectWithTag("Player");
-
           if (player != null)
           {
                player.SetActive(true);
