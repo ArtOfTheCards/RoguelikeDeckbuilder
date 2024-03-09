@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2986515831354071805}
   - component: {fileID: 2440548925298559859}
   - component: {fileID: 2110494051003383054}
+  - component: {fileID: 5571320383016552521}
   m_Layer: 0
   m_Name: AggroCollider
   m_TagString: Untagged
@@ -67,7 +68,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 6
 --- !u!114 &2110494051003383054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +82,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _npc: {fileID: 0}
+--- !u!114 &5571320383016552521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290158354458746623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896321d217bfd79408d5ba4a3fd5478f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crabAttack: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
+  targets: 02000000
+  projectileManager: {fileID: 3398511026371996379, guid: 1d22ad3403fd544818c05f37efa3a165, type: 3}
+  bubble: {fileID: 0}
 --- !u!1 &4022459117704523167
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,9 +124,9 @@ Transform:
   m_GameObject: {fileID: 4022459117704523167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 0, z: 0}
-  m_LocalScale: {x: 1.0761945, y: 0.43510422, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.08, y: 0, z: 0}
+  m_LocalScale: {x: 0.14, y: 0.056601837, z: 0.130088}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 137080979970093731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4d2276efc2f8684468ff5e07bb9fbff5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c11c87aa193d389448b37429df74e8a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +199,7 @@ GameObject:
   - component: {fileID: 7789633128953384287}
   - component: {fileID: 4067936444901642066}
   m_Layer: 0
-  m_Name: Skeleton_Agent
+  m_Name: Crab_Agent
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +216,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25.71, y: -11.64, z: 0}
   m_LocalScale: {x: 0.9292, y: 2.2983, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2986515831354071805}
   - {fileID: 6013886411842342763}
@@ -216,7 +233,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -327,8 +344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   createHealthbar: 1
-  currentHealth: 20
-  maxHealth: 20
+  currentHealth: 5
+  maxHealth: 5
   sprite: {fileID: 1574233656999815642}
 --- !u!114 &7789633128953384287
 MonoBehaviour:
@@ -399,7 +416,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8508408998421548351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40a9b245284209249a9e9fff500a4855, type: 3}
   m_Name: 
