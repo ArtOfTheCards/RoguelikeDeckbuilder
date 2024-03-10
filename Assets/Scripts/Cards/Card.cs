@@ -2,6 +2,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Localization;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Card", menuName = "Card", order = 0)]
@@ -11,22 +12,22 @@ public class Card : ScriptableObject
     public enum TargetType { NULL, Direct, Worldspace, Targetless }
 
     [Tooltip("In-code name for this card. Not shown in-game.")]
-    public string debug_ID = "New ID";
+    public string debug_ID;
     [Tooltip("In-game name for this card. Displayed on the card object in-game.")]
-    public string title = "New Card";
+    public LocalizedString title;
     [Tooltip("Card art to be displayed on the in-game card object.")]
     public Sprite art;
 
 
     public TargetType playTarget = TargetType.NULL;
-    public string playDescription;
+    public LocalizedString playDescription;
     [SerializeReference]
     public List<CardEffect> playEffects = new();
 
 
 
     public TargetType throwTarget = TargetType.NULL;
-    public string throwDescription;
+    public LocalizedString throwDescription;
     [SerializeReference]
     public List<CardEffect> throwEffects = new();
 

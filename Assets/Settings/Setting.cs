@@ -37,8 +37,6 @@ public class Setting : MonoBehaviour
     private const float ROUNDING_FACTOR_X = 100f;
     private const float ROUNDING_FACTOR_Y = 10f;
 
-    private bool languageDropDownActive = false;
-
     private void Awake()
     {
         InitializeKeyCodeToDropdownValue();
@@ -82,7 +80,6 @@ public class Setting : MonoBehaviour
         pathFindingEnabled.isOn = currentSetting.pathFindingEnabled;
         UpdateLanguageDropdown();
         UpdateDropdownsFromKeyCode();
-
         UpdateUIInteractability();
     }
 

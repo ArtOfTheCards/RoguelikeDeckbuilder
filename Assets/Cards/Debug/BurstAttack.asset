@@ -13,18 +13,42 @@ MonoBehaviour:
   m_Name: BurstAttack
   m_EditorClassIdentifier: 
   debug_ID: BurstAttack
-  title: Magick Missile
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043588
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
-  playTarget: 1
-  playDescription: 1 DMG x 3
+  playTarget: 0
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043589
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 4647620957206740996
   - rid: 4647620957206740997
   - rid: 4647620957206740998
   - rid: 4647620957206740999
   - rid: 4647620957206741000
-  throwTarget: 3
-  throwDescription: (handsize) DMG
+  throwTarget: 0
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832131
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 4647620957206741003
   references:
