@@ -24,7 +24,7 @@ public class DeckEditorCard : MonoBehaviour
     public List<CardEffect> throwEffects = new();
     /// <CARD>
     public int editNumber;
-    public TextMeshProUGUI displayText = new();
+    public TextMeshProUGUI displayText;
 
     void Start()
     {

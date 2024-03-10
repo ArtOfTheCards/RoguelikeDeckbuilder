@@ -167,7 +167,7 @@ public class DeckEditor : MonoBehaviour
 
         if(card.transform.parent.name == "OwnedCardsContent")
         {
-            Debug.Log("OWNED CARD IN THE THIS");
+            //Debug.Log("OWNED CARD IN THE THIS");
             foreach(var checkname in ownPile)
             {
                 if (checkname.title == card.title)
@@ -177,6 +177,13 @@ public class DeckEditor : MonoBehaviour
 
                     //Debug.Log(card.parent);
                     card.transform.SetParent(GameObject.Find("DeckContent").transform);
+                    card.transform.GetChild(1).gameObject.SetActive(false);
+                    RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                    Debug.Log(rt.sizeDelta);
+                    rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 2.85f);
+                    rt.anchoredPosition = new Vector2(0, 60f);
+                    Debug.Log(rt.sizeDelta);
+                    card.transform.GetChild(0).gameObject.SetActive(true);
 
                     break;
                 }
@@ -184,7 +191,7 @@ public class DeckEditor : MonoBehaviour
         }
         else if(card.transform.parent.name == "DeckContent")
         {
-            Debug.Log("THIS IS IN THE DECK");
+            //Debug.Log("THIS IS IN THE DECK");
             foreach(var checkname in deckPile)
             {
                 if (checkname.title == card.title)
@@ -194,6 +201,8 @@ public class DeckEditor : MonoBehaviour
 
                     //Debug.Log(card.parent);
                     card.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
+                    card.transform.GetChild(1).gameObject.SetActive(true);
+                    card.transform.GetChild(0).gameObject.SetActive(false);
 
                     break;
                 }
