@@ -1576,6 +1576,7 @@ MonoBehaviour:
   - {fileID: 0}
   deck: []
   mergeCard: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
+  cardHighlight: {fileID: 21300000, guid: 28d71964cc548ba4a99204553f677254, type: 3}
 --- !u!114 &2029564101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1611,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 100, y: 150}
   m_Spacing: {x: 200, y: 150}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mergeCard: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
+  cardHighlight: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

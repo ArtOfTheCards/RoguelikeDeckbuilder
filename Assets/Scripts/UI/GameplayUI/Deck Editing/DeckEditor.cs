@@ -38,6 +38,9 @@ public class DeckEditor : MonoBehaviour
     public List<Card> ownedCards;
     public List<Card> deck;
     public Card mergeCard;
+
+    [SerializeField]
+    public Sprite cardHighlight;
     //public bool isdeckvalue;
 
     private void Awake()
@@ -183,6 +186,7 @@ public class DeckEditor : MonoBehaviour
                     rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 2.85f);
                     rt.anchoredPosition = new Vector2(0, 60f);
                     Debug.Log(rt.sizeDelta);
+                    card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
                     card.transform.GetChild(0).gameObject.SetActive(true);
 
                     break;
@@ -202,6 +206,12 @@ public class DeckEditor : MonoBehaviour
                     //Debug.Log(card.parent);
                     card.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
                     card.transform.GetChild(1).gameObject.SetActive(true);
+                    RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                    Debug.Log(rt.sizeDelta);
+                    rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 12.33f);
+                    rt.anchoredPosition = new Vector2(0, 0);
+                    Debug.Log(rt.sizeDelta);
+                    card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = cardHighlight;
                     card.transform.GetChild(0).gameObject.SetActive(false);
 
                     break;
