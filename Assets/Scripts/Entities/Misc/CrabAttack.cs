@@ -70,7 +70,7 @@ public class CrabAttack : MonoBehaviour
             }
         }*/
     }
-    void CrabEnter()
+    public void CrabEnter()
     {
         Debug.Log("ON CRAB");
         Crab crab = this.transform.gameObject.GetComponent<Crab>();
