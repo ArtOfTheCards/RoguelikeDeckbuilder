@@ -13,15 +13,39 @@ MonoBehaviour:
   m_Name: HitRun
   m_EditorClassIdentifier: 
   debug_ID: HitRun
-  title: Hit and Run
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043592
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
-  playTarget: 1
-  playDescription: 1 DMG, 1 CARD
+  playTarget: 0
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043593
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 5399437876876541952
   - rid: 5399437876876541953
-  throwTarget: 3
-  throwDescription: +SLOW
+  throwTarget: 0
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832135
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 5399437876876541954
   references:

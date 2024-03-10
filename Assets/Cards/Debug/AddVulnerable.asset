@@ -13,14 +13,38 @@ MonoBehaviour:
   m_Name: AddVulnerable
   m_EditorClassIdentifier: 
   debug_ID: AddVulnerable
-  title: Bash
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043586
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  playTarget: 1
-  playDescription: +1 VLN
+  playTarget: 0
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043587
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 2070361744878075904
-  throwTarget: 3
-  throwDescription: 1 DMG
+  throwTarget: 0
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832130
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 2070361744878075905
   references:

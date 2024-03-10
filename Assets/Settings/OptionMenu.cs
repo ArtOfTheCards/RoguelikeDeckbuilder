@@ -95,6 +95,5 @@ public class OptionMenu : MonoBehaviour
           if (cardUser != null)
                cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;
-          Debug.Log(Time.timeScale);
      }
 }

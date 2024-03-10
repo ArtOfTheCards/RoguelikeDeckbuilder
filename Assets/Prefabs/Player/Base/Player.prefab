@@ -270,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 8578507162112874923}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,11 +456,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 181669388117451852, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2910065409096618093, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: affiliation
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: playText.m_TableEntryReference.m_KeyId
+      value: 396727515119617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: throwText.m_TableEntryReference.m_KeyId
+      value: 396727515119618
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: drawPileText.m_TableEntryReference.m_KeyId
+      value: 396727510925312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: discardPileText.m_TableEntryReference.m_KeyId
+      value: 396727515119616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: playText.m_TableReference.m_TableCollectionName
+      value: GUID:1a9c23981e85b4849abe504af39a2485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: throwText.m_TableReference.m_TableCollectionName
+      value: GUID:1a9c23981e85b4849abe504af39a2485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: drawPileText.m_TableReference.m_TableCollectionName
+      value: GUID:1a9c23981e85b4849abe504af39a2485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: discardPileText.m_TableReference.m_TableCollectionName
+      value: GUID:1a9c23981e85b4849abe504af39a2485
       objectReference: {fileID: 0}
     - target: {fileID: 4930592416918721889, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,6 +538,10 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 3445336580203328670}
+    - target: {fileID: 6091167000800346549, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: debugMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6091167000800346549, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: createHealthbar
       value: 0

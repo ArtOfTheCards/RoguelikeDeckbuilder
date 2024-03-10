@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Card Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Card
+  m_TableCollectionNameGuidString: 1a9c23981e85b4849abe504af39a2485
+  m_Entries:
+  - m_Id: 736914900287488
+    m_Key: 2_7_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 736914921259008
+    m_Key: 2_7_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 717622116352
+    m_Key: 2_7_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 736914921259009
+    m_Key: 5_2_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 736914925453312
+    m_Key: 5_2_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061336694784
+    m_Key: 5_2_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555585
+    m_Key: AddPoison_0_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555586
+    m_Key: AddPoison_0_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061378637824
+    m_Key: AddPoison_0_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555587
+    m_Key: AddPoison_1_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555588
+    m_Key: AddPoison_1_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061378637825
+    m_Key: AddPoison_1_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172250849280
+    m_Key: AddReanimate_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172250849281
+    m_Key: AddReanimate_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832128
+    m_Key: AddReanimate_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043584
+    m_Key: AddRot_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043585
+    m_Key: AddRot_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832129
+    m_Key: AddRot_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043586
+    m_Key: AddVulnerable_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043587
+    m_Key: AddVulnerable_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832130
+    m_Key: AddVulnerable_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043588
+    m_Key: BurstAttack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043589
+    m_Key: BurstAttack_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832131
+    m_Key: BurstAttack_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043590
+    m_Key: ClearStatuses_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043591
+    m_Key: ClearStatuses_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832132
+    m_Key: ClearStatuses_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555589
+    m_Key: Draw2_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555590
+    m_Key: Draw2_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832133
+    m_Key: Draw2_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555591
+    m_Key: Filter_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732793887555592
+    m_Key: Filter_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832134
+    m_Key: Filter_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043592
+    m_Key: HitRun_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043593
+    m_Key: HitRun_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832135
+    m_Key: HitRun_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043594
+    m_Key: Selflesss_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043595
+    m_Key: Selflesss_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832136
+    m_Key: Selflesss_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043596
+    m_Key: SpawnSkeleton_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 754172255043597
+    m_Key: SpawnSkeleton_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832137
+    m_Key: SpawnSkeleton_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 750305853341696
+    m_Key: SpawnCrab_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 750305853341697
+    m_Key: SpawnCrab_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 750305853341698
+    m_Key: SpawnCrab_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381061382832138
+    m_Key: Ensnare_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396727510925312
+    m_Key: Ensanre_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396727515119616
+    m_Key: Ensnare_throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396727515119617
+    m_Key: drawpile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396727515119618
+    m_Key: discard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 745288207466496
+    m_Key: play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 745288207466497
+    m_Key: throw
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1661595367581941760
+  references:
+    version: 2
+    RefIds:
+    - rid: 1661595367581941760
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1709933642564
