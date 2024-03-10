@@ -15,6 +15,8 @@ public class Damagable : MonoBehaviour
 
     public System.Action deathTrigger;
 
+    public System.Action onCrab;
+
     private Transform worldspaceCanvasTransform = null;
     private WorldspaceHealthbars worldspaceHealthbars;
 
@@ -42,6 +44,10 @@ public class Damagable : MonoBehaviour
         {
             Debug.Log("Created healthbar");
             worldspaceHealthbars.CreateHealthbar(this);
+        }
+        if(this.transform.name == "Crab_Agent(Clone)")
+        {
+            onCrab?.Invoke();
         }
     }
 

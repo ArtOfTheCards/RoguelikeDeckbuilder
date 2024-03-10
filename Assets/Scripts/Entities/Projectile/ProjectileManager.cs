@@ -60,6 +60,7 @@ public class ProjectileManager : MonoBehaviour
                     Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
+                    
 
                     
                 
@@ -75,13 +76,13 @@ public class ProjectileManager : MonoBehaviour
         {
             if(childrenSpecial[i].inuse == false) 
             {
-                Debug.Log(childrenSpecial[i].inuse);
-                Debug.Log("trigger throw next");
+                //Debug.Log(childrenSpecial[i].inuse);
+                //Debug.Log("trigger throw next");
                 childrenSpecial[i].inuse = true;
-                Debug.Log(childrenSpecial[i].inuse);
+                //Debug.Log(childrenSpecial[i].inuse);
                 StartCoroutine(childrenSpecial[i].specialThrowAt(thrower, target.transform, () => {
 
-                    Debug.Log("do damage based on card: " + card);
+                    //Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
 
@@ -102,7 +103,7 @@ public class ProjectileManager : MonoBehaviour
             {
                 DirectDamageEffect dDE = (DirectDamageEffect)teffect;
 
-                Debug.Log(dDE.amount + " hypothetical damage");
+                //Debug.Log(dDE.amount + " hypothetical damage");
                 target.damage(dDE.amount);
             }
             if (teffect.GetType().FullName == "CardCountDirectDamageEffect")
@@ -115,14 +116,14 @@ public class ProjectileManager : MonoBehaviour
                 else if (ccdDE.cardPile == CardPile.hand) { amount = cardUser.hand.Count; } // Don't count ourselves
                 else if (ccdDE.cardPile == CardPile.discardPile) { amount = cardUser.discardPile.Count; }
 
-                Debug.Log(amount + " hypothetical damage");
+                //Debug.Log(amount + " hypothetical damage");
                 target.damage(amount);
             }
             if (teffect.GetType().FullName == "SpawnEffect")
             {
                 SpawnEffect sE = (SpawnEffect)teffect;
 
-                Debug.Log(sE.toSpawn + "spawn");
+                //Debug.Log(sE.toSpawn + "spawn");
                 GameObject.Instantiate(sE.toSpawn, target.transform.position, Quaternion.identity);
             }
         }
@@ -134,7 +135,7 @@ public class ProjectileManager : MonoBehaviour
             if (seffect.GetType().FullName == "DirectAddStatusEffect")
             {
                 DirectAddStatusEffect dASE = (DirectAddStatusEffect)seffect;
-                Debug.Log(dASE.status.ID + " applied (hypothetically)");
+                //Debug.Log(dASE.status.ID + " applied (hypothetically)");
 
                 if (target.TryGetComponent<Effectable>(out Effectable effectable))
                 {

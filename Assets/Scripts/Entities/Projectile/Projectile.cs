@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         }
 
 
-        Debug.Log("EY completed throw");
+        //Debug.Log("EY completed throw");
         this.inuse = false;
         transform.position = target.position;
         sprite.gameObject.SetActive(false);
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
 
 
-        Debug.Log("EY completed special throw");
+        //Debug.Log("EY completed special throw");
         this.inuse = false;
         transform.position = target.position;
         sprite.gameObject.SetActive(false);

@@ -25,6 +25,9 @@ public class CrabAttack : MonoBehaviour
 
     private Transform crabLocation;
 
+    //public Damagable targetLock;
+    //public System.Action onCrab;
+
     //public List<Transform> crabList = new();
 
     void Start()
@@ -35,14 +38,15 @@ public class CrabAttack : MonoBehaviour
         //crabList.Add(crabLocation);
         //projectileManager = (ProjectileManager); 
         //Debug.Log(projectileManager.name);
-        foreach(GameObject ally in GameObject.FindGameObjectsWithTag("Ally"))
+        /*foreach(Crab crab in FindObjectsOfType<Crab>())
         {
-            if(ally.name == "Crab_Agent(Clone)")
-            {
-                crabThrow(ally.transform);
-            }
+            Debug.Log("CRAB THROWING" + crab.transform.position + "AT THE" + crab.targetLock);
+            crabThrow(crab.transform, crab.targetLock);
             //crabThrow(crab);
-        }
+        }*/
+        //onCrab?.Invoke();
+        Damagable damagable = this.transform.parent.gameObject.GetComponent<Damagable>();
+        damagable.onCrab += CrabEnter;
     }
     private void Update()
     {
@@ -66,7 +70,12 @@ public class CrabAttack : MonoBehaviour
             }
         }*/
     }
-
+    void CrabEnter()
+    {
+        Debug.Log("ON CRAB");
+        Crab crab = this.transform.gameObject.GetComponent<Crab>();
+        crabThrow(this.crabLocation, crab.targetLock);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         Targetable targetable = other.gameObject.GetComponentInChildren<Targetable>();
@@ -79,6 +88,8 @@ public class CrabAttack : MonoBehaviour
                 {
                     //damagable.damage(damagePerTick);
                     projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crabLocation, damagable, crabAttack);
+                    Crab crab = this.transform.parent.gameObject.GetComponent<Crab>();
+                    crab.targetLock = damagable;
                 }   
             }
         }
@@ -93,21 +104,12 @@ public class CrabAttack : MonoBehaviour
         }
     }
 
-    void crabThrow(Transform crab)
+    public void crabThrow(Transform crab, Damagable target)
     {
-        Targetable targetable = GetComponentInChildren<Targetable>();
-            if (targetable != null)
-            {
-                if (targets.Contains(targetable.affiliation)) // Only add targetables we can target.
-                {
-                    Damagable damagable = GetComponentInChildren<Damagable>();
-                    if (damagable != null) 
-                    {
-                        //damagable.damage(damagePerTick);
-                        projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crab, damagable, crabAttack);
-                    }   
-                }
-            }
+        if (target != null)
+        {
+            projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crab, target, crabAttack);
+        }
     }
 
     // Start is called before the first frame update

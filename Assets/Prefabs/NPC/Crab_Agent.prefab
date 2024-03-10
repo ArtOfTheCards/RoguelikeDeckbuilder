@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 3431702212409478801}
   - component: {fileID: 7789633128953384287}
   - component: {fileID: 4067936444901642066}
+  - component: {fileID: 3371901290263603285}
+  - component: {fileID: -3562671262391615509}
   m_Layer: 0
   m_Name: Crab_Agent
   m_TagString: Ally
@@ -376,6 +378,36 @@ MonoBehaviour:
   aggroRange: {fileID: 2110494051003383054}
   loseAggroDelay: 4
   boss: {fileID: 0}
+--- !u!114 &3371901290263603285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912688218760809599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b6c12b66954224495db6945828e44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crabAttack: {fileID: 0}
+  targetLock: {fileID: 0}
+--- !u!114 &-3562671262391615509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912688218760809599}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896321d217bfd79408d5ba4a3fd5478f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crabAttack: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
+  targets: 
+  projectileManager: {fileID: 0}
+  bubble: {fileID: 0}
 --- !u!1 &8508408998421548351
 GameObject:
   m_ObjectHideFlags: 0
