@@ -31,9 +31,9 @@ public class NpcPathFinder : MonoBehaviour
 
     protected void SetDestination(Vector3 destination)
     {
-        Debug.Log(destination);
+        //Debug.Log(destination);
         _agent.destination = destination;
-        Debug.Log(_agent.destination);
+        //Debug.Log(_agent.destination);
     }
 
     protected virtual void Update()
