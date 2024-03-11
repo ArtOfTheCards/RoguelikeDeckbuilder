@@ -32,7 +32,7 @@ public class ExitLevel : MonoBehaviour
 
     public void OnYesButton()
     {
-        loader.LoadlevelBtn("Sandbag-Level");
+        loader.LoadlevelBtn("Arena");
     }
 
     public void OnNoButton()
