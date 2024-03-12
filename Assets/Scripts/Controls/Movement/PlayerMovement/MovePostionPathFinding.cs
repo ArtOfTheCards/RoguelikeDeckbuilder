@@ -21,7 +21,7 @@ public class MovePositionPathfinding : MonoBehaviour
 
     private void UpdateAnimationParameters()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        if (agent.remainingDistance > agent.stoppingDistance)
         {
             // Agent has reached its destination, reset animation parameters
             animator.SetFloat("X", 0);

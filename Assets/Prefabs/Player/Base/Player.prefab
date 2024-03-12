@@ -464,19 +464,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: playText.m_TableEntryReference.m_KeyId
-      value: 396727515119617
+      value: 745288207466496
       objectReference: {fileID: 0}
     - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: throwText.m_TableEntryReference.m_KeyId
-      value: 396727515119618
+      value: 745288207466497
       objectReference: {fileID: 0}
     - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: drawPileText.m_TableEntryReference.m_KeyId
-      value: 396727510925312
+      value: 396727515119617
       objectReference: {fileID: 0}
     - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: discardPileText.m_TableEntryReference.m_KeyId
-      value: 396727515119616
+      value: 396727515119618
       objectReference: {fileID: 0}
     - target: {fileID: 4168367770595584334, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: playText.m_TableReference.m_TableCollectionName

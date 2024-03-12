@@ -94,6 +94,7 @@ public class CardUser : MonoBehaviour
         }
 
         PopFromPushTo(drawPile, hand, Mathf.Min(n, drawPile.Count));
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.DrawCard, transform.position);
     }
 
     public void Discard(Card card)

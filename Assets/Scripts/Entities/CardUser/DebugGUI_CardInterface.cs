@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using FMOD.Studio;
 using UnityEngine.Localization;
 
 public class DebugGUI_CardInterface : MonoBehaviour
@@ -47,6 +48,8 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
 
     private TargetAffiliation affiliation;
+    private EventInstance hoverSound;
+    private Vector2 lastMousePos = new Vector2();
 
     [Header("Localization")]
     public LocalizedString drawPileText;
@@ -127,9 +130,16 @@ public class DebugGUI_CardInterface : MonoBehaviour
             int offsetX = Mathf.RoundToInt(((i + 1) * xWidth / (user.hand.Count + 1)) + (w - xWidth) / 2 - cardDimensions.x / 2);
             int offsetY = Mathf.RoundToInt(h - (globalYOffset + (i * cardOffset.y)) - cardDimensions.y);
 
+            string text = $"{card.title}\n{card.playDescription}\n\n\n{card.throwDescription}";
             string cardContext = $"{card.title.GetLocalizedString()}\n{card.playDescription.GetLocalizedString()}\n\n\n{card.throwDescription.GetLocalizedString()}";
 
-            GUI.Box(new Rect(offsetX, offsetY, cardDimensions.x, cardDimensions.y), $"{cardContext}", cardStyle);
+            Rect r = new Rect(offsetX, offsetY, cardDimensions.x, cardDimensions.y);
+            if (r.Contains(Event.current.mousePosition) && !r.Contains(lastMousePos))
+            {
+                TriggerHoverSFX();
+            }
+
+            GUI.Box(r, $"{cardContext}", cardStyle);
 
             if (canPlay)
             {
@@ -198,6 +208,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
             }
 
         }
+        lastMousePos = Event.current.mousePosition;
         // ================
         // Dis cards
         // ================
@@ -209,6 +220,21 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          h - discardOffset.y - discardDimensions.y,
                          discardDimensions.x,
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
+    }
+
+    private void Start() 
+    {
+        hoverSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.CardOnHover);
+    }
+
+    private void TriggerHoverSFX()
+    {
+        PLAYBACK_STATE playbackState;
+        hoverSound.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            hoverSound.start();
+        }
     }
 
     private IEnumerator GetTargetTargetable(System.Action<Targetable> action)
