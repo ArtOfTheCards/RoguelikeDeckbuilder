@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 732793887555590
-    m_Localized: +2CARD
+    m_Localized: +2 CARD
     m_Metadata:
       m_Items: []
   - m_Id: 732793887555591
@@ -199,7 +199,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 754172255043591
-    m_Localized: CLEARSTATUS
+    m_Localized: CLEAR STATUS
     m_Metadata:
       m_Items: []
   - m_Id: 754172255043592
