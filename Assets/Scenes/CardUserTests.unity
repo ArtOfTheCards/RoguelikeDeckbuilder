@@ -153,11 +153,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4b4b693fc6a1648b23b6802df02d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   w: 0
   h: 0
   canPlay: 1
+  pileLabelHeight: 50
+  pileFontSize: 50
+  pileLabelFontSize: 50
+  cardFontSize: 50
+  buttonFontSize: 50
   drawOffset: {x: 10, y: 10}
   drawDimensions: {x: 100, y: 100}
+  timerHeight: 16
   globalYOffset: 10
   xWidth: 840
   cardOffset: {x: 0, y: 0}
@@ -167,6 +174,47 @@ MonoBehaviour:
   throwButtonOffset: {x: 0, y: 40}
   discardOffset: {x: 10, y: 10}
   discardDimensions: {x: 100, y: 100}
+  projectileMng: {fileID: 0}
+  temporaryTarget: {fileID: 0}
+  drawPileText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  playText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  throwText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  discardPileText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &495937487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHandSize: 3
+  maxHandSize: 5
   normalDrawAmount: 1
   drawDelay: 0.5
   DEBUG_startingDeck:
@@ -341,75 +390,9 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1001 &7710878831576577905
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 754883404416455861, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: m_Name
-      value: Debug_Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 7497819824076557295, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7497819824076557295, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 648064980}
   - {fileID: 495937488}
-  - {fileID: 7710878831576577905}
