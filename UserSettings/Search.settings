@@ -13,6 +13,9 @@ scopes = {
 	"last_search.45F317DD" = "ensnare"
 	"OpenInspectorPreview.45F317DD" = "0"
 	"currentGroup.45F317DD" = "all"
+	"last_search.310DEAA3" = "bake"
+	"OpenInspectorPreview.310DEAA3" = "0"
+	"currentGroup.310DEAA3" = "settings"
 }
 providers = {
 	log = {
