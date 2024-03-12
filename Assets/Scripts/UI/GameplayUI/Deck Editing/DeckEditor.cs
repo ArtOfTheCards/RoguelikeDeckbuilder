@@ -38,6 +38,8 @@ public class DeckEditor : MonoBehaviour
     public List<Card> ownedCards;
     public List<Card> deck;
     public Card mergeCard;
+    public DeckEditorCard tempOwnedCard;
+    public DeckEditorCard tempDeckCard;
 
     [SerializeField]
     public Sprite cardHighlight;
@@ -62,40 +64,125 @@ public class DeckEditor : MonoBehaviour
         {
             for (int i = 0; i < ownedCards.Count; i++)
             {
-                DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
-                //ownedCards[i] = cardRender.GetComponent<Card>();
+                bool isUnique = true;
+                int holdQuantity = 1;
                 mergeCard = ownedCards[i];
-                /*mergeCard.cardNumber = i;
-                cardRender.editNumber = i;*/
+                foreach(DeckEditorCard checkCard in this.transform.GetComponentsInChildren<DeckEditorCard>()) 
+                {
+                    //Debug.Log("CHECKING" + checkCard.title);
+                    if(checkCard.title == mergeCard.title)
+                    {
+                        //Debug.Log("SAME CARD");
+                        checkCard.ownedQuantity += 1;
+                        holdQuantity = checkCard.ownedQuantity;
+                        isUnique = false;
+                    }
+                    
+                }
+
+                if(isUnique == true)
+                {
+                    DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
+                    //ownedCards[i] = cardRender.GetComponent<Card>();
+                
+                    /*mergeCard.cardNumber = i;
+                    cardRender.editNumber = i;*/
+                    cardRender.name = mergeCard.title;
+
+                    cardRender.ownedQuantity = 1;
+                    cardRender.debug_ID = mergeCard.debug_ID;
+                    cardRender.title = mergeCard.title;
+                    cardRender.art = mergeCard.art;
+                    cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                    cardRender.playDescription = mergeCard.playDescription;
+                    cardRender.playEffects = mergeCard.playEffects;
+                    cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                    cardRender.throwDescription = mergeCard.throwDescription;
+                    cardRender.throwEffects = mergeCard.throwEffects;
+                }
+                else
+                {
+                    DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
+                    //ownedCards[i] = cardRender.GetComponent<Card>();
+                
+                    /*mergeCard.cardNumber = i;
+                    cardRender.editNumber = i;*/
+                    cardRender.name = mergeCard.title;
  
-                cardRender.debug_ID = mergeCard.debug_ID;
-                cardRender.title = mergeCard.title;
-                cardRender.art = mergeCard.art;
-                cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
-                cardRender.playDescription = mergeCard.playDescription;
-                cardRender.playEffects = mergeCard.playEffects;
-                cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
-                cardRender.throwDescription = mergeCard.throwDescription;
-                cardRender.throwEffects = mergeCard.throwEffects;
+                    cardRender.ownedQuantity = holdQuantity;
+                    cardRender.debug_ID = mergeCard.debug_ID;
+                    cardRender.title = mergeCard.title;
+                    cardRender.art = mergeCard.art;
+                    cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                    cardRender.playDescription = mergeCard.playDescription;
+                    cardRender.playEffects = mergeCard.playEffects;
+                    cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                    cardRender.throwDescription = mergeCard.throwDescription;
+                    cardRender.throwEffects = mergeCard.throwEffects;
+                    cardRender.transform.gameObject.SetActive(false);
+                }
             }
         }
         else
         {
             for (int i = 0; i < deck.Count; i++)
             {
-                DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
-                //deck[i] = cardRender.GetComponent<Card>();
+                bool isUnique = true;
+                int holdQuantity = 1;
                 mergeCard = deck[i];
- 
-                cardRender.debug_ID = mergeCard.debug_ID;
-                cardRender.title = mergeCard.title;
-                cardRender.art = mergeCard.art;
-                cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
-                cardRender.playDescription = mergeCard.playDescription;
-                cardRender.playEffects = mergeCard.playEffects;
-                cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
-                cardRender.throwDescription = mergeCard.throwDescription;
-                cardRender.throwEffects = mergeCard.throwEffects;
+                foreach(DeckEditorCard checkCard in this.transform.GetComponentsInChildren<DeckEditorCard>()) 
+                {
+                    //Debug.Log("CHECKING" + checkCard.title);
+                    if(checkCard.title == mergeCard.title)
+                    {
+                        //Debug.Log("SAME CARD");
+                        checkCard.deckQuantity += 1;
+                        holdQuantity = checkCard.deckQuantity;
+                        isUnique = false;
+                    }
+                }
+
+                if(isUnique == true)
+                {
+                    DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
+                    //ownedCards[i] = cardRender.GetComponent<Card>();
+                
+                    /*mergeCard.cardNumber = i;
+                    cardRender.editNumber = i;*/
+                    cardRender.name = mergeCard.title;
+
+                    cardRender.deckQuantity = 1;
+                    cardRender.debug_ID = mergeCard.debug_ID;
+                    cardRender.title = mergeCard.title;
+                    cardRender.art = mergeCard.art;
+                    cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                    cardRender.playDescription = mergeCard.playDescription;
+                    cardRender.playEffects = mergeCard.playEffects;
+                    cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                    cardRender.throwDescription = mergeCard.throwDescription;
+                    cardRender.throwEffects = mergeCard.throwEffects;
+                }
+                else
+                {
+                    DeckEditorCard cardRender = Instantiate(cardPrefab, scrollViewContent);
+                    //ownedCards[i] = cardRender.GetComponent<Card>();
+                
+                    /*mergeCard.cardNumber = i;
+                    cardRender.editNumber = i;*/
+                    cardRender.name = mergeCard.title;
+                    
+                    cardRender.deckQuantity = holdQuantity;
+                    cardRender.debug_ID = mergeCard.debug_ID;
+                    cardRender.title = mergeCard.title;
+                    cardRender.art = mergeCard.art;
+                    cardRender.playTarget = (DeckEditorCard.TargetType)mergeCard.playTarget;
+                    cardRender.playDescription = mergeCard.playDescription;
+                    cardRender.playEffects = mergeCard.playEffects;
+                    cardRender.throwTarget = (DeckEditorCard.TargetType)mergeCard.throwTarget;
+                    cardRender.throwDescription = mergeCard.throwDescription;
+                    cardRender.throwEffects = mergeCard.throwEffects;
+                    cardRender.transform.gameObject.SetActive(false);
+                }
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollViewContent);
@@ -179,16 +266,75 @@ public class DeckEditor : MonoBehaviour
                     deckPile.Insert(0, checkname);
 
                     //Debug.Log(card.parent);
-                    card.transform.SetParent(GameObject.Find("DeckContent").transform);
-                    card.transform.GetChild(1).gameObject.SetActive(false);
-                    RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
-                    Debug.Log(rt.sizeDelta);
-                    rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 2.85f);
-                    rt.anchoredPosition = new Vector2(0, 60f);
-                    Debug.Log(rt.sizeDelta);
-                    card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
-                    card.transform.GetChild(0).gameObject.SetActive(true);
+                    
+                    if(card.ownedQuantity > 0)
+                    {
+                        foreach(DeckEditorCard checkCard in GameObject.Find("OwnedCardsContent").transform.GetComponentsInChildren<DeckEditorCard>(true)) 
+                        {
+                            //Debug.Log("CHECKING" + checkCard.title);
+                            if(checkCard.title == card.title && checkCard.gameObject.activeSelf == false)
+                            {
+                                tempOwnedCard = checkCard;
+                                break;
+                            }
+                        }
+                        if(card.ownedQuantity == 1)
+                        {
+                            tempOwnedCard = card;
+                        }
+                        tempOwnedCard.transform.gameObject.SetActive(false);
+                        tempOwnedCard.transform.SetParent(GameObject.Find("DeckContent").transform);
+                        bool isRepeat = false;
+                        foreach(DeckEditorCard checkCard in GameObject.Find("DeckContent").transform.GetComponentsInChildren<DeckEditorCard>()) 
+                        {
+                            //Debug.Log("CHECKING" + checkCard.title);
+                            
+                            if(checkCard.title == tempOwnedCard.title && checkCard.gameObject.activeSelf == true)
+                            {
+                                checkCard.deckQuantity += 1;
+                                isRepeat = true;
+                                break;
+                            }
+                        }
+                        if(!isRepeat)
+                        {
+                            tempOwnedCard.transform.gameObject.SetActive(true);
+                            tempOwnedCard.deckQuantity = 1;
+                        }
+                        tempOwnedCard.transform.GetChild(1).gameObject.SetActive(false);
+                        tempOwnedCard.transform.GetChild(4).gameObject.SetActive(false);
+                        tempOwnedCard.transform.GetChild(5).gameObject.SetActive(true);
 
+                        RectTransform rt = tempOwnedCard.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                                //Debug.Log(rt.sizeDelta);
+                        rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 2.85f);
+                        rt.anchoredPosition = new Vector2(0, 60f);
+                        //Debug.Log(rt.sizeDelta);
+                        tempOwnedCard.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
+                        tempOwnedCard.transform.GetChild(2).gameObject.SetActive(false);
+                        tempOwnedCard.transform.GetChild(0).gameObject.SetActive(true);
+                        card.ownedQuantity -= 1;
+                        card.deckQuantity += 1;  
+                    }
+                    else
+                    {
+                        card.transform.SetParent(GameObject.Find("DeckContent").transform);
+                        card.transform.GetChild(1).gameObject.SetActive(false);
+                        card.transform.GetChild(4).gameObject.SetActive(false);
+                        card.transform.GetChild(5).gameObject.SetActive(true);
+
+                        RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                        //Debug.Log(rt.sizeDelta);
+                        rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 2.85f);
+                        rt.anchoredPosition = new Vector2(0, 60f);
+                        //Debug.Log(rt.sizeDelta);
+                        card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = null;
+                        card.transform.GetChild(2).gameObject.SetActive(false);
+                        card.transform.GetChild(0).gameObject.SetActive(true);
+                        card.ownedQuantity -= 1;
+                        card.deckQuantity += 1;
+                    }
+                    
                     break;
                 }
             }
@@ -202,18 +348,75 @@ public class DeckEditor : MonoBehaviour
                 {
                     deckPile.Remove(checkname);
                     ownPile.Insert(0, checkname);
-
+                    
+                    if(card.deckQuantity > 0)
+                    {
+                        foreach(DeckEditorCard checkCard in GameObject.Find("DeckContent").transform.GetComponentsInChildren<DeckEditorCard>(true)) 
+                        {
+                            //Debug.Log("CHECKING" + checkCard.title);
+                            if(checkCard.title == card.title && checkCard.gameObject.activeSelf == false)
+                            {
+                                tempDeckCard = checkCard;
+                                break;
+                            }
+                        }
+                        if(card.deckQuantity == 1)
+                        {
+                            tempDeckCard = card;
+                        }
+                        tempDeckCard.transform.gameObject.SetActive(false);
+                        tempDeckCard.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
+                        bool isRepeat = false;
+                        foreach(DeckEditorCard checkCard in GameObject.Find("OwnedCardsContent").transform.GetComponentsInChildren<DeckEditorCard>()) 
+                        {
+                            //Debug.Log("CHECKING" + checkCard.title);
+                            if(checkCard.title == tempDeckCard.title && checkCard.gameObject.activeSelf == true)
+                            {
+                                checkCard.ownedQuantity += 1;
+                                isRepeat = true;
+                                break;
+                            }
+                        }
+                        if(!isRepeat)
+                        {
+                            tempDeckCard.transform.gameObject.SetActive(true);
+                            tempDeckCard.ownedQuantity = 1;
+                        }
+                        tempDeckCard.transform.GetChild(1).gameObject.SetActive(true);
+                        tempDeckCard.transform.GetChild(5).gameObject.SetActive(false);
+                        tempDeckCard.transform.GetChild(4).gameObject.SetActive(true);
+    
+                        RectTransform rt = tempDeckCard.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                        //Debug.Log(rt.sizeDelta);
+                        rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 12.33f);
+                        rt.anchoredPosition = new Vector2(0, 0);
+                        //Debug.Log(rt.sizeDelta);
+                        tempDeckCard.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = cardHighlight;
+                        tempDeckCard.transform.GetChild(2).gameObject.SetActive(false);
+                        tempDeckCard.transform.GetChild(0).gameObject.SetActive(false);
+                        card.ownedQuantity += 1;
+                        card.deckQuantity -= 1;    
+                    }
                     //Debug.Log(card.parent);
-                    card.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
-                    card.transform.GetChild(1).gameObject.SetActive(true);
-                    RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
-                    Debug.Log(rt.sizeDelta);
-                    rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 12.33f);
-                    rt.anchoredPosition = new Vector2(0, 0);
-                    Debug.Log(rt.sizeDelta);
-                    card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = cardHighlight;
-                    card.transform.GetChild(0).gameObject.SetActive(false);
+                    else
+                    {
+                        card.transform.SetParent(GameObject.Find("OwnedCardsContent").transform);
 
+                        card.transform.GetChild(1).gameObject.SetActive(true);
+                        card.transform.GetChild(5).gameObject.SetActive(false);
+                        card.transform.GetChild(4).gameObject.SetActive(true);
+    
+                        RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                        //Debug.Log(rt.sizeDelta);
+                        rt.sizeDelta = new Vector2 (rt.sizeDelta.x, 12.33f);
+                        rt.anchoredPosition = new Vector2(0, 0);
+                        //Debug.Log(rt.sizeDelta);
+                        card.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = cardHighlight;
+                        card.transform.GetChild(2).gameObject.SetActive(false);
+                        card.transform.GetChild(0).gameObject.SetActive(false);
+                        card.ownedQuantity += 1;
+                        card.deckQuantity -= 1;
+                    }
                     break;
                 }
             }

@@ -23,8 +23,11 @@ public class DeckEditorCard : MonoBehaviour
     public string throwDescription;
     public List<CardEffect> throwEffects = new();
     /// <CARD>
-    public int editNumber;
+    public int ownedQuantity;
+    public int deckQuantity;
     public TextMeshProUGUI displayText;
+    public TextMeshProUGUI displayOwnedQuantity;
+    public TextMeshProUGUI displayDeckQuantity;
 
     void Start()
     {
@@ -35,12 +38,15 @@ public class DeckEditorCard : MonoBehaviour
     
     void Update() 
     {
-        displayText.text = title.ToString();
+        displayText.text = this.title.ToString();
+
+        displayOwnedQuantity.text = this.ownedQuantity.ToString();
+        displayDeckQuantity.text = this.deckQuantity.ToString();
     }
 
     public void clicked()
     {
-        Debug.Log(title);
+        //Debug.Log(title);
         deckEditor.SwitchPile(this);
         //onClick?.Invoke();
     }
