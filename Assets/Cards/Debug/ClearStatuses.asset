@@ -23,7 +23,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   art: {fileID: 21300000, guid: b0fa70abd2a79904cb00b175dfd8ec7e, type: 3}
-  playTarget: 0
+  playTarget: 1
   playDescription:
     m_TableReference:
       m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_LocalVariables: []
   playEffects:
   - rid: 2070361796819288065
-  throwTarget: 0
+  throwTarget: 3
   throwDescription:
     m_TableReference:
       m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485

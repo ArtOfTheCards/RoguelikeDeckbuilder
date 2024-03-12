@@ -23,7 +23,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   art: {fileID: 0}
-  playTarget: 0
+  playTarget: 1
   playDescription:
     m_TableReference:
       m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_LocalVariables: []
   playEffects:
   - rid: 7443702997282193411
-  throwTarget: 0
+  throwTarget: 3
   throwDescription:
     m_TableReference:
       m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
@@ -47,7 +47,6 @@ MonoBehaviour:
     m_LocalVariables: []
   throwEffects:
   - rid: 7443702997282193410
-  settingData: {fileID: 11400000, guid: ca099fdeee602384abbb159e7a2a62a1, type: 2}
   references:
     version: 2
     RefIds:
