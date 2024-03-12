@@ -19,7 +19,7 @@ MonoBehaviour:
   playDescription: +2 CARD
   playEffects:
   - rid: 4647620957206740992
-  throwTarget: 1
+  throwTarget: 3
   throwDescription: 1 DMG
   throwEffects:
   - rid: 4647620957206740994

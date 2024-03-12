@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWASD: {fileID: 7431682643847022400}
   playerPathFinding: {fileID: 8197431014769401457}
-  agent: {fileID: 2482842050173074521}
+  agent: {fileID: 0}
 --- !u!1 &7185980515548851073
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +85,7 @@ Transform:
   m_Children:
   - {fileID: 3717916388480028285}
   - {fileID: 5154143267913576951}
+  - {fileID: 680225706286109147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3445336580203328670
@@ -127,7 +128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 690380286, guid: c0f95606d6d342341b9465bb4354b603, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -165,7 +166,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8824023042991833181
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,9 +199,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.96}
-  m_Size: {x: 1.34, y: 0.66}
-  m_Direction: 1
+  m_Offset: {x: 0, y: -2.3}
+  m_Size: {x: 1.7, y: 4.376241}
+  m_Direction: 0
 --- !u!195 &2482842050173074521
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -244,6 +245,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8578507162112874923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680225706286109147}
+  m_Layer: 0
+  m_Name: Cam_Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680225706286109147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578507162112874923}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 642703422156632077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6583283609715936153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,6 +458,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2910065409096618093, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: affiliation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4930592416918721889, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -464,6 +500,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4930592416918721889, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091167000800346549, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 3445336580203328670}
+    - target: {fileID: 6091167000800346549, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}
+      propertyPath: createHealthbar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6091167000800346549, guid: ff2bf19905ba7cb44879d4252119d8b6, type: 3}

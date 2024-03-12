@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class PlayerMovementKeys : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMovementKeys : MonoBehaviour
     [SerializeField] private KeyCode right;
     [SerializeField] private Animator animator;
 
+    private EventInstance playerFootsteps;
+
     private void Update()
     {
         // Get the movement input
@@ -19,11 +22,15 @@ public class PlayerMovementKeys : MonoBehaviour
         animator.SetFloat("X", input.x);
         animator.SetFloat("Y", input.y);
 
-        // Set walking parameter based on input
-        animator.SetBool("isWalking", input != Vector2.zero);
-
         // Set velocity
         GetComponent<IMoveVelocity>().SetVelocity(input);
+
+        UpdateSound(input.magnitude);
+    }
+
+    private void Start()
+    {
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.PlayerFootsteps);
     }
 
     private Vector2 GetInput()
@@ -41,5 +48,32 @@ public class PlayerMovementKeys : MonoBehaviour
             input.x = 1f;
 
         return input.normalized;
+    }
+
+
+    public void Rebindkeys(SettingData setting)
+    {
+        this.up = setting.up;
+        this.down = setting.down;
+        this.left = setting.left;
+        this.right = setting.right;
+    }
+
+    private void UpdateSound(float speed)
+    {
+
+        if (speed != 0)
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }

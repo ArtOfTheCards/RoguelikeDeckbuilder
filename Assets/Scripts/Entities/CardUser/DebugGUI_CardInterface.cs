@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using FMOD.Studio;
 
 public class DebugGUI_CardInterface : MonoBehaviour
 {
@@ -33,13 +34,22 @@ public class DebugGUI_CardInterface : MonoBehaviour
     public Vector2 discardOffset = new();
     public Vector2 discardDimensions = new(200,200);
 
+    [Header("Projectile (Temporary)")]
+    public ProjectileManager projectileMng;
+    public Damagable temporaryTarget;
 
     private GUIStyle pileStyle, pileLabelStyle, cardStyle, buttonStyle;
     Texture2D normalBackground, hoverBackground;
 
+
+    private TargetAffiliation affiliation;
+    private EventInstance hoverSound;
+    private Vector2 lastMousePos = new Vector2();
+
     private void Awake()
     {
         user = GetComponent<CardUser>();
+        affiliation = GetComponentInChildren<Targetable>().affiliation;
 
         // Create custom style for cards
         normalBackground = new Texture2D(1, 1, TextureFormat.RGBAFloat, false); 
@@ -107,8 +117,13 @@ public class DebugGUI_CardInterface : MonoBehaviour
             int offsetY = Mathf.RoundToInt(h - (globalYOffset + (i*cardOffset.y)) - cardDimensions.y);
 
             string text = $"{card.title}\n{card.playDescription}\n\n\n{card.throwDescription}";
+            Rect r = new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y);
+            if (r.Contains(Event.current.mousePosition) && !r.Contains(lastMousePos))
+            {
+                TriggerHoverSFX();
+            }
+            GUI.Box(r, $"{text}", cardStyle);
 
-            GUI.Box(new Rect(offsetX,offsetY,cardDimensions.x, cardDimensions.y), $"{text}", cardStyle);
 
             if (canPlay)
             {
@@ -139,10 +154,17 @@ public class DebugGUI_CardInterface : MonoBehaviour
                                         cardDimensions.x-buttonMargins.x, 
                                         cardDimensions.y-buttonMargins.y), $"Throw", buttonStyle))
                 {
+                    Debug.Log("ey: card type is " + card.throwTarget);
+
                     if (card.throwTarget == Card.TargetType.Direct) {
                         // Begin listening for a targetable target.
                         // If we get one, callback to a properly-parameterized UseCard call.
-                        StartCoroutine(GetTargetTargetable((targetable) => user.UseCard(card, Card.UseMode.Throw, targetable)));
+
+                        // throw projectile
+                        projectileMng.throwNext(temporaryTarget, card);
+                        StartCoroutine(GetTargetTargetable((targetable) => {
+                            user.UseCard(card, Card.UseMode.Throw, targetable);
+                        }));
                     }
 
                     if (card.throwTarget == Card.TargetType.Worldspace) {
@@ -152,12 +174,16 @@ public class DebugGUI_CardInterface : MonoBehaviour
                     }
 
                     if (card.throwTarget == Card.TargetType.Targetless) {
+                        Debug.Log("ey: throw at TARGETLESS");
+
+                        projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
                     }
                 }
             }
-        }
 
+        }
+        lastMousePos = Event.current.mousePosition;
         // ================
         // Dis cards
         // ================
@@ -171,6 +197,21 @@ public class DebugGUI_CardInterface : MonoBehaviour
                          discardDimensions.y), $"{user.discardPile.Count}", pileStyle);
     }
 
+    private void Start() 
+    {
+        hoverSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.CardOnHover);
+    }
+
+    private void TriggerHoverSFX()
+    {
+        PLAYBACK_STATE playbackState;
+        hoverSound.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            hoverSound.start();
+        }
+    }
+
     private IEnumerator GetTargetTargetable(System.Action<Targetable> action)
     {
         // Awaits a Targetable target, provided by mouseclick. When a target is
@@ -180,6 +221,7 @@ public class DebugGUI_CardInterface : MonoBehaviour
         canPlay = false;
         Targetable target = null;
 
+        Debug.Log("ey: waiting for a click (L for select / R for escape)");
         while (target == null)
         {
             if (Input.GetMouseButtonDown(0))        // select target
@@ -191,7 +233,11 @@ public class DebugGUI_CardInterface : MonoBehaviour
                 {
                     if (collider.gameObject.TryGetComponent<Targetable>(out Targetable newTarget))
                     {
-                        targetables.Add(newTarget);
+                        if (newTarget.affiliation != affiliation) 
+                        {
+                            Debug.Log("ey, ADDED NEW TARGET");
+                            targetables.Add(newTarget);
+                        }
                     }
                 }
 
@@ -202,17 +248,24 @@ public class DebugGUI_CardInterface : MonoBehaviour
 
                 // Break whether or not we found a target. If we clicked on a nontarget, 
                 // then our action is effectively canceled.
+                Debug.Log("ey: break");
                 break;
             }
 
-            if (Input.GetMouseButtonDown(1)) break; // cancel action
+            if (Input.GetMouseButtonDown(1)) {
+                Debug.Log("ey: break");
+                break; // cancel action
+            }
 
             yield return null;
         }
+
+        Debug.Log("EY: exit while loop");
         
         canPlay = true;
         // If we got a target (ie if the action wasn't canceled)...
         if (target != null) action.Invoke(target);
+    
     }
 
     private IEnumerator GetTargetVector3(System.Action<Vector3> action)
@@ -244,3 +297,5 @@ public class DebugGUI_CardInterface : MonoBehaviour
         if (target != min) action.Invoke(target);
     }
 }
+
+

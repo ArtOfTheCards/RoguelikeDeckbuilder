@@ -7,6 +7,7 @@ public enum CardPile { NULL, drawPile, hand, discardPile }
 public class CardUser : MonoBehaviour
 {
     public int startingHandSize = 3;
+    public int maxHandSize = 5;
     public int normalDrawAmount = 1;
     public float drawDelay = 3f;
 
@@ -51,10 +52,16 @@ public class CardUser : MonoBehaviour
 
         if (DrawTimer > drawDelay)
         {
-            DrawCards(normalDrawAmount);
-            DrawTimer = 0;
+            if (hand.Count < maxHandSize)
+            {
+                DrawCards(normalDrawAmount);
+                DrawTimer = 0;
+            }
+            else
+            {
+                DrawTimer = drawDelay;
+            }
         }
-
         DrawTimer += Time.deltaTime;
     }
 
@@ -87,6 +94,7 @@ public class CardUser : MonoBehaviour
         }
 
         PopFromPushTo(drawPile, hand, Mathf.Min(n, drawPile.Count));
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.DrawCard, transform.position);
     }
 
     public void Discard(Card card)
