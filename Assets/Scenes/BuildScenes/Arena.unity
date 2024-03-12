@@ -2078,6 +2078,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c0969fe53259be24c835ad15c15f476c, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: DEBUG_startingDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c0969fe53259be24c835ad15c15f476c, type: 2}
+    - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[6]
       value: 
       objectReference: {fileID: 11400000, guid: b87ad9fcef18ec241bdbbef9b9a27632, type: 2}
@@ -2117,6 +2125,26 @@ PrefabInstance:
       propertyPath: temporaryTarget
       value: 
       objectReference: {fileID: 1649943998}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: playText.m_TableEntryReference.m_KeyId
+      value: 745288207466496
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: throwText.m_TableEntryReference.m_KeyId
+      value: 745288207466497
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: drawPileText.m_TableEntryReference.m_KeyId
+      value: 396727515119617
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: discardPileText.m_TableEntryReference.m_KeyId
+      value: 396727515119618
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633245058201367122, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: drawPileText.m_TableReference.m_TableCollectionName
+      value: GUID:1a9c23981e85b4849abe504af39a2485
+      objectReference: {fileID: 0}
     - target: {fileID: 7185980515548851073, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: m_Name
       value: Player
