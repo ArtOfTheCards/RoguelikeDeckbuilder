@@ -13,15 +13,39 @@ MonoBehaviour:
   m_Name: SpawnSkeletons
   m_EditorClassIdentifier: 
   debug_ID: SpawnSkeletons
-  title: Raise Undead
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043596
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 21300000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
-  playTarget: 2
-  playDescription: +1 TARGET
+  playTarget: 0
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043597
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 4647620896860930048
   - rid: 4647620840944828467
-  throwTarget: 3
-  throwDescription: +1 TARGET
+  throwTarget: 0
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832137
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 7443703157569880065
   references:

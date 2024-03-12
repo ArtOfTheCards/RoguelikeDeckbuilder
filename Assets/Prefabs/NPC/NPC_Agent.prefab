@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
-  createHealhbar: 1
+  createHealthbar: 1
   currentHealth: 40
   maxHealth: 40
   sprite: {fileID: 6731219731293944968}

@@ -10,11 +10,25 @@ public class ProjectileManager : MonoBehaviour
     // do you want to use a small pool of projectiles that are always ready to use?
     // set them all up here
     
-    Projectile[] children;
+    List<Projectile> children = new();
+    List<Projectile> childrenSpecial = new();
 
     void Awake() {
-        children = GetComponentsInChildren<Projectile>(); // for testing, just grab the first (and only) projectile
-        Debug.Log("total children: " + children.Length);
+        foreach(Projectile child in GetComponentsInChildren<Projectile>())
+        {
+            if(child.transform.name == "projectile")
+            {
+                children.Add(child);
+            }
+            else
+            {
+                childrenSpecial.Add(child);
+            }
+        }
+        //children = GetComponentsInChildren<Projectile>(); // for testing, just grab the first (and only) projectile
+        //childrenSpecial = GetComponentsInChildren<Projectile>();
+        Debug.Log("total children: " + children.Count);
+        Debug.Log("total special children: " + childrenSpecial.Count);
 
     }
 
@@ -33,7 +47,7 @@ public class ProjectileManager : MonoBehaviour
 
     public void throwNext(Damagable target, Card card) {
         // TODO: when there is more than one child, we need to figure out which one is "next"
-        for(int i = 0; i < children.Length-1; i++)
+        for(int i = 0; i < children.Count-1; i++)
         {
             if(children[i].inuse == false) 
             {
@@ -46,6 +60,7 @@ public class ProjectileManager : MonoBehaviour
                     Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
+                    
 
                     
                 
@@ -53,6 +68,31 @@ public class ProjectileManager : MonoBehaviour
                 break;
             }
         }
+        
+    }
+    public void throwNextSpecial(Transform thrower, Damagable target, Card card) {
+        // TODO: when there is more than one child, we need to figure out which one is "next"
+        for(int i = 0; i < childrenSpecial.Count-1; i++)
+        {
+            if(childrenSpecial[i].inuse == false) 
+            {
+                //Debug.Log(childrenSpecial[i].inuse);
+                //Debug.Log("trigger throw next");
+                childrenSpecial[i].inuse = true;
+                //Debug.Log(childrenSpecial[i].inuse);
+                StartCoroutine(childrenSpecial[i].specialThrowAt(thrower, target.transform, () => {
+
+                    //Debug.Log("do damage based on card: " + card);
+                    DoDamage(target, card);
+                    DoStatus(target, card);
+
+                    
+                
+                }));
+                break;
+            }
+        }
+        
     }
 
     private void DoDamage(Damagable target, Card card)
@@ -63,7 +103,7 @@ public class ProjectileManager : MonoBehaviour
             {
                 DirectDamageEffect dDE = (DirectDamageEffect)teffect;
 
-                Debug.Log(dDE.amount + " hypothetical damage");
+                //Debug.Log(dDE.amount + " hypothetical damage");
                 target.damage(dDE.amount);
             }
             if (teffect.GetType().FullName == "CardCountDirectDamageEffect")
@@ -76,14 +116,14 @@ public class ProjectileManager : MonoBehaviour
                 else if (ccdDE.cardPile == CardPile.hand) { amount = cardUser.hand.Count; } // Don't count ourselves
                 else if (ccdDE.cardPile == CardPile.discardPile) { amount = cardUser.discardPile.Count; }
 
-                Debug.Log(amount + " hypothetical damage");
+                //Debug.Log(amount + " hypothetical damage");
                 target.damage(amount);
             }
             if (teffect.GetType().FullName == "SpawnEffect")
             {
                 SpawnEffect sE = (SpawnEffect)teffect;
 
-                Debug.Log(sE.toSpawn + "spawn");
+                //Debug.Log(sE.toSpawn + "spawn");
                 GameObject.Instantiate(sE.toSpawn, target.transform.position, Quaternion.identity);
             }
         }
@@ -95,7 +135,7 @@ public class ProjectileManager : MonoBehaviour
             if (seffect.GetType().FullName == "DirectAddStatusEffect")
             {
                 DirectAddStatusEffect dASE = (DirectAddStatusEffect)seffect;
-                Debug.Log(dASE.status.ID + " applied (hypothetically)");
+                //Debug.Log(dASE.status.ID + " applied (hypothetically)");
 
                 if (target.TryGetComponent<Effectable>(out Effectable effectable))
                 {
