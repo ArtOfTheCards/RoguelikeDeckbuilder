@@ -304,6 +304,7 @@ public class DeckEditor : MonoBehaviour
                         tempOwnedCard.transform.GetChild(1).gameObject.SetActive(false);
                         tempOwnedCard.transform.GetChild(4).gameObject.SetActive(false);
                         tempOwnedCard.transform.GetChild(5).gameObject.SetActive(true);
+                        tempOwnedCard.transform.GetChild(6).gameObject.SetActive(false);
 
                         RectTransform rt = tempOwnedCard.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
                                 //Debug.Log(rt.sizeDelta);
@@ -322,6 +323,7 @@ public class DeckEditor : MonoBehaviour
                         card.transform.GetChild(1).gameObject.SetActive(false);
                         card.transform.GetChild(4).gameObject.SetActive(false);
                         card.transform.GetChild(5).gameObject.SetActive(true);
+                        card.transform.GetChild(6).gameObject.SetActive(false);
 
                         RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
                         //Debug.Log(rt.sizeDelta);
@@ -385,6 +387,7 @@ public class DeckEditor : MonoBehaviour
                         tempDeckCard.transform.GetChild(1).gameObject.SetActive(true);
                         tempDeckCard.transform.GetChild(5).gameObject.SetActive(false);
                         tempDeckCard.transform.GetChild(4).gameObject.SetActive(true);
+                        tempDeckCard.transform.GetChild(6).gameObject.SetActive(true);
     
                         RectTransform rt = tempDeckCard.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
                         //Debug.Log(rt.sizeDelta);
@@ -405,6 +408,7 @@ public class DeckEditor : MonoBehaviour
                         card.transform.GetChild(1).gameObject.SetActive(true);
                         card.transform.GetChild(5).gameObject.SetActive(false);
                         card.transform.GetChild(4).gameObject.SetActive(true);
+                        card.transform.GetChild(6).gameObject.SetActive(true);
     
                         RectTransform rt = card.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
                         //Debug.Log(rt.sizeDelta);

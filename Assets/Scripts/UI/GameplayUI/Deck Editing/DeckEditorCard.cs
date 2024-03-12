@@ -28,6 +28,7 @@ public class DeckEditorCard : MonoBehaviour
     public TextMeshProUGUI displayText;
     public TextMeshProUGUI displayOwnedQuantity;
     public TextMeshProUGUI displayDeckQuantity;
+    public TextMeshProUGUI displayPlayEffects;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class DeckEditorCard : MonoBehaviour
 
         displayOwnedQuantity.text = this.ownedQuantity.ToString();
         displayDeckQuantity.text = this.deckQuantity.ToString();
+        displayPlayEffects.text = this.playDescription.ToString();
     }
 
     public void clicked()
