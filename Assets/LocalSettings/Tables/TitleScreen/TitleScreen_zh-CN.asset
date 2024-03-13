@@ -10,23 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: CreditScreen_zh-CN
+  m_Name: TitleScreen_zh-CN
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: zh-CN
-  m_SharedData: {fileID: 11400000, guid: 744c06a6b05317946b2815f3bca0c32b, type: 2}
+  m_SharedData: {fileID: 11400000, guid: cb157db85a5a63d4fa8745284fceaff8, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 1445321277440
+  - m_Id: 6457833324544
+    m_Localized: "\u7B26\u6587\u4E4B\u58F0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6457850101760
+    m_Localized: by ArtofTheCards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19413106688
+    m_Localized: "\u5F00\u59CB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4093231529984
+    m_Localized: "\u8BBE\u7F6E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4333212827648
     m_Localized: "\u5236\u4F5C\u4EBA\u5458"
     m_Metadata:
       m_Items: []
-  - m_Id: 8010472390656
-    m_Localized: "\u611F\u8C22\u4F60\u6E38\u73A9Team 11\u7684\u6E38\u620F"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9426687524864
+  - m_Id: 7277048004608
     m_Localized: "\u9000\u51FA"
     m_Metadata:
       m_Items: []

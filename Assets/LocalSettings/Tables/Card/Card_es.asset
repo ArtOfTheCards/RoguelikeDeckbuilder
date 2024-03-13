@@ -78,10 +78,6 @@ MonoBehaviour:
     m_Localized: Lento
     m_Metadata:
       m_Items: []
-  - m_Id: 396727510925312
-    m_Localized: +LENTO
-    m_Metadata:
-      m_Items: []
   - m_Id: 396727515119617
     m_Localized: Sorteo
     m_Metadata:
@@ -224,6 +220,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 754172255043597
     m_Localized: +1 BLANCO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1460047420620800
+    m_Localized: +LENTO
     m_Metadata:
       m_Items: []
   references:
