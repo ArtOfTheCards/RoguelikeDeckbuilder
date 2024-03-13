@@ -2916,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7912688218760809599, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5938,11 +5938,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5962,11 +5962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5998,11 +5998,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6024,6 +6024,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1247067378}
+    - target: {fileID: 8939920562248597978, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
+      propertyPath: damagable
+      value: 
+      objectReference: {fileID: 1283576135}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
