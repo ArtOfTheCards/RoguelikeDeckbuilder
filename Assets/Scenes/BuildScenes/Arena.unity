@@ -3704,6 +3704,10 @@ PrefabInstance:
       propertyPath: _agent
       value: 
       objectReference: {fileID: 1283576136}
+    - target: {fileID: 5143419706538485984, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Mass
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Sprite
       value: 
