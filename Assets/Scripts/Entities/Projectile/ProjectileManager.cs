@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
+using FMODUnity;
 
 public class ProjectileManager : MonoBehaviour
 {
@@ -60,10 +62,9 @@ public class ProjectileManager : MonoBehaviour
                     Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
-                    
+                    // trigger sfx
+                    PlaySFXByID(card);
 
-                    
-                
                 }));
                 break;
             }
@@ -85,8 +86,9 @@ public class ProjectileManager : MonoBehaviour
                     //Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
+                    // trigger sfx
+                    PlaySFXByID(card);
 
-                    
                 
                 }));
                 break;
@@ -103,7 +105,6 @@ public class ProjectileManager : MonoBehaviour
             {
                 DirectDamageEffect dDE = (DirectDamageEffect)teffect;
 
-                //Debug.Log(dDE.amount + " hypothetical damage");
                 target.damage(dDE.amount);
             }
             if (teffect.GetType().FullName == "CardCountDirectDamageEffect")
@@ -116,7 +117,6 @@ public class ProjectileManager : MonoBehaviour
                 else if (ccdDE.cardPile == CardPile.hand) { amount = cardUser.hand.Count; } // Don't count ourselves
                 else if (ccdDE.cardPile == CardPile.discardPile) { amount = cardUser.discardPile.Count; }
 
-                //Debug.Log(amount + " hypothetical damage");
                 target.damage(amount);
             }
             if (teffect.GetType().FullName == "SpawnEffect")
@@ -144,6 +144,23 @@ public class ProjectileManager : MonoBehaviour
             }
 
 
+        }
+    }
+
+     private void PlaySFXByID(Card card) {
+
+        string propertyName = card.debug_ID;
+
+        PropertyInfo propertyInfo = typeof(FMODEvents).GetProperty(propertyName);
+
+        if (propertyInfo != null)
+        {
+            object eventRef = propertyInfo.GetValue(FMODEvents.instance);
+            AudioManager.instance.PlayOneShot((EventReference)eventRef, new Vector3(0, 0, 0));
+        }
+        else
+        {
+            Debug.LogError("SFX Fail: Property '" + propertyName + "' not found in FMODEvents");
         }
     }
 

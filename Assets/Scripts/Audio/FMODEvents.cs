@@ -15,12 +15,14 @@ public class FMODEvents : MonoBehaviour
     //============
     [field: SerializeField] public EventReference BurstAttack { get; private set; } // aka Magick Missile
     [field: SerializeField] public EventReference SpawnSkeletons { get; private set; } // aka Skeleton Summon
-    [field: SerializeField] public EventReference Throw { get; private set; }
+    [field: SerializeField] public EventReference Throw { get; private set; } // aka Throw
     [field: SerializeField] public EventReference AddPoison { get; private set; } // aka Venemous Bite
+
+    // waiting for asset
+    // [field: SerializeField] public EventReference AddVulnerable { get; private set; } // aka Bash
 
     [field: Header("ENEMIES")]
  
-    public string test = "dummy";
 
     public static FMODEvents instance { get; private set; }
 

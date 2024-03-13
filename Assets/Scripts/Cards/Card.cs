@@ -49,6 +49,7 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
         caller.StartCoroutine(ApplyEffects_Targetable(caller, effects, target));
     }
 
@@ -60,6 +61,7 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
         caller.StartCoroutine(ApplyEffects_Vector3(caller, effects, target));
     }
 
@@ -71,6 +73,7 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
         caller.StartCoroutine(ApplyEffects_Targetless(caller, effects));
     }
 
