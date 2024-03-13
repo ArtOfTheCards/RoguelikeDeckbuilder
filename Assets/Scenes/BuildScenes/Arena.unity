@@ -2940,6 +2940,113 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d22ad3403fd544818c05f37efa3a165, type: 3}
+--- !u!1 &708384986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708384989}
+  - component: {fileID: 708384988}
+  - component: {fileID: 708384987}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &708384987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708384986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc3cbdcd0e2d44b6aa8fbae96378ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerFootsteps>k__BackingField:
+    Guid:
+      Data1: 1364795471
+      Data2: 1104588546
+      Data3: 1689661852
+      Data4: 1245024111
+    Path: event:/The Effects/Player/Footsteps
+  <DrawCard>k__BackingField:
+    Guid:
+      Data1: 1292205512
+      Data2: 1251655023
+      Data3: 442882703
+      Data4: 659170234
+    Path: event:/The Effects/Cards/Draw
+  <CardOnHover>k__BackingField:
+    Guid:
+      Data1: 593871991
+      Data2: 1309168141
+      Data3: 505859747
+      Data4: -360116752
+    Path: event:/The Effects/Cards/Choose
+  <MagicMissile>k__BackingField:
+    Guid:
+      Data1: -1614935393
+      Data2: 1311008312
+      Data3: 1436211107
+      Data4: 502446221
+    Path: event:/The Effects/Cards/Magic Missile
+  <SpawnSkeleton>k__BackingField:
+    Guid:
+      Data1: -931630435
+      Data2: 1142337439
+      Data3: 528289466
+      Data4: -1373206857
+    Path: event:/The Effects/Cards/Skeleton Summon
+  <Throw>k__BackingField:
+    Guid:
+      Data1: 1422950289
+      Data2: 1204004061
+      Data3: -267930693
+      Data4: -431430059
+    Path: event:/The Effects/Cards/Throw
+  <VenemousBite>k__BackingField:
+    Guid:
+      Data1: -374329713
+      Data2: 1293348807
+      Data3: 2090337698
+      Data4: -242827854
+    Path: event:/The Effects/Cards/Venomous Bite
+  test: dummy
+--- !u!114 &708384988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708384986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc91e5280cd8443caf43a4fc868e078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &708384989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708384986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &721354505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10854,7 +10961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3740445185711317335, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 211.49994
       objectReference: {fileID: 0}
     - target: {fileID: 3908468004229621241, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10882,7 +10989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151861148515953971, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 211.49994
       objectReference: {fileID: 0}
     - target: {fileID: 6587700420777792704, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_Pivot.x
@@ -10966,7 +11073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6861209577010978296, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 211.49994
       objectReference: {fileID: 0}
     - target: {fileID: 7286454780159701129, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10984,9 +11091,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8598199659192285766, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8762013389772312955, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -720.2247
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12583,6 +12694,7 @@ SceneRoots:
   - {fileID: 1868949195}
   - {fileID: 860508554}
   - {fileID: 471595091}
+  - {fileID: 708384989}
   - {fileID: 1290334008}
   - {fileID: 644221403}
   - {fileID: 1666883305}
