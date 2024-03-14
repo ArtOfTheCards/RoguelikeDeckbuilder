@@ -13,14 +13,38 @@ MonoBehaviour:
   m_Name: AddPoison 1
   m_EditorClassIdentifier: 
   debug_ID: AddPoison
-  title: Venomous Bite
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 732793887555587
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   playTarget: 1
-  playDescription: +1 PSN
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 732793887555588
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 2070361744878075904
   throwTarget: 3
-  throwDescription: +1 PSN
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061378637825
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 7443702997282193414
   references:

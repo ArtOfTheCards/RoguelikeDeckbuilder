@@ -12,27 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253f31730edb0a441bba09523c01dcb0, type: 3}
   m_Name: Ensnare
   m_EditorClassIdentifier: 
-  debug_ID: Ensnare
-  title: Ensnare
+  debug_ID: New ID
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832138
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
   playTarget: 1
-  playDescription: 10s SLOW
-  playEffects:
-  - rid: 7443702670664663040
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 396727510925312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  playEffects: []
   throwTarget: 3
-  throwDescription: 5s STUN
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 396727515119616
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
-  - rid: 7443702670664663041
+  - rid: 6913502909143973890
   references:
     version: 2
     RefIds:
-    - rid: 7443702670664663040
+    - rid: 6913502909143973890
       type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        Debug_ID: add slowness
-        status: {fileID: 11400000, guid: 3a2bf7c6684313948a1ec7077c319609, type: 2}
-    - rid: 7443702670664663041
-      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
-      data:
-        Debug_ID: add stun
+        Debug_ID: +STUN
         status: {fileID: 11400000, guid: e22beb7f14450464b9574a38b2530a64, type: 2}

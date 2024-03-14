@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 4067936444901642066}
   m_Layer: 0
   m_Name: Skeleton_Agent
-  m_TagString: Enemy
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
+  createHealthbar: 1
   currentHealth: 20
   maxHealth: 20
   sprite: {fileID: 1574233656999815642}

@@ -31,7 +31,9 @@ public class NpcPathFinder : MonoBehaviour
 
     protected void SetDestination(Vector3 destination)
     {
+        //Debug.Log(destination);
         _agent.destination = destination;
+        //Debug.Log(_agent.destination);
     }
 
     protected virtual void Update()
@@ -42,15 +44,3 @@ public class NpcPathFinder : MonoBehaviour
         }
     }
 }
-
-// If we don't have a target...
-        // if (target == null) 
-        // {
-        //     // Search for one!
-        //     Targetable closest = null;
-        //     float shortestDistance = float.MaxValue;
-        //     foreach (Targetable targetable in aggroRange.TargetsInRange)
-        //     {
-        //         if (closest == null || )
-        //     }
-        // }

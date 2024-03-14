@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class SceneNavigator : MonoBehaviour
 {
 
+    [SerializeField] private SettingData currentSetting;
+
     // Change tagret graphic as that's the buttons background
     [Header("Options")]
     [SerializeField] private GameObject titleScreen;

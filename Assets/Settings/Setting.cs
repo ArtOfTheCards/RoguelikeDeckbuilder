@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
+using System.Collections;
+using System.ComponentModel.Design;
 
 public class Setting : MonoBehaviour
 {
@@ -75,9 +78,8 @@ public class Setting : MonoBehaviour
         lookSensitivitySliders[0].value = currentSetting.freeLookSensitivity_X;
         lookSensitivitySliders[1].value = currentSetting.freeLookSensitivity_Y;
         pathFindingEnabled.isOn = currentSetting.pathFindingEnabled;
-
+        UpdateLanguageDropdown();
         UpdateDropdownsFromKeyCode();
-
         UpdateUIInteractability();
     }
 
@@ -137,7 +139,19 @@ public class Setting : MonoBehaviour
     public void UpdateLanguageDropdown()
     {
         currentSetting.language = languageDropDown.value;
+        StartCoroutine(SetLocale(currentSetting.language));
     }
+
+    private IEnumerator SetLocale(int localeID)
+    {
+        yield return LocalizationSettings.InitializationOperation;
+
+        if (LocalizationSettings.AvailableLocales.Locales.Count > localeID)
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
+        }
+    }
+
 
     public void UpdateFreeLook()
     {
@@ -194,14 +208,9 @@ public class Setting : MonoBehaviour
         UpdateSettingsFromDropdown(interactInputDropdown, ref currentSetting.interact);
     }
 
-    public void SaveSettings()
-    {
-        // Save settings...
-    }
-
     public void ResetSettings()
     {
-        currentSetting = Instantiate<SettingData>(defaultSetting);
+        currentSetting.SetTo(defaultSetting);
         UpdateSettingsUI();
     }
 }

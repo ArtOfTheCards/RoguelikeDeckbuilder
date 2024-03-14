@@ -13,16 +13,40 @@ MonoBehaviour:
   m_Name: Filter
   m_EditorClassIdentifier: 
   debug_ID: Filter
-  title: Filter
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 732793887555591
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
   playTarget: 3
-  playDescription: -2 CARD, +3 CARD
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 732793887555592
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 7443702563337142274
   - rid: 7443702563337142275
   - rid: 7443702563337142272
   throwTarget: 3
-  throwDescription: 2 DMG
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832134
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 2070361838743453696
   references:

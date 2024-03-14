@@ -13,14 +13,38 @@ MonoBehaviour:
   m_Name: 5-2 Throw Test
   m_EditorClassIdentifier: 
   debug_ID: 5-2
-  title: 5-2
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 736914921259009
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
   playTarget: 1
-  playDescription: 5 DMG
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 736914925453312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: 7443702997282193409
   throwTarget: 3
-  throwDescription: 2 DMG
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061336694784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 7443702997282193408
   references:

@@ -13,15 +13,39 @@ MonoBehaviour:
   m_Name: Selfless
   m_EditorClassIdentifier: 
   debug_ID: Selfless
-  title: Selfless
+  title:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043594
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   art: {fileID: 0}
-  playTarget: 1
-  playDescription: -5 HEALTH, 3 CARD
+  playTarget: 3
+  playDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 754172255043595
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   playEffects:
   - rid: -2
   - rid: 5399437876876541955
   throwTarget: 3
-  throwDescription: 1 CARD
+  throwDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
+    m_TableEntryReference:
+      m_KeyId: 381061382832136
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   throwEffects:
   - rid: 5399437876876541956
   references:

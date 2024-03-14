@@ -41,7 +41,6 @@ public class OptionMenu : MonoBehaviour
      private void FindPlayerComponents()
      {
           player = GameObject.FindGameObjectWithTag("Player");
-
           if (player != null)
           {
                player.SetActive(true);
@@ -96,6 +95,5 @@ public class OptionMenu : MonoBehaviour
           if (cardUser != null)
                cardUser.SetActive(!paused);
           Time.timeScale = paused ? 0f : 1f;
-          Debug.Log(Time.timeScale);
      }
 }

@@ -293,11 +293,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
-  createHealhbar: 1
+  createHealthbar: 1
   currentHealth: 40
   maxHealth: 40
   sprite: {fileID: 6731219731293944968}
+  hitSFX:
+    Guid:
+      Data1: -923494190
+      Data2: 1340012105
+      Data3: -2111482701
+      Data4: 320756760
+    Path: event:/The Effects/Enemies/Enemy Hit
+  dieSFX:
+    Guid:
+      Data1: 1053061834
+      Data2: 1319877265
+      Data3: -1322253934
+      Data4: -69556753
+    Path: event:/The Effects/Enemies/Enemy Killed
 --- !u!114 &5062354545781811834
 MonoBehaviour:
   m_ObjectHideFlags: 0
