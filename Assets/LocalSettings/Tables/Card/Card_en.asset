@@ -78,10 +78,6 @@ MonoBehaviour:
     m_Localized: Ensnare
     m_Metadata:
       m_Items: []
-  - m_Id: 396727510925312
-    m_Localized: +SLOW
-    m_Metadata:
-      m_Items: []
   - m_Id: 396727515119616
     m_Localized: +SLOW
     m_Metadata:
@@ -123,7 +119,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 732793887555590
-    m_Localized: +2 CARD
+    m_Localized: +2CARD
     m_Metadata:
       m_Items: []
   - m_Id: 732793887555591
@@ -199,7 +195,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 754172255043591
-    m_Localized: CLEAR STATUS
+    m_Localized: CLEARSTATUS
     m_Metadata:
       m_Items: []
   - m_Id: 754172255043592
@@ -224,6 +220,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 754172255043597
     m_Localized: +1 TARGET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1460047420620800
+    m_Localized: +SLOW
     m_Metadata:
       m_Items: []
   references:

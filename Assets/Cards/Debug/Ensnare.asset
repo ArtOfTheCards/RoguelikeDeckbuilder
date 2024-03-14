@@ -39,12 +39,18 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:1a9c23981e85b4849abe504af39a2485
     m_TableEntryReference:
-      m_KeyId: 396727510925312
+      m_KeyId: 396727515119616
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  throwEffects: []
+  throwEffects:
+  - rid: 6913502909143973890
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6913502909143973890
+      type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: +STUN
+        status: {fileID: 11400000, guid: e22beb7f14450464b9574a38b2530a64, type: 2}
