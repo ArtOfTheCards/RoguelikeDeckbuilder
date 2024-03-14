@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 [System.Serializable]
 public class CardEffect

@@ -4478,13 +4478,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3cbdcd0e2d44b6aa8fbae96378ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DrawCard>k__BackingField:
+  <BattleTheme>k__BackingField:
     Guid:
-      Data1: 1292205512
-      Data2: 1251655023
-      Data3: 442882703
-      Data4: 659170234
-    Path: event:/The Effects/Cards/Draw
+      Data1: 1280000262
+      Data2: 1114253264
+      Data3: -304087668
+      Data4: -1546711390
+    Path: event:/The Tracks/Battle_Time
   <PlayerFootsteps>k__BackingField:
     Guid:
       Data1: 1364795471
@@ -4492,6 +4492,13 @@ MonoBehaviour:
       Data3: 1689661852
       Data4: 1245024111
     Path: event:/The Effects/Player/Footsteps
+  <DrawCard>k__BackingField:
+    Guid:
+      Data1: 1292205512
+      Data2: 1251655023
+      Data3: 442882703
+      Data4: 659170234
+    Path: event:/The Effects/Cards/Draw
   <CardOnHover>k__BackingField:
     Guid:
       Data1: 593871991
@@ -4499,6 +4506,34 @@ MonoBehaviour:
       Data3: 505859747
       Data4: -360116752
     Path: event:/The Effects/Cards/Choose
+  <BurstAttack>k__BackingField:
+    Guid:
+      Data1: -1614935393
+      Data2: 1311008312
+      Data3: 1436211107
+      Data4: 502446221
+    Path: event:/The Effects/Cards/Magic Missile
+  <SpawnSkeletons>k__BackingField:
+    Guid:
+      Data1: -931630435
+      Data2: 1142337439
+      Data3: 528289466
+      Data4: -1373206857
+    Path: event:/The Effects/Cards/Skeleton Summon
+  <Throw>k__BackingField:
+    Guid:
+      Data1: 1422950289
+      Data2: 1204004061
+      Data3: -267930693
+      Data4: -431430059
+    Path: event:/The Effects/Cards/Throw
+  <AddPoison>k__BackingField:
+    Guid:
+      Data1: -374329713
+      Data2: 1293348807
+      Data3: 2090337698
+      Data4: -242827854
+    Path: event:/The Effects/Cards/Venomous Bite
 --- !u!114 &1320362581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4511,6 +4546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc91e5280cd8443caf43a4fc868e078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 1
+  backgroundVolume: 1
+  SFXVolume: 1
 --- !u!4 &1320362582
 Transform:
   m_ObjectHideFlags: 0

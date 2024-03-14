@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 public class Damagable : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Damagable : MonoBehaviour
 
     private Transform worldspaceCanvasTransform = null;
     private WorldspaceHealthbars worldspaceHealthbars;
+
+    [SerializeField] public EventReference hitSFX;
+    [SerializeField] public EventReference dieSFX;
 
     private void Awake()
     {
@@ -82,11 +86,23 @@ public class Damagable : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            TrySFX(dieSFX);
             die();
+        } else {
+            TrySFX(hitSFX);
         }
 
         // show damage indicator
         showDamageIndicator(finalValue);
+    }
+
+    void TrySFX(EventReference sfx) {
+        // check if asset path in inspector is > 0
+        if (sfx.Path.Length == 0) {
+            // Debug.LogError("SFX Fail: EventReference was undefined for Damageable.  Did you set the sfx reference in the inspector?");
+        } else {
+            AudioManager.instance.PlayOneShot(sfx, transform.position);
+        }
     }
 
     void showDamageIndicator(int value)
