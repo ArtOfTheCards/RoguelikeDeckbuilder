@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using System.Dynamic;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("Volume")]
-    [Range(0, 1)]
-    public float masterVolume = 1;
-    [Range(0, 1)]
-    public float backgroundVolume = 1;
-    [Range(0, 1)]
-    public float SFXVolume = 1;
+    public SettingData settings;
 
     private Bus MasterBus;
     private Bus BackgroundBus;
@@ -37,13 +32,10 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeMusic(FMODEvents.instance.BattleTheme);
-    }
 
-    private void Update()
-    {
-        MasterBus.setVolume(masterVolume);
-        BackgroundBus.setVolume(backgroundVolume);
-        SFXBus.setVolume(SFXVolume);
+        setMasterVolume(settings.masterVolume);
+        setSFXVolume(settings.sfxVolume);
+        setBackgroundVolume(settings.ambientVolume);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPosition)
@@ -61,5 +53,19 @@ public class AudioManager : MonoBehaviour
     {
         musicEventInstance = CreateEventInstance(musicEventReference);
         musicEventInstance.start();
+    }
+
+    public void setMasterVolume(float v) {
+        MasterBus.setVolume(v);
+        settings.masterVolume = v;
+    }
+    public void setBackgroundVolume(float v) {
+        BackgroundBus.setVolume(v);
+        settings.ambientVolume = v;
+
+    }
+    public void setSFXVolume(float v) {
+        SFXBus.setVolume(v);
+        settings.sfxVolume = v;
     }
 }
