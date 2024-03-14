@@ -2970,6 +2970,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3cbdcd0e2d44b6aa8fbae96378ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <BattleTheme>k__BackingField:
+    Guid:
+      Data1: 1280000262
+      Data2: 1114253264
+      Data3: -304087668
+      Data4: -1546711390
+    Path: event:/The Tracks/Battle_Time
   <PlayerFootsteps>k__BackingField:
     Guid:
       Data1: 1364795471
@@ -3019,7 +3026,6 @@ MonoBehaviour:
       Data3: 2090337698
       Data4: -242827854
     Path: event:/The Effects/Cards/Venomous Bite
-  test: dummy
 --- !u!114 &708384988
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     private Bus BackgroundBus;
     private Bus SFXBus;
 
+    private EventInstance musicEventInstance;
 
 
     public static AudioManager instance { get; private set; }
@@ -32,6 +33,10 @@ public class AudioManager : MonoBehaviour
         MasterBus = RuntimeManager.GetBus("bus:/");
         BackgroundBus = RuntimeManager.GetBus("bus:/BackgroundAudio");
         SFXBus = RuntimeManager.GetBus("bus:/SFXAudio");
+    }
+    private void Start()
+    {
+        InitializeMusic(FMODEvents.instance.BattleTheme);
     }
 
     private void Update()
@@ -50,5 +55,11 @@ public class AudioManager : MonoBehaviour
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         return eventInstance;
+    }
+
+    private void InitializeMusic(EventReference musicEventReference) 
+    {
+        musicEventInstance = CreateEventInstance(musicEventReference);
+        musicEventInstance.start();
     }
 }

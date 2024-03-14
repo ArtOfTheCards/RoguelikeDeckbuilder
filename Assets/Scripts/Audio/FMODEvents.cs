@@ -3,8 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
+// TODO:
+/*
+    add missing assets
+    update Buses in FMOD, master is currently empty
+    link volume to settings
+    verify trigger locations
+*/
+
 public class FMODEvents : MonoBehaviour
 {
+    [field: Header("MUSIC")]
+    [field: SerializeField] public EventReference BattleTheme { get; private set; }
+
     [field: Header("PLAYER")]
     [field: SerializeField] public EventReference PlayerFootsteps { get; private set; }
     

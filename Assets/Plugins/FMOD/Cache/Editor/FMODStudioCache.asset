@@ -123,10 +123,10 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Tracks.bank
   Name: Tracks
   StudioPath: bank:/Tracks
-  lastModified: 638458823780000000
+  lastModified: 638459448380000000
   FileSizes:
   - Name: Desktop
-    Value: 1642304
+    Value: 1642432
   Exists: 1
 --- !u!114 &-4390248040992520734
 MonoBehaviour:
@@ -239,7 +239,7 @@ MonoBehaviour:
   - {fileID: 8403453682526680696}
   StringsBanks:
   - {fileID: 1905233686708267094}
-  cacheTime: 638458823780000000
+  cacheTime: 638459448380000000
   cacheVersion: 131609
 --- !u!114 &256784996727084889
 MonoBehaviour:
@@ -364,7 +364,7 @@ MonoBehaviour:
   - {fileID: -5980530417013132207}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
