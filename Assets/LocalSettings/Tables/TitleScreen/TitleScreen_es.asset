@@ -42,6 +42,14 @@ MonoBehaviour:
     m_Localized: Salir
     m_Metadata:
       m_Items: []
+  - m_Id: 2582102773891072
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2583959713906688
+    m_Localized: "Men\xFA"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

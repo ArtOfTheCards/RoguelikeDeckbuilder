@@ -48,9 +48,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   indicatorPrefab: {fileID: 0}
+  createHealthbar: 1
   currentHealth: 20
   maxHealth: 20
+  sprite: {fileID: 0}
+  hitSFX:
+    Guid:
+      Data1: -1595977228
+      Data2: 1194373705
+      Data3: -1400182893
+      Data4: 1394472690
+    Path: event:/The Effects/Player/Player Hit
+  dieSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &285566736673849778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHandSize: 5
+  maxHandSize: 5
   normalDrawAmount: 1
   drawDelay: 5
   DEBUG_startingDeck:
@@ -111,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4b4b693fc6a1648b23b6802df02d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   w: 1920
   h: 1080
   canPlay: 1
@@ -131,6 +150,47 @@ MonoBehaviour:
   throwButtonOffset: {x: 0, y: 60}
   discardOffset: {x: 10, y: 10}
   discardDimensions: {x: 200, y: 200}
+  projectileMng: {fileID: 0}
+  temporaryTarget: {fileID: 0}
+  drawPileText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  playText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  throwText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  discardPileText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2910065409096618093
 MonoBehaviour:
   m_ObjectHideFlags: 0

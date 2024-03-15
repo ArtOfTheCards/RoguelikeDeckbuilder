@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using System.Dynamic;
+using UnityEngine.UI;
+
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("Volume")]
-    [Range(0, 1)]
-    public float masterVolume = 1;
-    [Range(0, 1)]
-    public float backgroundVolume = 1;
-    [Range(0, 1)]
-    public float SFXVolume = 1;
+    public SettingData settings;
 
     private Bus MasterBus;
     private Bus BackgroundBus;
@@ -22,6 +19,10 @@ public class AudioManager : MonoBehaviour
 
 
     public static AudioManager instance { get; private set; }
+
+    public Slider Master;
+    public Slider Background;
+    public Slider SFX;
     private void Awake()
     {
         if (instance != null)
@@ -37,13 +38,14 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeMusic(FMODEvents.instance.BattleTheme);
-    }
 
-    private void Update()
-    {
-        MasterBus.setVolume(masterVolume);
-        BackgroundBus.setVolume(backgroundVolume);
-        SFXBus.setVolume(SFXVolume);
+        Master.onValueChanged.AddListener(setMasterVolume);
+        Background.onValueChanged.AddListener(setBackgroundVolume);
+        SFX.onValueChanged.AddListener(setSFXVolume);
+
+        Master.value = settings.masterVolume;
+        SFX.value = settings.sfxVolume;
+        Background.value = settings.ambientVolume;
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPosition)
@@ -61,5 +63,26 @@ public class AudioManager : MonoBehaviour
     {
         musicEventInstance = CreateEventInstance(musicEventReference);
         musicEventInstance.start();
+    }
+
+    private void setMasterVolume(float v) {
+        MasterBus.getVolume(out float initialMasterVol);
+        float deltaVol = v-initialMasterVol;
+
+        Background.value += deltaVol;
+        SFX.value += deltaVol;
+
+        MasterBus.setVolume(v);
+        settings.masterVolume = v;
+    }
+
+    private void setBackgroundVolume(float v) {
+        BackgroundBus.setVolume(v);
+        settings.ambientVolume = v;
+    }
+
+    private void setSFXVolume(float v) {
+        SFXBus.setVolume(v);
+        settings.sfxVolume = v;
     }
 }
