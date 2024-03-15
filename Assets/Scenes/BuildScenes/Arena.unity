@@ -2364,7 +2364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973918755}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.113362335, y: -0.4829291, z: -0.06321807, w: 0.8659861}
+  m_LocalRotation: {x: -0.11336234, y: -0.4829291, z: -0.06321807, w: 0.8659861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3029,7 +3029,7 @@ PrefabInstance:
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
+      objectReference: {fileID: 11400000, guid: 9245225c87547fb4a91f4c6aa43b921e, type: 2}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.data[1]
       value: 
@@ -4686,20 +4686,6 @@ MonoBehaviour:
       Data3: 505859747
       Data4: -360116752
     Path: event:/The Effects/Cards/Choose
-  <BurstAttack>k__BackingField:
-    Guid:
-      Data1: -1614935393
-      Data2: 1311008312
-      Data3: 1436211107
-      Data4: 502446221
-    Path: event:/The Effects/Cards/Magic Missile
-  <SpawnSkeletons>k__BackingField:
-    Guid:
-      Data1: -931630435
-      Data2: 1142337439
-      Data3: 528289466
-      Data4: -1373206857
-    Path: event:/The Effects/Cards/Skeleton Summon
   <Throw>k__BackingField:
     Guid:
       Data1: 1422950289
@@ -4707,13 +4693,96 @@ MonoBehaviour:
       Data3: -267930693
       Data4: -431430059
     Path: event:/The Effects/Cards/Throw
-  <AddPoison>k__BackingField:
-    Guid:
-      Data1: -374329713
-      Data2: 1293348807
-      Data3: 2090337698
-      Data4: -242827854
-    Path: event:/The Effects/Cards/Venomous Bite
+  <BurstAttack>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: -1614935393
+        Data2: 1311008312
+        Data3: 1436211107
+        Data4: 502446221
+      Path: event:/The Effects/Cards/Magic Missile
+  <SpawnSkeletons>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: -931630435
+        Data2: 1142337439
+        Data3: 528289466
+        Data4: -1373206857
+      Path: event:/The Effects/Cards/Skeleton Summon
+  <AddPoison_0>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: -374329713
+        Data2: 1293348807
+        Data3: 2090337698
+        Data4: -242827854
+      Path: event:/The Effects/Cards/Venomous Bite
+  <AddPoison_1>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 879024903
+        Data2: 1330667576
+        Data3: -11040088
+        Data4: -1259295843
+      Path: event:/The Effects/Status Effects/Poison_Vulnerable
+  <AddVulnerable>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 629413671
+        Data2: 1126819806
+        Data3: 1099803525
+        Data4: -1692782270
+      Path: event:/The Effects/Cards/Bash
+  <Ensnare>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 141334372
+        Data2: 1235070269
+        Data3: 1691632784
+        Data4: -234144837
+      Path: event:/The Effects/Cards/Ensnare
+    <Throw>k__BackingField:
+      Guid:
+        Data1: -1378718141
+        Data2: 1192655043
+        Data3: 1673542303
+        Data4: -558030559
+      Path: event:/The Effects/Status Effects/Stun
 --- !u!114 &1320362581
 MonoBehaviour:
   m_ObjectHideFlags: 0

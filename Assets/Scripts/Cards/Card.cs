@@ -3,6 +3,8 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Localization;
+using System.Reflection;
+using FMODUnity;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Card", menuName = "Card", order = 0)]
@@ -49,7 +51,8 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Throw) AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Play) PlaySFXByID();
         caller.StartCoroutine(ApplyEffects_Targetable(caller, effects, target));
     }
 
@@ -61,7 +64,8 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Throw) AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Play) PlaySFXByID();
         caller.StartCoroutine(ApplyEffects_Vector3(caller, effects, target));
     }
 
@@ -73,7 +77,8 @@ public class Card : ScriptableObject
         if (ValidateUse(mode) == false) return;
 
         List<CardEffect> effects = (mode == UseMode.Play) ? playEffects : throwEffects;
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Throw) AudioManager.instance.PlayOneShot(FMODEvents.instance.Throw, new Vector3(0, 0, 0));
+        if (mode == UseMode.Play) PlaySFXByID();
         caller.StartCoroutine(ApplyEffects_Targetless(caller, effects));
     }
 
@@ -134,6 +139,33 @@ public class Card : ScriptableObject
     {
         effectCalledback = true;
     }
+
+    // SFX
+    private void PlaySFXByID() {
+
+        string propertyName = debug_ID;
+
+        PropertyInfo propertyInfo = typeof(FMODEvents).GetProperty(propertyName);
+
+        if (propertyInfo != null)
+        {
+            CardSFX cardSFX = (CardSFX)propertyInfo.GetValue(FMODEvents.instance);
+            EventReference eventRef = cardSFX.Play;
+
+            if (eventRef.Path.Length == 0) {
+                // Debug.LogError("SFX Fail: Property '" + propertyName + "' does not have a valid PLAY Event Reference");
+            } else {
+                AudioManager.instance.PlayOneShot(eventRef, new Vector3(0, 0, 0));
+            }
+        }
+        else
+        {
+            Debug.LogError("SFX Fail: Property '" + propertyName + "' not found in FMODEvents");
+        }
+    }
+
+
+    
 }
 
 // Tasks -
