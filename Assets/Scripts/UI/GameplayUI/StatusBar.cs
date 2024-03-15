@@ -13,7 +13,7 @@ public class StatusBar : MonoBehaviour
     private Image background = null;
     private float iconWidth = 0;
     private Effectable effectable = null;
-    private List<EffectIcon> icons = null;
+    private List<EffectIcon> icons = new();
 
 
     private void Awake()
@@ -33,10 +33,11 @@ public class StatusBar : MonoBehaviour
         {
             ClearIcons();
 
-            float currentX = background.rectTransform.rect.xMin + (iconWidth/2f);
+            float currentX = -(background.rectTransform.rect.center.x - background.rectTransform.rect.xMin + (iconWidth/2f));
             foreach (StatusInstance instance in effectable.statuses.ToArray())
             {
-                GameObject iconObj = Instantiate(iconPrefab, new Vector3(currentX, 0), Quaternion.identity, transform);
+                GameObject iconObj = Instantiate(iconPrefab, transform);
+                iconObj.transform.localPosition = new(currentX, 0);
                 EffectIcon icon = iconObj.GetComponent<EffectIcon>();
                 icon.Initialize(instance.GetStatusData().icon, instance.currentStacks);
 
@@ -51,7 +52,7 @@ public class StatusBar : MonoBehaviour
     {
         foreach (EffectIcon icon in icons.ToArray())
         {
-            Destroy(icon.gameObject);
+            if (icon != null) Destroy(icon.gameObject);
         }
     }
 }
