@@ -4832,6 +4832,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27
       objectReference: {fileID: 0}
@@ -4870,6 +4882,26 @@ PrefabInstance:
     - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137080979970093731, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea2547da6184d6640ac74677a724de3e, type: 3}
+    - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7912688218760809599, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Name
@@ -4949,20 +4981,6 @@ MonoBehaviour:
       Data3: 505859747
       Data4: -360116752
     Path: event:/The Effects/Cards/Choose
-  <BurstAttack>k__BackingField:
-    Guid:
-      Data1: -1614935393
-      Data2: 1311008312
-      Data3: 1436211107
-      Data4: 502446221
-    Path: event:/The Effects/Cards/Magic Missile
-  <SpawnSkeletons>k__BackingField:
-    Guid:
-      Data1: -931630435
-      Data2: 1142337439
-      Data3: 528289466
-      Data4: -1373206857
-    Path: event:/The Effects/Cards/Skeleton Summon
   <Throw>k__BackingField:
     Guid:
       Data1: 1422950289
@@ -4970,13 +4988,96 @@ MonoBehaviour:
       Data3: -267930693
       Data4: -431430059
     Path: event:/The Effects/Cards/Throw
-  <AddPoison>k__BackingField:
-    Guid:
-      Data1: -374329713
-      Data2: 1293348807
-      Data3: 2090337698
-      Data4: -242827854
-    Path: event:/The Effects/Cards/Venomous Bite
+  <BurstAttack>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <SpawnSkeletons>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddPoison_0>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddPoison_1>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddVulnerable>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <Ensnare>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
 --- !u!114 &1320362581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4989,9 +5090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc91e5280cd8443caf43a4fc868e078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  backgroundVolume: 1
-  SFXVolume: 1
+  settings: {fileID: 0}
+  Master: {fileID: 0}
+  Background: {fileID: 0}
+  SFX: {fileID: 0}
 --- !u!4 &1320362582
 Transform:
   m_ObjectHideFlags: 0
