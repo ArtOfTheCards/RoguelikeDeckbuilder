@@ -152,11 +152,13 @@ public class Card : ScriptableObject
             CardSFX cardSFX = (CardSFX)propertyInfo.GetValue(FMODEvents.instance);
             EventReference eventRef = cardSFX.Play;
 
-            if (eventRef.Path.Length == 0) {
-                // Debug.LogError("SFX Fail: Property '" + propertyName + "' does not have a valid PLAY Event Reference");
-            } else {
-                AudioManager.instance.PlayOneShot(eventRef, new Vector3(0, 0, 0));
-            }
+            // if (eventRef.Path.Length == 0) {
+            //     // Debug.LogError("SFX Fail: Property '" + propertyName + "' does not have a valid PLAY Event Reference");
+            // } else {
+            //     AudioManager.instance.PlayOneShot(eventRef, new Vector3(0, 0, 0));
+            // }
+            AudioManager.instance.PlayOneShot(eventRef, new Vector3(0, 0, 0));
+
         }
         else
         {
