@@ -2523,6 +2523,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &953222975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1172872001373284302, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+  m_PrefabInstance: {fileID: 1817838160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973918755
 GameObject:
   m_ObjectHideFlags: 3
@@ -3642,6 +3653,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212026707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5849639203429288027, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+  m_PrefabInstance: {fileID: 1817838160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1224895285
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,9 +5145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
-  Master: {fileID: 0}
-  Background: {fileID: 0}
-  SFX: {fileID: 0}
+  Master: {fileID: 953222975}
+  Background: {fileID: 1212026707}
+  SFX: {fileID: 1817838162}
 --- !u!4 &1320362582
 Transform:
   m_ObjectHideFlags: 0
@@ -7405,6 +7427,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 487979144942857578, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: m_Name
+      value: MSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627607692674690441, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: m_Name
+      value: BSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 1798376512667505914, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: player
       value: 
@@ -7432,6 +7462,10 @@ PrefabInstance:
     - target: {fileID: 2512347632138908281, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804756947746620536, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+      propertyPath: m_Name
+      value: SSlider
       objectReference: {fileID: 0}
     - target: {fileID: 4944859696227332001, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7535,6 +7569,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7661225694597968534, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
   m_PrefabInstance: {fileID: 1817838160}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1817838162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7869698883684421988, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
+  m_PrefabInstance: {fileID: 1817838160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870175939
 GameObject:
   m_ObjectHideFlags: 0
