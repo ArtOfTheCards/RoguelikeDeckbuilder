@@ -3653,17 +3653,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1212026707 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5849639203429288027, guid: 75b1160c2db0ca145a96eb73af6dc5cf, type: 3}
-  m_PrefabInstance: {fileID: 1817838160}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1224895285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,6 +4899,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1357272117689842582, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Size.x
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357272117689842582, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Size.y
+      value: 4.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357272117689842582, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357272117689842582, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.9925
       objectReference: {fileID: 0}
@@ -4965,7 +4966,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466761982}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
   m_Controller: {fileID: 9100000, guid: 8a50c78ed55fe6a4c839b4e977b95ebf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -5146,7 +5147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
   Master: {fileID: 953222975}
-  Background: {fileID: 1212026707}
+  Background: {fileID: 1817838162}
   SFX: {fileID: 1817838162}
 --- !u!4 &1320362582
 Transform:

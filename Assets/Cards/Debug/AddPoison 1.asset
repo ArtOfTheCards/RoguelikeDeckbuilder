@@ -35,6 +35,7 @@ MonoBehaviour:
     m_LocalVariables: []
   playEffects:
   - rid: 2070361744878075904
+  - rid: 6913502963006963714
   throwTarget: 3
   throwDescription:
     m_TableReference:
@@ -55,6 +56,11 @@ MonoBehaviour:
       data:
         Debug_ID: add poison
         status: {fileID: 11400000, guid: e16abfa43fa0b5e4587757b46988a74b, type: 2}
+    - rid: 6913502963006963714
+      type: {class: DirectDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Debug_ID: 3 damage
+        amount: 3
     - rid: 7443702997282193414
       type: {class: DirectAddStatusEffect, ns: , asm: Assembly-CSharp}
       data:
