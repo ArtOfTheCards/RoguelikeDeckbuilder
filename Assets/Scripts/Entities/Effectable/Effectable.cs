@@ -141,7 +141,7 @@ public class Effectable : MonoBehaviour
 
         for (int i=0; i<statusInspectorDebug.Count; i++)
         {
-            GUI.Box(new Rect(Screen.width/2-150, 10+(i*60), 300, 50), statusInspectorDebug[i], ourStyle);
+            //GUI.Box(new Rect(Screen.width/2-150, 10+(i*60), 300, 50), statusInspectorDebug[i], ourStyle);
         }
     }
 
