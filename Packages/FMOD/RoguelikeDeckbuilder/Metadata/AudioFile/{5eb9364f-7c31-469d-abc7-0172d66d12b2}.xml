@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5eb9364f-7c31-469d-abc7-0172d66d12b2}">
+		<property name="assetPath">
+			<value>SFX/Skeleton dead.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.504</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{33e818a3-a778-4a78-a600-46395f4a7e99}</destination>
+		</relationship>
+	</object>
+</objects>

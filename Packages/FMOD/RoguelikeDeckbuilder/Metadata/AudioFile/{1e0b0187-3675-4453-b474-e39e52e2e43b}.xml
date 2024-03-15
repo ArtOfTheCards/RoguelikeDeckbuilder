@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1e0b0187-3675-4453-b474-e39e52e2e43b}">
+		<property name="assetPath">
+			<value>SFX/Enemy Footsteps 3.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.26400000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{33e818a3-a778-4a78-a600-46395f4a7e99}</destination>
+		</relationship>
+	</object>
+</objects>

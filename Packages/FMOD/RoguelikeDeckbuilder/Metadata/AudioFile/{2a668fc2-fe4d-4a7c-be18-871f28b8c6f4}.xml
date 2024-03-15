@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2a668fc2-fe4d-4a7c-be18-871f28b8c6f4}">
+		<property name="assetPath">
+			<value>SFX/Skeleton hurt.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.096000000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{33e818a3-a778-4a78-a600-46395f4a7e99}</destination>
+		</relationship>
+	</object>
+</objects>
