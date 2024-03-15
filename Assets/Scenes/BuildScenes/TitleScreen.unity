@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4349794937091953212, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30.400024
+      objectReference: {fileID: 0}
     - target: {fileID: 6587700420777792704, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -678,6 +682,37 @@ PrefabInstance:
     - target: {fileID: 7661225694597968534, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
       propertyPath: m_Name
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025427198611411824, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
+      propertyPath: m_text
+      value: 'Credits
+
+
+        Ashley Wrenn - Producer, Designer, Programmer, Artist
+
+        Reuben
+        Chavez- Tools Lead
+
+        Dylan Mahler- Tools and UI Programmer, Systems
+        Designer
+
+        Jonathan Madriaga - Sound Designer, Writer
+
+        Emma
+        - Programmer
+
+        Calvin Stephano - Character/Enemy Artist
+
+        Segolen
+        Plihon - Environment Artist
+
+        Nathan Kim - Designer
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390673943735824318, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8699161534651880555, guid: 54becdadc8a4775418a79a303aa8380c, type: 3}
       propertyPath: m_SizeDelta.y
