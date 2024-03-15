@@ -15,4 +15,5 @@ MonoBehaviour:
   StatusData:
     ID: Reanimate
     stackable: 1
+    icon: {fileID: 313488127, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     toSpawn: {fileID: 4652572425427334829, guid: 0c6099e93e4defb46b7b67d1b2a0a42a, type: 3}

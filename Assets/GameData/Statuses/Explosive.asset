@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: 
     stackable: 0
+    icon: {fileID: -355730449, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     duration: 5
     damagePerStack: 5
     durationAddedOnStack: 0

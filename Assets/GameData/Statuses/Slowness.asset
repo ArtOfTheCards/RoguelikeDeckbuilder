@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: Slowness
     stackable: 0
+    icon: {fileID: 467950980, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     speedChangePercent: -40
     duration: 10
     durationAddedOnStack: 0

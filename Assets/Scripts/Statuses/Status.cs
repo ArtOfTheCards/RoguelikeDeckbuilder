@@ -30,6 +30,7 @@ public abstract class StatusData
 
     public string ID = "";
     public bool stackable = false;
+    [ShowAssetPreview] public Sprite icon;
     public override string ToString() { return ID; }
 }
 
@@ -109,7 +110,7 @@ where StatusData_type : StatusData
 
     public override StatusInstance CreateStatusInstance(Effectable _target)
     {
-        return new StatusInstance_type { data = StatusData, target = _target };
+        return new StatusInstance_type { data = StatusData, target = _target, };
     }
 
     public override bool Matches(StatusInstance instance) 

@@ -5,8 +5,47 @@ using Cinemachine;
 
 public class Effectable : MonoBehaviour
 {
-    private List<StatusInstance> statuses = new();
+    [HideInInspector] public List<StatusInstance> statuses = new();
     [SerializeField, ReadOnly] List<string> statusInspectorDebug = new();
+    [SerializeField, Tooltip("Whether or not this Effectable should have a statusbar created for it at runtime.\n\nDefault: true")]
+    bool createStatusbar = true;
+
+    [HideInInspector] public bool changedSinceLastFrame = false;
+    private Transform worldspaceCanvasTransform = null;
+    private WorldspaceStatusbars worldspaceStatusbars;
+
+
+    private void Awake()
+    {
+        // Gets our needed canvas UI references.
+        // ================
+
+        worldspaceCanvasTransform = GameObject.FindGameObjectWithTag("WorldspaceIndicators").transform;
+        if (worldspaceCanvasTransform == null)
+        {
+            Debug.LogError("Effectable error: Awake failed. The scene has no indicator canvas, or the indicator canvas is not tagged as \"IndicatorCanvas\"");
+        }
+        else
+        {
+            worldspaceStatusbars = worldspaceCanvasTransform.GetComponentInChildren<WorldspaceStatusbars>();
+        }
+    }
+
+    private void Start()
+    {
+        if (worldspaceStatusbars != null && createStatusbar)
+        {
+            worldspaceStatusbars.CreateStatusbar(this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (worldspaceStatusbars != null && createStatusbar)
+        {
+            worldspaceStatusbars.DeleteStatusbar(this);
+        }
+    }
 
     public void AddStatusEffect(StatusFactory status)
     {
@@ -21,12 +60,14 @@ public class Effectable : MonoBehaviour
 
             instance.statusEnded += RemoveStatusEffect;
             instance.Apply();
+            changedSinceLastFrame = true;
         }
         else if (existingInstance.GetStatusData().stackable)    // if the status effect DOES exist and can stack.
         {
             statusInspectorDebug.Remove($"{existingInstance} ({existingInstance.currentStacks})");
             existingInstance.AddAdditionalStack();
             statusInspectorDebug.Add($"{existingInstance} ({existingInstance.currentStacks})");
+            changedSinceLastFrame = true;
         }
     }
 
@@ -37,6 +78,7 @@ public class Effectable : MonoBehaviour
             instance.End();
             statuses.Remove(instance);
             statusInspectorDebug.Remove($"{instance} ({instance.currentStacks})");
+            changedSinceLastFrame = true;
         }
         else
         {
@@ -86,6 +128,12 @@ public class Effectable : MonoBehaviour
 
         return null;
     }
+
+    public void MarkChangeRepainted()
+    {
+        changedSinceLastFrame = false;
+    }
+
     void OnGUI()
     {
         GUIStyle ourStyle = new(GUI.skin.box);
