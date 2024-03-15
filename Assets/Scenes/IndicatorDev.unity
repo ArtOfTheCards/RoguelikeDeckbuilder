@@ -881,11 +881,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 721103397979572571, guid: 1d22ad3403fd544818c05f37efa3a165, type: 3}
   m_PrefabInstance: {fileID: 364340045}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &447747094 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
-  m_PrefabInstance: {fileID: 1632806743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &472294304
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,56 +931,6 @@ Transform:
   - {fileID: 1475156892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &545894059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 545894060}
-  - component: {fileID: 545894061}
-  m_Layer: 5
-  m_Name: StatusesParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &545894060
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545894059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 447747094}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &545894061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545894059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e068cd49984d2941a1df70d5d481f55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusbarPrefab: {fileID: 5177913940911179, guid: 0b2cc55a8261381468d19c8b1c1dd536, type: 3}
-  totalOffset: {x: 0, y: 3.25}
 --- !u!1 &550154823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2239,7 +2184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973918755}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.11336234, y: -0.4829291, z: -0.06321807, w: 0.8659861}
+  m_LocalRotation: {x: -0.113362335, y: -0.4829291, z: -0.06321807, w: 0.8659861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4569,20 +4514,6 @@ MonoBehaviour:
       Data3: 505859747
       Data4: -360116752
     Path: event:/The Effects/Cards/Choose
-  <BurstAttack>k__BackingField:
-    Guid:
-      Data1: -1614935393
-      Data2: 1311008312
-      Data3: 1436211107
-      Data4: 502446221
-    Path: event:/The Effects/Cards/Magic Missile
-  <SpawnSkeletons>k__BackingField:
-    Guid:
-      Data1: -931630435
-      Data2: 1142337439
-      Data3: 528289466
-      Data4: -1373206857
-    Path: event:/The Effects/Cards/Skeleton Summon
   <Throw>k__BackingField:
     Guid:
       Data1: 1422950289
@@ -4590,13 +4521,96 @@ MonoBehaviour:
       Data3: -267930693
       Data4: -431430059
     Path: event:/The Effects/Cards/Throw
-  <AddPoison>k__BackingField:
-    Guid:
-      Data1: -374329713
-      Data2: 1293348807
-      Data3: 2090337698
-      Data4: -242827854
-    Path: event:/The Effects/Cards/Venomous Bite
+  <BurstAttack>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <SpawnSkeletons>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddPoison_0>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddPoison_1>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <AddVulnerable>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  <Ensnare>k__BackingField:
+    <Play>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Throw>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
 --- !u!114 &1320362581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4609,9 +4623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc91e5280cd8443caf43a4fc868e078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  backgroundVolume: 1
-  SFXVolume: 1
+  settings: {fileID: 0}
+  Master: {fileID: 0}
+  Background: {fileID: 0}
+  SFX: {fileID: 0}
 --- !u!4 &1320362582
 Transform:
   m_ObjectHideFlags: 0
@@ -7193,10 +7208,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1945609160723700933, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5626863994561974727, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 545894060}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35045602b0e005545a36a8bbc00638d3, type: 3}
 --- !u!1001 &1638602800
