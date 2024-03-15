@@ -36,15 +36,16 @@ public class StatusBar : MonoBehaviour
             float currentX = -(background.rectTransform.rect.center.x - background.rectTransform.rect.xMin + (iconWidth/2f));
             foreach (StatusInstance instance in effectable.statuses.ToArray())
             {
+                currentX = currentX + iconWidth + iconXPadding;
+
                 GameObject iconObj = Instantiate(iconPrefab, transform);
                 iconObj.transform.localPosition = new(currentX, 0);
                 EffectIcon icon = iconObj.GetComponent<EffectIcon>();
                 icon.Initialize(instance.GetStatusData().icon, instance.currentStacks);
 
                 icons.Add(icon);
-                currentX = currentX + iconWidth + iconXPadding;
             }
-            effectable.MarkChanged();
+            effectable.MarkChangeRepainted();
         }
     }
 

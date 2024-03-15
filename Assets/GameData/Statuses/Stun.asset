@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: Stun
     stackable: 0
+    icon: {fileID: 727584342, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     speedChangePercent: -100
     duration: 5
     durationAddedOnStack: 0

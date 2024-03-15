@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: Vulnerable
     stackable: 1
+    icon: {fileID: -983224274, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     damageTakenModifier:
       stackType: 1
       value: 100

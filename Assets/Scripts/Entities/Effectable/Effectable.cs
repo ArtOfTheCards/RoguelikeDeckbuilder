@@ -129,7 +129,7 @@ public class Effectable : MonoBehaviour
         return null;
     }
 
-    public void MarkChanged()
+    public void MarkChangeRepainted()
     {
         changedSinceLastFrame = false;
     }

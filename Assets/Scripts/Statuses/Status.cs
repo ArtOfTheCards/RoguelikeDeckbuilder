@@ -30,7 +30,7 @@ public abstract class StatusData
 
     public string ID = "";
     public bool stackable = false;
-    public Sprite icon;
+    [ShowAssetPreview] public Sprite icon;
     public override string ToString() { return ID; }
 }
 

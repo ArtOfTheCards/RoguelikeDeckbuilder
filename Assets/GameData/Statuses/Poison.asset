@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: Poison
     stackable: 1
+    icon: {fileID: -2037885850, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     damagePerTick: 1
     tickDelay: 1
     duration: 15

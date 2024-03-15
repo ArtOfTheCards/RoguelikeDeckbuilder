@@ -15,6 +15,7 @@ MonoBehaviour:
   StatusData:
     ID: smaller rune
     stackable: 1
+    icon: {fileID: 736926305, guid: fcd74e3018d2b6b41a1f49b48ed01947, type: 3}
     sizeChangePercent: 0.7
     duration: 200
     durationAddedOnStack: 0
