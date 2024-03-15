@@ -325,11 +325,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   createHealthbar: 1
-  currentHealth: 20
-  maxHealth: 20
+  currentHealth: 10
+  maxHealth: 10
   sprite: {fileID: 1574233656999815642}
+  hitSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  dieSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &7789633128953384287
 MonoBehaviour:
   m_ObjectHideFlags: 0
