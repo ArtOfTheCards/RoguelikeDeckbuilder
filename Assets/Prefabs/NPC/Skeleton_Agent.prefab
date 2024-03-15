@@ -333,18 +333,18 @@ MonoBehaviour:
   sprite: {fileID: 1574233656999815642}
   hitSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -931630435
+      Data2: 1142337439
+      Data3: 528289466
+      Data4: -1373206857
+    Path: event:/The Effects/Cards/Skeleton Summon
   dieSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -931630435
+      Data2: 1142337439
+      Data3: 528289466
+      Data4: -1373206857
+    Path: event:/The Effects/Cards/Skeleton Summon
 --- !u!114 &7789633128953384287
 MonoBehaviour:
   m_ObjectHideFlags: 0

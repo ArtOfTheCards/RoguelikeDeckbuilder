@@ -63,11 +63,11 @@ MonoBehaviour:
     Path: event:/The Effects/Player/Player Hit
   dieSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1595977228
+      Data2: 1194373705
+      Data3: -1400182893
+      Data4: 1394472690
+    Path: event:/The Effects/Player/Player Hit
 --- !u!114 &285566736673849778
 MonoBehaviour:
   m_ObjectHideFlags: 0

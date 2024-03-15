@@ -201,6 +201,10 @@ public class DebugGUI_CardInterface : MonoBehaviour
                         if (debugMode)
                             Debug.Log("ey: throw at TARGETLESS");
 
+                        if(temporaryTarget == null)
+                        {
+                            temporaryTarget = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Damagable>();
+                        }
                         projectileMng.throwNext(temporaryTarget, card);
                         user.UseCard(card, Card.UseMode.Throw);
                     }
