@@ -38,7 +38,7 @@ public class StatusBar : MonoBehaviour
             {
                 GameObject iconObj = Instantiate(iconPrefab, new Vector3(currentX, 0), Quaternion.identity, transform);
                 EffectIcon icon = iconObj.GetComponent<EffectIcon>();
-                icon.Initialize(instance.icon, instance.currentStacks);
+                icon.Initialize(instance.GetStatusData().icon, instance.currentStacks);
 
                 icons.Add(icon);
                 currentX = currentX + iconWidth + iconXPadding;

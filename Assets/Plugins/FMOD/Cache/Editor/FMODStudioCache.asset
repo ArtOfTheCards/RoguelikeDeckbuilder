@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8775133427090605861
+--- !u!114 &-4027362697891830434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,70 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/The Effects/Cards/Choose
+  m_Name: event:/Debug/vineboom
   m_EditorClassIdentifier: 
-  Path: event:/The Effects/Cards/Choose
+  Path: event:/Debug/vineboom
   Guid:
-    Data1: 593871991
-    Data2: 1309168141
-    Data3: 505859747
-    Data4: -360116752
+    Data1: -6984448
+    Data2: 1250812824
+    Data3: 825922966
+    Data4: -640006170
   Banks:
-  - {fileID: -3702174154839374462}
+  - {fileID: 8403453682526680696}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 384
---- !u!114 &-7222028714454954936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/The Effects/Player/Footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/The Effects/Player/Footsteps
-  Guid:
-    Data1: 1364795471
-    Data2: 1104588546
-    Data3: 1689661852
-    Data4: 1245024111
-  Banks:
-  - {fileID: -3702174154839374462}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
---- !u!114 &-3702174154839374462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638459475848198359
-  FileSizes:
-  - Name: Desktop
-    Value: 24288
-  Exists: 1
+  Length: 2859
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,17 +42,14 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 1905233686708267094}
   - {fileID: 8403453682526680696}
-  - {fileID: -3702174154839374462}
   EditorEvents:
-  - {fileID: -8775133427090605861}
-  - {fileID: 4523373546907115515}
-  - {fileID: -7222028714454954936}
+  - {fileID: -4027362697891830434}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8403453682526680696}
   StringsBanks:
   - {fileID: 1905233686708267094}
-  cacheTime: 638459475848198359
+  cacheTime: 638412788164379359
   cacheVersion: 131609
 --- !u!114 &1905233686708267094
 MonoBehaviour:
@@ -116,38 +66,11 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638459475847134895
+  lastModified: 638412788164379359
   FileSizes:
   - Name: Desktop
-    Value: 926
+    Value: 764
   Exists: 1
---- !u!114 &4523373546907115515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/The Effects/Cards/Draw
-  m_EditorClassIdentifier: 
-  Path: event:/The Effects/Cards/Draw
-  Guid:
-    Data1: 1292205512
-    Data2: 1251655023
-    Data3: 442882703
-    Data4: 659170234
-  Banks:
-  - {fileID: -3702174154839374462}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 864
 --- !u!114 &8403453682526680696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +86,8 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638459475847114895
+  lastModified: 638412788164353614
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 29760
   Exists: 1
