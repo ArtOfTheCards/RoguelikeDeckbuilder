@@ -40,19 +40,19 @@ public class GameOver_UI : MonoBehaviour
 
     private void CheckDamagable()
     {
-        Debug.Log("Player's HealthBar: " + player_dmg.currentHealth + "\n");
-        Debug.Log("Enemies's HealthBar: " + enemy_dmg.currentHealth + "\n");
+        //Debug.Log("Player's HealthBar: " + player_dmg.currentHealth + "\n");
+        //Debug.Log("Enemies's HealthBar: " + enemy_dmg.currentHealth + "\n");
         // If player's health is zero, game over, player loses
         if (player_dmg.currentHealth == 0)
         {
-            message = "Game Over, You Lose";
+            message = "YOU WERE RUINED";
             GameOver();
         }
 
         // If enemy's health is zero, game over, player wins
         if (enemy_dmg.currentHealth == 0)
         {
-            message = "You Win";
+            message = "YOU HAVE WON THE RUMBLE";
             GameOver();
         }
     }
