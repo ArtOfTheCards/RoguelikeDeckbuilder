@@ -175,6 +175,7 @@ MonoBehaviour:
   - Master
   Banks:
   - SFX
+  - Tracks
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -191,11 +192,11 @@ MonoBehaviour:
   LastEventReferenceScanVersion: 131609
   Platforms:
   - {fileID: -7351498891121920638}
-  - {fileID: -7165197743558424499}
-  - {fileID: 2392364936744469368}
-  - {fileID: 2987506195897686323}
-  - {fileID: 5812111045179734258}
   - {fileID: 7497422606435747869}
+  - {fileID: 2392364936744469368}
+  - {fileID: 5812111045179734258}
+  - {fileID: -7165197743558424499}
+  - {fileID: 2987506195897686323}
   MigratedPlatforms: 060000000b00000005000000090000000200000001000000
 --- !u!114 &2392364936744469368
 MonoBehaviour:
@@ -462,10 +463,10 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - 0f8eb3f400726694eb47beb1a9f94ce8
   - 52eb9df5db46521439908db3a29a1bbb
-  - c88d16e5272a4e241b0ef0ac2e53b73d
   - fd7c55dab0fce234b8c25f6ffca523c1
+  - 0f8eb3f400726694eb47beb1a9f94ce8
+  - c88d16e5272a4e241b0ef0ac2e53b73d
   codecChannels:
     Value: []
     HasValue: 0

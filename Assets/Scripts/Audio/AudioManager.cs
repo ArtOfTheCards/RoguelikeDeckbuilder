@@ -4,6 +4,8 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Dynamic;
+using UnityEngine.UI;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class AudioManager : MonoBehaviour
 
 
     public static AudioManager instance { get; private set; }
+
+    public Slider Master;
+    public Slider Background;
+    public Slider SFX;
     private void Awake()
     {
         if (instance != null)
@@ -33,9 +39,13 @@ public class AudioManager : MonoBehaviour
     {
         InitializeMusic(FMODEvents.instance.BattleTheme);
 
-        setMasterVolume(settings.masterVolume);
-        setSFXVolume(settings.sfxVolume);
-        setBackgroundVolume(settings.ambientVolume);
+        Master.onValueChanged.AddListener(setMasterVolume);
+        Background.onValueChanged.AddListener(setBackgroundVolume);
+        SFX.onValueChanged.AddListener(setSFXVolume);
+
+        Master.value = settings.masterVolume;
+        SFX.value = settings.sfxVolume;
+        Background.value = settings.ambientVolume;
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPosition)
@@ -55,16 +65,23 @@ public class AudioManager : MonoBehaviour
         musicEventInstance.start();
     }
 
-    public void setMasterVolume(float v) {
+    private void setMasterVolume(float v) {
+        MasterBus.getVolume(out float initialMasterVol);
+        float deltaVol = v-initialMasterVol;
+
+        Background.value += deltaVol;
+        SFX.value += deltaVol;
+
         MasterBus.setVolume(v);
         settings.masterVolume = v;
     }
-    public void setBackgroundVolume(float v) {
+
+    private void setBackgroundVolume(float v) {
         BackgroundBus.setVolume(v);
         settings.ambientVolume = v;
-
     }
-    public void setSFXVolume(float v) {
+
+    private void setSFXVolume(float v) {
         SFXBus.setVolume(v);
         settings.sfxVolume = v;
     }
