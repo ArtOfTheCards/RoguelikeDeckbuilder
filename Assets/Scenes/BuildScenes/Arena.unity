@@ -2944,12 +2944,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: dieSFX.Path
+      value: event:/The Effects/Player/Player Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: createHealhbar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: createHealthbar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: dieSFX.Guid.Data1
+      value: -1595977228
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: dieSFX.Guid.Data2
+      value: 1194373705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: dieSFX.Guid.Data3
+      value: -1400182893
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557031880810633897, guid: 5250a3214c5952748bc405a007a00319, type: 3}
+      propertyPath: dieSFX.Guid.Data4
+      value: 1394472690
       objectReference: {fileID: 0}
     - target: {fileID: 3945324645932443976, guid: 5250a3214c5952748bc405a007a00319, type: 3}
       propertyPath: DEBUG_startingDeck.Array.size
@@ -4919,6 +4939,10 @@ PrefabInstance:
       value: 6.5473447
       objectReference: {fileID: 0}
     - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731219731293944968, guid: 88205efa972cee844a2ac7ba43d8c6d1, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -732086226, guid: 98d328e560b85a045a0201c0acedd919, type: 3}
@@ -4966,7 +4990,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466761982}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8a50c78ed55fe6a4c839b4e977b95ebf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -5046,93 +5070,93 @@ MonoBehaviour:
   <BurstAttack>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -1614935393
+        Data2: 1311008312
+        Data3: 1436211107
+        Data4: 502446221
+      Path: event:/The Effects/Cards/Magic Missile
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 1422950289
+        Data2: 1204004061
+        Data3: -267930693
+        Data4: -431430059
+      Path: event:/The Effects/Cards/Throw
   <SpawnSkeletons>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -931630435
+        Data2: 1142337439
+        Data3: 528289466
+        Data4: -1373206857
+      Path: event:/The Effects/Cards/Skeleton Summon
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -931630435
+        Data2: 1142337439
+        Data3: 528289466
+        Data4: -1373206857
+      Path: event:/The Effects/Cards/Skeleton Summon
   <AddPoison_0>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -374329713
+        Data2: 1293348807
+        Data3: 2090337698
+        Data4: -242827854
+      Path: event:/The Effects/Cards/Venomous Bite
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 879024903
+        Data2: 1330667576
+        Data3: -11040088
+        Data4: -1259295843
+      Path: event:/The Effects/Status Effects/Poison_Vulnerable
   <AddPoison_1>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -374329713
+        Data2: 1293348807
+        Data3: 2090337698
+        Data4: -242827854
+      Path: event:/The Effects/Cards/Venomous Bite
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 879024903
+        Data2: 1330667576
+        Data3: -11040088
+        Data4: -1259295843
+      Path: event:/The Effects/Status Effects/Poison_Vulnerable
   <AddVulnerable>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 629413671
+        Data2: 1126819806
+        Data3: 1099803525
+        Data4: -1692782270
+      Path: event:/The Effects/Cards/Bash
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 879024903
+        Data2: 1330667576
+        Data3: -11040088
+        Data4: -1259295843
+      Path: event:/The Effects/Status Effects/Poison_Vulnerable
   <Ensnare>k__BackingField:
     <Play>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 141334372
+        Data2: 1235070269
+        Data3: 1691632784
+        Data4: -234144837
+      Path: event:/The Effects/Cards/Ensnare
     <Throw>k__BackingField:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 141334372
+        Data2: 1235070269
+        Data3: 1691632784
+        Data4: -234144837
+      Path: event:/The Effects/Cards/Ensnare
 --- !u!114 &1320362581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,7 +5169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc91e5280cd8443caf43a4fc868e078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
+  settings: {fileID: 11400000, guid: edc4baab18bdc7448bf8d9e4590de596, type: 2}
   Master: {fileID: 953222975}
   Background: {fileID: 1817838162}
   SFX: {fileID: 1817838162}

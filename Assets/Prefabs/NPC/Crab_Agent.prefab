@@ -344,11 +344,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de2d98a535fc34ea89e14a9a4d9cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   indicatorPrefab: {fileID: 3273110866439380372, guid: ffe7b35d57bbad64e99d85f288a7980e, type: 3}
   createHealthbar: 1
   currentHealth: 5
   maxHealth: 5
   sprite: {fileID: 1574233656999815642}
+  hitSFX:
+    Guid:
+      Data1: -923494190
+      Data2: 1340012105
+      Data3: -2111482701
+      Data4: 320756760
+    Path: event:/The Effects/Enemies/Enemy Hit
+  dieSFX:
+    Guid:
+      Data1: -923494190
+      Data2: 1340012105
+      Data3: -2111482701
+      Data4: 320756760
+    Path: event:/The Effects/Enemies/Enemy Hit
 --- !u!114 &7789633128953384287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b6c12b66954224495db6945828e44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crabAttack: {fileID: 0}
+  crabAttack: {fileID: 11400000, guid: 4d9aa45388870194883a7c4722e29d4c, type: 2}
   targetLock: {fileID: 0}
 --- !u!114 &-3562671262391615509
 MonoBehaviour:
