@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     Transform pc;
     Transform sprite;
     public bool inuse = false;
+    public bool homing = true;
 
     void Awake() {
         pc = GameObject.Find("Player").transform;

@@ -87,7 +87,7 @@ public class CrabAttack : MonoBehaviour
                 if (damagable != null) 
                 {
                     //damagable.damage(damagePerTick);
-                    projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crabLocation, damagable, crabAttack);
+                    projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crabLocation, damagable, crabAttack, "bubble");
                     Crab crab = this.transform.parent.gameObject.GetComponent<Crab>();
                     crab.targetLock = damagable;
                 }   
@@ -108,7 +108,7 @@ public class CrabAttack : MonoBehaviour
     {
         if (target != null)
         {
-            projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crab, target, crabAttack);
+            projectileManager.GetComponent<ProjectileManager>().throwNextSpecial(crab, target, crabAttack, "bubble");
         }
     }
 

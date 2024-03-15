@@ -6,7 +6,6 @@ public class DirectPathFinder : NpcPathFinder
     private float loseAggroDelay = 4;
     private float loseAggroElapsed = 0;
 
-
     
     protected override void Update()
     {

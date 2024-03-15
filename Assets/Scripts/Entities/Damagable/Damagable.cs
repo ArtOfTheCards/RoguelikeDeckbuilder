@@ -84,7 +84,7 @@ public class Damagable : MonoBehaviour
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
         // DEBUG CODE. DEBUG CODE. DEBUG CODE.
 
-        if (currentHealth == 0)
+        if (this.currentHealth == 0)
         {
             TrySFX(dieSFX);
             die();
@@ -121,7 +121,7 @@ public class Damagable : MonoBehaviour
     private void die()
     {
         deathTrigger?.Invoke();
-        // Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 
     private IEnumerator DEBUG_FlashRed(SpriteRenderer sprite)

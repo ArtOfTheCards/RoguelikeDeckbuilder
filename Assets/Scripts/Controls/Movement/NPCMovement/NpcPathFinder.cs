@@ -24,6 +24,7 @@ public class NpcPathFinder : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        //npcVector = new Vector2(0.0f, 0.0f);
 
         Targetable targetable = GetComponentInChildren<Targetable>();
         if (targetable != null) ourAffiliation = targetable.affiliation;

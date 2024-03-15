@@ -70,28 +70,30 @@ public class ProjectileManager : MonoBehaviour
         }
         
     }
-    public void throwNextSpecial(Transform thrower, Damagable target, Card card) {
+    public void throwNextSpecial(Transform thrower, Damagable target, Card card, String projectileName) {
         // TODO: when there is more than one child, we need to figure out which one is "next"
         for(int i = 0; i < childrenSpecial.Count-1; i++)
         {
-            if(childrenSpecial[i].inuse == false) 
+            if(childrenSpecial[i].transform.name == projectileName)
             {
-                //Debug.Log(childrenSpecial[i].inuse);
-                //Debug.Log("trigger throw next");
-                childrenSpecial[i].inuse = true;
-                //Debug.Log(childrenSpecial[i].inuse);
-                StartCoroutine(childrenSpecial[i].specialThrowAt(thrower, target.transform, () => {
+                if(childrenSpecial[i].inuse == false) 
+                {
+                    //Debug.Log(childrenSpecial[i].inuse);
+                    //Debug.Log("trigger throw next");
+                    childrenSpecial[i].inuse = true;
+                    //Debug.Log(childrenSpecial[i].inuse);
+                    StartCoroutine(childrenSpecial[i].specialThrowAt(thrower, target.transform, () => {
 
-                    //Debug.Log("do damage based on card: " + card);
-                    DoDamage(target, card);
-                    DoStatus(target, card);
-                    // trigger sfx
-                    PlaySFXByID(card);
-
-                
-                }));
-                break;
+                        //Debug.Log("do damage based on card: " + card);
+                        DoDamage(target, card);
+                        DoStatus(target, card);
+                        // trigger sfx
+                        PlaySFXByID(card);
+                    }));
+                    break;
+                }
             }
+            
         }
         
     }
