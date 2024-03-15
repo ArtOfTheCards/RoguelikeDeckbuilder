@@ -99,7 +99,7 @@ public class Damagable : MonoBehaviour
     void TrySFX(EventReference sfx) {
         // check if asset path in inspector is > 0
         if (sfx.Path.Length == 0) {
-            Debug.LogError("SFX Fail: EventReference was undefined for Damageable.  Did you set the sfx reference in the inspector?");
+            Debug.LogError("SFX Fail: EventReference was undefined for Damageable: " + transform.name + ".  Did you set the sfx reference in the inspector?");
         } else {
             AudioManager.instance.PlayOneShot(sfx, transform.position);
         }

@@ -54,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 384
+--- !u!114 &-7659834284254547200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Status Effects/Poison_Vulnerable
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Status Effects/Poison_Vulnerable
+  Guid:
+    Data1: 879024903
+    Data2: 1330667576
+    Data3: -11040088
+    Data4: -1259295843
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 720
 --- !u!114 &-7344589538412222653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +135,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-7131415600024671901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Status Effects/Stun
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Status Effects/Stun
+  Guid:
+    Data1: -1378718141
+    Data2: 1192655043
+    Data3: 1673542303
+    Data4: -558030559
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1824
 --- !u!114 &-5980530417013132207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +182,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1642432
   Exists: 1
+--- !u!114 &-4876949781152494644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Cards/Ensnare
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Cards/Ensnare
+  Guid:
+    Data1: 141334372
+    Data2: 1235070269
+    Data3: 1691632784
+    Data4: -234144837
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1656
 --- !u!114 &-4390248040992520734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,10 +251,10 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638458823770000000
+  lastModified: 638460444880000000
   FileSizes:
   - Name: Desktop
-    Value: 62240
+    Value: 119456
   Exists: 1
 --- !u!114 &-646009570173274666
 MonoBehaviour:
@@ -234,12 +315,18 @@ MonoBehaviour:
   - {fileID: 3206370912190249293}
   - {fileID: 256784996727084889}
   - {fileID: -4390248040992520734}
+  - {fileID: -7659834284254547200}
+  - {fileID: 4676345748812858852}
+  - {fileID: 8026534348512458715}
+  - {fileID: 2895516669834942898}
+  - {fileID: -7131415600024671901}
+  - {fileID: -4876949781152494644}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8403453682526680696}
   StringsBanks:
   - {fileID: 1905233686708267094}
-  cacheTime: 638459448380000000
+  cacheTime: 638460444880000000
   cacheVersion: 131609
 --- !u!114 &256784996727084889
 MonoBehaviour:
@@ -337,11 +424,38 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638458823770000000
+  lastModified: 638460390510000000
   FileSizes:
   - Name: Desktop
-    Value: 1598
+    Value: 1864
   Exists: 1
+--- !u!114 &2895516669834942898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Enemies/Enemy Attack
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Enemies/Enemy Attack
+  Guid:
+    Data1: 958836025
+    Data2: 1079571732
+    Data3: 2097968525
+    Data4: 625584371
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 240
 --- !u!114 &2936966612384018393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +537,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 864
+--- !u!114 &4676345748812858852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Cards/Bash
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Cards/Bash
+  Guid:
+    Data1: 629413671
+    Data2: 1126819806
+    Data3: 1099803525
+    Data4: -1692782270
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 216
 --- !u!114 &5098544845329914899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +618,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 480
+--- !u!114 &8026534348512458715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/The Effects/Status Effects/Slow
+  m_EditorClassIdentifier: 
+  Path: event:/The Effects/Status Effects/Slow
+  Guid:
+    Data1: 1597349942
+    Data2: 1109970402
+    Data3: 512660148
+    Data4: -927506754
+  Banks:
+  - {fileID: -3702174154839374462}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 576
 --- !u!114 &8403453682526680696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +660,7 @@ MonoBehaviour:
   Path: Packages/FMOD/RoguelikeDeckbuilder/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638458823770000000
+  lastModified: 638460390510000000
   FileSizes:
   - Name: Desktop
     Value: 1486

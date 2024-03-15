@@ -62,7 +62,6 @@ public class ProjectileManager : MonoBehaviour
                     Debug.Log("do damage based on card: " + card);
                     DoDamage(target, card);
                     DoStatus(target, card);
-                    // trigger sfx
                     PlaySFXByID(card);
 
                 }));
@@ -155,8 +154,14 @@ public class ProjectileManager : MonoBehaviour
 
         if (propertyInfo != null)
         {
-            object eventRef = propertyInfo.GetValue(FMODEvents.instance);
-            AudioManager.instance.PlayOneShot((EventReference)eventRef, new Vector3(0, 0, 0));
+            CardSFX cardSFX = (CardSFX)propertyInfo.GetValue(FMODEvents.instance);
+            EventReference eventRef = cardSFX.Throw;
+
+            if (eventRef.Path.Length == 0) {
+                // Debug.LogError("SFX Fail: Property '" + propertyName + "' does not have a valid THROW Event Reference");
+            } else {
+                AudioManager.instance.PlayOneShot(eventRef, new Vector3(0, 0, 0));
+            }
         }
         else
         {
